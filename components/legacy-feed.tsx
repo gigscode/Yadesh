@@ -187,14 +187,11 @@ export function LegacyFeed() {
         <a className="brand-lockup" href="#top" aria-label="Yadesh home">
           <span className="brand-mark" aria-hidden="true"><Flame /></span>
           <span className="brand-wordmark">YADESH</span>
-          <span className="brand-subtitle">The Seeker Feed <span aria-hidden="true">•</span> Experiential Fire</span>
+          <span className="brand-subtitle">Experiential Fire</span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#archive">Archive</a>
-          <a href="#principles">Principles</a>
           <a href="#archive" className="nav-cta">Enter the feed</a>
         </nav>
-        <div className="sanctuary-status"><Sparkles aria-hidden="true" /> Sanctuary Mode</div>
       </header>
 
       <main id="top" className="app-content">
@@ -213,21 +210,12 @@ export function LegacyFeed() {
           </div>
         </section>
 
-        <section className="proof-band" id="principles" aria-label="Yadesh principles">
+        <section className="proof-band" aria-label="Yadesh proof points">
           <div><strong>62</strong><span>Stories kept close</span></div>
           <div><strong>100%</strong><span>Source anchored</span></div>
           <div><strong>0</strong><span>Noise in the room</span></div>
         </section>
 
-        <section className="principles-section">
-          <p className="kicker">The Yadesh standard</p>
-          <h2>Your attention is sacred.<br /><em>Do not give it away.</em></h2>
-          <div className="principle-grid">
-            <article><span className="principle-number">01</span><h3>Remember</h3><p>Stories from the record, kept close to the people who lived them.</p></article>
-            <article><span className="principle-number">02</span><h3>Discern</h3><p>Lessons that name the cost instead of polishing the outcome.</p></article>
-            <article><span className="principle-number">03</span><h3>Verify</h3><p>Every account points back to a source you can open yourself.</p></article>
-          </div>
-        </section>
 
         <section className="archive-section" id="archive" aria-labelledby="archive-title">
           <div className="section-heading"><div><p className="kicker">The seeker feed</p><h2 id="archive-title">Choose your pressure.</h2></div><span className="section-index">01 / 02</span></div>

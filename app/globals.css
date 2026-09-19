@@ -40,7 +40,6 @@ button { cursor: pointer; }
 .brand-mark svg { width: .8rem; height: .8rem; fill: currentColor; }
 .brand-wordmark { grid-column: 2; font-size: .95rem; font-weight: 900; letter-spacing: .18em; line-height: 1; }
 .brand-subtitle { grid-column: 2; margin-top: .25rem; color: var(--muted-foreground); font-size: .44rem; font-weight: 700; letter-spacing: .08em; line-height: 1; text-transform: uppercase; white-space: nowrap; }
-.sanctuary-status { display: flex; align-items: center; gap: .35rem; color: var(--muted-foreground); font-size: .58rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
 .sanctuary-status svg { width: .8rem; color: var(--periwinkle); }
 .desktop-nav { display: none; }
 .app-content { padding: 1.6rem 1rem 1rem; }
@@ -125,5 +124,5 @@ button { cursor: pointer; }
   .waitlist-section h2 { font-size: 2.4rem; }
   .app-footer { padding-inline: 3.25rem; }
 }
-@media (max-width: 340px) { .sanctuary-status { display: none; } .app-content { padding-inline: .75rem; } }
+@media (max-width: 340px) { .app-content { padding-inline: .75rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
