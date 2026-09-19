@@ -102,14 +102,19 @@ button { cursor: pointer; }
 @media (min-width: 900px) {
   body { padding: 0; background: linear-gradient(135deg, #f4f4ef 0%, #eeeaf5 100%); }
   .phone-shell { width: 100%; max-width: none; min-height: 100svh; border-radius: 0; box-shadow: none; }
-  .app-header { height: 5.2rem; padding: 0 3.25rem; }
+  .app-header { height: 5.2rem; padding: 0 3.25rem; background: #1d1d1d; border-bottom: 0; }
   .brand-mark { width: 2rem; height: 2rem; }
-  .brand-wordmark { font-size: 1.05rem; }
-  .brand-subtitle { font-size: .5rem; }
-  .desktop-nav { display: flex; align-items: center; gap: 2rem; margin-left: auto; margin-right: 2.5rem; }
-  .desktop-nav a { color: var(--muted-foreground); font-size: .68rem; font-weight: 800; text-decoration: none; }
+  .brand-wordmark { color: #fff; font-size: 1.05rem; }
+  .brand-subtitle { color: #b8b8bf; font-size: .5rem; }
+  .desktop-nav { position: absolute; left: 50%; display: flex; align-items: center; gap: .65rem; margin: 0; padding: .45rem; border-radius: 999px; background: #f4f3f5; transform: translateX(-50%); box-shadow: 0 .7rem 1.8rem rgba(0,0,0,.18); }
+  .desktop-nav a { color: #20212a; font-size: .78rem; font-weight: 850; text-decoration: none; }
   .desktop-nav a:hover { color: var(--foreground); }
-  .desktop-nav .nav-cta { padding: .7rem 1rem; border-radius: 999px; background: var(--lime); color: var(--foreground); }
+  .desktop-nav .nav-topics { display: inline-flex; align-items: center; gap: .55rem; padding: .7rem .95rem; border-radius: 999px; background: #fff; }
+  .nav-topics span { font-size: 1rem; line-height: .6; }
+  .desktop-nav .nav-cta { padding: .72rem 1.15rem; border-radius: 999px; background: #f06c5b; color: #fff; }
+  .desktop-nav .nav-login { padding: .7rem .95rem; border-radius: 999px; background: #fff; }
+  .nav-menu { display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border: 0; border-radius: 50%; background: #e7e6e8; color: #20212a; }
+  .nav-menu svg { width: 1.15rem; height: 1.15rem; }
   .app-content { max-width: 1280px; margin: 0 auto; padding: 4.5rem clamp(2rem, 6vw, 5rem) 2rem; }
   .landing-hero { min-height: min(48rem, calc(100svh - 5.2rem)); display: flex; align-items: center; justify-content: center; padding: 4rem 0 6rem; }
   .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; max-width: 50rem; text-align: center; }

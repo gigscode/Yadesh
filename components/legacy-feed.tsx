@@ -7,6 +7,7 @@ import {
   Check,
   Flame,
   Link2,
+  Menu,
   Scale,
   Shield,
   Sparkles,
@@ -190,7 +191,10 @@ export function LegacyFeed() {
           <span className="brand-subtitle">Live record</span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
+          <a href="#archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
           <a href="#archive" className="nav-cta">Enter the feed</a>
+          <a href="#archive" className="nav-login">Log in</a>
+          <button className="nav-menu" type="button" aria-label="Open menu"><Menu aria-hidden="true" /></button>
         </nav>
       </header>
 
