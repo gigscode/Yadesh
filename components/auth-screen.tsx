@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { Flame } from 'lucide-react'
 import { useState } from 'react'
 
 export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
@@ -8,7 +9,7 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
   const [submitted, setSubmitted] = useState(false)
 
   return <main className="auth-page">
-    <Link className="auth-brand" href="/"><span className="brand-mark" aria-hidden="true">●</span><span>Yadesh</span></Link>
+    <Link className="auth-brand" href="/"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="auth-wordmark">Yadesh</span></Link>
     <section className="auth-card" aria-labelledby="auth-title">
       <p className="kicker">{isRegister ? 'Join the archive' : 'Welcome back'}</p>
       <h1 id="auth-title">{isRegister ? 'Create your account.' : 'Keep the signal.'}</h1>
