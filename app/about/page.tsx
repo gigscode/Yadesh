@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Flame, Menu } from 'lucide-react'
+import { SharedNav } from '@/components/shared-nav'
 
 const principles = [
   ['01', 'Read slowly', 'Attention is not a metric here. Make room for the record to speak.'],
@@ -10,9 +10,7 @@ const principles = [
 export default function AboutPage() {
   return (
     <main className="info-page">
-      <header className="app-header route-header">
-        <nav className="desktop-nav" aria-label="Primary navigation"><Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">YADESH</span></Link><Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link><Link href="/" className="nav-cta">Enter the feed</Link><Link href="/about" className="nav-login">Log in</Link><button className="nav-menu" type="button" aria-label="Open menu"><Menu aria-hidden="true" /></button></nav>
-      </header>
+      <SharedNav />
       <header className="info-header"><Link href="/" className="route-back">YADESH</Link><Link href="/archive" className="info-action">Open the archive <span aria-hidden="true">↗</span></Link></header>
       <section className="info-hero"><p className="kicker">A living archive for serious seekers</p><h1>Keep the signal.<br /><em>Leave the noise.</em></h1><p>Yadesh is a source-anchored place for experiential fire: real testimony, hard-won lessons, and quiet time with the original record.</p></section>
       <section className="info-grid" aria-label="Yadesh principles">{principles.map(([number, title, copy]) => <article key={number}><span>{number}</span><h2>{title}</h2><p>{copy}</p></article>)}</section>
