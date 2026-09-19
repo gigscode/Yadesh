@@ -14,7 +14,7 @@ export function SharedNav() {
           <Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">Yadesh</span></Link>
           <Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link>
           <Link href="/" className="nav-cta">Enter the feed</Link>
-          <Link href="/about" className="nav-login">Log in</Link>
+          <Link href="/login" className="nav-login">Log in</Link>
           <button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><Menu aria-hidden="true" /></button>
         </nav>
       </header>

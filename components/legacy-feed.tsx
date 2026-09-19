@@ -193,7 +193,7 @@ export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
           </a>
           <a href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
           <a href="#archive" className="nav-cta">Enter the feed</a>
-          <a href="/about" className="nav-login">Log in</a>
+          <a href="/login" className="nav-login">Log in</a>
           <button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><Menu aria-hidden="true" /></button>
         </nav>
         {menuOpen && (
