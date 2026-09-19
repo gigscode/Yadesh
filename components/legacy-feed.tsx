@@ -132,7 +132,7 @@ function PowerCard({ story }: { story: PowerStory }) {
           type="button"
         >
           {saved ? <Check aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
-          <span>{saved ? 'Saved to Altar' : 'Save to Altar'}</span>
+          <span>{saved ? 'Saved' : 'Save'}</span>
         </button>
         <button className="icon-action" type="button" aria-label="Text share">
           <Share2 aria-hidden="true" />
@@ -187,22 +187,27 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
       <main id="top" className="app-content">
         {showHero && <section className="landing-hero" aria-labelledby="page-title">
           <div className="hero-copy">
-            <p className="kicker">A living archive for serious seekers</p>
-            <h1 id="page-title"><span className="hero-line hero-line-one">Replace <span className="struck">doomscrolling</span></span><span className="hero-line hero-line-two">with <em>holy fire.</em></span></h1>
-            <p>Trade the endless feed for testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
-            <div className="hero-actions"><a className="hero-link" href="#archive">Open the seeker feed <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Read a record <ArrowUpRight aria-hidden="true" /></a></div>
+            <p className="kicker">Christian micro-learning</p>
+            <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes can</span><span className="hero-line hero-line-two">change what you know.</span></h1>
+            <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith — one meaningful piece at a time.</p>
+            <div className="hero-actions"><a className="hero-link" href="#archive">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
+            <span className="micro-trust">Read. Verify. Remember.</span>
           </div>
         </section>}
 
-        <section className="proof-band" aria-label="Yadesh proof points">
-          <div><strong>62</strong><span>Stories kept close</span></div>
-          <div><strong>100%</strong><span>Source anchored</span></div>
-          <div><strong>0</strong><span>Noise in the room</span></div>
+        <section className="explore-section" aria-labelledby="explore-title">
+          <div className="section-heading"><div><p className="kicker">Start anywhere</p><h2 id="explore-title">What are you exploring?</h2></div></div>
+          <div className="topic-chips">{['Faith','Prayer','Healing','Leadership','Revival','Holy Spirit','Calling','Discipline','Christian Living','Ministry'].map((topic) => <a href="#archive" key={topic}>{topic}</a>)}</div>
         </section>
 
+        <section className="proof-band" aria-label="Yadesh learning loop">
+          <div><strong>30 sec</strong><span>Discover an idea</span></div>
+          <div><strong>2 min</strong><span>Learn the lesson</span></div>
+          <div><strong>Go deeper</strong><span>Stay close to the source</span></div>
+        </section>
 
         <section className="archive-section" id="archive" aria-labelledby="archive-title">
-          <div className="section-heading"><div><p className="kicker">The seeker feed</p><h2 id="archive-title">Choose your pressure.</h2></div><span className="section-index">01 / 02</span></div>
+          <div className="section-heading"><div><p className="kicker">Today&apos;s learning</p><h2 id="archive-title">Ideas worth returning to.</h2></div><span className="section-index">01 / 02</span></div>
           <div className="tab-wrap" role="tablist" aria-label="Kingdom Legacy archive">
           <button className={cn('archive-tab', tab === 'power' && 'is-selected')} onClick={() => setTab('power')} role="tab" aria-selected={tab === 'power'} type="button">
             <Sparkles aria-hidden="true" /> The Power
@@ -221,8 +226,8 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
 
         <section className="waitlist-section" aria-labelledby="waitlist-title">
           <div>
-            <p className="kicker">Stay close to the record</p>
-            <h2 id="waitlist-title">Keep the fire in view.</h2>
+            <p className="kicker">Join the waitlist</p>
+            <h2 id="waitlist-title">Keep learning with intention.</h2>
           </div>
           <form className="waitlist-form" onSubmit={(event) => event.preventDefault()}>
             <label className="sr-only" htmlFor="waitlist-email">Email address</label>

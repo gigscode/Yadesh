@@ -7,11 +7,10 @@ export default function ArchivePage() {
     <div className="archive-page">
       <SharedNav />
       <div className="route-intro archive-hero">
-        <Link href="/" className="route-back">Yadesh</Link>
         <p className="kicker">The archive</p>
-        <h1>Records worth returning to.</h1>
-        <p>Browse testimony and sober lessons with the source visible before the claim travels any further.</p>
-        <Link href="#archive" className="hero-link">Open the seeker feed <span aria-hidden="true">↗</span></Link>
+        <h1>Go deeper.</h1>
+        <p>Explore the books, people, testimonies, teachings, and historical records behind what you discover on Yadesh.</p>
+        <nav className="archive-links" aria-label="Archive sections">{['People','Books','Stories','Teachings','Testimonies','History','Topics'].map((item) => <a href="#archive" key={item}>{item}</a>)}</nav>
       </div>
       <LegacyFeed showHero={false} showNav={false} />
     </div>

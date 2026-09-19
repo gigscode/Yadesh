@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Yadesh — The Seeker Feed',
-  description: 'Yadesh is a source-first seeker feed for testimonies, experiential fire, and hard-won lessons.',
+  title: 'Yadesh — Christian Micro-Learning',
+  description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
   generator: 'v0.app',
   icons: {
     icon: '/yadesh2.jpg',
