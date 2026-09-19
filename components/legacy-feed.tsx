@@ -213,22 +213,11 @@ export function LegacyFeed() {
 
       <main id="top" className="app-content">
         <section className="landing-hero" aria-labelledby="page-title">
-          <div className="hero-floaters" aria-hidden="true">
-            <div className="floating-record floating-record-left"><span className="floating-label">ORAL ROBERTS · 1947</span><strong>Seed Faith</strong><span className="floating-rule" /><span className="floating-small">A record worth returning to.</span></div>
-            <div className="floating-record floating-record-bottom-left"><span className="floating-label">PRIMARY SOURCE</span><strong>Verified account</strong><span className="floating-small">Original text · preserved witness</span></div>
-            <div className="floating-record floating-record-right"><span className="floating-label">LESTER SUMRALL · MANILA 1953</span><strong>Keep the record.</strong><span className="floating-small">Read past the noise.</span></div>
-          </div>
           <div className="hero-copy">
             <p className="kicker">A living archive for serious seekers</p>
             <h1 id="page-title">Replace <span className="struck">doomscrolling</span> with <em>holy fire.</em></h1>
             <p>Trade the endless feed for testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
             <div className="hero-actions"><a className="hero-link" href="#archive">Open the seeker feed <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Read a record <ArrowUpRight aria-hidden="true" /></a></div>
-          </div>
-          <div className="hero-device" aria-label="Preview of a verified Yadesh testimony card">
-            <div className="device-top"><span>9:41</span><span>YADESH <span aria-hidden="true">•</span> LIVE RECORD</span></div>
-            <div className="device-alert"><Flame aria-hidden="true" /><div><strong>Keep what survives the fire.</strong><span>Open a verified account, not a louder feed.</span></div><span>NOW</span></div>
-            <div className="device-card"><div className="device-card-meta">PRIMARY SOURCE <span>VERIFIED</span></div><strong>The healing rooms that outlasted the plague</strong><p>John G. Lake · Spokane, 1918</p><div className="device-source"><Link2 aria-hidden="true" /> Archive.org record <ArrowUpRight aria-hidden="true" /></div></div>
-            <div className="device-footer"><span>SCAN THE RECORD</span><span className="device-orbit" aria-hidden="true" /></div>
           </div>
         </section>
 
