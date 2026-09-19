@@ -201,22 +201,27 @@ export function LegacyFeed() {
         <section className="landing-hero" aria-labelledby="page-title">
           <div className="hero-copy">
             <p className="kicker">A living archive for serious seekers</p>
-            <h1 id="page-title">Keep what survives the fire.</h1>
-            <p>Yadesh gathers testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
-            <a className="hero-link" href="#archive">Enter the archive <ArrowUpRight aria-hidden="true" /></a>
+            <h1 id="page-title">Replace doomscrolling with <em>holy fire.</em></h1>
+            <p>Trade the endless feed for testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
+            <div className="hero-actions"><a className="hero-link" href="#archive">Open the seeker feed <ArrowUpRight aria-hidden="true" /></a><span className="hero-note">Quiet time · real history · deep intimacy</span></div>
           </div>
-          <div className="hero-orbit" aria-hidden="true"><span className="orbit-core" /><span className="orbit-line orbit-line-a" /><span className="orbit-line orbit-line-b" /><span className="orbit-label">TRUTH<br />UNDER<br />PRESSURE</span></div>
+          <div className="hero-device" aria-label="Preview of a verified Yadesh testimony card">
+            <div className="device-top"><span>9:41</span><span>YADESH <span aria-hidden="true">•</span> LIVE RECORD</span></div>
+            <div className="device-alert"><Flame aria-hidden="true" /><div><strong>Keep what survives the fire.</strong><span>Open a verified account, not a louder feed.</span></div><span>NOW</span></div>
+            <div className="device-card"><div className="device-card-meta">PRIMARY SOURCE <span>VERIFIED</span></div><strong>The healing rooms that outlasted the plague</strong><p>John G. Lake · Spokane, 1918</p><div className="device-source"><Link2 aria-hidden="true" /> Archive.org record <ArrowUpRight aria-hidden="true" /></div></div>
+            <div className="device-footer"><span>SCAN THE RECORD</span><span className="device-orbit" aria-hidden="true" /></div>
+          </div>
         </section>
 
         <section className="proof-band" id="principles" aria-label="Yadesh principles">
-          <div><strong>62</strong><span>Items in Stash</span></div>
-          <div><strong>100%</strong><span>Authentic Sourcing</span></div>
-          <div><strong>0</strong><span>Public Comments (Noise Free)</span></div>
+          <div><strong>62</strong><span>Stories kept close</span></div>
+          <div><strong>100%</strong><span>Source anchored</span></div>
+          <div><strong>0</strong><span>Noise in the room</span></div>
         </section>
 
         <section className="principles-section">
           <p className="kicker">The Yadesh standard</p>
-          <h2>Not a highlight reel.<br />A place to test the weight.</h2>
+          <h2>Your attention is sacred.<br /><em>Do not give it away.</em></h2>
           <div className="principle-grid">
             <article><span className="principle-number">01</span><h3>Remember</h3><p>Stories from the record, kept close to the people who lived them.</p></article>
             <article><span className="principle-number">02</span><h3>Discern</h3><p>Lessons that name the cost instead of polishing the outcome.</p></article>
