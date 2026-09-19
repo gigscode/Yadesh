@@ -181,6 +181,7 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
 
 export function LegacyFeed() {
   const [tab, setTab] = useState<'power' | 'crucible'>('power')
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <div className="phone-shell">
@@ -191,11 +192,23 @@ export function LegacyFeed() {
           <span className="brand-subtitle">Live record</span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <a href="#archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
+          <a href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
           <a href="#archive" className="nav-cta">Enter the feed</a>
-          <a href="#archive" className="nav-login">Log in</a>
-          <button className="nav-menu" type="button" aria-label="Open menu"><Menu aria-hidden="true" /></button>
+          <a href="/about" className="nav-login">Log in</a>
+          <button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><Menu aria-hidden="true" /></button>
         </nav>
+        {menuOpen && (
+          <div className="menu-panel" role="dialog" aria-label="Yadesh navigation">
+            <div className="menu-panel-head"><span>Move with intention.</span><button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">×</button></div>
+            <nav className="menu-links" aria-label="Menu links">
+              <a href="#archive" onClick={() => setMenuOpen(false)}><span>01</span>Enter the feed <ArrowUpRight aria-hidden="true" /></a>
+              <a href="/archive"><span>02</span>Browse records <ArrowUpRight aria-hidden="true" /></a>
+              <a href="/about"><span>03</span>Why Yadesh <ArrowUpRight aria-hidden="true" /></a>
+              <a href="#waitlist-title" onClick={() => setMenuOpen(false)}><span>04</span>Stay close <ArrowUpRight aria-hidden="true" /></a>
+            </nav>
+            <p className="menu-note">A quieter place for source-anchored testimony and sober lessons.</p>
+          </div>
+        )}
       </header>
 
       <main id="top" className="app-content">
