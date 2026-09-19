@@ -13,7 +13,7 @@ export default function ArchivePage() {
         <p>Browse testimony and sober lessons with the source visible before the claim travels any further.</p>
         <Link href="#archive" className="hero-link">Open the seeker feed <span aria-hidden="true">↗</span></Link>
       </div>
-      <LegacyFeed showHero={false} />
+      <LegacyFeed showHero={false} showNav={false} />
     </div>
   )
 }

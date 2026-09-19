@@ -178,11 +178,11 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
   )
 }
 
-export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
+export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boolean; showNav?: boolean }) {
   const [tab, setTab] = useState<'power' | 'crucible'>('power')
   return (
     <div className="phone-shell">
-      <SharedNav />
+      {showNav && <SharedNav />}
 
       <main id="top" className="app-content">
         {showHero && <section className="landing-hero" aria-labelledby="page-title">
