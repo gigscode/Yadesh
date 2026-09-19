@@ -1,0 +1,5 @@
+import Link from 'next/link'
+import { ProductShell, TopicChips, LearningCard } from '@/components/product-shell'
+import { learningCards } from '@/lib/learning-data'
+
+export default function LearnPage() { return <ProductShell title="Home"><section className="learning-greeting"><p className="eyebrow">GOOD EVENING</p><h2>What do you want to explore?</h2><TopicChips /><div className="time-selector"><span>How much time do you have?</span>{['30 sec','2 min','5 min','10+ min'].map(time => <button key={time}>{time}</button>)}</div></section><section className="continue-card"><div><p className="eyebrow">CONTINUE LEARNING</p><h2>The Authority of the Believer</h2><p>Kenneth E. Hagin · 8 min remaining</p></div><Link href="/learn">Continue</Link></section><section className="product-section"><div className="section-row"><h2>Today&apos;s learning</h2><Link href="/explore">View all</Link></div><div className="learning-grid">{learningCards.map(item => <LearningCard key={item.title} {...item} />)}</div></section></ProductShell> }

@@ -1,0 +1,4 @@
+import Link from 'next/link'
+import { ProductShell, LearningCard } from '@/components/product-shell'
+import { learningCards } from '@/lib/learning-data'
+export default function SavedPage() { return <ProductShell title="Saved"><section className="empty-state"><p className="eyebrow">YOUR LIBRARY</p><h2>Collect what is worth remembering.</h2><p>Save ideas, people, and books here so your next five minutes always have somewhere useful to begin.</p><Link className="hero-link" href="/explore">Explore learning <span aria-hidden="true">↗</span></Link></section><section className="product-section"><div className="section-row"><h2>Saved ideas</h2><span>3 items</span></div><div className="learning-grid">{learningCards.slice(0,2).map(item => <LearningCard key={item.title} {...item} accent />)}</div></section></ProductShell> }

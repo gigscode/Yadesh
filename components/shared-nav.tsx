@@ -18,9 +18,9 @@ export function SharedNav() {
       {menuOpen && <div className="menu-panel" role="dialog" aria-label="Yadesh navigation">
         <div className="menu-panel-head"><span>Move with intention.</span><button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">×</button></div>
         <nav className="menu-links" aria-label="Menu links">
-          <Link href="/" onClick={() => setMenuOpen(false)}><span>01</span>Enter the feed <ArrowUpRight aria-hidden="true" /></Link>
-          <Link href="/archive" onClick={() => setMenuOpen(false)}><span>02</span>Browse records <ArrowUpRight aria-hidden="true" /></Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}><span>03</span>Why Yadesh <ArrowUpRight aria-hidden="true" /></Link>
+          <Link href="/learn" onClick={() => setMenuOpen(false)}><span>01</span>Start learning <ArrowUpRight aria-hidden="true" /></Link>
+          <Link href="/explore" onClick={() => setMenuOpen(false)}><span>02</span>Explore topics <ArrowUpRight aria-hidden="true" /></Link>
+          <Link href="/about" onClick={() => setMenuOpen(false)}><span>03</span>About Yadesh <ArrowUpRight aria-hidden="true" /></Link>
         </nav>
         <p className="menu-note">A quieter place for source-anchored testimony and sober lessons.</p>
       </div>}
