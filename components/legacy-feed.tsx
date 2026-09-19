@@ -189,7 +189,7 @@ export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
         <nav className="desktop-nav" aria-label="Primary navigation">
           <a className="nav-brand brand-lockup" href="#top" aria-label="Yadesh home">
             <span className="brand-mark" aria-hidden="true"><Flame /></span>
-          <span className="brand-wordmark">YADESH</span>
+          <span className="brand-wordmark">Yadesh</span>
           </a>
           <a href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
           <a href="#archive" className="nav-cta">Enter the feed</a>

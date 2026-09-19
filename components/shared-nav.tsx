@@ -11,7 +11,7 @@ export function SharedNav() {
     <>
       <header className="app-header route-header">
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">YADESH</span></Link>
+          <Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">Yadesh</span></Link>
           <Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link>
           <Link href="/" className="nav-cta">Enter the feed</Link>
           <Link href="/about" className="nav-login">Log in</Link>

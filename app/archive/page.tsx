@@ -7,7 +7,7 @@ export default function ArchivePage() {
     <div className="archive-page">
       <SharedNav />
       <div className="route-intro archive-hero">
-        <Link href="/" className="route-back">YADESH</Link>
+        <Link href="/" className="route-back">Yadesh</Link>
         <p className="kicker">The archive</p>
         <h1>Records worth returning to.</h1>
         <p>Browse testimony and sober lessons with the source visible before the claim travels any further.</p>
