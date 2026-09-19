@@ -179,7 +179,7 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
   )
 }
 
-export function LegacyFeed() {
+export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
   const [tab, setTab] = useState<'power' | 'crucible'>('power')
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -212,14 +212,14 @@ export function LegacyFeed() {
       </header>
 
       <main id="top" className="app-content">
-        <section className="landing-hero" aria-labelledby="page-title">
+        {showHero && <section className="landing-hero" aria-labelledby="page-title">
           <div className="hero-copy">
             <p className="kicker">A living archive for serious seekers</p>
             <h1 id="page-title">Replace <span className="struck">doomscrolling</span> with <em>holy fire.</em></h1>
             <p>Trade the endless feed for testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
             <div className="hero-actions"><a className="hero-link" href="#archive">Open the seeker feed <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Read a record <ArrowUpRight aria-hidden="true" /></a></div>
           </div>
-        </section>
+        </section>}
 
         <section className="proof-band" aria-label="Yadesh proof points">
           <div><strong>62</strong><span>Stories kept close</span></div>
