@@ -3,8 +3,8 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'KingdomLegacy — Faith, under oath.',
-  description: 'A source-first archive of Christian ministerial history, testimonies, and hard-won lessons.',
+  title: 'Yadesh — The Seeker Feed',
+  description: 'Yadesh is a source-first seeker feed for testimonies, experiential fire, and hard-won lessons.',
   generator: 'v0.app',
   icons: {
     icon: [

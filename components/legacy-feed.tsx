@@ -15,6 +15,7 @@ import {
 import { cn } from '@/lib/utils'
 
 type PowerStory = {
+  id: string
   minister: string
   year: string
   headline: string
@@ -24,6 +25,7 @@ type PowerStory = {
 }
 
 type CrucibleStory = {
+  id: string
   minister: string
   citation: string
   headline: string
@@ -34,6 +36,7 @@ type CrucibleStory = {
 
 const powerStories: PowerStory[] = [
   {
+    id: 'smith-wigglesworth-healing-room-1922',
     minister: 'Smith Wigglesworth',
     year: '1922',
     headline: 'When a room full of skeptics fell silent',
@@ -43,6 +46,7 @@ const powerStories: PowerStory[] = [
     source: 'https://archive.org/details/ever-increasing-faith',
   },
   {
+    id: 'john-g-lake-spokane-healing-rooms-1918',
     minister: 'John G. Lake',
     year: '1918',
     headline: 'The healing rooms that outlasted the plague',
@@ -52,6 +56,7 @@ const powerStories: PowerStory[] = [
     source: 'https://archive.org/details/adventures-in-god',
   },
   {
+    id: 'kathryn-kuhlman-whisper-before-miracle-1972',
     minister: 'Kathryn Kuhlman',
     year: '1972',
     headline: 'A whisper before the miracle',
@@ -64,6 +69,7 @@ const powerStories: PowerStory[] = [
 
 const crucibleStories: CrucibleStory[] = [
   {
+    id: 'aimee-semple-mcpherson-momentum-discernment',
     minister: 'Aimee Semple McPherson',
     citation: 'Autobiography · This Is That',
     headline: 'When momentum became a substitute for discernment',
@@ -73,6 +79,7 @@ const crucibleStories: CrucibleStory[] = [
     source: 'https://archive.org/details/this-is-that-aimee-semple-mcpherson',
   },
   {
+    id: 'charles-finney-method-over-god',
     minister: 'Charles Finney',
     citation: 'Memoirs · Charles G. Finney',
     headline: 'The danger of trusting a method more than God',
@@ -82,6 +89,10 @@ const crucibleStories: CrucibleStory[] = [
     source: 'https://archive.org/details/memoirs-of-charles-g-finney',
   },
 ]
+
+function uniqueById<T extends { id: string }>(stories: T[]) {
+  return Array.from(new Map(stories.map((story) => [story.id, story])).values())
+}
 
 function SourceLink({ href, label }: { href: string; label: string }) {
   return (
@@ -175,7 +186,8 @@ export function LegacyFeed() {
       <header className="app-header">
         <div className="brand-lockup">
           <span className="brand-mark" aria-hidden="true"><Flame /></span>
-          <span>Kingdom<span className="brand-accent">Legacy</span></span>
+          <span className="brand-wordmark">YADESH</span>
+          <span className="brand-subtitle">The Seeker Feed <span aria-hidden="true">•</span> Experiential Fire</span>
         </div>
         <div className="sanctuary-status"><Sparkles aria-hidden="true" /> Sanctuary Mode</div>
       </header>
@@ -197,7 +209,9 @@ export function LegacyFeed() {
         </div>
 
         <div className="feed" role="tabpanel">
-          {tab === 'power' ? powerStories.map((story) => <PowerCard key={story.headline} story={story} />) : crucibleStories.map((story) => <CrucibleCard key={story.headline} story={story} />)}
+          {tab === 'power'
+            ? uniqueById(powerStories).map((story) => <PowerCard key={story.id} story={story} />)
+            : uniqueById(crucibleStories).map((story) => <CrucibleCard key={story.id} story={story} />)}
         </div>
       </main>
       <footer className="app-footer"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
