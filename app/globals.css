@@ -43,6 +43,24 @@ button { cursor: pointer; }
 .sanctuary-status { display: flex; align-items: center; gap: .35rem; color: #aaa69e; font-family: Arial, sans-serif; font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
 .sanctuary-status svg { width: .85rem; color: var(--amber); }
 .app-content { padding: 2.25rem 1rem 1rem; }
+.desktop-nav { display: none; }
+.landing-hero { display: grid; gap: 2rem; padding: 1.25rem .35rem 2rem; }
+.hero-copy h1 { max-width: 18rem; margin: .55rem 0 .8rem; font-size: clamp(2.75rem, 14vw, 4.8rem); font-weight: 400; letter-spacing: -.08em; line-height: .92; }
+.hero-copy > p:not(.kicker) { max-width: 19rem; margin: 0; color: #aaa49a; font-size: .95rem; line-height: 1.55; }
+.hero-link { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.4rem; color: var(--amber-light); font-family: Arial, sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; }
+.hero-link svg { width: .9rem; }
+.hero-link:hover { color: #fff0ba; text-decoration: underline; text-underline-offset: .25rem; }
+.hero-orbit { position: relative; width: min(100%, 19rem); aspect-ratio: 1.35; margin: 0 auto; border: 1px solid rgba(212,168,83,.22); border-radius: 50%; background: radial-gradient(circle, rgba(212,168,83,.12), transparent 54%); transform: rotate(-12deg); }
+.hero-orbit::before, .hero-orbit::after { content: ''; position: absolute; inset: 15%; border: 1px dashed rgba(212,168,83,.22); border-radius: 50%; }
+.hero-orbit::after { inset: 0 31%; border-style: solid; border-color: rgba(212,168,83,.16); }
+.orbit-core { position: absolute; top: 50%; left: 50%; width: 2.4rem; height: 2.4rem; border: 1px solid var(--amber); transform: translate(-50%, -50%) rotate(45deg); }
+.orbit-core::after { content: ''; position: absolute; inset: .55rem; border-radius: 50%; background: var(--amber-light); box-shadow: 0 0 1.5rem var(--amber); }
+.orbit-line { position: absolute; top: 50%; left: 50%; height: 1px; width: 46%; transform-origin: left; background: linear-gradient(90deg, var(--amber), transparent); }
+.orbit-line-a { transform: rotate(18deg); }.orbit-line-b { transform: rotate(142deg); }
+.orbit-label { position: absolute; right: 8%; bottom: 12%; color: rgba(240,202,119,.65); font-family: Arial, sans-serif; font-size: .42rem; letter-spacing: .16em; line-height: 1.45; text-align: right; }
+.proof-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; margin: 0 -.35rem 3rem; padding: 1.15rem .6rem; border-top: 1px solid rgba(212,168,83,.28); border-bottom: 1px solid rgba(212,168,83,.28); background: rgba(212,168,83,.06); }
+.proof-band div { display: flex; flex-direction: column; gap: .25rem; text-align: center; }.proof-band strong { color: var(--amber-light); font-family: Arial, sans-serif; font-size: 1rem; letter-spacing: -.03em; }.proof-band span { color: #89857d; font-family: Arial, sans-serif; font-size: .52rem; letter-spacing: .08em; text-transform: uppercase; }
+.principles-section { padding: 0 .35rem 3.2rem; }.principles-section > h2, .archive-section h2 { margin: .5rem 0 1.4rem; font-size: 2rem; font-weight: 400; letter-spacing: -.07em; line-height: .98; }.principle-grid { display: grid; gap: .65rem; }.principle-grid article { padding: 1rem; border: 1px solid rgba(245,240,231,.12); border-radius: .85rem; background: #101111; }.principle-number { color: var(--amber); font-family: Arial, sans-serif; font-size: .6rem; letter-spacing: .12em; }.principle-grid h3 { margin: .65rem 0 .35rem; color: #f5f0e7; font-size: 1.15rem; font-weight: 400; }.principle-grid p { margin: 0; color: #99958c; font-size: .8rem; line-height: 1.5; }.archive-section { padding: 0 .35rem; }.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }.section-heading h2 { margin-bottom: 0; }.section-index { padding-bottom: .25rem; color: #77736b; font-family: Arial, sans-serif; font-size: .6rem; letter-spacing: .12em; }
 .intro-block { padding: 0 .35rem 1.65rem; }
 .kicker, .eyebrow { color: var(--amber); font-family: Arial, sans-serif; font-size: .62rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
 .intro-block h1 { margin: .4rem 0 .55rem; font-size: clamp(2.3rem, 12vw, 3.25rem); font-weight: 400; letter-spacing: -.065em; line-height: .98; }

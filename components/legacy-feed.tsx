@@ -184,22 +184,49 @@ export function LegacyFeed() {
   return (
     <div className="phone-shell">
       <header className="app-header">
-        <div className="brand-lockup">
+        <a className="brand-lockup" href="#top" aria-label="Yadesh home">
           <span className="brand-mark" aria-hidden="true"><Flame /></span>
           <span className="brand-wordmark">YADESH</span>
           <span className="brand-subtitle">The Seeker Feed <span aria-hidden="true">•</span> Experiential Fire</span>
-        </div>
+        </a>
+        <nav className="desktop-nav" aria-label="Primary navigation">
+          <a href="#archive">Archive</a>
+          <a href="#principles">Principles</a>
+          <a href="#archive" className="nav-cta">Enter the feed</a>
+        </nav>
         <div className="sanctuary-status"><Sparkles aria-hidden="true" /> Sanctuary Mode</div>
       </header>
 
-      <main className="app-content">
-        <section className="intro-block" aria-labelledby="page-title">
-          <p className="kicker">A record worth remembering</p>
-          <h1 id="page-title">Faith, under oath.</h1>
-          <p>Move slowly. Read the source. Carry only what is true.</p>
+      <main id="top" className="app-content">
+        <section className="landing-hero" aria-labelledby="page-title">
+          <div className="hero-copy">
+            <p className="kicker">A living archive for serious seekers</p>
+            <h1 id="page-title">Keep what survives the fire.</h1>
+            <p>Yadesh gathers testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
+            <a className="hero-link" href="#archive">Enter the archive <ArrowUpRight aria-hidden="true" /></a>
+          </div>
+          <div className="hero-orbit" aria-hidden="true"><span className="orbit-core" /><span className="orbit-line orbit-line-a" /><span className="orbit-line orbit-line-b" /><span className="orbit-label">TRUTH<br />UNDER<br />PRESSURE</span></div>
         </section>
 
-        <div className="tab-wrap" role="tablist" aria-label="Kingdom Legacy archive">
+        <section className="proof-band" id="principles" aria-label="Yadesh principles">
+          <div><strong>02</strong><span>ways to read</span></div>
+          <div><strong>100%</strong><span>source-led</span></div>
+          <div><strong>0</strong><span>empty certainty</span></div>
+        </section>
+
+        <section className="principles-section">
+          <p className="kicker">The Yadesh standard</p>
+          <h2>Not a highlight reel.<br />A place to test the weight.</h2>
+          <div className="principle-grid">
+            <article><span className="principle-number">01</span><h3>Remember</h3><p>Stories from the record, kept close to the people who lived them.</p></article>
+            <article><span className="principle-number">02</span><h3>Discern</h3><p>Lessons that name the cost instead of polishing the outcome.</p></article>
+            <article><span className="principle-number">03</span><h3>Verify</h3><p>Every account points back to a source you can open yourself.</p></article>
+          </div>
+        </section>
+
+        <section className="archive-section" id="archive" aria-labelledby="archive-title">
+          <div className="section-heading"><div><p className="kicker">The seeker feed</p><h2 id="archive-title">Choose your pressure.</h2></div><span className="section-index">01 / 02</span></div>
+          <div className="tab-wrap" role="tablist" aria-label="Kingdom Legacy archive">
           <button className={cn('archive-tab', tab === 'power' && 'is-selected')} onClick={() => setTab('power')} role="tab" aria-selected={tab === 'power'} type="button">
             <Sparkles aria-hidden="true" /> The Power
           </button>
@@ -213,6 +240,7 @@ export function LegacyFeed() {
             ? uniqueById(powerStories).map((story) => <PowerCard key={story.id} story={story} />)
             : uniqueById(crucibleStories).map((story) => <CrucibleCard key={story.id} story={story} />)}
         </div>
+        </section>
       </main>
       <footer className="app-footer"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
     </div>
