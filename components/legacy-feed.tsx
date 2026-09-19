@@ -7,8 +7,6 @@ import {
   Check,
   Link2,
   Scale,
-  Shield,
-  Sparkles,
   Share2,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -179,7 +177,6 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
 }
 
 export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boolean; showNav?: boolean }) {
-  const [tab, setTab] = useState<'power' | 'crucible'>('power')
   return (
     <div className="phone-shell">
       {showNav && <SharedNav />}
@@ -190,14 +187,14 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <p className="kicker">Christian micro-learning</p>
             <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes can</span><span className="hero-line hero-line-two">change what you know.</span></h1>
             <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith, one meaningful piece at a time.</p>
-            <div className="hero-actions"><a className="hero-link" href="#archive">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
+            <div className="hero-actions"><a className="hero-link" href="/explore">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
             <span className="micro-trust">Read. Verify. Remember.</span>
           </div>
         </section>}
 
         <section className="explore-section" aria-labelledby="explore-title">
           <div className="section-heading"><div><p className="kicker">Start anywhere</p><h2 id="explore-title">What are you exploring?</h2></div></div>
-          <div className="topic-chips">{['Faith','Prayer','Healing','Leadership','Revival','Holy Spirit','Calling','Discipline','Christian Living','Ministry'].map((topic) => <a href="#archive" key={topic}>{topic}</a>)}</div>
+          <div className="topic-chips">{['Faith','Prayer','Healing','Leadership','Revival','Holy Spirit','Calling','Discipline','Christian Living','Ministry'].map((topic) => <a href="/explore" key={topic}>{topic}</a>)}</div>
         </section>
 
         <section className="proof-band" aria-label="Yadesh learning loop">
@@ -206,22 +203,13 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
           <div><strong>Go deeper</strong><span>Stay close to the source</span></div>
         </section>
 
-        <section className="archive-section" id="archive" aria-labelledby="archive-title">
-          <div className="section-heading"><div><p className="kicker">Today&apos;s learning</p><h2 id="archive-title">Ideas worth returning to.</h2></div><span className="section-index">01 / 02</span></div>
-          <div className="tab-wrap" role="tablist" aria-label="Kingdom Legacy archive">
-          <button className={cn('archive-tab', tab === 'power' && 'is-selected')} onClick={() => setTab('power')} role="tab" aria-selected={tab === 'power'} type="button">
-            <Sparkles aria-hidden="true" /> The Power
-          </button>
-          <button className={cn('archive-tab', tab === 'crucible' && 'is-selected')} onClick={() => setTab('crucible')} role="tab" aria-selected={tab === 'crucible'} type="button">
-            <Shield aria-hidden="true" /> The Crucible
-          </button>
-        </div>
-
-        <div className="feed" role="tabpanel">
-          {tab === 'power'
-            ? uniqueById(powerStories).map((story) => <PowerCard key={story.id} story={story} />)
-            : uniqueById(crucibleStories).map((story) => <CrucibleCard key={story.id} story={story} />)}
-        </div>
+        <section className="how-section" aria-labelledby="how-title">
+          <div className="section-heading"><div><p className="kicker">A better way to learn</p><h2 id="how-title">Discover. Learn. Go deeper.</h2></div></div>
+          <div className="how-grid">
+            <article><span>01</span><h3>Discover an idea</h3><p>Find a focused lesson from a trusted Christian source in a few minutes.</p></article>
+            <article><span>02</span><h3>Learn the lesson</h3><p>Get the useful context without wading through another endless feed.</p></article>
+            <article><span>03</span><h3>Go deeper</h3><p>Follow the source when an idea is worth remembering and practicing.</p></article>
+          </div>
         </section>
 
         <section className="waitlist-section" aria-labelledby="waitlist-title">
