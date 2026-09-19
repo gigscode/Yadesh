@@ -1,0 +1,208 @@
+'use client'
+
+import { useState } from 'react'
+import {
+  ArrowUpRight,
+  Bookmark,
+  Check,
+  Flame,
+  Link2,
+  Scale,
+  Shield,
+  Sparkles,
+  Share2,
+} from 'lucide-react'
+import { cn } from '@/lib/utils'
+
+type PowerStory = {
+  minister: string
+  year: string
+  headline: string
+  testimony: string
+  scripture: string
+  source: string
+}
+
+type CrucibleStory = {
+  minister: string
+  citation: string
+  headline: string
+  summary: string
+  correction: string
+  source: string
+}
+
+const powerStories: PowerStory[] = [
+  {
+    minister: 'Smith Wigglesworth',
+    year: '1922',
+    headline: 'When a room full of skeptics fell silent',
+    testimony:
+      'Wigglesworth records that a woman, considered beyond medical hope, was brought to his meeting. He prayed with a fierce simplicity, then watched strength return to her body in front of the gathered church. The account became a summons to believe that God still meets people in their impossible places.',
+    scripture: '“They shall lay hands on the sick, and they shall recover.” — Mark 16:18',
+    source: 'https://archive.org/details/ever-increasing-faith',
+  },
+  {
+    minister: 'John G. Lake',
+    year: '1918',
+    headline: 'The healing rooms that outlasted the plague',
+    testimony:
+      'During the Spokane healing ministry, Lake described ordinary people arriving with extraordinary need. He tells of prayer rooms filled from morning until night, where testimonies of recovery became part of the daily rhythm. His firsthand record insists that compassion, not spectacle, was the center of the work.',
+    scripture: '“I am the Lord that healeth thee.” — Exodus 15:26',
+    source: 'https://archive.org/details/adventures-in-god',
+  },
+  {
+    minister: 'Kathryn Kuhlman',
+    year: '1972',
+    headline: 'A whisper before the miracle',
+    testimony:
+      'Kuhlman often described the moment before a healing as quiet, almost hidden. In one testimony she recounts a person entering with a diagnosis and leaving with a new report after prayer. Her emphasis was never on the minister, but on surrendering the room to the Holy Spirit.',
+    scripture: '“Not by might, nor by power, but by my spirit.” — Zechariah 4:6',
+    source: 'https://archive.org/details/i-believe-in-miracles',
+  },
+]
+
+const crucibleStories: CrucibleStory[] = [
+  {
+    minister: 'Aimee Semple McPherson',
+    citation: 'Autobiography · This Is That',
+    headline: 'When momentum became a substitute for discernment',
+    summary:
+      'McPherson writes candidly about the pressures of visibility, travel, and a ministry growing faster than her private life could bear. A season of exhaustion and public confusion exposed how easily calling can be confused with constant motion. Her account does not erase the failure; it lets the lesson remain visible.',
+    correction: 'The Divine Correction: Return to hidden obedience before public influence.',
+    source: 'https://archive.org/details/this-is-that-aimee-semple-mcpherson',
+  },
+  {
+    minister: 'Charles Finney',
+    citation: 'Memoirs · Charles G. Finney',
+    headline: 'The danger of trusting a method more than God',
+    summary:
+      'Finney reflects on revival meetings where human technique could begin to imitate spiritual power. He saw that emotional response and lasting transformation were not the same thing. His correction was to recover prayerful dependence instead of leaning on a repeatable formula.',
+    correction: 'The Divine Correction: Let the altar shape the method, never the method the altar.',
+    source: 'https://archive.org/details/memoirs-of-charles-g-finney',
+  },
+]
+
+function SourceLink({ href, label }: { href: string; label: string }) {
+  return (
+    <a className="source-link" href={href} target="_blank" rel="noreferrer">
+      <Link2 aria-hidden="true" />
+      <span>{label}</span>
+      <ArrowUpRight aria-hidden="true" />
+    </a>
+  )
+}
+
+function PowerCard({ story }: { story: PowerStory }) {
+  const [saved, setSaved] = useState(false)
+
+  return (
+    <article className="legacy-card power-card">
+      <div className="card-meta">
+        <span>{story.minister}</span>
+        <span className="meta-dot" aria-hidden="true" />
+        <span>{story.year}</span>
+      </div>
+      <h2>{story.headline}</h2>
+      <p className="story-copy">{story.testimony}</p>
+      <div className="scripture-box">
+        <span className="eyebrow">Scripture anchor</span>
+        <p>{story.scripture}</p>
+      </div>
+      <div className="verification-box">
+        <span className="eyebrow">Primary source</span>
+        <SourceLink href={story.source} label="Verify Original Testimony" />
+      </div>
+      <div className="card-actions">
+        <button
+          className={cn('quiet-action', saved && 'is-active')}
+          onClick={() => setSaved(!saved)}
+          aria-pressed={saved}
+          type="button"
+        >
+          {saved ? <Check aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
+          <span>{saved ? 'Saved to Altar' : 'Save to Altar'}</span>
+        </button>
+        <button className="icon-action" type="button" aria-label="Text share">
+          <Share2 aria-hidden="true" />
+        </button>
+      </div>
+    </article>
+  )
+}
+
+function CrucibleCard({ story }: { story: CrucibleStory }) {
+  const [pondered, setPondered] = useState(false)
+
+  return (
+    <article className="legacy-card crucible-card">
+      <div className="card-meta">
+        <span>{story.minister}</span>
+        <span className="meta-dot" aria-hidden="true" />
+        <span className="citation-badge">{story.citation}</span>
+      </div>
+      <h2>{story.headline}</h2>
+      <p className="story-copy">{story.summary}</p>
+      <div className="correction-box">
+        <span className="eyebrow">The divine correction</span>
+        <p>{story.correction}</p>
+      </div>
+      <div className="guardrail-box">
+        <span className="eyebrow">Anti-hallucination guardrail</span>
+        <p>Confirm historical source before carrying the lesson forward.</p>
+        <SourceLink href={story.source} label="Read Original Text on Archive.org" />
+      </div>
+      <div className="card-actions">
+        <button
+          className={cn('quiet-action', pondered && 'is-active')}
+          onClick={() => setPondered(!pondered)}
+          aria-pressed={pondered}
+          type="button"
+        >
+          {pondered ? <Check aria-hidden="true" /> : <Scale aria-hidden="true" />}
+          <span>{pondered ? 'Pondered' : 'Ponder'}</span>
+        </button>
+      </div>
+    </article>
+  )
+}
+
+export function LegacyFeed() {
+  const [tab, setTab] = useState<'power' | 'crucible'>('power')
+
+  return (
+    <div className="phone-shell">
+      <header className="app-header">
+        <div className="brand-lockup">
+          <span className="brand-mark" aria-hidden="true"><Flame /></span>
+          <span>Kingdom<span className="brand-accent">Legacy</span></span>
+        </div>
+        <div className="sanctuary-status"><Sparkles aria-hidden="true" /> Sanctuary Mode</div>
+      </header>
+
+      <main className="app-content">
+        <section className="intro-block" aria-labelledby="page-title">
+          <p className="kicker">A record worth remembering</p>
+          <h1 id="page-title">Faith, under oath.</h1>
+          <p>Move slowly. Read the source. Carry only what is true.</p>
+        </section>
+
+        <div className="tab-wrap" role="tablist" aria-label="Kingdom Legacy archive">
+          <button className={cn('archive-tab', tab === 'power' && 'is-selected')} onClick={() => setTab('power')} role="tab" aria-selected={tab === 'power'} type="button">
+            <Sparkles aria-hidden="true" /> The Power
+          </button>
+          <button className={cn('archive-tab', tab === 'crucible' && 'is-selected')} onClick={() => setTab('crucible')} role="tab" aria-selected={tab === 'crucible'} type="button">
+            <Shield aria-hidden="true" /> The Crucible
+          </button>
+        </div>
+
+        <div className="feed" role="tabpanel">
+          {tab === 'power' ? powerStories.map((story) => <PowerCard key={story.headline} story={story} />) : crucibleStories.map((story) => <CrucibleCard key={story.headline} story={story} />)}
+        </div>
+      </main>
+      <footer className="app-footer"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
+    </div>
+  )
+}
+
+export default LegacyFeed
