@@ -209,9 +209,9 @@ export function LegacyFeed() {
         </section>
 
         <section className="proof-band" id="principles" aria-label="Yadesh principles">
-          <div><strong>02</strong><span>ways to read</span></div>
-          <div><strong>100%</strong><span>source-led</span></div>
-          <div><strong>0</strong><span>empty certainty</span></div>
+          <div><strong>62</strong><span>Items in Stash</span></div>
+          <div><strong>100%</strong><span>Authentic Sourcing</span></div>
+          <div><strong>0</strong><span>Public Comments (Noise Free)</span></div>
         </section>
 
         <section className="principles-section">
@@ -240,6 +240,18 @@ export function LegacyFeed() {
             ? uniqueById(powerStories).map((story) => <PowerCard key={story.id} story={story} />)
             : uniqueById(crucibleStories).map((story) => <CrucibleCard key={story.id} story={story} />)}
         </div>
+        </section>
+
+        <section className="waitlist-section" aria-labelledby="waitlist-title">
+          <div>
+            <p className="kicker">Stay close to the record</p>
+            <h2 id="waitlist-title">Keep the fire in view.</h2>
+          </div>
+          <form className="waitlist-form" onSubmit={(event) => event.preventDefault()}>
+            <label className="sr-only" htmlFor="waitlist-email">Email address</label>
+            <input id="waitlist-email" type="email" placeholder="Your email address" required />
+            <button type="submit">Join the waitlist <ArrowUpRight aria-hidden="true" /></button>
+          </form>
         </section>
       </main>
       <footer className="app-footer"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
