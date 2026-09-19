@@ -214,7 +214,7 @@ export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
         {showHero && <section className="landing-hero" aria-labelledby="page-title">
           <div className="hero-copy">
             <p className="kicker">A living archive for serious seekers</p>
-            <h1 id="page-title">Replace <span className="struck">doomscrolling</span> with <em>holy fire.</em></h1>
+            <h1 id="page-title"><span className="hero-line hero-line-one">Replace <span className="struck">doomscrolling</span></span><span className="hero-line hero-line-two">with <em>holy fire.</em></span></h1>
             <p>Trade the endless feed for testimonies, sober lessons, and the original records beneath them. Read slowly. Verify everything.</p>
             <div className="hero-actions"><a className="hero-link" href="#archive">Open the seeker feed <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Read a record <ArrowUpRight aria-hidden="true" /></a></div>
           </div>
