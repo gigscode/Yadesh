@@ -17,9 +17,9 @@
   .desktop-nav .nav-brand{display:flex;align-items:center;min-width:0;margin-right:auto;padding:0;gap:.45rem;}
   .desktop-nav .nav-brand .brand-mark{display:grid;}
   .desktop-nav .nav-brand .brand-wordmark{display:block;font-family:Arial Black,Arial,Helvetica,sans-serif;font-size:.82rem;font-weight:950;letter-spacing:-.03em;}
-  .desktop-nav .nav-topics,.desktop-nav .nav-login{padding:.62rem .68rem;font-size:.72rem;white-space:nowrap;}
+  .desktop-nav .nav-topics,.desktop-nav .nav-login{padding:.62rem .68rem;font-size:.72rem;font-weight:950;letter-spacing:-.02em;white-space:nowrap;border:1px solid rgba(23,24,29,.12);box-shadow:0 .2rem .45rem rgba(23,24,29,.12);background:#fff;}
   .desktop-nav .nav-cta{display:none;}
-  .nav-menu{width:2.35rem;height:2.35rem;flex:0 0 2.35rem;}
+  .nav-menu{width:2.35rem;height:2.35rem;flex:0 0 2.35rem;border-width:2px!important;box-shadow:0 .2rem .45rem rgba(23,24,29,.16);}.nav-menu svg{stroke-width:2.8;}
   .menu-panel{top:4.2rem;}
   .landing-hero{min-height:calc(100svh - 5.5rem);align-items:center;justify-content:center;padding:2rem .25rem 4rem;}
   .hero-copy{width:100%;align-items:center;text-align:center;}
