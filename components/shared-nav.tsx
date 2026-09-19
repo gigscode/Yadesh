@@ -11,11 +11,8 @@ export function SharedNav() {
     <>
       <header className="app-header">
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">Yadesh</span></Link>
-          <Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link>
-          <Link href="/" className="nav-cta">Enter the feed</Link>
-          <Link href="/login" className="nav-login">Log in</Link>
-          <button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><Menu aria-hidden="true" /></button>
+          <span className="nav-group nav-group-left"><Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">Yadesh</span></Link><Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link></span>
+          <span className="nav-group nav-group-right"><Link href="/" className="nav-cta">Enter the feed</Link><Link href="/login" className="nav-login">Log in</Link><button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><Menu aria-hidden="true" /></button></span>
         </nav>
       </header>
       {menuOpen && <div className="menu-panel" role="dialog" aria-label="Yadesh navigation">
