@@ -3,7 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Yadesh — Christian Micro-Learning',
+  title: 'Yadesh, Christian Micro-Learning',
   description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
   generator: 'v0.app',
   icons: {

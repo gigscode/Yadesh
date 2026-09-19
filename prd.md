@@ -18,5 +18,12 @@ Keep the Yadesh navigation as one floating pill without a second viewport-wide b
 - The pill shadow remains visible without creating a second background layer.
 - Unrelated page backgrounds and content are unchanged.
 
+## Product positioning
+- Yadesh is Christian micro-learning for focused discovery in a few meaningful minutes.
+- Content includes ideas, stories, and lessons from Christian books, people, teachings, testimonies, and history.
+- Primary calls to action should be learning-focused, including Start learning, Explore the archive, and Go deeper.
+- Keep copy clear, concise, source-aware, and consistent across the homepage, archive, about, authentication, FAQ, and metadata.
+- Do not use em dashes in UI copy, metadata, documentation, or generated content. Use commas, periods, or colons instead.
+
 ## Constraints
 Do not add Supabase or change authentication. Do not add viewport-wide pseudo-elements or wrapper backgrounds for the navbar.

@@ -42,7 +42,7 @@ const powerStories: PowerStory[] = [
     headline: 'When a room full of skeptics fell silent',
     testimony:
       'Wigglesworth records that a woman, considered beyond medical hope, was brought to his meeting. He prayed with a fierce simplicity, then watched strength return to her body in front of the gathered church. The account became a summons to believe that God still meets people in their impossible places.',
-    scripture: '“They shall lay hands on the sick, and they shall recover.” — Mark 16:18',
+    scripture: '“They shall lay hands on the sick, and they shall recover.” Mark 16:18',
     source: 'https://archive.org/details/ever-increasing-faith',
   },
   {
@@ -52,7 +52,7 @@ const powerStories: PowerStory[] = [
     headline: 'The healing rooms that outlasted the plague',
     testimony:
       'During the Spokane healing ministry, Lake described ordinary people arriving with extraordinary need. He tells of prayer rooms filled from morning until night, where testimonies of recovery became part of the daily rhythm. His firsthand record insists that compassion, not spectacle, was the center of the work.',
-    scripture: '“I am the Lord that healeth thee.” — Exodus 15:26',
+    scripture: '“I am the Lord that healeth thee.” Exodus 15:26',
     source: 'https://archive.org/details/adventures-in-god',
   },
   {
@@ -62,7 +62,7 @@ const powerStories: PowerStory[] = [
     headline: 'A whisper before the miracle',
     testimony:
       'Kuhlman often described the moment before a healing as quiet, almost hidden. In one testimony she recounts a person entering with a diagnosis and leaving with a new report after prayer. Her emphasis was never on the minister, but on surrendering the room to the Holy Spirit.',
-    scripture: '“Not by might, nor by power, but by my spirit.” — Zechariah 4:6',
+    scripture: '“Not by might, nor by power, but by my spirit.” Zechariah 4:6',
     source: 'https://archive.org/details/i-believe-in-miracles',
   },
 ]
@@ -189,7 +189,7 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
           <div className="hero-copy">
             <p className="kicker">Christian micro-learning</p>
             <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes can</span><span className="hero-line hero-line-two">change what you know.</span></h1>
-            <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith — one meaningful piece at a time.</p>
+            <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith, one meaningful piece at a time.</p>
             <div className="hero-actions"><a className="hero-link" href="#archive">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="#archive">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
             <span className="micro-trust">Read. Verify. Remember.</span>
           </div>
