@@ -3,16 +3,16 @@ import { SharedNav } from '@/components/shared-nav'
 import { FaqSection } from '@/components/faq-section'
 
 const principles = [
-  ['01', 'Read slowly', 'Attention is not a metric here. Make room for the record to speak.'],
-  ['02', 'Verify first', 'Every account points toward a primary text, scan, or public historical record.'],
-  ['03', 'Carry less', 'Keep what is useful. Leave the performance, outrage, and noise behind.'],
+  ['01', 'Discover in minutes', 'Start with a clear idea, story, or lesson you can understand without committing to a long feed.'],
+  ['02', 'Learn from the source', 'Go beyond the summary with books, people, teachings, testimonies, and historical records.'],
+  ['03', 'Keep what helps', 'Save the ideas worth revisiting and build a quieter, more intentional learning habit.'],
 ]
 
 export default function AboutPage() {
   return (
     <main className="info-page">
       <SharedNav />
-      <section className="info-hero"><p className="kicker">A living archive for serious seekers</p><h1>Keep the signal.<br /><em>Leave the noise.</em></h1><p>Yadesh is a source-anchored place for experiential fire: real testimony, hard-won lessons, and quiet time with the original record.</p></section>
+      <section className="info-hero"><p className="kicker">Christian micro-learning</p><h1>Five minutes can<br /><em>change what you know.</em></h1><p>Yadesh helps you discover meaningful Christian ideas from books, people, teachings, testimonies, and the history of the faith — one useful piece at a time.</p></section>
       <section className="info-grid" aria-label="Yadesh principles">{principles.map(([number, title, copy]) => <article key={number}><span>{number}</span><h2>{title}</h2><p>{copy}</p></article>)}</section>
       <FaqSection />
       <footer className="info-footer"><Link href="/">Back to Yadesh</Link><span>Read. Verify. Remember.</span></footer>

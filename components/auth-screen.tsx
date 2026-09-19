@@ -11,9 +11,9 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
   return <main className="auth-page">
     <SharedNav />
     <section className="auth-card" aria-labelledby="auth-title">
-      <p className="kicker">{isRegister ? 'Join the archive' : 'Welcome back'}</p>
-      <h1 id="auth-title">{isRegister ? 'Create your account.' : 'Keep the signal.'}</h1>
-      <p className="auth-intro">{isRegister ? 'Save the records worth returning to.' : 'Return to your saved records and ideas.'}</p>
+      <p className="kicker">{isRegister ? 'Start learning intentionally' : 'Welcome back'}</p>
+      <h1 id="auth-title">{isRegister ? 'Create your learning space.' : 'Keep learning.'}</h1>
+      <p className="auth-intro">{isRegister ? 'Save the ideas, stories, and lessons worth returning to.' : 'Return to the Christian ideas and lessons you saved.'}</p>
       <form onSubmit={(event) => { event.preventDefault(); setSubmitted(true) }}>
         {isRegister && <label>Name<input name="name" autoComplete="name" placeholder="Your name" required /></label>}
         <label>Email<input name="email" type="email" autoComplete="email" placeholder="Email or username" required /></label>

@@ -3,11 +3,11 @@
 import { useState } from 'react'
 
 const faqs = [
-  ['What is Yadesh?', 'Yadesh is a source-anchored archive for real testimony, hard-won lessons, and useful ideas worth returning to.'],
-  ['Why are ideas important?', 'Good ideas change what we notice, what we practice, and how we make decisions when the noise drops away.'],
-  ['How can I use Yadesh?', 'Start with the archive, open a record, and follow the original source before saving what genuinely helps you.'],
-  ['What makes a record trustworthy?', 'Each record points toward a source so you can read beyond the summary and make your own judgment.'],
-  ['Can I contribute a record?', 'Yes. Use the archive as a guide for the kind of clear, useful, source-anchored material Yadesh is built to collect.'],
+  ['What is Yadesh?', 'Yadesh is Christian micro-learning: short, useful ideas from books, people, teachings, testimonies, and the history of the faith.'],
+  ['Why micro-learning?', 'A few focused minutes can help you discover a meaningful idea without adding another endless feed to your day.'],
+  ['How can I use Yadesh?', 'Choose a topic, learn from a short piece, then go deeper into the source when an idea stays with you.'],
+  ['Where does the learning come from?', 'Yadesh points toward original books, public records, teachings, biographies, and other sources so you can learn beyond the summary.'],
+  ['Can I save what I learn?', 'Yes. Create an account to save ideas, stories, and lessons worth returning to as you build your personal learning space.'],
 ]
 
 export function FaqSection() {
