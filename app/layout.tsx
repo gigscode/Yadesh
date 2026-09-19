@@ -7,21 +7,8 @@ export const metadata: Metadata = {
   description: 'Yadesh is a source-first seeker feed for testimonies, experiential fire, and hard-won lessons.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: '/yadesh2.jpg',
+    apple: '/yadesh2.jpg',
   },
 }
 
