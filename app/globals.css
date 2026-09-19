@@ -46,7 +46,7 @@ button { cursor: pointer; }
 .landing-hero { position: relative; display: grid; gap: 1.75rem; padding: .8rem .35rem 2rem; overflow: hidden; }
 .hero-copy h1 { max-width: 18rem; margin: .55rem 0 .8rem; font-size: clamp(2.7rem, 14vw, 4.6rem); font-weight: 950; letter-spacing: -.09em; line-height: .88; }
 .struck { position: relative; display: inline-block; }
-.struck::after { content: ''; position: absolute; top: 52%; left: -.04em; width: 104%; height: .09em; border-radius: 999px; background: #f06c5b; transform: rotate(-2deg); }
+.struck::after { content: ''; position: absolute; top: 52%; left: -.04em; width: 104%; height: .09em; border-radius: 999px; background: #d7962e; transform: rotate(-2deg); }
 .hero-secondary { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.3rem; padding: .7rem .9rem; border: 1px solid rgba(23,24,29,.15); border-radius: 999px; background: #fff; color: var(--foreground); font-size: .68rem; font-weight: 800; letter-spacing: .05em; text-decoration: none; }
 .hero-secondary svg { width: .85rem; }
 .hero-secondary:hover { border-color: var(--periwinkle); color: var(--periwinkle); }
@@ -100,8 +100,8 @@ button { cursor: pointer; }
 .legacy-card:hover { transform: translateY(-3px); box-shadow: 0 1rem 2rem rgba(23,24,29,.1); }
 @media (min-width: 640px) { body { padding: 1.5rem 0; } .phone-shell { min-height: calc(100svh - 3rem); border-radius: 1.5rem; box-shadow: 0 30px 80px rgba(0,0,0,.45); } }
 @media (min-width: 900px) {
-  body { padding: 2rem 3vw; background: linear-gradient(135deg, #f4f4ef 0%, #eeeaf5 100%); }
-  .phone-shell { max-width: 1180px; min-height: calc(100svh - 4rem); border-radius: 1.75rem; box-shadow: 0 2rem 5rem rgba(23,24,29,.16); }
+  body { padding: 0; background: linear-gradient(135deg, #f4f4ef 0%, #eeeaf5 100%); }
+  .phone-shell { width: 100%; max-width: none; min-height: 100svh; border-radius: 0; box-shadow: none; }
   .app-header { height: 5.2rem; padding: 0 3.25rem; }
   .brand-mark { width: 2rem; height: 2rem; }
   .brand-wordmark { font-size: 1.05rem; }
@@ -110,10 +110,10 @@ button { cursor: pointer; }
   .desktop-nav a { color: var(--muted-foreground); font-size: .68rem; font-weight: 800; text-decoration: none; }
   .desktop-nav a:hover { color: var(--foreground); }
   .desktop-nav .nav-cta { padding: .7rem 1rem; border-radius: 999px; background: var(--lime); color: var(--foreground); }
-  .app-content { max-width: 1050px; margin: 0 auto; padding: 4.5rem 2.5rem 2rem; }
-  .landing-hero { min-height: 44rem; display: flex; align-items: center; justify-content: center; padding: 4rem 0 6rem; }
-  .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; max-width: 47rem; text-align: center; }
-  .hero-copy h1 { max-width: 47rem; margin-top: 1rem; font-size: clamp(4.5rem, 7vw, 7.4rem); }
+  .app-content { max-width: 1280px; margin: 0 auto; padding: 4.5rem clamp(2rem, 6vw, 5rem) 2rem; }
+  .landing-hero { min-height: min(48rem, calc(100svh - 5.2rem)); display: flex; align-items: center; justify-content: center; padding: 4rem 0 6rem; }
+  .hero-copy { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; max-width: 50rem; text-align: center; }
+  .hero-copy h1 { max-width: 50rem; margin-top: 1rem; font-size: clamp(4rem, 6.2vw, 6.8rem); }
   .hero-copy > p:not(.kicker) { max-width: 39rem; font-size: 1.08rem; line-height: 1.55; }
   .hero-actions { flex-direction: row; align-items: center; justify-content: center; gap: .8rem; }
   .hero-link, .hero-secondary { margin-top: 1.5rem; padding: .9rem 1.2rem; }
