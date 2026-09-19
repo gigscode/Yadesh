@@ -5,15 +5,14 @@ import {
   ArrowUpRight,
   Bookmark,
   Check,
-  Flame,
   Link2,
-  Menu,
   Scale,
   Shield,
   Sparkles,
   Share2,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { SharedNav } from '@/components/shared-nav'
 
 type PowerStory = {
   id: string
@@ -181,34 +180,9 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
 
 export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
   const [tab, setTab] = useState<'power' | 'crucible'>('power')
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <div className="phone-shell">
-      <header className="app-header">
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <a className="nav-brand brand-lockup" href="#top" aria-label="Yadesh home">
-            <span className="brand-mark" aria-hidden="true"><Flame /></span>
-          <span className="brand-wordmark">Yadesh</span>
-          </a>
-          <a href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
-          <a href="#archive" className="nav-cta">Enter the feed</a>
-          <a href="/login" className="nav-login">Log in</a>
-          <button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen(!menuOpen)}><Menu aria-hidden="true" /></button>
-        </nav>
-        {menuOpen && (
-          <div className="menu-panel" role="dialog" aria-label="Yadesh navigation">
-            <div className="menu-panel-head"><span>Move with intention.</span><button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">×</button></div>
-            <nav className="menu-links" aria-label="Menu links">
-              <a href="#archive" onClick={() => setMenuOpen(false)}><span>01</span>Enter the feed <ArrowUpRight aria-hidden="true" /></a>
-              <a href="/archive"><span>02</span>Browse records <ArrowUpRight aria-hidden="true" /></a>
-              <a href="/about"><span>03</span>Why Yadesh <ArrowUpRight aria-hidden="true" /></a>
-              <a href="#waitlist-title" onClick={() => setMenuOpen(false)}><span>04</span>Stay close <ArrowUpRight aria-hidden="true" /></a>
-            </nav>
-            <p className="menu-note">A quieter place for source-anchored testimony and sober lessons.</p>
-          </div>
-        )}
-      </header>
+      <SharedNav />
 
       <main id="top" className="app-content">
         {showHero && <section className="landing-hero" aria-labelledby="page-title">
