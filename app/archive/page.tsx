@@ -6,7 +6,7 @@ export default function ArchivePage() {
   return (
     <div className="archive-page">
       <header className="app-header route-header">
-        <nav className="desktop-nav" aria-label="Primary navigation"><Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">YADESH</span><span className="brand-subtitle">Live record</span></Link><Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link><Link href="/" className="nav-cta">Enter the feed</Link><Link href="/about" className="nav-login">Log in</Link><button className="nav-menu" type="button" aria-label="Open menu"><Menu aria-hidden="true" /></button></nav>
+        <nav className="desktop-nav" aria-label="Primary navigation"><Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><Flame /></span><span className="brand-wordmark">YADESH</span></Link><Link href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></Link><Link href="/" className="nav-cta">Enter the feed</Link><Link href="/about" className="nav-login">Log in</Link><button className="nav-menu" type="button" aria-label="Open menu"><Menu aria-hidden="true" /></button></nav>
       </header>
       <div className="route-intro archive-hero">
         <Link href="/" className="route-back">YADESH</Link>
