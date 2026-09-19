@@ -186,12 +186,12 @@ export function LegacyFeed({ showHero = true }: { showHero?: boolean }) {
   return (
     <div className="phone-shell">
       <header className="app-header">
-        <a className="brand-lockup" href="#top" aria-label="Yadesh home">
-          <span className="brand-mark" aria-hidden="true"><Flame /></span>
-          <span className="brand-wordmark">YADESH</span>
-          <span className="brand-subtitle">Live record</span>
-        </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
+          <a className="nav-brand brand-lockup" href="#top" aria-label="Yadesh home">
+            <span className="brand-mark" aria-hidden="true"><Flame /></span>
+            <span className="brand-wordmark">YADESH</span>
+            <span className="brand-subtitle">Live record</span>
+          </a>
           <a href="/archive" className="nav-topics">Topics <span aria-hidden="true">⌄</span></a>
           <a href="#archive" className="nav-cta">Enter the feed</a>
           <a href="/about" className="nav-login">Log in</a>
