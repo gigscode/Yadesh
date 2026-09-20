@@ -1,22 +1,24 @@
+import { redirect } from 'next/navigation'
 import { Suspense } from 'react'
 import { createClient } from '@/lib/supabase/server'
 import LegacyFeed from '@/components/legacy-feed'
 
-// Checks auth and re-renders LegacyFeed with the correct isLoggedIn value.
-// Runs in the background while the unauthenticated shell paints instantly.
-async function AuthAwareLanding() {
+// Authenticated users have no use for the marketing page.
+// Send them straight to their home feed with no delay.
+async function AuthGate() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
-  return <LegacyFeed isLoggedIn={!!user} />
+  if (user) redirect('/learn')
+  return <LegacyFeed isLoggedIn={false} />
 }
 
 export default function Page() {
+  // Paint the marketing page instantly as the fallback.
+  // If the user is authenticated, the redirect fires server-side
+  // before they ever see the landing page.
   return (
-    // LegacyFeed with isLoggedIn=false renders instantly as the fallback.
-    // Once the auth check resolves, it swaps in with the correct state.
-    // This eliminates the blank delay caused by blocking on supabase.auth.getUser().
     <Suspense fallback={<LegacyFeed isLoggedIn={false} />}>
-      <AuthAwareLanding />
+      <AuthGate />
     </Suspense>
   )
 }
