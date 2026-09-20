@@ -13,11 +13,8 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  colorScheme: 'light dark',
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#6b64f6' },
-    { media: '(prefers-color-scheme: dark)', color: '#6b64f6' },
-  ],
+  colorScheme: 'light',
+  themeColor: '#6b64f6',
 }
 
 export default function RootLayout({
@@ -26,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="en" style={{ background: '#fbfbf8' }}>
+      <body className="antialiased" style={{ background: '#fbfbf8' }}>
         <PwaUpdater />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

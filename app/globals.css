@@ -156,18 +156,3 @@ h1,h2,h3,.route-intro h1,.info-hero h1,.section-heading h2,.waitlist-section h2,
   .reading-adj-next{text-align:left}
 }
 
-/* ── Loading skeletons ─────────────────────────────────────────────────────── */
-@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-.skeleton-block,.skeleton-card,.skeleton-profile-card{background:linear-gradient(90deg,#ededea 25%,#f5f5f2 50%,#ededea 75%);background-size:200% 100%;animation:shimmer 1.4s ease infinite;border-radius:.85rem}
-.product-shell-skeleton{display:flex;min-height:100svh;background:var(--background)}
-.skeleton-sidebar{display:none;width:15.5rem;flex:0 0 15.5rem;background:#f7f7f2;border-right:1px solid var(--border)}
-@media(min-width:900px){.skeleton-sidebar{display:block}}
-.skeleton-main{flex:1;padding:3.5rem clamp(2rem,5vw,5rem) 6rem}
-@media(max-width:899px){.skeleton-main{padding:2rem 1rem 7rem}}
-.skeleton-title{height:3.5rem;max-width:18rem;margin-bottom:2rem}
-.skeleton-profile-card{height:10rem;margin-bottom:1.5rem}
-.skeleton-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-@media(max-width:899px){.skeleton-grid{grid-template-columns:1fr}}
-.skeleton-grid-1col{grid-template-columns:1fr}
-.skeleton-card{height:14rem}
-.skeleton-card-short{height:5rem}
