@@ -4,13 +4,13 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { SharedNav } from '@/components/shared-nav'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
   const isRegister = mode === 'register'
   const router = useRouter()
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
 
   const [showPassword, setShowPassword] = useState(false)
   const [loading, setLoading] = useState(false)

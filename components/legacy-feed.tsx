@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import {
   ArrowUpRight,
   Bookmark,
@@ -11,6 +10,8 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { SharedNav } from '@/components/shared-nav'
+import { useSave } from '@/hooks/use-save'
+import { createClient } from '@/lib/supabase/client'
 
 type PowerStory = {
   id: string
@@ -103,7 +104,7 @@ function SourceLink({ href, label }: { href: string; label: string }) {
 }
 
 function PowerCard({ story }: { story: PowerStory }) {
-  const [saved, setSaved] = useState(false)
+  const { saved, loading, toggle } = useSave(story.id)
 
   return (
     <article className="legacy-card power-card">
@@ -125,8 +126,9 @@ function PowerCard({ story }: { story: PowerStory }) {
       <div className="card-actions">
         <button
           className={cn('quiet-action', saved && 'is-active')}
-          onClick={() => setSaved(!saved)}
+          onClick={toggle}
           aria-pressed={saved}
+          disabled={loading}
           type="button"
         >
           {saved ? <Check aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
@@ -141,7 +143,7 @@ function PowerCard({ story }: { story: PowerStory }) {
 }
 
 function CrucibleCard({ story }: { story: CrucibleStory }) {
-  const [pondered, setPondered] = useState(false)
+  const { saved, loading, toggle } = useSave(story.id)
 
   return (
     <article className="legacy-card crucible-card">
@@ -163,13 +165,14 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
       </div>
       <div className="card-actions">
         <button
-          className={cn('quiet-action', pondered && 'is-active')}
-          onClick={() => setPondered(!pondered)}
-          aria-pressed={pondered}
+          className={cn('quiet-action', saved && 'is-active')}
+          onClick={toggle}
+          aria-pressed={saved}
+          disabled={loading}
           type="button"
         >
-          {pondered ? <Check aria-hidden="true" /> : <Scale aria-hidden="true" />}
-          <span>{pondered ? 'Pondered' : 'Ponder'}</span>
+          {saved ? <Check aria-hidden="true" /> : <Scale aria-hidden="true" />}
+          <span>{saved ? 'Saved' : 'Ponder'}</span>
         </button>
       </div>
     </article>
@@ -177,10 +180,6 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
 }
 
 export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boolean; showNav?: boolean }) {
-  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false)
-  const [waitlistEmail, setWaitlistEmail] = useState('')
-  const [waitlistModalOpen, setWaitlistModalOpen] = useState(false)
-
   return (
     <div className="phone-shell">
       {showNav && <SharedNav />}
@@ -189,10 +188,10 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
         {showHero && <section className="landing-hero" aria-labelledby="page-title">
           <div className="hero-copy">
             <p className="kicker">Christian micro-learning</p>
-            <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes</span><span className="hero-line hero-line-two">can change</span><span className="hero-line hero-line-three hero-emphasis">what you know.</span></h1>
-            <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith, one meaningful piece at a time.</p>
-            <div className="hero-actions"><a className="hero-link" href="/learn">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Find your next reading <ArrowUpRight aria-hidden="true" /></a></div>
-            <span className="micro-trust">Read. Keep. Remember.</span>
+            <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes.</span><span className="hero-line hero-line-two hero-emphasis">Something worth</span><span className="hero-line hero-line-three hero-emphasis">knowing.</span></h1>
+            <p>Ideas, stories, and lives from across the history of the Christian faith. Curated. Sourced. Yours to keep.</p>
+            <div className="hero-actions"><a className="hero-link" href="/register">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
+            <span className="micro-trust">Read. Verify. Remember.</span>
           </div>
         </section>}
 
@@ -206,17 +205,16 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
           </div>
         </section>
 
-        <section className="waitlist-section" aria-labelledby="waitlist-title">
+        <section className="register-cta-section" aria-labelledby="cta-title">
           <div>
-            <p className="kicker">Join the waitlist</p>
-            <h2 id="waitlist-title">Keep learning with intention.</h2>
+            <p className="kicker">Start today</p>
+            <h2 id="cta-title">Build a quieter learning habit.</h2>
+            <p>Create a free account and start learning from trusted Christian sources in five focused minutes.</p>
           </div>
-          <form className="waitlist-form" onSubmit={(event) => { event.preventDefault(); if (waitlistSubmitted) { setWaitlistModalOpen(true); return } setWaitlistEmail(waitlistEmail.trim().toLowerCase()); setWaitlistSubmitted(true); setWaitlistModalOpen(true) }}>
-            <label className="sr-only" htmlFor="waitlist-email">Email address</label>
-            <input id="waitlist-email" value={waitlistEmail} onChange={(event) => setWaitlistEmail(event.target.value)} type="email" placeholder="Your email address" required disabled={waitlistSubmitted} />
-            <button type="submit" disabled={waitlistSubmitted}>{waitlistSubmitted ? "You're on the list" : 'Join the waitlist'} <ArrowUpRight aria-hidden="true" /></button>
-          </form>
-          {waitlistModalOpen && <div className="waitlist-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setWaitlistModalOpen(false) }}><section className="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-success-title"><button className="waitlist-modal-close" type="button" aria-label="Close confirmation" onClick={() => setWaitlistModalOpen(false)}>×</button><div className="waitlist-modal-mark" aria-hidden="true"><Check /></div><p className="kicker">Waitlist confirmed</p><h2 id="waitlist-success-title">You&apos;re on the list.</h2><p>We&apos;ll let you know when Yadesh is ready. Until then, keep learning with intention.</p><button className="waitlist-modal-action" type="button" onClick={() => setWaitlistModalOpen(false)}>Continue exploring</button></section></div>}
+          <div className="register-cta-actions">
+            <a className="hero-link" href="/register">Create your account <ArrowUpRight aria-hidden="true" /></a>
+            <a className="hero-secondary" href="/login">Already have an account</a>
+          </div>
         </section>
       </main>
       <footer className="app-footer landing-radar"><span className="footer-rule" /> <span>Read. Keep. Remember.</span> <span className="footer-rule" /></footer>

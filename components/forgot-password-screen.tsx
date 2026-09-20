@@ -3,11 +3,11 @@
 import Link from 'next/link'
 import { SharedNav } from '@/components/shared-nav'
 import { Loader2, ArrowLeft, MailCheck } from 'lucide-react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 export function ForgotPasswordScreen() {
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
   const [loading, setLoading] = useState(false)
   const [sent, setSent] = useState(false)
   const [error, setError] = useState<string | null>(null)
