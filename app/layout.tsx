@@ -7,8 +7,8 @@ export const metadata: Metadata = {
   description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
   generator: 'v0.app',
   icons: {
-    icon: '/yadesh2.jpg',
-    apple: '/yadesh2.jpg',
+    icon: [{ url: '/yadesh-mark.png', type: 'image/png' }],
+    apple: [{ url: '/yadesh-mark.png', type: 'image/png' }],
   },
 }
 
