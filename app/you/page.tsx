@@ -1,42 +1,31 @@
 import Link from 'next/link'
 import { ProductShell } from '@/components/product-shell'
 
-const stats = [
-  ['0', 'Saved ideas'],
-  ['0', 'Learning minutes'],
-  ['0', 'Sources explored'],
-]
-
 export default function YouPage() {
   return (
     <ProductShell title="You">
-      <section className="profile-hero" aria-labelledby="profile-title">
-        <div className="profile-avatar" aria-hidden="true">Y</div>
+      <section className="you-next-step" aria-labelledby="next-step-title">
         <div>
-          <p className="eyebrow">YOUR LEARNING SPACE</p>
-          <h2 id="profile-title">Your Yadesh profile</h2>
-          <p>Build a quieter learning habit by saving the ideas, sources, and lessons that stay with you.</p>
-        </div>
-        <Link className="profile-edit" href="/you#settings">Edit profile</Link>
-      </section>
-
-      <section className="profile-stats" aria-label="Your learning summary">
-        {stats.map(([value, label]) => <div key={label}><strong>{value}</strong><span>{label}</span></div>)}
-      </section>
-
-      <section className="profile-grid">
-        <article className="profile-panel">
           <p className="eyebrow">YOUR NEXT STEP</p>
-          <h2>Start with five minutes.</h2>
-          <p>Choose one idea from Explore, read the short lesson, and save what deserves another look.</p>
-          <Link className="text-link" href="/explore">Explore learning <span aria-hidden="true">↗</span></Link>
-        </article>
-        <article className="profile-panel profile-panel-accent" id="settings">
-          <p className="eyebrow">PROFILE SETTINGS</p>
-          <h2>Make Yadesh yours.</h2>
-          <p>Your account preferences, learning topics, and saved sources will live here.</p>
-          <button type="button" disabled>Settings coming with account connection</button>
-        </article>
+          <h2 id="next-step-title">Start with five minutes.</h2>
+          <p>One short reading is enough to begin a quieter learning habit today.</p>
+        </div>
+        <Link className="you-primary-action" href="/learn">Start today&apos;s reading <span aria-hidden="true">→</span></Link>
+      </section>
+
+      <section className="you-summary" aria-labelledby="summary-title">
+        <div className="you-section-heading"><div><p className="eyebrow">YOUR PROGRESS</p><h2 id="summary-title">A little learning adds up.</h2></div><span className="you-summary-badge">NEW</span></div>
+        <div className="you-progress-grid">
+          <Link href="/saved"><strong>0</strong><span>Saved readings</span><small>Save something to return to →</small></Link>
+          <Link href="/learn"><strong>0</strong><span>Minutes learned</span><small>Start your first session →</small></Link>
+          <Link href="/explore"><strong>0</strong><span>Sources explored</span><small>Find a source to follow →</small></Link>
+        </div>
+      </section>
+
+      <section className="you-profile" id="settings" aria-labelledby="profile-title">
+        <div className="profile-avatar" aria-hidden="true">Y</div>
+        <div><p className="eyebrow">YOUR LEARNING SPACE</p><h2 id="profile-title">Make Yadesh yours.</h2><p>Your saved readings, topics, and account preferences will live here.</p></div>
+        <Link className="profile-edit" href="/you#settings">Edit profile</Link>
       </section>
     </ProductShell>
   )
