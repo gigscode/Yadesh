@@ -1,5 +1,21 @@
 import Link from 'next/link'
-import { ProductShell, TopicChips, LearningCard } from '@/components/product-shell'
+import { ProductShell, LearningCard } from '@/components/product-shell'
 import { learningCards } from '@/lib/learning-data'
 
-export default function LearnPage() { return <ProductShell title="Home"><section className="learning-greeting"><p className="eyebrow">GOOD EVENING</p><h2>What do you want to explore?</h2><TopicChips /><div className="time-selector"><span>How much time do you have?</span>{['30 sec','2 min','5 min','10+ min'].map(time => <button key={time}>{time}</button>)}</div></section><section className="continue-card"><div><p className="eyebrow">CONTINUE LEARNING</p><h2>The Authority of the Believer</h2><p>Kenneth E. Hagin · 8 min remaining</p></div><Link href="/learn">Continue</Link></section><section className="product-section"><div className="section-row"><h2>Today&apos;s learning</h2><Link href="/explore">View all</Link></div><div className="learning-grid">{learningCards.map(item => <LearningCard key={item.title} {...item} />)}</div></section></ProductShell> }
+export default function LearnPage() {
+  const dailyCard = learningCards[Math.floor(Date.now() / 86400000) % learningCards.length]
+
+  return <ProductShell title="Home">
+    <section className="daily-learning-card">
+      <div className="daily-learning-copy">
+        <p className="eyebrow">TODAY&apos;S YADESH</p>
+        <h2>{dailyCard.title}</h2>
+        <p className="daily-learning-source">{dailyCard.source} · {dailyCard.time}</p>
+        <p>{dailyCard.body}</p>
+        <Link href="/learn" className="daily-learning-action">Read today&apos;s idea <span aria-hidden="true">→</span></Link>
+      </div>
+    </section>
+    <section className="continue-card"><div><p className="eyebrow">CONTINUE LEARNING</p><h2>The Authority of the Believer</h2><p>Kenneth E. Hagin · 8 min remaining</p></div><Link href="/learn">Continue</Link></section>
+    <section className="product-section"><div className="section-row"><h2>More to carry with you</h2><Link href="/explore">View all</Link></div><div className="learning-grid">{learningCards.filter(item => item.title !== dailyCard.title).map(item => <LearningCard key={item.title} {...item} />)}</div></section>
+  </ProductShell>
+}
