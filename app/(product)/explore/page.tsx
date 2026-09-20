@@ -1,10 +1,14 @@
 import Link from 'next/link'
-import { ProductShell, TopicChips, LearningCard } from '@/components/product-shell'
+import { LearningCard } from '@/components/learning-card'
+import { PageHeader } from '@/components/page-header'
+import { TopicChips } from '@/components/product-shell'
 import { learningCards } from '@/lib/learning-data'
 
 export default function ExplorePage() {
   return (
-    <ProductShell title="Explore">
+    <>
+      <PageHeader title="Explore" />
+
       <section className="explore-intro">
         <p className="eyebrow">BROWSE BY THEME</p>
         <h2>Find a thread<br />worth following.</h2>
@@ -44,6 +48,6 @@ export default function ExplorePage() {
           )}
         </div>
       </section>
-    </ProductShell>
+    </>
   )
 }

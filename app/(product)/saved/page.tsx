@@ -1,12 +1,11 @@
 import Link from 'next/link'
-import { ProductShell } from '@/components/product-shell'
 import { LearningCard } from '@/components/learning-card'
+import { PageHeader } from '@/components/page-header'
 import { learningCards } from '@/lib/learning-data'
 import { createClient } from '@/lib/supabase/server'
 
 export default async function SavedPage() {
   const supabase = await createClient()
-
   const { data: { user } } = await supabase.auth.getUser()
 
   let savedKeys: string[] = []
@@ -20,13 +19,15 @@ export default async function SavedPage() {
       .order('saved_at', { ascending: false })
 
     savedKeys = data?.map((row) => row.content_key) ?? []
-  saveError = error?.message ?? null
+    saveError = error?.message ?? null
   }
 
   const savedCards = learningCards.filter((card) => savedKeys.includes(card.id))
 
   return (
-    <ProductShell title="Saved">
+    <>
+      <PageHeader title="Saved" eyebrow="YOUR LIBRARY" />
+
       {!user ? (
         <section className="empty-state">
           <p className="eyebrow">YOUR LIBRARY</p>
@@ -60,6 +61,6 @@ export default async function SavedPage() {
           </div>
         </section>
       )}
-    </ProductShell>
+    </>
   )
 }

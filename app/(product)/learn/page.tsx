@@ -1,12 +1,15 @@
 import Link from 'next/link'
-import { ProductShell, LearningCard } from '@/components/product-shell'
+import { LearningCard } from '@/components/learning-card'
+import { PageHeader } from '@/components/page-header'
 import { learningCards } from '@/lib/learning-data'
 
 export default function LearnPage() {
   const dailyCard = learningCards[Math.floor(Date.now() / 86400000) % learningCards.length]
 
   return (
-    <ProductShell title="Home">
+    <>
+      <PageHeader title="Home" />
+
       <section className="daily-learning-card">
         <div className="daily-learning-copy">
           <p className="eyebrow">FOR TODAY</p>
@@ -32,6 +35,6 @@ export default function LearnPage() {
             ))}
         </div>
       </section>
-    </ProductShell>
+    </>
   )
 }
