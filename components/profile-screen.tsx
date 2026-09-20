@@ -49,12 +49,8 @@ export function ProfileScreen({
 
     const { data: { user }, error: sessionError } = await supabase.auth.getUser()
 
-    if (process.env.NODE_ENV === 'development') {
-      console.debug('[profile save] user:', user?.id, 'session error:', sessionError?.message)
-    }
-
-    if (!user) {
-      setError('Your session has expired. Please sign in again.')
+    if (sessionError || !user) {
+      setError(sessionError?.message ?? 'Your session has expired. Please sign in again.')
       setSaving(false)
       return
     }
@@ -65,7 +61,7 @@ export function ProfileScreen({
         full_name: form.full_name.trim() || null,
         bio: form.bio.trim() || null,
       })
-      .eq('id', profile.id)
+      .eq('id', user.id)
 
     if (error) {
       setError(error.message)
@@ -88,7 +84,11 @@ export function ProfileScreen({
   }
 
   async function signOut() {
-    await supabase.auth.signOut()
+    const { error: signOutError } = await supabase.auth.signOut()
+    if (signOutError) {
+      setError(signOutError.message)
+      return
+    }
     router.push('/')
     router.refresh()
   }

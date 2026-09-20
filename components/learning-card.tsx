@@ -5,27 +5,27 @@ import { Bookmark, Check } from 'lucide-react'
 import { useSave } from '@/hooks/use-save'
 
 type LearningCardProps = {
-  id?: string
-  type?: string
+  id: string
+  type: string
   title: string
   source: string
   body: string
-  time?: string
+  time: string
   accent?: boolean
   initialSaved?: boolean
 }
 
 export function LearningCard({
-  id = '',
-  type = 'IDEA',
+  id,
+  type,
   title,
   source,
   body,
-  time = '2 min read',
+  time,
   accent = false,
   initialSaved = false,
 }: LearningCardProps) {
-  const { saved, loading, toggle } = useSave(id, initialSaved)
+  const { saved, loading, error, toggle } = useSave(id, initialSaved)
 
   return (
     <article className={`learning-card${accent ? ' accent' : ''}`}>
@@ -51,6 +51,7 @@ export function LearningCard({
             : <Bookmark aria-hidden="true" size={15} />}
         </button>
       </div>
+      {error && <span className="save-error" role="alert">Could not update your saved readings.</span>}
     </article>
   )
 }

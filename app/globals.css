@@ -81,3 +81,11 @@ h1,h2,h3,.route-intro h1,.info-hero h1,.section-heading h2,.waitlist-section h2,
 
 /* Forgot password screen helpers */
 .auth-intro-sm{margin-top:.5rem;font-size:.82rem}.auth-switch-mt{margin-top:1.5rem}.auth-back-icon{display:inline;margin-right:.3rem;vertical-align:middle}
+
+.save-error{display:block;margin-top:.65rem;color:#c0392b;font-family:Arial,Helvetica,sans-serif;font-size:.75rem;font-weight:600}
+.reading-detail{max-width:48rem;padding:1.5rem;border:1px solid var(--border);border-radius:1.25rem;background:#fff;box-shadow:0 .6rem 1.4rem rgba(23,24,29,.06)}
+.reading-back{display:inline-block;margin-bottom:3rem;color:var(--periwinkle);font-size:.78rem;font-weight:900;text-decoration:none}
+.reading-detail h2{max-width:38rem;margin:.7rem 0 .6rem;font-size:clamp(2.3rem,6vw,4.5rem);line-height:.92}
+.reading-source{margin:0;color:var(--muted-foreground);font-size:.85rem;font-weight:800}
+.reading-body{max-width:40rem;margin:2rem 0 0;color:#4f505b;font-family:Arial,Helvetica,sans-serif;font-size:1.15rem;font-weight:500;line-height:1.7}
+.reading-actions{margin-top:2rem}.reading-actions .save-btn{display:inline-flex;align-items:center;gap:.45rem;width:auto;padding:.65rem .9rem;border-radius:999px;font:inherit;font-size:.78rem;font-weight:900}

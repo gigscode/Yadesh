@@ -13,7 +13,7 @@ export default async function YouPage() {
     redirect('/login')
   }
 
-  const [{ data: profile }, { count: savesCount }] = await Promise.all([
+  const [{ data: profile, error: profileError }, { count: savesCount, error: savesError }] = await Promise.all([
     supabase
       .from('profiles')
       .select('*')
@@ -24,6 +24,18 @@ export default async function YouPage() {
       .select('*', { count: 'exact', head: true })
       .eq('user_id', user.id),
   ])
+
+  if (savesError || (profileError && profileError.code !== 'PGRST116')) {
+    return (
+      <ProductShell title="You">
+        <section className="empty-state" role="alert">
+          <p className="eyebrow">PROFILE UNAVAILABLE</p>
+          <h2>We could not load your profile.</h2>
+          <p>Please refresh the page and try again.</p>
+        </section>
+      </ProductShell>
+    )
+  }
 
   // Fallback if trigger hasn't created the profile row yet
   const resolvedProfile = profile ?? {

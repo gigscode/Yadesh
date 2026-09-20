@@ -10,15 +10,17 @@ export default async function SavedPage() {
   const { data: { user } } = await supabase.auth.getUser()
 
   let savedKeys: string[] = []
+  let saveError: string | null = null
 
   if (user) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from('saved_items')
       .select('content_key')
       .eq('user_id', user.id)
       .order('saved_at', { ascending: false })
 
     savedKeys = data?.map((row) => row.content_key) ?? []
+  saveError = error?.message ?? null
   }
 
   const savedCards = learningCards.filter((card) => savedKeys.includes(card.id))
@@ -31,6 +33,12 @@ export default async function SavedPage() {
           <h2>Sign in to see your saved readings.</h2>
           <p>Create an account or log in to start saving ideas, stories, and lessons worth returning to.</p>
           <Link className="hero-link" href="/login">Log in to your account <span aria-hidden="true">↗</span></Link>
+        </section>
+      ) : saveError ? (
+        <section className="empty-state" role="alert">
+          <p className="eyebrow">LIBRARY UNAVAILABLE</p>
+          <h2>We could not load your saved readings.</h2>
+          <p>Please refresh the page and try again.</p>
         </section>
       ) : savedCards.length === 0 ? (
         <section className="empty-state">

@@ -14,10 +14,12 @@ export function useSave(contentKey: string, initialSaved = false) {
   const router = useRouter()
   const [saved, setSaved] = useState(initialSaved)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   async function toggle() {
     if (loading) return
     setLoading(true)
+    setError(null)
 
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
@@ -40,9 +42,7 @@ export function useSave(contentKey: string, initialSaved = false) {
           setSaved(true)
         } else {
           setSaved(false)
-          if (process.env.NODE_ENV === 'development') {
-            console.error('Save failed:', error.message)
-          }
+          setError(error.message)
         }
       }
     } else {
@@ -54,14 +54,12 @@ export function useSave(contentKey: string, initialSaved = false) {
 
       if (error) {
         setSaved(true)
-        if (process.env.NODE_ENV === 'development') {
-          console.error('Unsave failed:', error.message)
-        }
+        setError(error.message)
       }
     }
 
     setLoading(false)
   }
 
-  return { saved, loading, toggle }
+  return { saved, loading, error, toggle }
 }
