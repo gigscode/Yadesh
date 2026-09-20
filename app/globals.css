@@ -15,9 +15,9 @@
   .brand-wordmark,.brand-subtitle{display:none;}
   .desktop-nav{display:flex;align-items:center;width:100%;max-width:100%;min-width:0;flex:1 1 auto;justify-content:space-between;gap:.5rem;padding:.35rem .45rem;border-radius:999px;background:#fff;box-shadow:0 .55rem 1.5rem rgba(23,24,29,.14);overflow:hidden}
   .desktop-nav .nav-group{display:flex;align-items:center;min-width:0;flex:0 0 auto;gap:.25rem;white-space:nowrap}.desktop-nav .nav-group-left{flex:1 1 auto}.desktop-nav .nav-group-right{justify-content:flex-end;gap:.25rem}
-  .desktop-nav .nav-brand{display:flex;align-items:center;min-width:0;margin-right:auto;padding:0;gap:.45rem;}
-  .desktop-nav .nav-brand .brand-mark{display:grid;}
-  .desktop-nav .nav-brand .brand-wordmark{display:block;font-family:Arial Black,Arial,Helvetica,sans-serif;font-size:.82rem;font-weight:950;letter-spacing:-.03em;}
+  .desktop-nav .nav-brand{display:flex;align-items:center;min-width:0;margin-right:auto;padding:0;gap:.25rem;}
+  .desktop-nav .nav-brand .brand-mark{display:grid;width:2.15rem;height:2.15rem;}
+  .desktop-nav .nav-brand .brand-wordmark{display:block;font-family:Arial Black,Arial,Helvetica,sans-serif;font-size:1rem;font-weight:950;letter-spacing:-.03em;}
   .desktop-nav .nav-topics,.desktop-nav .nav-login{padding:.62rem .68rem;font-size:.82rem;font-weight:950;letter-spacing:-.02em;white-space:nowrap;border:1px solid rgba(23,24,29,.12);box-shadow:0 .2rem .45rem rgba(23,24,29,.12);background:#fff;}
   .desktop-nav .nav-cta{display:none;}
   .nav-menu{width:2.35rem;height:2.35rem;flex:0 0 2.35rem;border-width:2px!important;box-shadow:0 .2rem .45rem rgba(23,24,29,.16);}.nav-menu svg{stroke-width:2.8;}
