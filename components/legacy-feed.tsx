@@ -178,6 +178,8 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
 
 export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boolean; showNav?: boolean }) {
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false)
+  const [waitlistEmail, setWaitlistEmail] = useState('')
+  const [waitlistModalOpen, setWaitlistModalOpen] = useState(false)
 
   return (
     <div className="phone-shell">
@@ -209,12 +211,12 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <p className="kicker">Join the waitlist</p>
             <h2 id="waitlist-title">Keep learning with intention.</h2>
           </div>
-          <form className="waitlist-form" onSubmit={(event) => { event.preventDefault(); setWaitlistSubmitted(true) }}>
+          <form className="waitlist-form" onSubmit={(event) => { event.preventDefault(); if (waitlistSubmitted) { setWaitlistModalOpen(true); return } setWaitlistEmail(waitlistEmail.trim().toLowerCase()); setWaitlistSubmitted(true); setWaitlistModalOpen(true) }}>
             <label className="sr-only" htmlFor="waitlist-email">Email address</label>
-            <input id="waitlist-email" type="email" placeholder="Your email address" required />
-            <button type="submit">Join the waitlist <ArrowUpRight aria-hidden="true" /></button>
-            {waitlistSubmitted && <p className="waitlist-success" role="alert">You&apos;re on the list. We&apos;ll be in touch soon.</p>}
+            <input id="waitlist-email" value={waitlistEmail} onChange={(event) => setWaitlistEmail(event.target.value)} type="email" placeholder="Your email address" required disabled={waitlistSubmitted} />
+            <button type="submit" disabled={waitlistSubmitted}>{waitlistSubmitted ? "You're on the list" : 'Join the waitlist'} <ArrowUpRight aria-hidden="true" /></button>
           </form>
+          {waitlistModalOpen && <div className="waitlist-modal-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) setWaitlistModalOpen(false) }}><section className="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-success-title"><button className="waitlist-modal-close" type="button" aria-label="Close confirmation" onClick={() => setWaitlistModalOpen(false)}>×</button><div className="waitlist-modal-mark" aria-hidden="true"><Check /></div><p className="kicker">Waitlist confirmed</p><h2 id="waitlist-success-title">You&apos;re on the list.</h2><p>We&apos;ll let you know when Yadesh is ready. Until then, keep learning with intention.</p><button className="waitlist-modal-action" type="button" onClick={() => setWaitlistModalOpen(false)}>Continue exploring</button></section></div>}
         </section>
       </main>
       <footer className="app-footer landing-radar"><span className="footer-rule" /> <span>Read. Keep. Remember.</span> <span className="footer-rule" /></footer>
