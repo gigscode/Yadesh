@@ -1,11 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { BookOpen, Compass, Home, Library, Menu, Search, UserRound, Users, X } from 'lucide-react'
+import { BookOpen, Compass, Home, Library, Menu, Search, UserRound, Users, HeartHandshake, X } from 'lucide-react'
 import { useState } from 'react'
 
 const primary = [
-  ['Home', '/learn', Home], ['Explore', '/explore', Compass], ['Saved', '/saved', Library],
+  ['Home', '/learn', Home], ['Explore', '/explore', Compass], ['Community', '/community', HeartHandshake], ['Saved', '/saved', Library],
 ]
 const library = [['People', '/people', Users], ['Books', '/books', BookOpen]]
 
