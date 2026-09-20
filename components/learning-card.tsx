@@ -27,8 +27,10 @@ export function LearningCard({
 }: LearningCardProps) {
   const { saved, loading, error, toggle } = useSave(id, initialSaved)
 
+  const typeClass = `card-type-${type.toLowerCase()}`
+
   return (
-    <article className={`learning-card${accent ? ' accent' : ''}`}>
+    <article className={`learning-card ${typeClass}${accent ? ' accent' : ''}`}>
       <div className="card-meta">
         <span>{type}</span>
         <span>{time}</span>

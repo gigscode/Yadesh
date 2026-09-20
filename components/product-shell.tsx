@@ -150,7 +150,7 @@ export function ProductShell({
 
       {/* Main content */}
       <main className="product-main">
-        {title !== 'Your learning space' && title !== 'You' && (
+        {title !== 'Your learning space' && title !== 'You' && title !== '' && (
           <div className="product-topline">
             <div>
               {title !== 'You' && (
