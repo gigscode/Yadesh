@@ -180,10 +180,10 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
   )
 }
 
-export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boolean; showNav?: boolean }) {
+export function LegacyFeed({ showHero = true, showNav = true, isLoggedIn = false }: { showHero?: boolean; showNav?: boolean; isLoggedIn?: boolean }) {
   return (
     <div className="phone-shell">
-      {showNav && <SharedNav />}
+      {showNav && <SharedNav isLoggedIn={isLoggedIn} />}
 
       <main id="top" className="app-content">
         {showHero && <section className="landing-hero" aria-labelledby="page-title">
@@ -191,7 +191,16 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <p className="kicker">Christian micro-learning</p>
             <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes.</span><span className="hero-line hero-line-two hero-emphasis">Something worth</span><span className="hero-line hero-line-three hero-emphasis">knowing.</span></h1>
             <p>Ideas, stories, and lives from across the history of the Christian faith. Curated. Sourced. Yours to keep.</p>
-            <div className="hero-actions"><a className="hero-link" href="/register">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
+            <div className="hero-actions">
+              {isLoggedIn ? (
+                <a className="hero-link" href="/learn">Continue learning <ArrowUpRight aria-hidden="true" /></a>
+              ) : (
+                <>
+                  <a className="hero-link" href="/register">Start learning <ArrowUpRight aria-hidden="true" /></a>
+                  <a className="hero-secondary" href="/explore">Explore the archive <ArrowUpRight aria-hidden="true" /></a>
+                </>
+              )}
+            </div>
             <span className="micro-trust">Read. Keep. Remember.</span>
           </div>
         </section>}
@@ -209,12 +218,27 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
         <section className="register-cta-section" aria-labelledby="cta-title">
           <div>
             <p className="kicker">Start today</p>
-            <h2 id="cta-title">Build a quieter learning habit.</h2>
-            <p>Create a free account and start learning from trusted Christian sources in five focused minutes.</p>
+            {isLoggedIn ? (
+              <>
+                <h2 id="cta-title">Keep the habit going.</h2>
+                <p>Your library is waiting. Pick up where you left off or start something new.</p>
+              </>
+            ) : (
+              <>
+                <h2 id="cta-title">Build a quieter learning habit.</h2>
+                <p>Create a free account and start learning from trusted Christian sources in five focused minutes.</p>
+              </>
+            )}
           </div>
           <div className="register-cta-actions">
-            <a className="hero-link" href="/register">Create your account <ArrowUpRight aria-hidden="true" /></a>
-            <a className="hero-secondary" href="/login">Already have an account</a>
+            {isLoggedIn ? (
+              <a className="hero-link" href="/learn">Continue learning <ArrowUpRight aria-hidden="true" /></a>
+            ) : (
+              <>
+                <a className="hero-link" href="/register">Create your account <ArrowUpRight aria-hidden="true" /></a>
+                <a className="hero-secondary" href="/login">Already have an account</a>
+              </>
+            )}
           </div>
         </section>
       </main>

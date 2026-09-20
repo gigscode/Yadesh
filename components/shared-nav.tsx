@@ -1,29 +1,114 @@
 'use client'
 
 import Link from 'next/link'
-import { Menu, ArrowUpRight, ChevronDown } from 'lucide-react'
+import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
-export function SharedNav() {
+type NavLink = {
+  label: string
+  href: string
+}
+
+function getMenuLinks(isLoggedIn: boolean): NavLink[] {
+  const links: NavLink[] = [
+    { label: 'Learn', href: '/learn' },
+    { label: 'Explore', href: '/explore' },
+    { label: 'About Yadesh', href: '/about' },
+  ]
+  if (!isLoggedIn) {
+    links.push({ label: 'Log in', href: '/login' })
+  }
+  return links
+}
+
+export function SharedNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuLinks = getMenuLinks(isLoggedIn)
 
   return (
     <>
       <header className="app-header">
         <nav className="desktop-nav" aria-label="Primary navigation">
-          <span className="nav-group nav-group-left"><Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home"><span className="brand-mark" aria-hidden="true"><img src="/yadesh-mark.png" alt="" /></span><span className="brand-wordmark">Yadesh</span></Link><Link href="/explore" className="nav-topics">Topics <ChevronDown aria-hidden="true" /></Link></span>
-          <span className="nav-group nav-group-right"><Link href="/learn" className="nav-cta">Start learning</Link><Link href="/login" className="nav-login">Log in</Link><button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><Menu aria-hidden="true" /></button></span>
+
+          {/* Left group: brand + topics */}
+          <span className="nav-group nav-group-left">
+            <Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home">
+              <span className="brand-mark" aria-hidden="true">
+                <img src="/yadesh-mark.png" alt="" />
+              </span>
+              <span className="brand-wordmark">Yadesh</span>
+            </Link>
+            <Link href="/explore" className="nav-topics">
+              Topics <ChevronDown aria-hidden="true" />
+            </Link>
+          </span>
+
+          {/* Right group: CTA + conditional login + menu toggle */}
+          <span className="nav-group nav-group-right">
+            <Link href="/learn" className="nav-cta">
+              {isLoggedIn ? 'Continue learning' : 'Start learning'}
+            </Link>
+            {!isLoggedIn && (
+              <Link href="/login" className="nav-login">
+                Log in
+              </Link>
+            )}
+            <button
+              className="nav-menu"
+              type="button"
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls="nav-menu-panel"
+              onClick={() => setMenuOpen((prev) => !prev)}
+            >
+              {menuOpen
+                ? <X aria-hidden="true" />
+                : <Menu aria-hidden="true" />}
+            </button>
+          </span>
+
         </nav>
       </header>
-      {menuOpen && <div className="menu-panel" role="dialog" aria-modal="true" aria-label="Yadesh navigation">
-        <div className="menu-panel-head"><span>Move with intention.</span><button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">×</button></div>
-        <nav className="menu-links" aria-label="Menu links">
-          <Link href="/learn" onClick={() => setMenuOpen(false)}><span>01</span>Learn <ArrowUpRight aria-hidden="true" /></Link>
-          <Link href="/explore" onClick={() => setMenuOpen(false)}><span>02</span>Explore <ArrowUpRight aria-hidden="true" /></Link>
-          <Link href="/about" onClick={() => setMenuOpen(false)}><span>03</span>About Yadesh <ArrowUpRight aria-hidden="true" /></Link>
-        </nav>
-        <p className="menu-note">Christian micro-learning from books, people, teachings, testimonies, and history.</p>
-      </div>}
+
+      {/* Slide-down menu panel */}
+      {menuOpen && (
+        <div
+          id="nav-menu-panel"
+          className="menu-panel"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Yadesh navigation menu"
+        >
+          <div className="menu-panel-head">
+            <span>Move with intention.</span>
+            <button
+              type="button"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              ×
+            </button>
+          </div>
+
+          <nav className="menu-links" aria-label="Menu links">
+            {menuLinks.map((link, index) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                {link.label}
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+            ))}
+          </nav>
+
+          <p className="menu-note">
+            Christian micro-learning from books, people, teachings, testimonies, and history.
+          </p>
+        </div>
+      )}
     </>
   )
 }
