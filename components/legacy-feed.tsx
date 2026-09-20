@@ -191,7 +191,7 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes.</span><span className="hero-line hero-line-two hero-emphasis">Something worth</span><span className="hero-line hero-line-three hero-emphasis">knowing.</span></h1>
             <p>Ideas, stories, and lives from across the history of the Christian faith. Curated. Sourced. Yours to keep.</p>
             <div className="hero-actions"><a className="hero-link" href="/register">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
-            <span className="micro-trust">Read. Verify. Remember.</span>
+            <span className="micro-trust">Read. Keep. Remember.</span>
           </div>
         </section>}
 

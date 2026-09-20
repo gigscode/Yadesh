@@ -1,33 +1,127 @@
 # Yadesh
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Christian micro-learning. Five minutes. Something worth knowing.
 
-## Built with v0
+Yadesh is a source-aware learning platform for Christians who want to engage seriously with the ideas, people, books, testimonies, and history of the faith. Every piece of content is curated, sourced, and built for short focused sessions.
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+## What it is
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_1FV6Lz6tou31PBGXMlsmFQJ7SSK3)
+- A modern Christian learning platform for ages 16 to 40
+- A discovery engine for Christian knowledge across history, theology, biography, and teaching
+- A personal library where users save and return to ideas worth keeping
+- A source-honest editorial experience built around the principle: Read. Keep. Remember.
 
-## Getting Started
+## What it is not
 
-First, run the development server:
+- A Bible app
+- A sermon streaming platform
+- A Christian social network
+- A motivational quote app
+- A miracle-only website
+
+## Core product loop
+
+DISCOVER → LEARN → SAVE → GO DEEPER → RETURN
+
+## Tech stack
+
+- [Next.js 16](https://nextjs.org) (App Router, TypeScript)
+- [Supabase](https://supabase.com) (auth, database, RLS)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [shadcn base-nova](https://ui.shadcn.com) (design system foundation)
+- [Lucide React](https://lucide.dev) (icons)
+- [Vercel Analytics](https://vercel.com/analytics)
+- PWA with service worker
+
+## Database
+
+Two tables in Supabase:
+
+**profiles** — created automatically via trigger on every registration. Stores `full_name`, `email`, `bio`, `avatar_url`. RLS locked to the owning user.
+
+**saved_items** — one row per user per content item, referenced by `content_key`. RLS locked to the owning user.
+
+A `content` table schema exists for future migration of learning cards out of static files.
+
+## Project structure
+
+```
+app/                  Pages (Next.js App Router)
+  learn/              Authenticated home feed
+  explore/            Topic and content discovery
+  saved/              Personal library
+  you/                Profile, edit, sign out
+  login/              Sign in
+  register/           Create account
+  forgot-password/    Password reset
+  people/             Christian figures
+  books/              Book library
+  search/             Global search
+  about/              About Yadesh
+  community/          Archived (not in nav, planned for v2)
+
+components/
+  legacy-feed.tsx     Public marketing homepage
+  product-shell.tsx   Authenticated app shell with sidebar and bottom nav
+  shared-nav.tsx      Public site navigation
+  auth-screen.tsx     Login and register forms
+  forgot-password-screen.tsx   Password reset form
+  profile-screen.tsx  Profile view and inline edit
+  faq-section.tsx     FAQ accordion
+  pwa-updater.tsx     PWA service worker updater
+
+lib/
+  learning-data.ts    20 curated content pieces (static, v1)
+  supabase/
+    client.ts         Browser Supabase client
+    server.ts         Server Supabase client (cookie-based)
+  utils.ts            cn() utility
+
+hooks/
+  use-save.ts         Save and unsave hook with optimistic updates
+```
+
+## Getting started
+
+Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
+```
+
+Copy the environment file and fill in your Supabase project values:
+
+```bash
+cp .env.local .env.local
+```
+
+```
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
+
+Run the development server:
+
+```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Supabase setup
 
-## Learn More
+Run the following in your Supabase SQL Editor before using auth or saves:
 
-To learn more, take a look at the following resources:
+1. Profiles table with auto-creation trigger (see `prd.md` for full SQL)
+2. Saved items table with RLS policies (see `prd.md` for full SQL)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+In your Supabase dashboard under Authentication, disable email confirmation so users can register and start immediately.
+
+## Design language
+
+- Background: warm off-white
+- Text: near-black
+- Primary accent: electric lime
+- Secondary accent: periwinkle / violet
+- Contextual: soft lilac
+- Interface stays mostly off-white and black. Lime and violet are intentional accents, not defaults.
