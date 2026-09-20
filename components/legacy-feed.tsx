@@ -187,7 +187,7 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <p className="kicker">Christian micro-learning</p>
             <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes</span><span className="hero-line hero-line-two">can change</span><span className="hero-line hero-line-three hero-emphasis">what you know.</span></h1>
             <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith, one meaningful piece at a time.</p>
-            <div className="hero-actions"><a className="hero-link" href="/learn">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Explore the archive <ArrowUpRight aria-hidden="true" /></a></div>
+            <div className="hero-actions"><a className="hero-link" href="/learn">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Find your next reading <ArrowUpRight aria-hidden="true" /></a></div>
             <span className="micro-trust">Read. Verify. Remember.</span>
           </div>
         </section>}
