@@ -47,9 +47,19 @@ export function ProfileScreen({
     setError(null)
     setSaving(true)
 
+    const { data: { user }, error: sessionError } = await supabase.auth.getUser()
+    console.debug('[profile save] user:', user?.id, 'session error:', sessionError?.message)
+
+    if (!user) {
+      setError('Your session has expired. Please sign in again.')
+      setSaving(false)
+      return
+    }
+
     const { error } = await supabase
       .from('profiles')
-      .update({
+      .upsert({
+        id: profile.id,
         full_name: form.full_name.trim() || null,
         bio: form.bio.trim() || null,
       })
