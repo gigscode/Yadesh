@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { BookOpen, Compass, Home, Library, Menu, Search, Settings, UserRound, Users, X } from 'lucide-react'
+import { BookOpen, Compass, Home, Library, Menu, Search, UserRound, Users, X } from 'lucide-react'
 import { useState } from 'react'
 
 const primary = [
@@ -14,7 +14,7 @@ export function ProductShell({ children, title = 'Home' }: { children: React.Rea
   return <div className="product-shell">
     <aside className="product-sidebar" aria-label="Primary navigation">
       <Link href="/" className="product-logo"><span className="product-logo-mark"><img src="/yadesh2.jpg" alt="" /></span><span>Yadesh</span></Link>
-      <nav className="product-nav">{primary.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" />{library.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" /><Link href="/you"><UserRound aria-hidden="true" />You</Link><Link href="/you#settings"><Settings aria-hidden="true" />Settings</Link></nav>
+      <nav className="product-nav">{primary.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" />{library.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" /><Link href="/you"><UserRound aria-hidden="true" />You</Link></nav>
       <div className="sidebar-note"><span>Read. Verify. Remember.</span><small>Five focused minutes can change what you know.</small></div>
     </aside>
     <header className="product-mobile-header"><Link href="/" className="product-logo"><span className="product-logo-mark"><img src="/yadesh2.jpg" alt="" /></span><span>Yadesh</span></Link><button onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}>{menuOpen ? <X /> : <Menu />}</button></header>
