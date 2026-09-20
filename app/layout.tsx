@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
+import { PwaUpdater } from '@/components/pwa-updater'
 
 export const metadata: Metadata = {
   title: 'Yadesh, Christian Micro-Learning',
@@ -28,6 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <PwaUpdater />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
