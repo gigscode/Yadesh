@@ -18,7 +18,7 @@
   .desktop-nav .nav-brand{display:flex;align-items:center;min-width:0;margin-right:auto;padding:0;gap:.25rem;}
   .desktop-nav .nav-brand .brand-mark{display:grid;width:2.15rem;height:2.15rem;}
   .desktop-nav .nav-brand .brand-wordmark{display:block;font-family:Arial Black,Arial,Helvetica,sans-serif;font-size:1rem;font-weight:950;letter-spacing:-.03em;}
-  .desktop-nav .nav-topics,.desktop-nav .nav-login{padding:.62rem .68rem;font-size:.82rem;font-weight:950;letter-spacing:-.02em;white-space:nowrap;border:1px solid rgba(23,24,29,.12);box-shadow:0 .2rem .45rem rgba(23,24,29,.12);background:#fff;}
+  .desktop-nav .nav-topics,.desktop-nav .nav-login{display:inline-flex;align-items:center;justify-content:center;gap:.35rem;padding:.62rem .68rem;font-size:.82rem;font-weight:950;letter-spacing:-.02em;white-space:nowrap;border:1px solid rgba(23,24,29,.12);box-shadow:0 .2rem .45rem rgba(23,24,29,.12);background:#fff;color:#7168ed}.desktop-nav .nav-topics svg{width:.9rem;height:.9rem;stroke-width:2.8}.desktop-nav .nav-login{color:#7168ed}
   .desktop-nav .nav-cta{display:none;}
   .nav-menu{width:2.35rem;height:2.35rem;flex:0 0 2.35rem;border-width:2px!important;box-shadow:0 .2rem .45rem rgba(23,24,29,.16);}.nav-menu svg{stroke-width:2.8;}
   .menu-panel{top:4.2rem;}
