@@ -34,16 +34,14 @@ export function useSave(contentKey: string, initialSaved = false) {
     if (!saved) {
       const { error } = await supabase
         .from('saved_items')
-        .insert({ user_id: user.id, content_key: contentKey })
+        .upsert(
+          { user_id: user.id, content_key: contentKey },
+          { onConflict: 'user_id,content_key', ignoreDuplicates: true }
+        )
 
       if (error) {
-        // 23505 = unique violation — already saved, treat as saved
-        if (error.code === '23505') {
-          setSaved(true)
-        } else {
-          setSaved(false)
-          setError(error.message)
-        }
+        setSaved(false)
+        setError(error.message)
       }
     } else {
       const { error } = await supabase
