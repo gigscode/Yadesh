@@ -40,7 +40,7 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
     <div className="product-shell">
       {/* Desktop sidebar never unmounts */}
       <aside className="product-sidebar" aria-label="Primary navigation">
-        <Link href="/learn" className="product-logo">
+        <Link href="/" className="product-logo">
           <span className="product-logo-mark">
             <img src="/yadesh-mark.png" alt="" loading="lazy" />
           </span>
@@ -95,7 +95,7 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
 
       {/* Mobile header never unmounts */}
       <header className="product-mobile-header">
-        <Link href="/learn" className="product-logo">
+        <Link href="/" className="product-logo">
           <span className="product-logo-mark">
             <img src="/yadesh-mark.png" alt="" loading="lazy" />
           </span>
