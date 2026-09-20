@@ -150,12 +150,14 @@ export function ProductShell({
 
       {/* Main content */}
       <main className="product-main">
-        {title !== 'Your learning space' && (
+        {title !== 'Your learning space' && title !== 'You' && (
           <div className="product-topline">
             <div>
-              <span className="eyebrow">
-                {title === 'Home' ? "TODAY'S LEARNING" : 'YADESH'}
-              </span>
+              {title !== 'You' && (
+                <span className="eyebrow">
+                  {title === 'Home' ? "TODAY'S LEARNING" : 'YADESH'}
+                </span>
+              )}
               <h1>{title}</h1>
             </div>
             {title !== 'You' && (

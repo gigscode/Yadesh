@@ -99,23 +99,37 @@ export function ProfileScreen({
     <>
       {/* Profile hero */}
       <section className="profile-hero" aria-labelledby="profile-name">
-        <div className="profile-avatar" aria-hidden="true">{initials}</div>
-        <div className="profile-hero-info">
-          <p className="eyebrow">YOUR PROFILE</p>
-          <h2 id="profile-name">{profile.full_name ?? 'Learner'}</h2>
-          <p className="profile-email">{profile.email}</p>
-          {profile.bio && <p className="profile-bio">{profile.bio}</p>}
-          <p className="profile-since">Member since {joinYear}</p>
+        <div className="profile-hero-top">
+          <div className="profile-avatar" aria-hidden="true">{initials}</div>
+          <div className="profile-hero-info">
+            <h2 id="profile-name">{profile.full_name ?? 'Learner'}</h2>
+            <p className="profile-email">{profile.email}</p>
+            {profile.bio && <p className="profile-bio">{profile.bio}</p>}
+            <p className="profile-since">Member since {joinYear}</p>
+          </div>
         </div>
         {!editing && (
-          <button
-            className="profile-edit"
-            onClick={() => setEditing(true)}
-            aria-label="Edit profile"
-          >
-            <Pencil size={14} aria-hidden="true" />
-            Edit
-          </button>
+          <div className="profile-hero-footer">
+            <button
+              className="profile-edit"
+              onClick={() => setEditing(true)}
+              aria-label="Edit profile"
+              title="Edit profile"
+            >
+              <Pencil size={14} aria-hidden="true" />
+              Edit profile
+            </button>
+            <button
+              className="profile-signout-icon"
+              onClick={signOut}
+              type="button"
+              aria-label="Sign out"
+              title="Sign out"
+            >
+              <LogOut size={14} aria-hidden="true" />
+              Sign out
+            </button>
+          </div>
         )}
       </section>
 
@@ -216,13 +230,6 @@ export function ProfileScreen({
         </Link>
       </section>
 
-      {/* Sign out */}
-      <div className="profile-signout-row">
-        <button className="profile-signout" onClick={signOut} type="button">
-          <LogOut size={14} aria-hidden="true" />
-          Sign out
-        </button>
-      </div>
     </>
   )
 }
