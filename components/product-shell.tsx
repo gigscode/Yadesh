@@ -5,7 +5,7 @@ import { BookOpen, Compass, Home, Library, Menu, Search, Settings, UserRound, Us
 import { useState } from 'react'
 
 const primary = [
-  ['Home', '/', Home], ['Explore', '/explore', Compass], ['Saved', '/saved', Library],
+  ['Home', '/learn', Home], ['Explore', '/explore', Compass], ['Saved', '/saved', Library],
 ]
 const library = [['People', '/people', Users], ['Books', '/books', BookOpen]]
 
@@ -14,13 +14,13 @@ export function ProductShell({ children, title = 'Home' }: { children: React.Rea
   return <div className="product-shell">
     <aside className="product-sidebar" aria-label="Primary navigation">
       <Link href="/" className="product-logo"><span className="product-logo-mark"><img src="/yadesh2.jpg" alt="" /></span><span>Yadesh</span></Link>
-      <nav className="product-nav">{primary.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" />{library.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" /><Link href="/about"><UserRound aria-hidden="true" />You</Link><Link href="/about"><Settings aria-hidden="true" />Settings</Link></nav>
+      <nav className="product-nav">{primary.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" />{library.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}<span className="nav-divider" /><Link href="/you"><UserRound aria-hidden="true" />You</Link><Link href="/you#settings"><Settings aria-hidden="true" />Settings</Link></nav>
       <div className="sidebar-note"><span>Read. Verify. Remember.</span><small>Five focused minutes can change what you know.</small></div>
     </aside>
     <header className="product-mobile-header"><Link href="/" className="product-logo"><span className="product-logo-mark"><img src="/yadesh2.jpg" alt="" /></span><span>Yadesh</span></Link><button onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}>{menuOpen ? <X /> : <Menu />}</button></header>
-    {menuOpen && <nav className="product-mobile-menu">{[...primary, ...library, ['You', '/about', UserRound]].map(([label, href, Icon]) => <Link onClick={() => setMenuOpen(false)} href={href as string} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}</nav>}
+    {menuOpen && <nav className="product-mobile-menu">{[...primary, ...library, ['You', '/you', UserRound]].map(([label, href, Icon]) => <Link onClick={() => setMenuOpen(false)} href={href as string} key={label as string}><Icon aria-hidden="true" />{label}</Link>)}</nav>}
     <main className="product-main"><div className="product-topline"><div><span className="eyebrow">{title === 'Home' ? 'TODAY&apos;S LEARNING' : 'YADESH'}</span><h1>{title}</h1></div><Link className="search-trigger" href="/search"><Search aria-hidden="true" /><span>Search</span></Link></div>{children}</main>
-    <nav className="product-bottom-nav" aria-label="Mobile navigation">{primary.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" /><span>{label}</span></Link>)}<Link href="/about"><UserRound aria-hidden="true" /><span>You</span></Link></nav>
+    <nav className="product-bottom-nav" aria-label="Mobile navigation">{primary.map(([label, href, Icon]) => <Link className={title === label ? 'active' : ''} href={href} key={label as string}><Icon aria-hidden="true" /><span>{label}</span></Link>)}<Link href="/you"><UserRound aria-hidden="true" /><span>You</span></Link></nav>
   </div>
 }
 
