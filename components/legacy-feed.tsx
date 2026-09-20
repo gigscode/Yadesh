@@ -188,7 +188,7 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <h1 id="page-title"><span className="hero-line hero-line-one">Five minutes</span><span className="hero-line hero-line-two">can change</span><span className="hero-line hero-line-three hero-emphasis">what you know.</span></h1>
             <p>Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith, one meaningful piece at a time.</p>
             <div className="hero-actions"><a className="hero-link" href="/learn">Start learning <ArrowUpRight aria-hidden="true" /></a><a className="hero-secondary" href="/explore">Find your next reading <ArrowUpRight aria-hidden="true" /></a></div>
-            <span className="micro-trust">Read. Verify. Remember.</span>
+            <span className="micro-trust">Read. Keep. Remember.</span>
           </div>
         </section>}
 
@@ -214,7 +214,7 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
           </form>
         </section>
       </main>
-      <footer className="app-footer landing-radar"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
+      <footer className="app-footer landing-radar"><span className="footer-rule" /> <span>Read. Keep. Remember.</span> <span className="footer-rule" /></footer>
     </div>
   )
 }
