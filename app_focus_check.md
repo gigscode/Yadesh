@@ -702,7 +702,7 @@ CHRISTIAN MICRO-LEARNING
 
 Subheading:
 
-"Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith — one meaningful piece at a time."
+"Discover powerful ideas, stories, and lessons from Christian books, ministers, biographies, and the history of the faith one meaningful piece at a time."
 
 Buttons:
 

@@ -37,9 +37,9 @@ DISCOVER → LEARN → SAVE → GO DEEPER → RETURN
 
 Two tables in Supabase:
 
-**profiles** — created automatically via trigger on every registration. Stores `full_name`, `email`, `bio`, `avatar_url`. RLS locked to the owning user.
+**profiles** created automatically via trigger on every registration. Stores `full_name`, `email`, `bio`, `avatar_url`. RLS locked to the owning user.
 
-**saved_items** — one row per user per content item, referenced by `content_key`. RLS locked to the owning user.
+**saved_items** one row per user per content item, referenced by `content_key`. RLS locked to the owning user.
 
 A `content` table schema exists for future migration of learning cards out of static files.
 

@@ -38,7 +38,7 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="product-shell">
-      {/* Desktop sidebar — never unmounts */}
+      {/* Desktop sidebar never unmounts */}
       <aside className="product-sidebar" aria-label="Primary navigation">
         <Link href="/" className="product-logo">
           <span className="product-logo-mark">
@@ -93,7 +93,7 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
         </footer>
       </aside>
 
-      {/* Mobile header — never unmounts */}
+      {/* Mobile header never unmounts */}
       <header className="product-mobile-header">
         <Link href="/" className="product-logo">
           <span className="product-logo-mark">
@@ -132,12 +132,12 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
         </nav>
       )}
 
-      {/* Page content slot — only this swaps on navigation */}
+      {/* Page content slot only this swaps on navigation */}
       <main className="product-main">
         {children}
       </main>
 
-      {/* Mobile bottom nav — never unmounts */}
+      {/* Mobile bottom nav never unmounts */}
       <nav className="product-bottom-nav" aria-label="Mobile navigation">
         {primary.map(([label, href, Icon]) => (
           <Link

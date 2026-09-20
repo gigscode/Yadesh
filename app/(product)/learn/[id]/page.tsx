@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const card = learningCards.find((c) => c.id === id)
   if (!card) return {}
   return {
-    title: `${card.title} — Yadesh`,
+    title: `${card.title} | Yadesh`,
     description: card.body,
   }
 }

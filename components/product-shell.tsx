@@ -22,7 +22,7 @@ export function TopicChips() {
   )
 }
 
-// Legacy export — no longer used as a layout wrapper.
+// Legacy export no longer used as a layout wrapper.
 // Kept to avoid import errors during transition.
 export function ProductShell({
   children,
