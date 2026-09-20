@@ -61,8 +61,7 @@ export function ProfileScreen({
 
     const { error } = await supabase
       .from('profiles')
-      .upsert({
-        id: profile.id,
+      .update({
         full_name: form.full_name.trim() || null,
         bio: form.bio.trim() || null,
       })
