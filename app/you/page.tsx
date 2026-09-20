@@ -3,7 +3,8 @@ import { ProductShell } from '@/components/product-shell'
 
 export default function YouPage() {
   return (
-    <ProductShell title="You">
+    <ProductShell title="Your learning space">
+      <section className="you-page-heading" aria-labelledby="you-heading"><p className="eyebrow">YOUR SPACE</p><h1 id="you-heading">Your learning space</h1></section>
       <section className="you-next-step" aria-labelledby="next-step-title">
         <div>
           <p className="eyebrow">YOUR NEXT STEP</p>
@@ -24,7 +25,7 @@ export default function YouPage() {
 
       <section className="you-profile" id="settings" aria-labelledby="profile-title">
         <div className="profile-avatar" aria-hidden="true">Y</div>
-        <div><p className="eyebrow">YOUR LEARNING SPACE</p><h2 id="profile-title">Make Yadesh yours.</h2><p>Your saved readings, topics, and account preferences will live here.</p></div>
+        <div><p className="eyebrow">YOUR PROFILE</p><h2 id="profile-title">Make Yadesh yours.</h2><p>Your saved readings, topics, and account preferences will live here.</p></div>
         <Link className="profile-edit" href="/you#settings">Edit profile</Link>
       </section>
     </ProductShell>
