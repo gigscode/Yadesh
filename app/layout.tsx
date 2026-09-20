@@ -7,8 +7,11 @@ export const metadata: Metadata = {
   title: 'Yadesh, Christian Micro-Learning',
   description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
   icons: {
-    icon: [{ url: '/yadesh-mark.png', type: 'image/png' }],
-    apple: [{ url: '/yadesh-mark.png', type: 'image/png' }],
+    icon: [
+      { url: '/favicon.ico', type: 'image/x-icon' },
+      { url: '/icon-dark-32x32.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: [{ url: '/apple-icon.png', type: 'image/png' }],
   },
 }
 

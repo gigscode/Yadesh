@@ -34,7 +34,7 @@ export function SharedNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
           <span className="nav-group nav-group-left">
             <Link className="nav-brand brand-lockup" href="/" aria-label="Yadesh home">
               <span className="brand-mark" aria-hidden="true">
-                <img src="/yadesh-mark.png" alt="" />
+                <img src="/yadesh-mark.png" alt="" width="32" height="32" />
               </span>
               <span className="brand-wordmark">Yadesh</span>
             </Link>
