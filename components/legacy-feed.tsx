@@ -192,23 +192,13 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
           </div>
         </section>}
 
-        <section className="explore-section" aria-labelledby="explore-title">
-          <div className="section-heading"><div><p className="kicker">Start anywhere</p><h2 id="explore-title">What are you exploring?</h2></div></div>
-          <div className="topic-chips">{['Faith','Prayer','Healing','Leadership','Revival','Holy Spirit','Calling','Discipline','Christian Living','Ministry'].map((topic) => <a href="/explore" key={topic}>{topic}</a>)}</div>
-        </section>
-
-        <section className="proof-band" aria-label="Yadesh learning loop">
-          <div><strong>30 sec</strong><span>Discover an idea</span></div>
-          <div><strong>2 min</strong><span>Learn the lesson</span></div>
-          <div><strong>Go deeper</strong><span>Stay close to the source</span></div>
-        </section>
-
-        <section className="how-section" aria-labelledby="how-title">
-          <div className="section-heading"><div><p className="kicker">A better way to learn</p><h2 id="how-title">Discover. Learn. Go deeper.</h2></div></div>
+        <section className="how-section landing-method" aria-labelledby="how-title">
+          <div className="section-heading"><div><p className="kicker">A quieter way to grow</p><h2 id="how-title">Learning with context, not noise.</h2></div><span className="section-index">01 / 03</span></div>
+          <p className="method-intro">Yadesh turns meaningful Christian sources into focused moments of learning you can understand, remember, and return to.</p>
           <div className="how-grid">
-            <article><span>01</span><h3>Discover an idea</h3><p>Find a focused lesson from a trusted Christian source in a few minutes.</p></article>
-            <article><span>02</span><h3>Learn the lesson</h3><p>Get the useful context without wading through another endless feed.</p></article>
-            <article><span>03</span><h3>Go deeper</h3><p>Follow the source when an idea is worth remembering and practicing.</p></article>
+            <article><span>01</span><h3>Find the signal</h3><p>Start with one clear idea from a trusted book, person, teaching, or testimony.</p></article>
+            <article><span>02</span><h3>Take the lesson</h3><p>Learn the essential context in a few focused minutes, without an endless feed.</p></article>
+            <article><span>03</span><h3>Follow the source</h3><p>Go deeper when an idea deserves your attention, practice, and memory.</p></article>
           </div>
         </section>
 
