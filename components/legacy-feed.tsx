@@ -11,7 +11,6 @@ import {
 import { cn } from '@/lib/utils'
 import { SharedNav } from '@/components/shared-nav'
 import { useSave } from '@/hooks/use-save'
-import { createClient } from '@/lib/supabase/client'
 
 type PowerStory = {
   id: string
@@ -89,10 +88,6 @@ const crucibleStories: CrucibleStory[] = [
   },
 ]
 
-function uniqueById<T extends { id: string }>(stories: T[]) {
-  return Array.from(new Map(stories.map((story) => [story.id, story])).values())
-}
-
 function SourceLink({ href, label }: { href: string; label: string }) {
   return (
     <a className="source-link" href={href} target="_blank" rel="noreferrer">
@@ -134,7 +129,13 @@ function PowerCard({ story }: { story: PowerStory }) {
           {saved ? <Check aria-hidden="true" /> : <Bookmark aria-hidden="true" />}
           <span>{saved ? 'Saved' : 'Save'}</span>
         </button>
-        <button className="icon-action" type="button" aria-label="Text share">
+        <button className="icon-action" type="button" aria-label="Share this story"
+          onClick={() => {
+            if (navigator.share) {
+              navigator.share({ title: story.headline, url: window.location.href })
+            }
+          }}
+        >
           <Share2 aria-hidden="true" />
         </button>
       </div>

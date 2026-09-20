@@ -78,3 +78,6 @@ h1,h2,h3,.route-intro h1,.info-hero h1,.section-heading h2,.waitlist-section h2,
 .profile-signout-row{display:flex;justify-content:flex-end;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--border)}
 .profile-signout{display:inline-flex;align-items:center;gap:.4rem;border:0;background:transparent;color:var(--muted-foreground);font:inherit;font-size:.78rem;font-weight:800;cursor:pointer}.profile-signout:hover{color:#c0392b}
 @media(max-width:899px){.profile-hero{grid-template-columns:auto 1fr;gap:1rem;padding:1.25rem}.profile-edit{grid-column:2;justify-self:start}}
+
+/* Forgot password screen helpers */
+.auth-intro-sm{margin-top:.5rem;font-size:.82rem}.auth-switch-mt{margin-top:1.5rem}.auth-back-icon{display:inline;margin-right:.3rem;vertical-align:middle}

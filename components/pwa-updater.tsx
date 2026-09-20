@@ -9,11 +9,11 @@ export function PwaUpdater() {
     // Only show the splash when launched as an installed PWA (standalone mode)
     const isStandalone =
       window.matchMedia('(display-mode: standalone)').matches ||
-      ('standalone' in window.navigator && (window.navigator as { standalone?: boolean }).standalone === true)
+      ('standalone' in window.navigator &&
+        (window.navigator as { standalone?: boolean }).standalone === true)
 
     if (isStandalone) {
       setShowSplash(true)
-      // Hide after animation completes (matches the pwa-splash-in animation duration + buffer)
       const timer = setTimeout(() => setShowSplash(false), 1800)
       return () => clearTimeout(timer)
     }
@@ -23,6 +23,8 @@ export function PwaUpdater() {
     if (!('serviceWorker' in navigator) || !window.isSecureContext) return
 
     let refreshing = false
+    let intervalId: ReturnType<typeof setInterval> | null = null
+
     const handleControllerChange = () => {
       if (refreshing) return
       refreshing = true
@@ -35,22 +37,25 @@ export function PwaUpdater() {
       .register('/sw.js', { scope: '/', updateViaCache: 'none' })
       .then((registration) => {
         registration.update()
-        window.setInterval(() => registration.update(), 60 * 60 * 1000)
+        intervalId = setInterval(() => registration.update(), 60 * 60 * 1000)
       })
       .catch(() => {
         // Registration can fail in local previews or restricted contexts.
       })
 
-    return () => navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange)
+    return () => {
+      navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange)
+      if (intervalId !== null) clearInterval(intervalId)
+    }
   }, [])
 
   if (!showSplash) return null
 
   return (
-    <main className="pwa-splash" aria-label="Loading Yadesh" aria-live="polite">
+    <div role="status" aria-label="Loading Yadesh" className="pwa-splash">
       <div className="pwa-splash-brand">
         <img src="/yadesh-splash.png" alt="Yadesh" />
       </div>
-    </main>
+    </div>
   )
 }

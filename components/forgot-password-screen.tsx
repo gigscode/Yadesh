@@ -46,7 +46,7 @@ export function ForgotPasswordScreen() {
             <p className="auth-intro">
               We sent a password reset link to <strong>{email}</strong>. Check your inbox and follow the link to set a new password.
             </p>
-            <p className="auth-intro" style={{ marginTop: '0.5rem', fontSize: '0.82rem' }}>
+            <p className="auth-intro auth-intro-sm">
               Didn&apos;t get it? Check your spam folder or{' '}
               <button
                 className="auth-resend"
@@ -57,9 +57,9 @@ export function ForgotPasswordScreen() {
               </button>
               .
             </p>
-            <p className="auth-switch" style={{ marginTop: '1.5rem' }}>
+            <p className="auth-switch auth-switch-mt">
               <Link href="/login">
-                <ArrowLeft aria-hidden="true" size={14} style={{ display: 'inline', marginRight: '0.3rem', verticalAlign: 'middle' }} />
+                <ArrowLeft aria-hidden="true" size={14} className="auth-back-icon" />
                 Back to login
               </Link>
             </p>
@@ -100,7 +100,7 @@ export function ForgotPasswordScreen() {
 
             <p className="auth-switch">
               <Link href="/login">
-                <ArrowLeft aria-hidden="true" size={14} style={{ display: 'inline', marginRight: '0.3rem', verticalAlign: 'middle' }} />
+                <ArrowLeft aria-hidden="true" size={14} className="auth-back-icon" />
                 Back to login
               </Link>
             </p>

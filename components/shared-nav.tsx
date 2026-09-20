@@ -15,7 +15,7 @@ export function SharedNav() {
           <span className="nav-group nav-group-right"><Link href="/learn" className="nav-cta">Start learning</Link><Link href="/login" className="nav-login">Log in</Link><button className="nav-menu" type="button" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><Menu aria-hidden="true" /></button></span>
         </nav>
       </header>
-      {menuOpen && <div className="menu-panel" role="dialog" aria-label="Yadesh navigation">
+      {menuOpen && <div className="menu-panel" role="dialog" aria-modal="true" aria-label="Yadesh navigation">
         <div className="menu-panel-head"><span>Move with intention.</span><button type="button" onClick={() => setMenuOpen(false)} aria-label="Close menu">×</button></div>
         <nav className="menu-links" aria-label="Menu links">
           <Link href="/learn" onClick={() => setMenuOpen(false)}><span>01</span>Learn <ArrowUpRight aria-hidden="true" /></Link>

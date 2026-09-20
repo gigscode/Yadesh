@@ -48,7 +48,10 @@ export function ProfileScreen({
     setSaving(true)
 
     const { data: { user }, error: sessionError } = await supabase.auth.getUser()
-    console.debug('[profile save] user:', user?.id, 'session error:', sessionError?.message)
+
+    if (process.env.NODE_ENV === 'development') {
+      console.debug('[profile save] user:', user?.id, 'session error:', sessionError?.message)
+    }
 
     if (!user) {
       setError('Your session has expired. Please sign in again.')

@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import { ProductShell, LearningCard } from '@/components/product-shell'
+import { ProductShell } from '@/components/product-shell'
+import { LearningCard } from '@/components/learning-card'
 import { learningCards } from '@/lib/learning-data'
 import { createClient } from '@/lib/supabase/server'
 
@@ -46,7 +47,7 @@ export default async function SavedPage() {
           </div>
           <div className="learning-grid">
             {savedCards.map((item) => (
-              <LearningCard key={item.id} {...item} accent />
+              <LearningCard key={item.id} {...item} initialSaved={true} accent />
             ))}
           </div>
         </section>

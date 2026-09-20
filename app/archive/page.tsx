@@ -1,5 +1,4 @@
-import { redirect } from 'next/navigation'
-
+// /archive is handled by a permanent redirect in next.config.mjs → /explore
 export default function ArchivePage() {
-  redirect('/explore')
+  return null
 }
