@@ -177,6 +177,8 @@ function CrucibleCard({ story }: { story: CrucibleStory }) {
 }
 
 export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boolean; showNav?: boolean }) {
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false)
+
   return (
     <div className="phone-shell">
       {showNav && <SharedNav />}
@@ -207,10 +209,11 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
             <p className="kicker">Join the waitlist</p>
             <h2 id="waitlist-title">Keep learning with intention.</h2>
           </div>
-          <form className="waitlist-form" onSubmit={(event) => event.preventDefault()}>
+          <form className="waitlist-form" onSubmit={(event) => { event.preventDefault(); setWaitlistSubmitted(true) }}>
             <label className="sr-only" htmlFor="waitlist-email">Email address</label>
             <input id="waitlist-email" type="email" placeholder="Your email address" required />
             <button type="submit">Join the waitlist <ArrowUpRight aria-hidden="true" /></button>
+            {waitlistSubmitted && <p className="waitlist-success" role="alert">You&apos;re on the list. We&apos;ll be in touch soon.</p>}
           </form>
         </section>
       </main>
