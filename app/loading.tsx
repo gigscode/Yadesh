@@ -1,9 +1,6 @@
+// Root loading state — intentionally minimal.
+// The PWA splash screen is handled by pwa-updater.tsx
+// and only shows when the app is launched in standalone mode.
 export default function Loading() {
-  return (
-    <main className="pwa-splash" aria-label="Loading Yadesh">
-      <div className="pwa-splash-brand">
-        <img src="/yadesh-splash.png" alt="Yadesh" />
-      </div>
-    </main>
-  )
+  return null
 }
