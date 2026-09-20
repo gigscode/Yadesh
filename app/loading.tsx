@@ -1,6 +1,9 @@
-// Root loading state — intentionally minimal.
-// The PWA splash screen is handled by pwa-updater.tsx
-// and only shows when the app is launched in standalone mode.
+// Root loading state — shows app background immediately to prevent white flash
 export default function Loading() {
-  return null
+  return (
+    <div style={{
+      minHeight: '100svh',
+      background: 'var(--background, #fbfbf8)',
+    }} />
+  )
 }
