@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Loader2 } from 'lucide-react'
+import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
@@ -13,6 +13,8 @@ export function ResetPasswordScreen() {
   const [hasSession, setHasSession] = useState(false)
   const [password, setPassword] = useState('')
   const [confirmation, setConfirmation] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
+  const [showConfirmation, setShowConfirmation] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -79,27 +81,51 @@ export function ResetPasswordScreen() {
             <form onSubmit={handleSubmit}>
               <label>
                 New password
-                <input
-                  type="password"
-                  autoComplete="new-password"
-                  minLength={8}
-                  required
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  disabled={loading}
-                />
+                <span className="password-field">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    autoComplete="new-password"
+                    minLength={8}
+                    required
+                    value={password}
+                    onChange={(event) => setPassword(event.target.value)}
+                    disabled={loading}
+                  />
+                  <button
+                    className="password-toggle"
+                    type="button"
+                    onClick={() => setShowPassword((visible) => !visible)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    aria-pressed={showPassword}
+                    disabled={loading}
+                  >
+                    {showPassword ? <EyeOff aria-hidden="true" size={20} /> : <Eye aria-hidden="true" size={20} />}
+                  </button>
+                </span>
               </label>
               <label>
                 Confirm password
-                <input
-                  type="password"
-                  autoComplete="new-password"
-                  minLength={8}
-                  required
-                  value={confirmation}
-                  onChange={(event) => setConfirmation(event.target.value)}
-                  disabled={loading}
-                />
+                <span className="password-field">
+                  <input
+                    type={showConfirmation ? 'text' : 'password'}
+                    autoComplete="new-password"
+                    minLength={8}
+                    required
+                    value={confirmation}
+                    onChange={(event) => setConfirmation(event.target.value)}
+                    disabled={loading}
+                  />
+                  <button
+                    className="password-toggle"
+                    type="button"
+                    onClick={() => setShowConfirmation((visible) => !visible)}
+                    aria-label={showConfirmation ? 'Hide confirmation password' : 'Show confirmation password'}
+                    aria-pressed={showConfirmation}
+                    disabled={loading}
+                  >
+                    {showConfirmation ? <EyeOff aria-hidden="true" size={20} /> : <Eye aria-hidden="true" size={20} />}
+                  </button>
+                </span>
               </label>
               {error && <p className="auth-error" role="alert">{error}</p>}
               <button type="submit" disabled={loading}>

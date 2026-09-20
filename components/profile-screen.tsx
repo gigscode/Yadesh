@@ -18,9 +18,11 @@ type Profile = {
 export function ProfileScreen({
   profile,
   savesCount,
+  savesUnavailable = false,
 }: {
   profile: Profile
   savesCount: number
+  savesUnavailable?: boolean
 }) {
   const supabase = useMemo(() => createClient(), [])
   const router = useRouter()
@@ -197,6 +199,9 @@ export function ProfileScreen({
             <small>Find a source to follow →</small>
           </Link>
         </div>
+        {savesUnavailable && (
+          <p className="auth-error" role="status">Saved readings are temporarily unavailable. Please try again later.</p>
+        )}
       </section>
 
       {/* Next step */}

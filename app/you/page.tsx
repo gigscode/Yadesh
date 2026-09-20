@@ -25,7 +25,7 @@ export default async function YouPage() {
       .eq('user_id', user.id),
   ])
 
-  if (savesError || (profileError && profileError.code !== 'PGRST116')) {
+  if (profileError && profileError.code !== 'PGRST116') {
     return (
       <ProductShell title="You">
         <section className="empty-state" role="alert">
@@ -52,6 +52,7 @@ export default async function YouPage() {
       <ProfileScreen
         profile={resolvedProfile}
         savesCount={savesCount ?? 0}
+        savesUnavailable={Boolean(savesError)}
       />
     </ProductShell>
   )
