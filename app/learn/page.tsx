@@ -8,11 +8,11 @@ export default function LearnPage() {
   return <ProductShell title="Home">
     <section className="daily-learning-card">
       <div className="daily-learning-copy">
-        <p className="eyebrow">TODAY&apos;S YADESH</p>
+        <p className="eyebrow">FOR TODAY</p>
         <h2>{dailyCard.title}</h2>
         <p className="daily-learning-source">{dailyCard.source} · {dailyCard.time}</p>
         <p>{dailyCard.body}</p>
-        <Link href="/learn" className="daily-learning-action">Read today&apos;s idea <span aria-hidden="true">→</span></Link>
+        <Link href="/learn" className="daily-learning-action">Start today&apos;s reading <span aria-hidden="true">→</span></Link>
       </div>
     </section>
     <section className="continue-card"><div><p className="eyebrow">CONTINUE LEARNING</p><h2>The Authority of the Believer</h2><p>Kenneth E. Hagin · 8 min remaining</p></div><Link href="/learn">Continue</Link></section>
