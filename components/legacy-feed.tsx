@@ -214,7 +214,7 @@ export function LegacyFeed({ showHero = true, showNav = true }: { showHero?: boo
           </form>
         </section>
       </main>
-      <footer className="app-footer"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
+      <footer className="app-footer landing-radar"><span className="footer-rule" /> <span>Read. Verify. Remember.</span> <span className="footer-rule" /></footer>
     </div>
   )
 }
