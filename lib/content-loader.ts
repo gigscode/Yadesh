@@ -1,45 +1,57 @@
 import { learningCards, type LearningCard } from '@/lib/learning-data'
 import { createClient } from '@/lib/supabase/server'
+import { unstable_cache } from 'next/cache'
+
+/**
+ * Fetches dynamic cards from Supabase.
+ * Cached server-side with the 'content' tag for 60 seconds.
+ * Revalidated on demand when the admin publishes new content.
+ */
+const fetchDbCards = unstable_cache(
+  async (): Promise<LearningCard[]> => {
+    try {
+      const supabase = await createClient()
+      const { data: dbCards, error } = await supabase
+        .from('content')
+        .select('*')
+        .order('created_at', { ascending: false })
+
+      if (error || !dbCards || dbCards.length === 0) {
+        return []
+      }
+
+      return dbCards.map((row: any) => ({
+        id: row.id,
+        type: row.type,
+        title: row.title,
+        source: row.source,
+        body: row.body,
+        fullBody: Array.isArray(row.full_body) ? row.full_body : [row.full_body],
+        pullQuote: row.pull_quote,
+        takeaway: row.takeaway,
+        time: row.time,
+      }))
+    } catch {
+      return []
+    }
+  },
+  ['content-db-cards'],
+  { tags: ['content'], revalidate: 60 }
+)
 
 /**
  * Loads all learning cards by merging:
- * 1. Static curated cards from lib/learning-data.ts
- * 2. Dynamic cards published in the Supabase `content` table
+ * 1. Static curated cards (instant, from bundle)
+ * 2. Dynamic cards published via /admin (cached, from Supabase)
  */
 export async function getAllLearningCards(): Promise<LearningCard[]> {
-  try {
-    const supabase = await createClient()
-    const { data: dbCards, error } = await supabase
-      .from('content')
-      .select('*')
-      .order('created_at', { ascending: false })
+  const dbCards = await fetchDbCards()
 
-    if (error || !dbCards || dbCards.length === 0) {
-      return learningCards
-    }
+  if (dbCards.length === 0) return learningCards
 
-    // Map database rows to LearningCard shape
-    const mappedDbCards: LearningCard[] = dbCards.map((row: any) => ({
-      id: row.id,
-      type: row.type,
-      title: row.title,
-      source: row.source,
-      body: row.body,
-      fullBody: Array.isArray(row.full_body) ? row.full_body : [row.full_body],
-      pullQuote: row.pull_quote,
-      takeaway: row.takeaway,
-      time: row.time,
-    }))
-
-    // Merge: Dynamic cards appear first, followed by static cards
-    const staticIds = new Set(mappedDbCards.map((c) => c.id))
-    const uniqueStaticCards = learningCards.filter((c) => !staticIds.has(c.id))
-
-    return [...mappedDbCards, ...uniqueStaticCards]
-  } catch {
-    // Fallback safely to static cards if offline or during build
-    return learningCards
-  }
+  const dbIds = new Set(dbCards.map((c) => c.id))
+  const uniqueStaticCards = learningCards.filter((c) => !dbIds.has(c.id))
+  return [...dbCards, ...uniqueStaticCards]
 }
 
 /**

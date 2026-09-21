@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { Loader2, Pencil, Check, X, LogOut, Flame } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { useHabitTracker } from '@/hooks/use-habit-tracker'
+import { DailyReminderCard } from '@/components/daily-reminder-card'
 
 type Profile = {
   id: string
@@ -222,6 +223,9 @@ export function ProfileScreen({
           <p className="auth-error" role="status">Saved readings are temporarily unavailable. Please try again later.</p>
         )}
       </section>
+
+      {/* Daily reminder rhythm */}
+      <DailyReminderCard />
 
       {/* Next step */}
       <section className="you-next-step" aria-labelledby="next-step-title">

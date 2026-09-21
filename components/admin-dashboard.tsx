@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { revalidateContent } from '@/app/actions/revalidate-content'
 import {
   PlusCircle,
   Trash2,
@@ -148,6 +149,9 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
       setTakeaway('')
       setFullBodyText('')
       setPreviewMode(false)
+
+      // Clear server cache so /learn and /explore show the new card immediately
+      await revalidateContent()
       router.refresh()
     } catch (err: any) {
       setMessage({ type: 'error', text: err.message || 'An error occurred.' })
@@ -217,6 +221,7 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
 
       setCards([...validatedPayloads, ...cards])
       setBulkJson('')
+      await revalidateContent()
       router.refresh()
     } catch (err: any) {
       setMessage({
@@ -238,6 +243,7 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
         return
       }
       setCards(cards.filter((c) => c.id !== id))
+      await revalidateContent()
       router.refresh()
     } catch (err: any) {
       alert(err.message)
