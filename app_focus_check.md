@@ -655,10 +655,10 @@ Yadesh should feel calm and intentional, not gamified.
 Use a centered content canvas.
 
 Recommended maximum content width:
-1200–1400px.
+1200-1400px.
 
 Sidebar:
-240–260px.
+240-260px.
 
 Content should breathe.
 
@@ -674,7 +674,7 @@ Mobile is first-class.
 
 Use:
 
-16–20px horizontal padding.
+16-20px horizontal padding.
 
 Bottom navigation.
 

@@ -10,5 +10,7 @@ import { revalidatePath } from 'next/cache'
 export async function revalidateContent() {
   revalidatePath('/learn', 'page')
   revalidatePath('/explore', 'page')
+  revalidatePath('/books', 'page')
+  revalidatePath('/people', 'page')
 }
 

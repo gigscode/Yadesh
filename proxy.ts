@@ -47,7 +47,7 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(learnUrl)
   }
 
-  // IMPORTANT: return supabaseResponse — not NextResponse.next() —
+  // IMPORTANT: return supabaseResponse, not NextResponse.next(),
   // so the updated Set-Cookie headers are forwarded to the browser.
   return supabaseResponse
 }

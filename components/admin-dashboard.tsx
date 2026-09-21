@@ -24,14 +24,14 @@ import {
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
-type CardType = 'FAITH' | 'MIRACLE' | 'TEACHING' | 'LIFE' | 'HISTORY' | 'BOOK' | 'STORY' | 'IDEA'
+type CardType = 'FAITH' | 'MIRACLE' | 'TEACHING' | 'LIFE' | 'HISTORY' | 'BOOK' | 'PERSON' | 'STORY' | 'IDEA'
 
 type AdminDashboardProps = {
   userEmail: string
   initialCards: any[]
 }
 
-const BULK_JSON_TEMPLATE = `[
+const BULK_LESSONS_TEMPLATE = `[
   {
     "type": "MIRACLE",
     "title": "The Believer's Authority in Healing",
@@ -60,6 +60,42 @@ const BULK_JSON_TEMPLATE = `[
       "At Calvary, Jesus bore both our sins and our sicknesses according to 1 Peter 2:24.",
       "Faith is the hand that receives what grace has already established.",
       "Resting in His finished work unlocks peace and divine health."
+    ]
+  }
+]`
+
+const BULK_BOOKS_TEMPLATE = `[
+  {
+    "type": "BOOK",
+    "title": "The Authority of the Believer",
+    "source": "Kenneth E. Hagin",
+    "time": "4 min read",
+    "body": "Christians do not need to beg God for authority over darkness and sickness; Jesus already delegated His legal authority to every believer on earth.",
+    "pullQuote": "The authority that belongs to Christ also belongs to the Church, because the Church is His body.",
+    "takeaway": "Identify any area in your life where you have been passively waiting, and begin exercising your authority in Jesus' name.",
+    "fullBody": [
+      "Kenneth E. Hagin challenges passive religion: believers are seated with Christ in heavenly places far above all demonic power.",
+      "Just as a traffic officer stops ten-ton trucks by the authority of the state, a believer resists darkness backed by Jesus' name.",
+      "The authority must be exercised; God will not speak the Word of command for you.",
+      "Stand on your New Covenant rights and command the adversary to loose his hold."
+    ]
+  }
+]`
+
+const BULK_PEOPLE_TEMPLATE = `[
+  {
+    "type": "PERSON",
+    "title": "Kenneth E. Hagin",
+    "source": "Pioneer of Faith Teaching and Divine Healing",
+    "time": "1917 to 2003",
+    "body": "Known as the father of modern faith teaching, Kenneth E. Hagin spent sixty years ministering across the globe, emphasizing the authority of the believer, divine healing, and the integrity of God's Word.",
+    "pullQuote": "Faith begins where the will of God is known.",
+    "takeaway": "Kenneth E. Hagin, I Believe in Visions (1972) and I Went to Hell (1982)",
+    "fullBody": [
+      "In 1933 in McKinney, Texas, fifteen-year-old Kenneth Hagin was completely paralyzed and bedridden with a deformed heart.",
+      "During sixteen months confined to bed, his heart stopped beating three times before a divine voice pulled him back.",
+      "Meditating on Mark 11:23-24, he realized believing precedes seeing and stepped out of bed permanently healed on August 8, 1934.",
+      "He went on to minister worldwide for sixty years and founded RHEMA Bible Training College."
     ]
   }
 ]`
@@ -96,6 +132,7 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
 
   // Bulk Upload State
   const [bulkJson, setBulkJson] = useState('')
+  const [bulkTemplateType, setBulkTemplateType] = useState<'LESSON' | 'BOOK' | 'PERSON'>('LESSON')
 
   const generateSlug = (t: string) => {
     return t
@@ -105,10 +142,20 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
       .replace(/\s+/g, '-')
   }
 
+  const getActiveTemplate = () => {
+    if (bulkTemplateType === 'BOOK') return BULK_BOOKS_TEMPLATE
+    if (bulkTemplateType === 'PERSON') return BULK_PEOPLE_TEMPLATE
+    return BULK_LESSONS_TEMPLATE
+  }
+
   const handleCopyTemplate = () => {
-    navigator.clipboard.writeText(BULK_JSON_TEMPLATE)
+    navigator.clipboard.writeText(getActiveTemplate())
     setCopiedTemplate(true)
     setTimeout(() => setCopiedTemplate(false), 2000)
+  }
+
+  const handleLoadTemplateIntoBox = () => {
+    setBulkJson(getActiveTemplate())
   }
 
   const getGeneratedPrompt = () => {
@@ -140,7 +187,7 @@ ${figuresGuidance}
 FORMAT RULES:
 1. Return ONLY a single raw JSON array of objects. Do not include markdown code fence ticks (\`\`\`json), greetings, or explanations.
 2. Each object MUST have these exact fields:
-   - "type": One of "FAITH", "MIRACLE", "TEACHING", "LIFE", "HISTORY", "BOOK"
+   - "type": One of "FAITH", "MIRACLE", "TEACHING", "LIFE", "HISTORY", "BOOK", "PERSON"
    - "title": A short, gripping headline (4 to 8 words)
    - "source": Name of the author, minister, or movement (e.g. "Kenneth E. Hagin", "Apostle Joseph Ibrahim · Gospel Labour Ministry", "Andrew Wommack")
    - "time": Estimated reading time (e.g. "3 min read")
@@ -254,7 +301,7 @@ FORMAT RULES:
           throw new Error(`Item #${index + 1} (${item.title || 'Untitled'}) is missing required fields.`)
         }
 
-        const validTypes: CardType[] = ['FAITH', 'MIRACLE', 'TEACHING', 'LIFE', 'HISTORY', 'BOOK', 'STORY', 'IDEA']
+        const validTypes: CardType[] = ['FAITH', 'MIRACLE', 'TEACHING', 'LIFE', 'HISTORY', 'BOOK', 'PERSON', 'STORY', 'IDEA']
         const cardType = (item.type || 'FAITH').toUpperCase() as CardType
         const normalizedType = validTypes.includes(cardType)
           ? (cardType === 'IDEA' ? 'FAITH' : cardType)
@@ -532,6 +579,7 @@ FORMAT RULES:
                   <option value="LIFE">LIFE (Christian biography & spiritual walk)</option>
                   <option value="HISTORY">HISTORY (Church history, revivals & martyrs)</option>
                   <option value="BOOK">BOOK (Classic Christian literature)</option>
+                  <option value="PERSON">PERSON (Pastor, leader, revivalist verified profile)</option>
                   <option value="STORY">STORY (Parables & illustrations)</option>
                 </select>
               </div>
@@ -974,15 +1022,145 @@ FORMAT RULES:
           )}
 
           <form onSubmit={handlePublishBulk} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+            {/* Template Selector Bar */}
+            <div
+              style={{
+                padding: '1.25rem',
+                borderRadius: '1.15rem',
+                background: '#fcfcfd',
+                border: '1px solid var(--border)',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.85rem',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.72rem', fontWeight: '950', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--muted-foreground)' }}>
+                  SELECT CONTENT TYPE TO IMPORT
+                </span>
+                <div style={{ display: 'flex', gap: '0.5rem' }}>
+                  <button
+                    type="button"
+                    onClick={handleCopyTemplate}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      padding: '0.45rem 0.85rem',
+                      borderRadius: '999px',
+                      border: '1px solid var(--border)',
+                      background: copiedTemplate ? '#d8f5e4' : '#fff',
+                      color: copiedTemplate ? '#14532d' : 'var(--foreground)',
+                      fontWeight: '800',
+                      fontSize: '0.75rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <Copy size={13} /> {copiedTemplate ? 'Copied template!' : 'Copy Template JSON'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleLoadTemplateIntoBox}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.35rem',
+                      padding: '0.45rem 0.85rem',
+                      borderRadius: '999px',
+                      border: '1px solid #7168ed',
+                      background: '#f4f0ff',
+                      color: '#7168ed',
+                      fontWeight: '800',
+                      fontSize: '0.75rem',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <FileText size={13} /> Load Sample into Editor
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.6rem' }}>
+                <button
+                  type="button"
+                  onClick={() => setBulkTemplateType('LESSON')}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '0.85rem',
+                    border: bulkTemplateType === 'LESSON' ? '2px solid #7168ed' : '1px solid var(--border)',
+                    background: bulkTemplateType === 'LESSON' ? '#f4f0ff' : '#fff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <span style={{ fontWeight: '900', fontSize: '0.85rem', color: bulkTemplateType === 'LESSON' ? '#7168ed' : 'var(--foreground)' }}>
+                    Daily Lessons
+                  </span>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--muted-foreground)', marginTop: '0.2rem' }}>
+                    FAITH, MIRACLE, TEACHING
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setBulkTemplateType('BOOK')}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '0.85rem',
+                    border: bulkTemplateType === 'BOOK' ? '2px solid #7168ed' : '1px solid var(--border)',
+                    background: bulkTemplateType === 'BOOK' ? '#f4f0ff' : '#fff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <span style={{ fontWeight: '900', fontSize: '0.85rem', color: bulkTemplateType === 'BOOK' ? '#7168ed' : 'var(--foreground)' }}>
+                    Book Summaries
+                  </span>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--muted-foreground)', marginTop: '0.2rem' }}>
+                    Executive summaries (BOOK)
+                  </span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setBulkTemplateType('PERSON')}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    padding: '0.75rem 1rem',
+                    borderRadius: '0.85rem',
+                    border: bulkTemplateType === 'PERSON' ? '2px solid #7168ed' : '1px solid var(--border)',
+                    background: bulkTemplateType === 'PERSON' ? '#f4f0ff' : '#fff',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                  }}
+                >
+                  <span style={{ fontWeight: '900', fontSize: '0.85rem', color: bulkTemplateType === 'PERSON' ? '#7168ed' : 'var(--foreground)' }}>
+                    Pastors & Leaders
+                  </span>
+                  <span style={{ fontSize: '0.72rem', color: 'var(--muted-foreground)', marginTop: '0.2rem' }}>
+                    Verified profiles (PERSON)
+                  </span>
+                </button>
+              </div>
+            </div>
+
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: '950', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
-                JSON DATA ARRAY
+                JSON DATA ARRAY ({bulkTemplateType === 'BOOK' ? 'Executive Books' : bulkTemplateType === 'PERSON' ? 'Pastors and Leaders' : 'Daily Lessons'})
               </label>
               <textarea
                 rows={12}
                 value={bulkJson}
                 onChange={(e) => setBulkJson(e.target.value)}
-                placeholder={BULK_JSON_TEMPLATE}
+                placeholder={getActiveTemplate()}
                 style={{
                   width: '100%',
                   padding: '1rem',
@@ -1096,7 +1274,7 @@ FORMAT RULES:
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexShrink: 0 }}>
                   <Link
-                    href={`/learn/${c.id}`}
+                    href={c.type === 'BOOK' ? `/books/${c.id}` : c.type === 'PERSON' ? `/people/${c.id}` : `/learn/${c.id}`}
                     target="_blank"
                     style={{
                       display: 'inline-flex',
