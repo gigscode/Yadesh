@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { ReadingDetailActions } from '@/components/reading-detail-actions'
 import { learningCards } from '@/lib/learning-data'
+import { getLearningCardById, getAllLearningCards } from '@/lib/content-loader'
 import { createClient } from '@/lib/supabase/server'
 
 const typeAccent: Record<string, string> = {
@@ -20,7 +21,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params
-  const card = learningCards.find((c) => c.id === id)
+  const card = await getLearningCardById(id)
   if (!card) return {}
   return {
     title: `${card.title} | Yadesh`,
@@ -34,8 +35,10 @@ export default async function ReadingDetailPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const card = learningCards.find((c) => c.id === id)
+  const card = await getLearningCardById(id)
   if (!card) notFound()
+
+  const allCards = await getAllLearningCards()
 
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
@@ -52,9 +55,9 @@ export default async function ReadingDetailPage({
   }
 
   const accent = typeAccent[card.type] ?? '#fff'
-  const currentIndex = learningCards.findIndex((c) => c.id === id)
-  const prev = learningCards[currentIndex - 1] ?? null
-  const next = learningCards[currentIndex + 1] ?? null
+  const currentIndex = allCards.findIndex((c) => c.id === id)
+  const prev = allCards[currentIndex - 1] ?? null
+  const next = allCards[currentIndex + 1] ?? null
 
   return (
     <article className="reading-article" aria-labelledby="reading-title">

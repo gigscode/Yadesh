@@ -2,10 +2,11 @@ import Link from 'next/link'
 import { LearningCard } from '@/components/learning-card'
 import { PageHeader } from '@/components/page-header'
 import { StreakBadge } from '@/components/streak-badge'
-import { learningCards } from '@/lib/learning-data'
+import { getAllLearningCards } from '@/lib/content-loader'
 
-export default function LearnPage() {
-  const dailyCard = learningCards[Math.floor(Date.now() / 86400000) % learningCards.length]
+export default async function LearnPage() {
+  const cards = await getAllLearningCards()
+  const dailyCard = cards[Math.floor(Date.now() / 86400000) % cards.length] || cards[0]
 
   return (
     <>
@@ -31,7 +32,7 @@ export default function LearnPage() {
           <Link href="/explore">View all</Link>
         </div>
         <div className="learning-grid">
-          {learningCards
+          {cards
             .filter((item) => item.id !== dailyCard.id)
             .map((item) => (
               <LearningCard key={item.id} {...item} />

@@ -2,9 +2,10 @@ import Link from 'next/link'
 import { LearningCard } from '@/components/learning-card'
 import { PageHeader } from '@/components/page-header'
 import { TopicChips } from '@/components/product-shell'
-import { learningCards } from '@/lib/learning-data'
+import { getAllLearningCards } from '@/lib/content-loader'
 
-export default function ExplorePage() {
+export default async function ExplorePage() {
+  const cards = await getAllLearningCards()
   return (
     <>
       <PageHeader title="Explore" />
@@ -25,7 +26,7 @@ export default function ExplorePage() {
           <Link href="/search">Browse all</Link>
         </div>
         <div className="learning-grid">
-          {learningCards.map((item) => (
+          {cards.map((item) => (
             <LearningCard key={item.id} {...item} />
           ))}
         </div>

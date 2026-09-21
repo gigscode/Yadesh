@@ -12,6 +12,7 @@ import {
   UserRound,
   Users,
   X,
+  ShieldAlert,
 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
@@ -27,7 +28,13 @@ const library: [string, string, LucideIcon][] = [
   ['Books', '/books', BookOpen],
 ]
 
-export function ProductChrome({ children }: { children: React.ReactNode }) {
+export function ProductChrome({
+  children,
+  isAdmin = false,
+}: {
+  children: React.ReactNode
+  isAdmin?: boolean
+}) {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const headerRef = useRef<HTMLElement>(null)
@@ -102,6 +109,25 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
             <UserRound aria-hidden="true" />
             You
           </Link>
+
+          {isAdmin && (
+            <>
+              <span className="nav-divider" />
+              <Link
+                href="/admin"
+                className={isActive('/admin') ? 'active' : ''}
+                aria-current={isActive('/admin') ? 'page' : undefined}
+                style={{
+                  background: isActive('/admin') ? '#fff' : '#f3e8ff',
+                  color: '#7c3aed',
+                  fontWeight: '900',
+                }}
+              >
+                <ShieldAlert aria-hidden="true" size={16} />
+                Admin Portal
+              </Link>
+            </>
+          )}
         </nav>
 
         <div className="sidebar-note">
@@ -147,7 +173,22 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
           <Link onClick={() => setMenuOpen(false)} href="/about">
             <BookOpen aria-hidden="true" />About Yadesh
           </Link>
+          {isAdmin && (
+            <Link
+              onClick={() => setMenuOpen(false)}
+              href="/admin"
+              style={{
+                background: '#f3e8ff',
+                color: '#7c3aed',
+                fontWeight: '900',
+              }}
+            >
+              <ShieldAlert aria-hidden="true" size={16} />
+              Admin Portal
+            </Link>
+          )}
           <span className="nav-divider" />
+          <Link onClick={() => setMenuOpen(false)} href="/admin">Content Admin</Link>
           <Link onClick={() => setMenuOpen(false)} href="/privacy">Privacy</Link>
           <Link onClick={() => setMenuOpen(false)} href="/terms">Terms</Link>
           <Link onClick={() => setMenuOpen(false)} href="/guidelines">Guidelines</Link>
