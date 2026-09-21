@@ -7,6 +7,8 @@ import { getLearningCardById, getAllLearningCards } from '@/lib/content-loader'
 import { createClient } from '@/lib/supabase/server'
 
 const typeAccent: Record<string, string> = {
+  FAITH:    '#edfba0',
+  MIRACLE:  '#fef3c7',
   LIFE:     '#e9c7f5',
   IDEA:     '#edfba0',
   HISTORY:  '#e4e2ff',

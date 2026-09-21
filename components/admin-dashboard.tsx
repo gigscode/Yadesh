@@ -8,6 +8,7 @@ import {
   PlusCircle,
   Trash2,
   CheckCircle2,
+  Check,
   AlertCircle,
   Loader2,
   Eye,
@@ -23,7 +24,7 @@ import {
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 
-type CardType = 'IDEA' | 'LIFE' | 'BOOK' | 'HISTORY' | 'TEACHING'
+type CardType = 'FAITH' | 'MIRACLE' | 'TEACHING' | 'LIFE' | 'HISTORY' | 'BOOK' | 'STORY' | 'IDEA'
 
 type AdminDashboardProps = {
   userEmail: string
@@ -32,18 +33,33 @@ type AdminDashboardProps = {
 
 const BULK_JSON_TEMPLATE = `[
   {
-    "type": "IDEA",
-    "title": "The Practice of the Presence of God",
-    "source": "Brother Lawrence",
+    "type": "MIRACLE",
+    "title": "The Believer's Authority in Healing",
+    "source": "Kenneth E. Hagin",
     "time": "3 min read",
-    "body": "Brother Lawrence discovered that washing dishes in a monastery kitchen could be as holy as praying in a chapel.",
-    "pullQuote": "We ought not to be weary of doing little things for the love of God.",
-    "takeaway": "Turn your daily tasks into quiet conversation with God.",
+    "body": "Bedridden as a teenager with a deformed heart, Kenneth Hagin took Mark 11:23-24 literally, received his healing, and spent six decades teaching that God's power is real today.",
+    "pullQuote": "Faith begins where the will of God is known.",
+    "takeaway": "God's healing power does not depend on human strength. It answers bold, humble trust in His Word.",
     "fullBody": [
-      "Brother Lawrence was a 17th century lay brother assigned to a noisy monastery kitchen.",
-      "He initially disliked the menial labor, feeling it distracted him from contemplation.",
-      "Over time, he realized that holiness is not about isolated places, but about carrying intentional awareness everywhere.",
-      "His quiet insight reshaped how Christians view ordinary work."
+      "Kenneth E. Hagin was informed by doctors at age fifteen that he was hopelessly paralyzed.",
+      "During sixteen months confined to bed, he immersed himself in scripture, discovering that believing precedes seeing.",
+      "He stood up on paralyzed legs by faith and was instantly restored, going on to minister worldwide.",
+      "His life reminds us that signs and wonders follow those who take God at His Word."
+    ]
+  },
+  {
+    "type": "FAITH",
+    "title": "Grace and Faith in Receiving Healing",
+    "source": "Andrew Wommack",
+    "time": "3 min read",
+    "body": "Andrew Wommack taught that healing is not something God doles out reluctantly. Through the cross, grace has already provided it, and faith simply receives it.",
+    "pullQuote": "Faith does not force God to move. Faith receives what God has already provided through grace.",
+    "takeaway": "Stop begging God to heal. Rest in Christ's finished work and receive with thanksgiving.",
+    "fullBody": [
+      "Many Christians spend years begging God for healing, wondering if it is His will.",
+      "At Calvary, Jesus bore both our sins and our sicknesses according to 1 Peter 2:24.",
+      "Faith is the hand that receives what grace has already established.",
+      "Resting in His finished work unlocks peace and divine health."
     ]
   }
 ]`
@@ -60,8 +76,16 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
   const [copiedTemplate, setCopiedTemplate] = useState(false)
   const [showTooltip, setShowTooltip] = useState(false)
 
+  // AI Prompt Helper State
+  const [showPromptHelper, setShowPromptHelper] = useState(false)
+  const [copiedPrompt, setCopiedPrompt] = useState(false)
+  const [promptCategory, setPromptCategory] = useState<'ALL' | 'MIRACLE' | 'FAITH' | 'TEACHING' | 'HISTORY'>('ALL')
+  const [promptNamesMode, setPromptNamesMode] = useState<'SPECIFIC' | 'AUTO'>('SPECIFIC')
+  const [promptNamesText, setPromptNamesText] = useState('Kenneth E. Hagin, Apostle Joseph Ibrahim (Gospel Labour Ministry, Ekiti), Andrew Wommack, Charles and Frances Hunter, Smith Wigglesworth')
+  const [promptCount, setPromptCount] = useState(5)
+
   // Single Form State
-  const [type, setType] = useState<CardType>('IDEA')
+  const [type, setType] = useState<CardType>('FAITH')
   const [title, setTitle] = useState('')
   const [source, setSource] = useState('')
   const [time, setTime] = useState('3 min read')
@@ -85,6 +109,53 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
     navigator.clipboard.writeText(BULK_JSON_TEMPLATE)
     setCopiedTemplate(true)
     setTimeout(() => setCopiedTemplate(false), 2000)
+  }
+
+  const getGeneratedPrompt = () => {
+    const categoryGuidance =
+      promptCategory === 'ALL'
+        ? 'Include a balanced mix across: FAITH (living convictions and spiritual principles), MIRACLE (signs, wonders, divine healing, and supernatural accounts), TEACHING (biblical depth and discipleship), LIFE (biographies and spiritual walk), and HISTORY (church history and revivals).'
+        : promptCategory === 'MIRACLE'
+        ? 'Focus exclusively on category "MIRACLE": accounts of divine healing, signs and wonders, supernatural deliverances, and undeniable manifestations of God\'s power confirming the Gospel.'
+        : promptCategory === 'FAITH'
+        ? 'Focus exclusively on category "FAITH": lessons on spiritual authority, trusting God, the finished work of Christ at Calvary, and believing for the impossible.'
+        : `Focus exclusively on category "${promptCategory}".`
+
+    const figuresGuidance =
+      promptNamesMode === 'SPECIFIC'
+        ? `Generate lessons specifically highlighting these preachers, ministers, or leaders:\n${promptNamesText.trim()}`
+        : 'Choose a diverse selection of notable Christian ministers, revivalists, theologians, and church history figures across eras and continents.'
+
+    return `You are an expert Christian writer and historian creating micro-learning lesson cards for Yadesh, a Christian daily habit app.
+
+TASK:
+Generate an array of exactly ${promptCount} lessons in valid JSON format.
+
+CATEGORY:
+${categoryGuidance}
+
+FIGURES / SOURCES:
+${figuresGuidance}
+
+FORMAT RULES:
+1. Return ONLY a single raw JSON array of objects. Do not include markdown code fence ticks (\`\`\`json), greetings, or explanations.
+2. Each object MUST have these exact fields:
+   - "type": One of "FAITH", "MIRACLE", "TEACHING", "LIFE", "HISTORY", "BOOK"
+   - "title": A short, gripping headline (4 to 8 words)
+   - "source": Name of the author, minister, or movement (e.g. "Kenneth E. Hagin", "Apostle Joseph Ibrahim · Gospel Labour Ministry", "Andrew Wommack")
+   - "time": Estimated reading time (e.g. "3 min read")
+   - "body": 2 to 3 clear, memorable sentences for the preview card
+   - "pullQuote": One punchy, unforgettable sentence to anchor the reading
+   - "takeaway": One practical sentence applying the truth to daily life
+   - "fullBody": An array of 3 to 5 rich paragraphs explaining the account, context, and spiritual lesson
+3. IMPORTANT COPY RULE: Do NOT use any em dashes (em dash or en dash) anywhere in the text. Use commas, colons, or periods instead.
+4. Ensure all biographical, historical, and biblical details are accurate and uplifting.`
+  }
+
+  const handleCopyPrompt = () => {
+    navigator.clipboard.writeText(getGeneratedPrompt())
+    setCopiedPrompt(true)
+    setTimeout(() => setCopiedPrompt(false), 2500)
   }
 
   // Single Card Publish
@@ -183,9 +254,11 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
           throw new Error(`Item #${index + 1} (${item.title || 'Untitled'}) is missing required fields.`)
         }
 
-        const validTypes: CardType[] = ['IDEA', 'LIFE', 'BOOK', 'HISTORY', 'TEACHING']
-        const cardType = (item.type || 'IDEA').toUpperCase() as CardType
-        const normalizedType = validTypes.includes(cardType) ? cardType : 'IDEA'
+        const validTypes: CardType[] = ['FAITH', 'MIRACLE', 'TEACHING', 'LIFE', 'HISTORY', 'BOOK', 'STORY', 'IDEA']
+        const cardType = (item.type || 'FAITH').toUpperCase() as CardType
+        const normalizedType = validTypes.includes(cardType)
+          ? (cardType === 'IDEA' ? 'FAITH' : cardType)
+          : 'FAITH'
 
         const fullBodyArr = Array.isArray(item.fullBody)
           ? item.fullBody
@@ -453,11 +526,13 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
                     fontWeight: '800',
                   }}
                 >
-                  <option value="IDEA">IDEA (Lime accent)</option>
-                  <option value="LIFE">LIFE (Lavender accent)</option>
-                  <option value="BOOK">BOOK (Warm amber accent)</option>
-                  <option value="HISTORY">HISTORY (Periwinkle accent)</option>
-                  <option value="TEACHING">TEACHING (Green accent)</option>
+                  <option value="FAITH">FAITH (Living convictions & spiritual principles)</option>
+                  <option value="MIRACLE">MIRACLE (Signs & wonders, divine healing, testimonies)</option>
+                  <option value="TEACHING">TEACHING (Discipleship & biblical depth)</option>
+                  <option value="LIFE">LIFE (Christian biography & spiritual walk)</option>
+                  <option value="HISTORY">HISTORY (Church history, revivals & martyrs)</option>
+                  <option value="BOOK">BOOK (Classic Christian literature)</option>
+                  <option value="STORY">STORY (Parables & illustrations)</option>
                 </select>
               </div>
 
@@ -705,26 +780,198 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
               </p>
             </div>
 
-            <button
-              type="button"
-              onClick={handleCopyTemplate}
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                onClick={() => setShowPromptHelper(!showPromptHelper)}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.6rem 1.1rem',
+                  borderRadius: '999px',
+                  border: '1px solid #7168ed',
+                  background: showPromptHelper ? '#7168ed' : '#f5f4fe',
+                  color: showPromptHelper ? '#fff' : '#7168ed',
+                  fontWeight: '900',
+                  fontSize: '0.78rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                }}
+              >
+                <Sparkles size={14} /> {showPromptHelper ? 'Hide Prompt Generator' : 'AI Prompt Generator for ChatGPT/Claude'}
+              </button>
+
+              <button
+                type="button"
+                onClick={handleCopyTemplate}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.6rem 1rem',
+                  borderRadius: '999px',
+                  border: '1px solid var(--border)',
+                  background: copiedTemplate ? '#d8f5e4' : '#fbfbf8',
+                  color: copiedTemplate ? '#14532d' : 'var(--foreground)',
+                  fontWeight: '900',
+                  fontSize: '0.78rem',
+                  cursor: 'pointer',
+                }}
+              >
+                <Copy size={14} /> {copiedTemplate ? 'Copied template!' : 'Copy sample JSON template'}
+              </button>
+            </div>
+          </div>
+
+          {/* AI Prompt Generator Panel */}
+          {showPromptHelper && (
+            <div
               style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                padding: '0.6rem 1rem',
-                borderRadius: '999px',
-                border: '1px solid var(--border)',
-                background: copiedTemplate ? '#d8f5e4' : '#fbfbf8',
-                color: copiedTemplate ? '#14532d' : 'var(--foreground)',
-                fontWeight: '900',
-                fontSize: '0.78rem',
-                cursor: 'pointer',
+                marginBottom: '2rem',
+                padding: '1.5rem',
+                borderRadius: '1.25rem',
+                background: '#f8f7ff',
+                border: '1px solid rgba(113, 104, 237, 0.25)',
               }}
             >
-              <Copy size={14} /> {copiedTemplate ? 'Copied template!' : 'Copy sample JSON template'}
-            </button>
-          </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                <Sparkles size={18} style={{ color: '#7168ed' }} />
+                <h3 style={{ margin: 0, fontSize: '1.1rem', letterSpacing: '-0.03em' }}>
+                  AI Prompt Builder for ChatGPT and Claude
+                </h3>
+              </div>
+              <p style={{ margin: '0 0 1.25rem', fontSize: '0.85rem', color: 'var(--muted-foreground)', lineHeight: 1.5 }}>
+                Configure your criteria below, click <b>Copy Prompt</b>, paste it into ChatGPT or Claude, and copy the returned JSON directly into the box below.
+              </p>
+
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
+                {/* 1. Category Focus */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.72rem', fontWeight: '950', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
+                    1. CATEGORY FOCUS
+                  </label>
+                  <select
+                    value={promptCategory}
+                    onChange={(e) => setPromptCategory(e.target.value as any)}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 0.85rem',
+                      borderRadius: '0.75rem',
+                      border: '1px solid var(--border)',
+                      background: '#fff',
+                      fontSize: '0.82rem',
+                      fontWeight: '700',
+                    }}
+                  >
+                    <option value="ALL">Balanced Mix (All Categories)</option>
+                    <option value="MIRACLE">MIRACLE (Signs & wonders, divine healing)</option>
+                    <option value="FAITH">FAITH (Spiritual authority, living trust)</option>
+                    <option value="TEACHING">TEACHING (Biblical depth & discipleship)</option>
+                    <option value="HISTORY">HISTORY (Church history & revivals)</option>
+                  </select>
+                </div>
+
+                {/* 2. Figures Mode */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.72rem', fontWeight: '950', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
+                    2. PREACHERS / FIGURES
+                  </label>
+                  <select
+                    value={promptNamesMode}
+                    onChange={(e) => setPromptNamesMode(e.target.value as any)}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 0.85rem',
+                      borderRadius: '0.75rem',
+                      border: '1px solid var(--border)',
+                      background: '#fff',
+                      fontSize: '0.82rem',
+                      fontWeight: '700',
+                    }}
+                  >
+                    <option value="SPECIFIC">I have specific names in mind</option>
+                    <option value="AUTO">Auto-select diverse Christian leaders</option>
+                  </select>
+                </div>
+
+                {/* 3. Number of Lessons */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '0.72rem', fontWeight: '950', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
+                    3. LESSON COUNT
+                  </label>
+                  <select
+                    value={promptCount}
+                    onChange={(e) => setPromptCount(Number(e.target.value))}
+                    style={{
+                      width: '100%',
+                      padding: '0.65rem 0.85rem',
+                      borderRadius: '0.75rem',
+                      border: '1px solid var(--border)',
+                      background: '#fff',
+                      fontSize: '0.82rem',
+                      fontWeight: '700',
+                    }}
+                  >
+                    <option value={3}>3 lessons (Quick test)</option>
+                    <option value={5}>5 lessons (Recommended)</option>
+                    <option value={10}>10 lessons (Full pack)</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Specific names textarea if mode is SPECIFIC */}
+              {promptNamesMode === 'SPECIFIC' && (
+                <div style={{ marginBottom: '1.25rem' }}>
+                  <label style={{ display: 'block', fontSize: '0.72rem', fontWeight: '950', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
+                    NAMES OF PREACHERS / MINISTERS / EVENTS (SEPARATED BY COMMAS)
+                  </label>
+                  <input
+                    type="text"
+                    value={promptNamesText}
+                    onChange={(e) => setPromptNamesText(e.target.value)}
+                    placeholder="e.g. Kenneth E. Hagin, Apostle Joseph Ibrahim (Gospel Labour Ministry), Andrew Wommack"
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem 1rem',
+                      borderRadius: '0.75rem',
+                      border: '1px solid var(--border)',
+                      background: '#fff',
+                      fontSize: '0.85rem',
+                    }}
+                  />
+                </div>
+              )}
+
+              {/* Copy Prompt Button & Preview */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                <button
+                  type="button"
+                  onClick={handleCopyPrompt}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.75rem 1.35rem',
+                    borderRadius: '999px',
+                    background: copiedPrompt ? '#16a34a' : '#7168ed',
+                    color: '#fff',
+                    border: 0,
+                    fontWeight: '900',
+                    fontSize: '0.82rem',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  {copiedPrompt ? <Check size={16} /> : <Copy size={16} />}
+                  {copiedPrompt ? 'Copied prompt to clipboard!' : 'Copy prompt for ChatGPT or Claude'}
+                </button>
+                <span style={{ fontSize: '0.78rem', color: 'var(--muted-foreground)' }}>
+                  Enforces valid JSON, proper card categories, and zero em dashes.
+                </span>
+              </div>
+            </div>
+          )}
 
           <form onSubmit={handlePublishBulk} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <div>

@@ -65,6 +65,8 @@ export function ReadingDetailActions({
 
       // Top decorative card tint pill
       const accentColors: Record<string, string> = {
+        FAITH: '#edfba0',
+        MIRACLE: '#fef3c7',
         LIFE: '#e9c7f5',
         IDEA: '#edfba0',
         HISTORY: '#e4e2ff',
@@ -122,7 +124,7 @@ export function ReadingDetailActions({
       if (source) {
         ctx.fillStyle = '#7168ed'
         ctx.font = 'bold 32px Arial, Helvetica, sans-serif'
-        ctx.fillText(`— ${source}`, 180, y + 80)
+        ctx.fillText(`· ${source}`, 180, y + 80)
       }
 
       // Footer call to action

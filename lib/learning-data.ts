@@ -1,6 +1,6 @@
 export type LearningCard = {
   id: string
-  type: 'IDEA' | 'LIFE' | 'BOOK' | 'HISTORY' | 'TEACHING' | 'STORY'
+  type: 'FAITH' | 'MIRACLE' | 'IDEA' | 'LIFE' | 'BOOK' | 'HISTORY' | 'TEACHING' | 'STORY'
   title: string
   source: string
   body: string       // preview shown on the card
@@ -13,11 +13,11 @@ export type LearningCard = {
 
 export const learningCards: LearningCard[] = [
 
-  // ─── IDEAS ──────────────────────────────────────────────────────────────────
+  // ─── FAITH & CONVICTIONS ───────────────────────────────────────────────────
 
   {
     id: 'grace-is-power-not-permission',
-    type: 'IDEA',
+    type: 'FAITH',
     title: 'Grace is power, not permission',
     source: 'Dietrich Bonhoeffer',
     body: 'Bonhoeffer spent his life arguing that cheap grace, grace without cost or change, is one of the most dangerous ideas in the modern church. Real grace, he wrote, is the kind that demands everything and gives back more than it asks. It does not excuse a life. It transforms one.',
@@ -35,7 +35,7 @@ export const learningCards: LearningCard[] = [
 
   {
     id: 'calling-is-discovered-not-assigned',
-    type: 'IDEA',
+    type: 'FAITH',
     title: 'Calling is discovered, not assigned',
     source: 'Oswald Chambers',
     body: 'Chambers wrote that most people wait for a dramatic moment of calling that never comes. His argument was quieter: calling emerges through faithfulness in ordinary things. The question is not what God has destined you to do. It is whether you are paying attention to what is already in front of you.',
@@ -53,7 +53,7 @@ export const learningCards: LearningCard[] = [
 
   {
     id: 'doubt-is-not-the-opposite-of-faith',
-    type: 'IDEA',
+    type: 'FAITH',
     title: 'Doubt is not the opposite of faith',
     source: 'C.S. Lewis',
     body: 'Lewis argued that the opposite of faith is not doubt but certainty sought on the wrong terms. Doubt, handled honestly, can sharpen belief rather than destroy it. In his own life, the questions he refused to avoid were the same ones that eventually brought him to faith.',
@@ -71,7 +71,7 @@ export const learningCards: LearningCard[] = [
 
   {
     id: 'holiness-is-not-performance',
-    type: 'IDEA',
+    type: 'FAITH',
     title: 'Holiness is not performance',
     source: 'A.W. Tozer',
     body: 'Tozer was direct: the version of holiness that exhausts people is not biblical holiness. It is the management of appearances. Real holiness, he argued, is the quiet result of a life oriented toward God rather than toward the approval of other people. The difference shows, but not always in the ways we expect.',
@@ -89,7 +89,7 @@ export const learningCards: LearningCard[] = [
 
   {
     id: 'the-church-has-always-survived-its-crises',
-    type: 'IDEA',
+    type: 'FAITH',
     title: 'The church has always survived its crises',
     source: 'Church History',
     body: 'Every generation has been convinced it is living through the worst moment in the history of the church. The Arian controversy nearly split the faith in the 4th century. The Reformation fractured it in the 16th. The church absorbed both and kept moving. History is not a reason for complacency but it is a reason against despair.',
@@ -281,10 +281,10 @@ export const learningCards: LearningCard[] = [
     takeaway: 'A faith that requires nothing of you is not the faith of the New Testament.',
     time: '5 min read',
     fullBody: [
-      'Bonhoeffer wrote The Cost of Discipleship while running an underground seminary at Finkenwalde in 1935–37, after the Nazi regime had banned him from university teaching. His students were pastors in training for a church that was rapidly being co-opted by the state. The book was both theology and warning.',
+      'Bonhoeffer wrote The Cost of Discipleship while running an underground seminary at Finkenwalde in 1935 to 37, after the Nazi regime had banned him from university teaching. His students were pastors in training for a church that was rapidly being co-opted by the state. The book was both theology and warning.',
       'The opening chapter on cheap grace and costly grace is the heart of the book and the section most frequently quoted. Cheap grace, Bonhoeffer writes, is "grace without discipleship, grace without the cross, grace without Jesus Christ, living and incarnate." It is the grace we grant ourselves, the assurance that God forgives without any expectation that the forgiven person will change.',
       'Costly grace is different. It is costly because it costs a person their life. It is grace because it gives a person their life back. The paradox is intentional. Bonhoeffer was not arguing that grace is earned. He was arguing that genuine grace is transformative by nature, and that a grace which leaves a person undisturbed has not actually been received.',
-      'The second half of the book is an extended meditation on the Sermon on the Mount, not as an impossible ideal but as a description of what the life of a disciple actually looks like. Bonhoeffer read Matthew 5–7 with radical literalism and considerable discomfort. He thought the church had spent centuries finding sophisticated reasons not to do what it said.',
+      'The second half of the book is an extended meditation on the Sermon on the Mount, not as an impossible ideal but as a description of what the life of a disciple actually looks like. Bonhoeffer read Matthew 5 to 7 with radical literalism and considerable discomfort. He thought the church had spent centuries finding sophisticated reasons not to do what it said.',
       'The book was written in a context of acute pressure. Bonhoeffer\'s students were young men who were about to be tested. The theology he taught them was not an academic exercise. It was preparation. Several of those students died in the war. Bonhoeffer died at Flossenbürg in 1945. The text has the weight of a document written by someone who intended to live by it.',
     ],
   },
@@ -317,10 +317,10 @@ export const learningCards: LearningCard[] = [
     takeaway: 'Confessions is proof that the most useful spiritual writing comes from people who are honest about where they started.',
     time: '5 min read',
     fullBody: [
-      'Augustine wrote Confessions around 397–400 AD, about a decade after his conversion. He was a bishop by then, a public figure with considerable theological authority. He wrote the book as a prayer, addressed directly to God, reviewing his life from childhood to his mid-thirties with striking and sometimes painful honesty.',
+      'Augustine wrote Confessions around 397 to 400 AD, about a decade after his conversion. He was a bishop by then, a public figure with considerable theological authority. He wrote the book as a prayer, addressed directly to God, reviewing his life from childhood to his mid-thirties with striking and sometimes painful honesty.',
       'The opening sentence sets the tone: "You have made us for yourself, O Lord, and our heart is restless until it rests in You." It is the thesis of everything that follows. Augustine\'s account of his own restlessness: his sexual compulsion, his intellectual pride, his inability to commit to anything that required genuine self-surrender, is not a confession in the penitential sense. It is an exploration of why the things he reached for never satisfied what he was actually looking for.',
-      'Books 1–9 cover his life up to and including his conversion and the death of his mother Monica, who spent decades praying for him. The relationship between Augustine and Monica is one of the most fully rendered mother-son relationships in ancient literature. Her faith in him was persistent to the point of being sometimes excessive. A bishop once told her, in an attempt to end the conversation, that it was impossible that the son of so many tears could be lost.',
-      'Books 10–13 shift from autobiography to theology, an extended meditation on memory, time, and the nature of creation. These sections are less frequently quoted but contain some of Augustine\'s most original thinking, including his argument that time itself is a feature of creation rather than a container it exists within.',
+      'Books 1 to 9 cover his life up to and including his conversion and the death of his mother Monica, who spent decades praying for him. The relationship between Augustine and Monica is one of the most fully rendered mother-son relationships in ancient literature. Her faith in him was persistent to the point of being sometimes excessive. A bishop once told her, in an attempt to end the conversation, that it was impossible that the son of so many tears could be lost.',
+      'Books 10 to 13 shift from autobiography to theology, an extended meditation on memory, time, and the nature of creation. These sections are less frequently quoted but contain some of Augustine\'s most original thinking, including his argument that time itself is a feature of creation rather than a container it exists within.',
       'The book has never stopped being read. It was copied by monks in the medieval period, printed in the first decades of the printing press, translated into every major language, and continues to appear on syllabi in philosophy, theology, and literature departments. Its persistence is not explained by its historical importance alone. It is explained by the fact that the restlessness Augustine describes, and the answer he eventually found, remains recognisably human sixteen centuries later.',
     ],
   },
@@ -398,6 +398,76 @@ export const learningCards: LearningCard[] = [
       'His public ministry began seriously in his forties, after what he described as an encounter with the Holy Spirit that transformed his ability to pray for others. He began travelling widely, first in Britain and then internationally, preaching and praying for healing. The accounts of what happened at his meetings were documented by doctors, journalists, and church officials across multiple countries.',
       'His theology was simple and blunt: faith is not a feeling you cultivate. It is a decision you make in advance of the evidence. If God\'s word says something is true, you act on it as if it is true, before your circumstances confirm it. Waiting for the feeling is, in Wigglesworth\'s view, a failure of faith rather than an expression of it.',
       'He was not an easy person. He was direct to the point of abrasiveness and had little patience for what he considered half-measures in faith. He died in 1947 at 87, reportedly collapsing at a funeral service. He had apparently told people years earlier that he intended to die at a funeral, as he had always found it easier to raise people from the dead than to mourn them. Whether or not that story is precisely accurate, it captures something real about the way he lived.',
+    ],
+  },
+
+  // ─── MIRACLES & SUPERNATURAL ENCOUNTERS ────────────────────────────────────
+
+  {
+    id: 'kenneth-hagin-believers-authority-healing',
+    type: 'MIRACLE',
+    title: "The Believer's Authority in Healing",
+    source: 'Kenneth E. Hagin',
+    body: "Bedridden as a teenager with a deformed heart and paralyzed body, doctors gave Kenneth Hagin no hope of surviving. By studying Mark 11:23-24, he took God at His word, stepped out of bed completely healed, and spent sixty years teaching believers that God's healing power is real today.",
+    pullQuote: 'Faith begins where the will of God is known.',
+    takeaway: "God's healing power does not depend on human strength. It answers bold, humble trust in His Word.",
+    time: '3 min read',
+    fullBody: [
+      'Kenneth E. Hagin was born with a deformed heart and an incurable blood disease. By age fifteen, doctors in McKinney, Texas, informed his family that he was bedridden and had only months to live.',
+      'During sixteen months confined to bed, he read the Bible continuously. He reached Mark 11:23-24, where Jesus declared that whoever believes what they say will come to pass shall have whatever they say.',
+      'He realized that believing precedes seeing. On an August morning in 1934, despite paralysis, he swung his legs over the bed, stood by faith, and his heart and body were instantly restored.',
+      'Hagin spent the next sixty years ministering across the globe, teaching that divine healing is not a lottery, but a covenant inheritance purchased by Christ at Calvary.',
+    ],
+  },
+
+  {
+    id: 'apostle-joseph-ibrahim-prevailing-prayer-miracles',
+    type: 'MIRACLE',
+    title: 'Prevailing Prayer and Divine Manifestation',
+    source: 'Apostle Joseph Ibrahim · Gospel Labour Ministry',
+    body: 'In the prayer mountains and quiet towns of Ekiti State, Nigeria, Apostle Joseph Ibrahim built Gospel Labour Ministry on intense apostolic prayer, deep consecration, and raw manifestations of the Holy Spirit. Miracles and deliverances were not marketing tools, but the natural fruit of hours spent weeping in the secret place.',
+    pullQuote: 'The realm of signs and wonders is opened only to those who have tarried until self is broken.',
+    takeaway: 'Supernatural power flows not from stagecraft, but from hours of brokenness and persistent prayer before God.',
+    time: '4 min read',
+    fullBody: [
+      'In western Nigeria, the mountains of Ekiti have long been known as sanctuaries of serious prayer. It was here that Apostle Joseph Ibrahim founded Gospel Labour Ministry, dedicated to raising believers who know how to labour in intercession until divine realities break through.',
+      'His ministry rejected modern superficiality. Instead of quick motivational slogans, services were characterized by hours of travailing prayer, deep repentance, and an unquenchable hunger for God\'s glory.',
+      'Under this atmosphere of deep consecration, remarkable signs and wonders followed: chronic diseases melted away, demonic oppressions were shattered, and unchurched villagers encountered the living Christ through undeniable manifestations of power.',
+      'Apostle Ibrahim consistently taught that signs and wonders are not theatrical displays. They are the signature of a holy God confirming His Word where men have paid the price of secret prayer.',
+    ],
+  },
+
+  {
+    id: 'andrew-wommack-grace-and-faith-healing',
+    type: 'FAITH',
+    title: 'Grace and Faith in Manifesting Healing',
+    source: 'Andrew Wommack',
+    body: 'Andrew Wommack transformed modern Christian thinking by showing that healing is not something God decides on a whim. Through Christ\'s finished work at the cross, healing has already been provided, and biblical faith simply reaches out to receive what grace has already supplied.',
+    pullQuote: 'Faith does not force God to move. Faith receives what God has already provided through grace.',
+    takeaway: 'Stop trying to convince God to heal. Rest in what Christ has already purchased and receive it with gratitude.',
+    time: '3 min read',
+    fullBody: [
+      'For years, Andrew Wommack wrestled with the question of why some people receive healing while others do not. The prevailing belief was that God sovereignly chooses to heal some while allowing others to suffer to teach them lessons.',
+      'Through intensive study of the Gospels and Paul\'s epistles, Wommack arrived at a liberating realization: God is not withholding healing. At the cross, Jesus bore our sicknesses just as He bore our sins (1 Peter 2:24).',
+      'Grace made the provision two thousand years ago; faith is simply the hand that reaches out to take what has already been provided. Healing is therefore not a matter of begging an unwilling God, but of exercising authority over sickness in Jesus\' name.',
+      'This revelation has produced countless testimonies of recovery from cancer, paralysis, and terminal illness worldwide, grounding believers in the unconditional goodness of God.',
+    ],
+  },
+
+  {
+    id: 'charles-and-frances-hunter-how-to-heal-sick',
+    type: 'MIRACLE',
+    title: 'How to Heal the Sick: Every Believer\'s Call',
+    source: 'Charles and Frances Hunter',
+    body: 'Known affectionately as "The Happy Hunters", Charles and Frances traveled the world holding massive Healing Explosions. They demonstrated that healing was never intended to be the exclusive gift of superstar preachers, but the normal birthright of every ordinary believer who dares to lay hands on the sick in faith.',
+    pullQuote: 'God never called us to be spectators. He told every believer to lay hands on the sick.',
+    takeaway: 'You do not need a special platform to pray for the sick. God uses ordinary hands surrendered in faith.',
+    time: '3 min read',
+    fullBody: [
+      'Charles and Frances Hunter were an ordinary couple who had a radical encounter with the Holy Spirit later in life. Instead of keeping the supernatural at arm\'s length, they took Jesus\' commission in Mark 16 literally: "These signs shall follow them that believe; they shall lay hands on the sick, and they shall recover."',
+      'They began filling arenas and stadiums across continents, not to show off their own gifts, but to train tens of thousands of regular church members to minister healing with simplicity and boldness.',
+      'During their famous "Healing Explosions", hundreds of trained local believers would lay hands on the afflicted simultaneously, resulting in verified healings of blindness, deafness, spinal damage, and severe arthritis.',
+      'Their legacy permanently demystified the miraculous: if you are a believer with hands and a heart that loves people, the Holy Spirit can flow through you anywhere, from a hospital bedside to a grocery store aisle.',
     ],
   },
 ]

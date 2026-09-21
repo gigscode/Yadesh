@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ background: '#fbfbf8' }}>
       <body className="antialiased" style={{ background: '#fbfbf8' }}>
-        {/* Pre-hydration splash for standalone PWA mode — painted instantly by the browser before React boots */}
+        {/* Pre-hydration splash for standalone PWA mode: painted instantly by the browser before React boots */}
         <div id="pwa-initial-splash" aria-hidden="true">
           <img src="/yadesh-splash.png" alt="" width="260" height="80" />
         </div>
