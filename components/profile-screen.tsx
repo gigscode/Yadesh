@@ -3,8 +3,9 @@
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Loader2, Pencil, Check, X, LogOut } from 'lucide-react'
+import { Loader2, Pencil, Check, X, LogOut, Flame } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { useHabitTracker } from '@/hooks/use-habit-tracker'
 
 type Profile = {
   id: string
@@ -26,6 +27,7 @@ export function ProfileScreen({
 }) {
   const supabase = useMemo(() => createClient(), [])
   const router = useRouter()
+  const { stats, isLoaded } = useHabitTracker()
 
   const [editing, setEditing] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -203,14 +205,17 @@ export function ProfileScreen({
             <small>{savesCount === 0 ? 'Save something to return to' : 'View your library'} →</small>
           </Link>
           <Link href="/learn">
-            <strong>0</strong>
-            <span>Minutes learned</span>
-            <small>Start your first session →</small>
+            <strong style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+              {isLoaded ? stats.streak : 0}
+              {stats.streak > 0 && <span style={{ fontSize: '1.2rem' }}>🔥</span>}
+            </strong>
+            <span>Day streak</span>
+            <small>{stats.streak === 0 ? 'Read today to start' : 'Habit kept active'} →</small>
           </Link>
-          <Link href="/explore">
-            <strong>0</strong>
-            <span>Sources explored</span>
-            <small>Find a source to follow →</small>
+          <Link href="/learn">
+            <strong>{isLoaded ? stats.minutesLearned : 0}</strong>
+            <span>Minutes learned</span>
+            <small>{stats.minutesLearned === 0 ? 'Start your first session' : 'Faith over scrolling'} →</small>
           </Link>
         </div>
         {savesUnavailable && (

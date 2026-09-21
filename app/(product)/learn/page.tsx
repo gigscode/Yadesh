@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { LearningCard } from '@/components/learning-card'
 import { PageHeader } from '@/components/page-header'
+import { StreakBadge } from '@/components/streak-badge'
 import { learningCards } from '@/lib/learning-data'
 
 export default function LearnPage() {
@@ -9,6 +10,8 @@ export default function LearnPage() {
   return (
     <>
       <PageHeader title="Home" />
+
+      <StreakBadge />
 
       <section className="daily-learning-card">
         <div className="daily-learning-copy">

@@ -93,6 +93,9 @@ export default async function ReadingDetailPage({
       <ReadingDetailActions
         id={card.id}
         title={card.title}
+        pullQuote={card.pullQuote}
+        source={card.source}
+        type={card.type}
         initialSaved={initialSaved}
       />
 

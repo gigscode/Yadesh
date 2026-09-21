@@ -144,6 +144,8 @@ h1,h2,h3,.route-intro h1,.info-hero h1,.section-heading h2,.waitlist-section h2,
 .reading-save-btn:hover{border-color:var(--periwinkle);background:#f0eeff;color:var(--periwinkle)}
 .reading-save-btn.is-saved{border-color:var(--periwinkle);background:var(--periwinkle);color:#fff}
 .reading-save-btn:disabled{opacity:.55;cursor:not-allowed}
+.reading-share-btn:hover{border-color:#7168ed;background:#f5f4ff;color:#7168ed}
+.reading-share-btn:disabled{opacity:.7;cursor:wait}
 
 .reading-adjacent{margin-top:1rem;padding-top:2rem;border-top:1px solid var(--border)}
 .reading-adjacent-inner{display:grid;grid-template-columns:1fr 1fr;gap:1rem}

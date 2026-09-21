@@ -24,108 +24,12 @@ Yadesh is a source-aware learning platform for Christians who want to engage ser
 
 DISCOVER → LEARN → SAVE → GO DEEPER → RETURN
 
-## Tech stack
+## Content principles
 
-- [Next.js 16](https://nextjs.org) (App Router, TypeScript)
-- [Supabase](https://supabase.com) (auth, database, RLS)
-- [Tailwind CSS v4](https://tailwindcss.com)
-- [shadcn base-nova](https://ui.shadcn.com) (design system foundation)
-- [Lucide React](https://lucide.dev) (icons)
-- [Vercel Analytics](https://vercel.com/analytics)
-- PWA with service worker (Stale-While-Revalidate caching)
-
-## Database
-
-Two tables in Supabase:
-
-**profiles** created automatically via trigger on every registration. Stores `full_name`, `email`, `bio`, `avatar_url`. RLS locked to the owning user.
-
-**saved_items** one row per user per content item, referenced by `content_key`. RLS locked to the owning user.
-
-A `content` table schema exists for future migration of learning cards out of static files.
-
-## Project structure
-
-```
-app/                          Pages (Next.js App Router)
-  (marketing)/                Public marketing and auth route group
-    page.tsx                  Landing page (LegacyFeed)
-    layout.tsx                Persistent marketing shell
-    login/                    Sign in
-    register/                 Create account
-    forgot-password/          Password reset request
-    reset-password/           Password reset form
-  (product)/                  Authenticated app route group
-    layout.tsx                Persistent shell with ProductChrome
-    loading.tsx               Route group transition loading skeleton
-    learn/                    Authenticated home feed with daily card
-    learn/[id]/               Reading detail view
-    explore/                  Topic and theme discovery
-    saved/                    Personal library
-    you/                      Profile, edit, sign out
-    people/                   Christian figures
-    books/                    Book library
-    search/                   Global search
-  about/                      About Yadesh
-  community/                  Archived (not in nav, planned for v2)
-
-components/
-  legacy-feed.tsx             Public marketing homepage with live preview
-  product-chrome.tsx          Persistent product shell (sidebar, mobile header, bottom nav)
-  shared-nav.tsx              Public site floating pill nav
-  learning-card.tsx           Card component for learning grid
-  auth-screen.tsx             Login and register forms
-  forgot-password-screen.tsx  Password reset form
-  profile-screen.tsx          Profile view and inline edit
-  faq-section.tsx             FAQ accordion
-  pwa-updater.tsx             PWA service worker updater and splash handover
-
-lib/
-  learning-data.ts            Curated content pieces (static, v1)
-  supabase/
-    client.ts                 Browser Supabase client
-    server.ts                 Server Supabase client (cookie-based)
-  utils.ts                    cn() utility
-
-hooks/
-  use-save.ts                 Save and unsave hook with optimistic updates
-```
-
-## Getting started
-
-Install dependencies:
-
-```bash
-pnpm install
-```
-
-Copy the environment file and fill in your Supabase project values:
-
-```bash
-cp .env.local .env.local
-```
-
-```
-NEXT_PUBLIC_SUPABASE_URL=your-project-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-```
-
-Run the development server:
-
-```bash
-pnpm dev
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Supabase setup
-
-Run the following in your Supabase SQL Editor before using auth or saves:
-
-1. Profiles table with auto-creation trigger (see `prd.md` for full SQL)
-2. Saved items table with RLS policies (see `prd.md` for full SQL)
-
-In your Supabase dashboard under Authentication, disable email confirmation so users can register and start immediately.
+- Every piece is source-aware and points toward original books, biographies, and historical records.
+- Range across traditions: theology, biography, church history, practical faith, and Christian thought.
+- Focused 3 to 5 minute readings designed to be completed and remembered.
+- No ads, no algorithmic feeds, no endless distraction.
 
 ## Design language
 
@@ -134,4 +38,4 @@ In your Supabase dashboard under Authentication, disable email confirmation so u
 - Primary accent: electric lime
 - Secondary accent: periwinkle / violet
 - Contextual: soft lilac
-- Interface stays mostly off-white and black. Lime and violet are intentional accents, not defaults.
+- Calm, intentional, and readable across all devices.
