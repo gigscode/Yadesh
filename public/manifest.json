@@ -1,0 +1,29 @@
+{
+  "name": "Yadesh",
+  "short_name": "Yadesh",
+  "description": "Christian micro-learning in five minutes. Discover Christian books, people, teachings, testimonies, and history.",
+  "start_url": "/learn",
+  "display": "standalone",
+  "background_color": "#fbfbf8",
+  "theme_color": "#6b64f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-dark-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/yadesh-mark.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
+

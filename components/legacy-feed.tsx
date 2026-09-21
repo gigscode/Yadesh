@@ -1,63 +1,8 @@
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { SharedNav } from '@/components/shared-nav'
-import { PowerCard, CrucibleCard } from '@/components/legacy-cards'
-import type { PowerStory, CrucibleStory } from '@/components/legacy-cards'
-
-const powerStories: PowerStory[] = [
-  {
-    id: 'smith-wigglesworth-healing-room-1922',
-    minister: 'Smith Wigglesworth',
-    year: '1922',
-    headline: 'When a room full of skeptics fell silent',
-    testimony:
-      'Wigglesworth records that a woman, considered beyond medical hope, was brought to his meeting. He prayed with a fierce simplicity, then watched strength return to her body in front of the gathered church. The account became a summons to believe that God still meets people in their impossible places.',
-    scripture: '"They shall lay hands on the sick, and they shall recover." Mark 16:18',
-    source: 'https://archive.org/details/ever-increasing-faith',
-  },
-  {
-    id: 'john-g-lake-spokane-healing-rooms-1918',
-    minister: 'John G. Lake',
-    year: '1918',
-    headline: 'The healing rooms that outlasted the plague',
-    testimony:
-      'During the Spokane healing ministry, Lake described ordinary people arriving with extraordinary need. He tells of prayer rooms filled from morning until night, where testimonies of recovery became part of the daily rhythm. His firsthand record insists that compassion, not spectacle, was the center of the work.',
-    scripture: '"I am the Lord that healeth thee." Exodus 15:26',
-    source: 'https://archive.org/details/adventures-in-god',
-  },
-  {
-    id: 'kathryn-kuhlman-whisper-before-miracle-1972',
-    minister: 'Kathryn Kuhlman',
-    year: '1972',
-    headline: 'A whisper before the miracle',
-    testimony:
-      'Kuhlman often described the moment before a healing as quiet, almost hidden. In one testimony she recounts a person entering with a diagnosis and leaving with a new report after prayer. Her emphasis was never on the minister, but on surrendering the room to the Holy Spirit.',
-    scripture: '"Not by might, nor by power, but by my spirit." Zechariah 4:6',
-    source: 'https://archive.org/details/i-believe-in-miracles',
-  },
-]
-
-const crucibleStories: CrucibleStory[] = [
-  {
-    id: 'aimee-semple-mcpherson-momentum-discernment',
-    minister: 'Aimee Semple McPherson',
-    citation: 'Autobiography, This Is That',
-    headline: 'When momentum became a substitute for discernment',
-    summary:
-      'McPherson writes candidly about the pressures of visibility, travel, and a ministry growing faster than her private life could bear. A season of exhaustion and public confusion exposed how easily calling can be confused with constant motion. Her account does not erase the failure; it lets the lesson remain visible.',
-    correction: 'The Divine Correction: Return to hidden obedience before public influence.',
-    source: 'https://archive.org/details/this-is-that-aimee-semple-mcpherson',
-  },
-  {
-    id: 'charles-finney-method-over-god',
-    minister: 'Charles Finney',
-    citation: 'Memoirs, Charles G. Finney',
-    headline: 'The danger of trusting a method more than God',
-    summary:
-      'Finney reflects on revival meetings where human technique could begin to imitate spiritual power. He saw that emotional response and lasting transformation were not the same thing. His correction was to recover prayerful dependence instead of leaning on a repeatable formula.',
-    correction: 'The Divine Correction: Let the altar shape the method, never the method the altar.',
-    source: 'https://archive.org/details/memoirs-of-charles-g-finney',
-  },
-]
+import { LearningCard } from '@/components/learning-card'
+import { learningCards } from '@/lib/learning-data'
 
 export function LegacyFeed({
   showHero = true,
@@ -68,6 +13,8 @@ export function LegacyFeed({
   showNav?: boolean
   isLoggedIn?: boolean
 }) {
+  const previewCards = learningCards.slice(0, 3)
+
   return (
     <div className="phone-shell">
       {showNav && <SharedNav isLoggedIn={isLoggedIn} />}
@@ -77,26 +24,28 @@ export function LegacyFeed({
         {showHero && (
           <section className="landing-hero" aria-labelledby="page-title">
             <div className="hero-copy">
-              <p className="kicker">Christian micro-learning</p>
+              <p className="kicker">A five minute habit for the Christian mind</p>
               <h1 id="page-title">
-                <span className="hero-line hero-line-one">Five minutes.</span>
-                <span className="hero-line hero-line-two hero-emphasis">Something worth</span>
-                <span className="hero-line hero-line-three hero-emphasis">knowing.</span>
+                <span className="hero-line hero-line-one">Trade scrolling.</span>
+                <span className="hero-line hero-line-two hero-emphasis">Feed your</span>
+                <span className="hero-line hero-line-three hero-emphasis">faith.</span>
               </h1>
-              <p>Ideas, stories, and lives from across the history of the Christian faith. Curated. Sourced. Yours to keep.</p>
+              <p>
+                Short, memorable lessons from great Christian books, biographies, and history. Built for busy people who want depth without the noise.
+              </p>
               <div className="hero-actions">
                 {isLoggedIn ? (
-                  <a className="hero-link" href="/learn">
+                  <Link className="hero-link" href="/learn">
                     Continue learning <ArrowUpRight aria-hidden="true" />
-                  </a>
+                  </Link>
                 ) : (
                   <>
-                    <a className="hero-link" href="/register">
-                      Start learning <ArrowUpRight aria-hidden="true" />
-                    </a>
-                    <a className="hero-secondary" href="/explore">
-                      Explore the archive <ArrowUpRight aria-hidden="true" />
-                    </a>
+                    <Link className="hero-link" href="/register">
+                      Start reading for free <ArrowUpRight aria-hidden="true" />
+                    </Link>
+                    <Link className="hero-secondary" href="/explore">
+                      Browse topics <ArrowUpRight aria-hidden="true" />
+                    </Link>
                   </>
                 )}
               </div>
@@ -105,32 +54,49 @@ export function LegacyFeed({
           </section>
         )}
 
+        {/* Live Sample Preview: What you actually get */}
+        <section className="product-section" aria-labelledby="preview-title" style={{ marginTop: '1rem', marginBottom: '3rem' }}>
+          <div className="section-heading" style={{ marginBottom: '1.25rem' }}>
+            <div>
+              <p className="kicker">What you will read</p>
+              <h2 id="preview-title" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.5rem)', margin: '0.35rem 0' }}>
+                Five minutes. Real depth.
+              </h2>
+            </div>
+          </div>
+          <div className="learning-grid">
+            {previewCards.map((item) => (
+              <LearningCard key={item.id} {...item} />
+            ))}
+          </div>
+        </section>
+
         <section className="how-section landing-method" aria-labelledby="how-title">
           <div className="section-heading">
             <div>
-              <p className="kicker">A quieter way to grow</p>
-              <h2 id="how-title">Learning with context, not noise.</h2>
+              <p className="kicker">Why Yadesh</p>
+              <h2 id="how-title">Built for real life, not endless feeds.</h2>
             </div>
             <span className="section-index">01 / 03</span>
           </div>
           <p className="method-intro">
-            Yadesh turns meaningful Christian sources into focused moments of learning you can understand, remember, and return to.
+            Most of us lose spare moments to mindless scrolling and leave feeling empty. Yadesh turns those moments into quiet growth from trusted Christian sources.
           </p>
           <div className="how-grid">
             <article>
               <span>01</span>
-              <h3>Find the signal</h3>
-              <p>Start with one clear idea from a trusted book, person, teaching, or testimony.</p>
+              <h3>Pick one idea</h3>
+              <p>Choose a theme or open the daily reading from Christian leaders, thinkers, and classic books.</p>
             </article>
             <article>
               <span>02</span>
-              <h3>Take the lesson</h3>
-              <p>Learn the essential context in a few focused minutes, without an endless feed.</p>
+              <h3>Read in 3 minutes</h3>
+              <p>Understand the core lesson quickly with clear context, without getting lost in endless feeds.</p>
             </article>
             <article>
               <span>03</span>
-              <h3>Follow the source</h3>
-              <p>Go deeper when an idea deserves your attention, practice, and memory.</p>
+              <h3>Keep what matters</h3>
+              <p>Save insights to your personal library so you can remember them and apply them in daily life.</p>
             </article>
           </div>
         </section>
@@ -140,27 +106,27 @@ export function LegacyFeed({
             <p className="kicker">Start today</p>
             {isLoggedIn ? (
               <>
-                <h2 id="cta-title">Keep the habit going.</h2>
-                <p>Your library is waiting. Pick up where you left off or start something new.</p>
+                <h2 id="cta-title">Keep your habit going.</h2>
+                <p>Your library is waiting. Pick up where you left off or discover something new.</p>
               </>
             ) : (
               <>
-                <h2 id="cta-title">Build a quieter learning habit.</h2>
-                <p>Create a free account and start learning from trusted Christian sources in five focused minutes.</p>
+                <h2 id="cta-title">Start your five minute habit today.</h2>
+                <p>Create a free account and replace empty screen time with timeless Christian wisdom.</p>
               </>
             )}
           </div>
           <div className="register-cta-actions">
             {isLoggedIn ? (
-              <a className="hero-link" href="/learn">
+              <Link className="hero-link" href="/learn">
                 Continue learning <ArrowUpRight aria-hidden="true" />
-              </a>
+              </Link>
             ) : (
               <>
-                <a className="hero-link" href="/register">
-                  Create your account <ArrowUpRight aria-hidden="true" />
-                </a>
-                <a className="hero-secondary" href="/login">Already have an account</a>
+                <Link className="hero-link" href="/register">
+                  Create your free account <ArrowUpRight aria-hidden="true" />
+                </Link>
+                <Link className="hero-secondary" href="/login">Already have an account</Link>
               </>
             )}
           </div>

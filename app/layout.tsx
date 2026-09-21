@@ -6,6 +6,7 @@ import { PwaUpdater } from '@/components/pwa-updater'
 export const metadata: Metadata = {
   title: 'Yadesh, Christian Micro-Learning',
   description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
+  manifest: '/manifest.json',
   icons: {
     icon: [
       { url: '/favicon.ico', type: 'image/x-icon' },
@@ -28,6 +29,10 @@ export default function RootLayout({
   return (
     <html lang="en" style={{ background: '#fbfbf8' }}>
       <body className="antialiased" style={{ background: '#fbfbf8' }}>
+        {/* Pre-hydration splash for standalone PWA mode — painted instantly by the browser before React boots */}
+        <div id="pwa-initial-splash" aria-hidden="true">
+          <img src="/yadesh-splash.png" alt="" width="260" height="80" />
+        </div>
         <PwaUpdater />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

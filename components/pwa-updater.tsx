@@ -13,6 +13,7 @@ export function PwaUpdater() {
         (window.navigator as { standalone?: boolean }).standalone === true)
 
     if (isStandalone) {
+      document.body.classList.add('pwa-hydrated')
       setShowSplash(true)
       const timer = setTimeout(() => setShowSplash(false), 1800)
       return () => clearTimeout(timer)
@@ -22,11 +23,14 @@ export function PwaUpdater() {
   useEffect(() => {
     if (!('serviceWorker' in navigator) || !window.isSecureContext) return
 
+    // Track whether this document was already controlled by a service worker on load.
+    // If it was not (first visit / clean cache), controllerchange should NOT force a reload.
+    const hadControllerOnLoad = Boolean(navigator.serviceWorker.controller)
     let refreshing = false
     let intervalId: ReturnType<typeof setInterval> | null = null
 
     const handleControllerChange = () => {
-      if (refreshing) return
+      if (refreshing || !hadControllerOnLoad) return
       refreshing = true
       window.location.reload()
     }
