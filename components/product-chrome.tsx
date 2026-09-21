@@ -13,7 +13,7 @@ import {
   Users,
   X,
 } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
 
 const primary: [string, string, LucideIcon][] = [
@@ -30,6 +30,28 @@ const library: [string, string, LucideIcon][] = [
 export function ProductChrome({ children }: { children: React.ReactNode }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
+  const headerRef = useRef<HTMLElement>(null)
+  const menuRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      const target = event.target as Node | null
+      if (!target) return
+      if (headerRef.current?.contains(target) || menuRef.current?.contains(target)) {
+        return
+      }
+      setMenuOpen(false)
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [menuOpen])
 
   function isActive(href: string) {
     if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/')
@@ -94,7 +116,7 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
       </aside>
 
       {/* Mobile header never unmounts */}
-      <header className="product-mobile-header">
+      <header ref={headerRef} className="product-mobile-header">
         <Link href="/" className="product-logo">
           <span className="product-logo-mark">
             <img src="/yadesh-mark.png" alt="" width="34" height="34" loading="eager" />
@@ -112,7 +134,7 @@ export function ProductChrome({ children }: { children: React.ReactNode }) {
 
       {/* Mobile overflow menu */}
       {menuOpen && (
-        <nav className="product-mobile-menu" aria-label="More navigation">
+        <nav ref={menuRef} className="product-mobile-menu" aria-label="More navigation">
           <Link onClick={() => setMenuOpen(false)} href="/search">
             <Search aria-hidden="true" />Search
           </Link>

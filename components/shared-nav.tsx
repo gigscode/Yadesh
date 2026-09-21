@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { ArrowUpRight, ChevronDown, Menu, X } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type NavLink = {
   label: string
@@ -24,10 +24,32 @@ function getMenuLinks(isLoggedIn: boolean): NavLink[] {
 export function SharedNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuLinks = getMenuLinks(isLoggedIn)
+  const headerRef = useRef<HTMLElement>(null)
+  const menuPanelRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (!menuOpen) return
+
+    function handleClickOutside(event: MouseEvent | TouchEvent) {
+      const target = event.target as Node | null
+      if (!target) return
+      if (headerRef.current?.contains(target) || menuPanelRef.current?.contains(target)) {
+        return
+      }
+      setMenuOpen(false)
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('touchstart', handleClickOutside)
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('touchstart', handleClickOutside)
+    }
+  }, [menuOpen])
 
   return (
     <>
-      <header className="app-header">
+      <header ref={headerRef} className="app-header">
         <nav className="desktop-nav" aria-label="Primary navigation">
 
           {/* Left group: brand + topics */}
@@ -73,6 +95,7 @@ export function SharedNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
       {/* Slide-down menu panel */}
       {menuOpen && (
         <div
+          ref={menuPanelRef}
           id="nav-menu-panel"
           className="menu-panel"
           role="dialog"

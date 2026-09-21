@@ -3,9 +3,21 @@ import { SharedNav } from '@/components/shared-nav'
 import { FaqSection } from '@/components/faq-section'
 
 const principles = [
-  ['01', 'Ideas worth five minutes', 'Every piece on Yadesh starts with one clear idea from a trusted book, person, teaching, or testimony. Short enough to finish. Meaningful enough to stay with you.'],
-  ['02', 'Learning that points to the source', 'Yadesh does not replace the original. It introduces you to it. Every piece points toward the book, biography, or historical record it came from so you can go further when something matters.'],
-  ['03', 'A library you actually return to', 'Save what resonates. Build a quiet collection of ideas, lives, and lessons you can come back to without hunting through a feed.'],
+  [
+    '01',
+    'Real depth in five minutes',
+    'You do not need an hour of free time or a seminary degree to grow. Every reading focuses on one clear lesson from a trusted Christian author, leader, or historical event, written to be finished in five minutes.',
+  ],
+  [
+    '02',
+    'Anchored in original sources',
+    'Yadesh does not replace original books or scripture, it introduces you to them. Every reading links directly to the real book, biography, or historical record so you can explore further whenever an idea moves you.',
+  ],
+  [
+    '03',
+    'A personal library you keep',
+    'Save your favourite readings with one tap. Build a personal collection of wisdom that stays with you, ready whenever you need encouragement or reflection.',
+  ],
 ]
 
 export default function AboutPage() {
@@ -13,9 +25,11 @@ export default function AboutPage() {
     <main className="info-page">
       <SharedNav />
       <section className="info-hero">
-        <p className="kicker">The Yadesh approach</p>
-        <h1>Learning that takes<br /><em>the faith seriously.</em></h1>
-        <p>Yadesh brings together ideas, people, books, teachings, testimonies, and history from across Christianity in short, sourced, honest readings. Not a Bible app. Not a sermon stream. Something more like a library that fits in five minutes.</p>
+        <p className="kicker">Why we built Yadesh</p>
+        <h1>A daily habit for Christians<br /><em>who want depth without noise.</em></h1>
+        <p>
+          Most of us spend spare minutes checking social media, only to close our phones feeling drained. We want to read classic Christian books, learn church history, and grow in our faith, but life is busy. Yadesh gives you short, three to five minute lessons drawn from real books, biographies, and teachings that you can easily finish, remember, and keep.
+        </p>
       </section>
       <section className="info-grid" aria-label="Yadesh principles">
         {principles.map(([number, title, copy]) => (

@@ -7,31 +7,43 @@ type Faq = { question: string; answer: string }
 const faqs: Faq[] = [
   {
     question: 'What is Yadesh?',
-    answer: 'Yadesh is Christian micro-learning. It brings you ideas, stories, lives, and lessons from across the history of the Christian faith in short, sourced readings. Think of it as a library that fits in five minutes.',
+    answer:
+      'Yadesh is a daily reading app for your faith. It takes timeless wisdom from great Christian books, biographies, and church history and turns them into short three to five minute readings you can easily finish and remember.',
   },
   {
     question: 'Is it free?',
-    answer: 'Yes. Creating an account and saving content is free. You can start reading immediately after registering.',
+    answer:
+      'Yes, Yadesh is completely free. You can start reading right away, save your favourite lessons, and explore topics without paying anything.',
   },
   {
     question: 'How is this different from a Bible app?',
-    answer: 'Bible apps help you read scripture. Yadesh helps you understand the people, books, ideas, and history that surround it. C.S. Lewis, Dietrich Bonhoeffer, Corrie ten Boom, Augustine, church history, revival accounts. The faith is bigger than most of us have been shown.',
+    answer:
+      'Bible apps are designed for reading scripture. Yadesh helps you discover the rich history, classic books, and remarkable lives that surround the faith (think of C.S. Lewis, Dietrich Bonhoeffer, Corrie ten Boom, and Augustine). It is built to complement your Bible reading, not replace it.',
+  },
+  {
+    question: 'How is this different from social media or quick devotionals?',
+    answer:
+      'Social media feeds keep you scrolling aimlessly and leave you tired. Quick devotionals often offer just a verse and a brief thought. Yadesh gives you substantive ideas and inspiring stories from real Christian history in five minutes, leaving you encouraged rather than distracted.',
   },
   {
     question: 'Where does the content come from?',
-    answer: 'Every piece on Yadesh is sourced. We point toward the original books, biographies, public records, and historical accounts so you can go further when something matters. The principle is simple: read, keep, remember.',
+    answer:
+      'Every piece on Yadesh is sourced. We point toward the original books, biographies, public records, and historical accounts so you can go further when an idea matters to you.',
   },
   {
     question: 'Who is Yadesh for?',
-    answer: 'Anyone who wants to engage seriously with the Christian faith but does not have hours to spare. If you have five minutes and genuine curiosity, Yadesh is built for you.',
+    answer:
+      'Yadesh is for any Christian who wants to grow deeper in their faith but feels pressed for time. Whether you have five minutes on your morning commute or before going to sleep, it gives you something meaningful to carry with you.',
   },
   {
     question: 'Can I save what I learn?',
-    answer: 'Yes. Create an account and use the save button on any card to build your personal library. Your saved readings are waiting whenever you come back.',
+    answer:
+      'Yes. Create a free account and tap the save button on any reading to build your personal library. Your saved readings are waiting whenever you return.',
   },
   {
     question: 'What does Yadesh mean?',
-    answer: 'Yadesh comes from the Hebrew concept of remembrance and intentional knowing. The name reflects what the product is about: learning things worth holding on to.',
+    answer:
+      'Yadesh draws from the Hebrew concept of remembrance and intentional knowing. It represents learning that stays in your heart and mind, rather than fleeting content you forget seconds later.',
   },
 ]
 

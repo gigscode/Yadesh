@@ -6,9 +6,9 @@ This file is the source of truth for any agent or developer working on this code
 
 ## Product identity
 
-Yadesh is a source-aware Christian micro-learning platform for ages 16 to 40. The core promise is: "Five minutes. Something worth knowing."
+Yadesh is a source-aware Christian micro-learning platform for ages 16 to 40. The core promise is: "Trade scrolling. Feed your faith. Five minutes of something worth knowing."
 
-It is not a Bible app, sermon platform, social network, or quote app.
+It is a quiet daily antidote to doomscrolling. It is not a Bible app, sermon platform, social network, or quote app.
 
 Content must span traditions: theology, biography, church history, practical faith, and Christian thought. It must not read as a Pentecostal or Word of Faith product exclusively.
 
@@ -58,6 +58,7 @@ Route groups do not affect URLs. `/learn`, `/explore`, etc. are unchanged.
 - `.app-header` must remain a transparent sticky container. No full-width visible background.
 - `.desktop-nav` owns all visible surface: rounded pill, border, shadow.
 - The page or hero background must continue behind the nav.
+- Clicking outside any open menu panel closes it automatically.
 - No horizontal overflow at any breakpoint.
 - Preserve `aria-expanded` on the hamburger button and its close behavior.
 - Test at `/`, `/login`, `/register`, `/about` after any nav change.
@@ -66,6 +67,7 @@ Route groups do not affect URLs. `/learn`, `/explore`, etc. are unchanged.
 - Persistent left sidebar on desktop (15.5rem).
 - Fixed bottom nav on mobile.
 - Active nav item determined by `usePathname()` in `ProductChrome`. The `/learn` route uses a prefix match so `/learn/[id]` also highlights Home.
+- Clicking outside the mobile top nav menu closes it automatically.
 - Community is removed from v1 nav. Do not re-add it without explicit instruction.
 
 ---
@@ -145,8 +147,8 @@ The detail page renders: back link, type badge, coloured hero header (colour mat
 - No em dashes anywhere: not in UI text, metadata titles, code comments, or documentation.
 - Use `|` as the separator in page `<title>` metadata (e.g. `Card Title | Yadesh`), not em dashes.
 - Footer line: Read. Keep. Remember.
-- Tagline: Five minutes. Something worth knowing.
-- Preferred CTAs: Start learning, Read for 2 min, Explore this person, Save, Continue learning.
+- Tagline: Trade scrolling. Feed your faith. Five minutes of something worth knowing.
+- Preferred CTAs: Start reading for free, Read for 2 min, Explore this person, Save, Continue learning.
 - Avoid: Save to Altar, Enter the archive, Choose your pressure.
 - Write like a person, not a product brief.
 

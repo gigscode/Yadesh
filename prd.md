@@ -4,9 +4,9 @@
 
 Yadesh is a personalized Christian micro-learning and discovery platform for ages 16 to 40.
 
-Core promise: "Five minutes. Something worth knowing."
+Core promise: "Trade scrolling. Feed your faith. Five minutes of something worth knowing."
 
-Yadesh helps Christians use small moments to discover meaningful ideas, stories, teachings, people, books, testimonies, and history from across the faith.
+Yadesh provides a quiet, focused alternative to mindless scrolling, helping Christians use small daily moments to discover meaningful ideas, stories, teachings, people, books, testimonies, and history from across the faith.
 
 Yadesh is NOT:
 - a generic Bible app
@@ -18,6 +18,7 @@ Yadesh is NOT:
 
 Yadesh IS:
 - a modern Christian learning platform
+- a daily antidote to doomscrolling
 - a discovery engine for Christian knowledge
 - an editorial experience
 - a source-aware knowledge archive
@@ -256,6 +257,7 @@ Sign out: clears session and redirects to `/`.
 - `.app-header` must remain transparent. No full-width background strip.
 - `.desktop-nav` owns all visible surface, radius, border, and shadow.
 - Page or hero background continues behind the nav.
+- Clicking outside any open navigation menu closes it automatically.
 - No horizontal overflow at any breakpoint.
 - Hamburger button preserves `aria-expanded` and keyboard accessibility.
 
@@ -265,10 +267,10 @@ Sign out: clears session and redirects to `/`.
 
 - No em dashes anywhere: not in UI text, card content, metadata titles, code comments, or documentation.
 - Use `|` as the separator in page `<title>` metadata (e.g. `Card Title | Yadesh`).
-- Preferred CTAs: Start learning, Read for 2 min, Explore this person, Read the source, Go deeper, Save, Continue learning, View all.
+- Preferred CTAs: Start reading for free, Read for 2 min, Explore this person, Read the source, Go deeper, Save, Continue learning, View all.
 - Avoid: Enter the archive, Save to Altar, Choose your pressure.
 - Footer line: Read. Keep. Remember.
-- Tagline: Five minutes. Something worth knowing.
+- Tagline: Trade scrolling. Feed your faith. Five minutes of something worth knowing.
 
 ---
 
@@ -285,7 +287,11 @@ Sign out: clears session and redirects to `/`.
 
 ## PWA
 
-Installable PWA with service worker at `public/sw.js`. Install messaging: "Keep Yadesh close."
+Installable PWA with web app manifest at `public/manifest.json` and service worker at `public/sw.js`.
+- Caching strategy: Stale-While-Revalidate with `yadesh-pages-v3`.
+- Instant route transitions from cache, background updates without blocking.
+- Pre-hydration branded splash screen in `app/layout.tsx` for immediate native launch feel.
+- Install messaging: "Keep Yadesh close."
 
 ---
 
