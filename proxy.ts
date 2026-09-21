@@ -35,7 +35,17 @@ export async function proxy(request: NextRequest) {
   // IMPORTANT: do not add any logic between createServerClient and
   // supabase.auth.getUser(). A subtle bug can cause session tokens
   // to be refreshed in the wrong order, leading to random sign-outs.
-  await supabase.auth.getUser()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  // Redirect authenticated users away from the marketing homepage
+  // to their app home. Done here in middleware so it fires before
+  // any rendering, eliminating the flash that occurs when the redirect
+  // happens inside a server component after the Suspense fallback paints.
+  if (user && request.nextUrl.pathname === '/') {
+    const learnUrl = request.nextUrl.clone()
+    learnUrl.pathname = '/learn'
+    return NextResponse.redirect(learnUrl)
+  }
 
   // IMPORTANT: return supabaseResponse — not NextResponse.next() —
   // so the updated Set-Cookie headers are forwarded to the browser.

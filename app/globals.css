@@ -156,3 +156,8 @@ h1,h2,h3,.route-intro h1,.info-hero h1,.section-heading h2,.waitlist-section h2,
   .reading-adj-next{text-align:left}
 }
 
+
+/* Marketing shell — persistent wrapper for /, /login, /register, /forgot-password, /reset-password.
+   Keeps the background painted between navigations so the raw body is never exposed. */
+.marketing-shell{min-height:100svh;background:var(--background)}
+@media(min-width:900px){.marketing-shell{background:linear-gradient(135deg,#f4f4ef,#eeeaf5)}}
