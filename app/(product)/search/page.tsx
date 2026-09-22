@@ -32,7 +32,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         </div>
         {results.length > 0 ? (
           <div className="learning-grid">
-            {results.map((item) => <LearningCard key={item.id} {...item} />)}
+            {results.map((item, index) => <LearningCard key={item.id} {...item} index={index} />)}
           </div>
         ) : (
           <div className="empty-state">

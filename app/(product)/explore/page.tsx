@@ -26,8 +26,8 @@ export default async function ExplorePage() {
           <Link href="/search">Browse all</Link>
         </div>
         <div className="learning-grid">
-          {cards.map((item) => (
-            <LearningCard key={item.id} {...item} />
+          {cards.map((item, index) => (
+            <LearningCard key={item.id} {...item} index={index} />
           ))}
         </div>
       </section>

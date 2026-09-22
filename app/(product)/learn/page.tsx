@@ -34,8 +34,8 @@ export default async function LearnPage() {
         <div className="learning-grid">
           {cards
             .filter((item) => item.id !== dailyCard.id)
-            .map((item) => (
-              <LearningCard key={item.id} {...item} />
+            .map((item, index) => (
+              <LearningCard key={item.id} {...item} index={index} />
             ))}
         </div>
       </section>

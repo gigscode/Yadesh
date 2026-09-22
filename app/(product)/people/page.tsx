@@ -29,81 +29,45 @@ export default async function PeoplePage() {
           paddingBottom: '5rem',
         }}
       >
-        {people.map((person) => (
-          <Link
-            key={person.id}
-            href={`/people/${person.id}`}
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              padding: '1.5rem',
-              borderRadius: '1.25rem',
-              background: '#fff',
-              border: '1px solid var(--border)',
-              textDecoration: 'none',
-              color: 'var(--foreground)',
-              boxShadow: '0 0.35rem 1rem rgba(23, 24, 29, 0.04)',
-              transition: 'transform 0.18s ease, box-shadow 0.18s ease',
-            }}
-            className="learning-card"
-          >
-            <div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-                <span
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.3rem',
-                    padding: '0.3rem 0.65rem',
-                    borderRadius: '999px',
-                    background: '#f4f0ff',
-                    color: '#7168ed',
-                    fontSize: '0.68rem',
-                    fontWeight: 900,
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                  }}
-                >
-                  <User size={11} /> {person.lifespan}
-                </span>
+        {people.map((person, index) => {
+          const delay = Math.min(index + 1, 6)
 
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem', fontSize: '0.72rem', color: '#16a34a', fontWeight: 800 }}>
-                  <ShieldCheck size={12} /> Verified Source
-                </span>
+          return (
+            <Link
+              key={person.id}
+              href={`/people/${person.id}`}
+              className={`learning-card card-type-life anim-fade-up delay-${delay}`}
+              style={{ textDecoration: 'none', color: 'var(--foreground)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}
+            >
+              <div>
+                <div className="card-meta">
+                  <span className="card-badge">
+                    <User size={10} style={{ display: 'inline', marginRight: '0.25rem', verticalAlign: 'middle' }} />
+                    {person.lifespan}
+                  </span>
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.7rem', color: '#16a34a', fontWeight: 800 }}>
+                    <ShieldCheck size={12} /> Verified
+                  </span>
+                </div>
+
+                <h3 style={{ color: '#7c3aaa' }}>{person.name}</h3>
+
+                <p style={{ margin: '0 0 0.75rem', fontSize: '0.82rem', color: 'var(--muted-foreground)', fontWeight: 800 }}>
+                  {person.role}
+                </p>
+
+                <p style={{ margin: 0, fontSize: '0.86rem', lineHeight: 1.5, color: '#454651' }}>
+                  {person.shortBio}
+                </p>
               </div>
 
-              <h2 style={{ fontSize: '1.35rem', lineHeight: 1.15, margin: '0 0 0.35rem', letterSpacing: '-0.03em' }}>
-                {person.name}
-              </h2>
-
-              <p style={{ margin: '0 0 0.75rem', fontSize: '0.82rem', color: '#7168ed', fontWeight: 800 }}>
-                {person.role}
-              </p>
-
-              <p style={{ margin: 0, fontSize: '0.86rem', lineHeight: 1.5, color: 'var(--muted-foreground)' }}>
-                {person.shortBio}
-              </p>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                marginTop: '1.5rem',
-                paddingTop: '1rem',
-                borderTop: '1px solid rgba(23, 24, 29, 0.06)',
-                fontSize: '0.82rem',
-                fontWeight: 900,
-                color: '#7168ed',
-              }}
-            >
-              <span>Explore firsthand account</span>
-              <ArrowUpRight size={16} />
-            </div>
-          </Link>
-        ))}
+              <div className="card-actions" style={{ marginTop: '1.5rem' }}>
+                <span style={{ color: '#7c3aaa', fontWeight: 900, fontSize: '0.82rem' }}>Explore firsthand account</span>
+                <ArrowUpRight size={16} style={{ color: '#7c3aaa' }} />
+              </div>
+            </Link>
+          )
+        })}
       </div>
     </>
   )

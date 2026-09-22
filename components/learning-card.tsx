@@ -13,6 +13,7 @@ type LearningCardProps = {
   time: string
   accent?: boolean
   initialSaved?: boolean
+  index?: number
 }
 
 export function LearningCard({
@@ -24,17 +25,21 @@ export function LearningCard({
   time,
   accent = false,
   initialSaved = false,
+  index,
 }: LearningCardProps) {
   const { saved, loading, error, toggle } = useSave(id, initialSaved)
 
   const displayType = type === 'IDEA' ? 'FAITH' : type
   const typeClass = `card-type-${displayType.toLowerCase()}`
 
+  const delayClass = index !== undefined ? ` delay-${Math.min(index + 1, 6)}` : ''
+  const animClass = index !== undefined ? ' anim-fade-up' : ''
+
   return (
-    <article className={`learning-card ${typeClass}${accent ? ' accent' : ''}`}>
+    <article className={`learning-card ${typeClass}${accent ? ' accent' : ''}${animClass}${delayClass}`}>
       <div className="card-meta">
-        <span>{displayType}</span>
-        <span>{time}</span>
+        <span className="card-badge">{displayType}</span>
+        <span className="card-meta-time">{time}</span>
       </div>
       <h3>{title}</h3>
       <p className="card-source">{source}</p>

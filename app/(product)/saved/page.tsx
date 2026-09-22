@@ -55,8 +55,8 @@ export default async function SavedPage() {
             <span>{savedCards.length} {savedCards.length === 1 ? 'item' : 'items'}</span>
           </div>
           <div className="learning-grid">
-            {savedCards.map((item) => (
-              <LearningCard key={item.id} {...item} initialSaved={true} accent />
+            {savedCards.map((item, index) => (
+              <LearningCard key={item.id} {...item} initialSaved={true} index={index} />
             ))}
           </div>
         </section>
