@@ -54,39 +54,6 @@ export const peopleProfiles: PersonProfile[] = [
     ],
   },
 
-  {
-    id: 'apostle-joseph-ibrahim',
-    name: 'Apostle Joseph Ibrahim',
-    lifespan: 'Contemporary',
-    role: 'Apostolic Leader · Gospel Labour Ministry, Ekiti, Nigeria',
-    coreQuote: 'The realm of signs and wonders is opened only to those who have tarried until self is broken.',
-    shortBio: 'Apostle Joseph Ibrahim leads Gospel Labour Ministry in western Nigeria, carrying a fierce apostolic mandate focused on travailing prayer, personal holiness, and undeniable manifestations of the Holy Spirit.',
-    eyewitnessStory: {
-      title: 'The Midnight Pillar of Light in the Mountains of Ekiti',
-      account: 'During the foundational years of Gospel Labour Ministry, Apostle Joseph Ibrahim led small teams into the rocky prayer mountains of Ekiti State for consecutive days of fasting and midnight travail. During one season of deep intercession, villagers in the surrounding valley reported seeing a tangible column of white light hovering over the prayer grove at 2:00 AM. When the team descended the mountain the following morning, spontaneous healings broke out in the marketplace: blind eyes opened, chronic paralysis dissolved, and local herbalists surrendered their charms to embrace Christ. Apostle Ibrahim wept and reminded the congregation that power belongs to God alone.',
-      primarySource: 'Gospel Labour Ministry Field Archives and Testimonies of Labour (Ekiti, Nigeria)',
-      sourceContext: 'Documented field records and verified eyewitness accounts from Gospel Labour Ministry.',
-    },
-    keyFacts: [
-      {
-        factTitle: 'The Principle of Travailing Prayer',
-        detail: 'He insists that genuine spiritual breakthrough requires what the New Testament calls laboring in prayer, often spending between 8 to 12 hours in secret intercession before public ministry.',
-      },
-      {
-        factTitle: 'Rejection of Commercial Christianity',
-        detail: 'Known across southwestern Nigeria for refusing to charge for anointings, prayer cloths, or consultation fees, teaching that the Gospel must remain uncompromised.',
-      },
-      {
-        factTitle: 'Discipleship in Secret Consecration',
-        detail: 'His ministry focuses on training young men and women to become spiritual intercessors, planting quiet outposts of revival rather than building commercial religious empires.',
-      },
-    ],
-    booksAuthored: [
-      'The Labour of the Secret Place',
-      'Prevailing Prayer in the End Times',
-      'The Fire of Apostolic Consecration',
-    ],
-  },
 
   {
     id: 'smith-wigglesworth',

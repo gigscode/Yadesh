@@ -8,11 +8,7 @@ export const metadata: Metadata = {
   description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
   manifest: '/manifest.json',
   icons: {
-    icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' },
-      { url: '/icon-dark-32x32.png', type: 'image/png', sizes: '32x32' },
-    ],
-    apple: [{ url: '/apple-icon.png', type: 'image/png' }],
+    icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],
   },
 }
 

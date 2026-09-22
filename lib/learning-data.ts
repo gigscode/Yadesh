@@ -420,22 +420,6 @@ export const learningCards: LearningCard[] = [
     ],
   },
 
-  {
-    id: 'apostle-joseph-ibrahim-prevailing-prayer-miracles',
-    type: 'MIRACLE',
-    title: 'Prevailing Prayer and Divine Manifestation',
-    source: 'Apostle Joseph Ibrahim · Gospel Labour Ministry',
-    body: 'In the prayer mountains and quiet towns of Ekiti State, Nigeria, Apostle Joseph Ibrahim built Gospel Labour Ministry on intense apostolic prayer, deep consecration, and raw manifestations of the Holy Spirit. Miracles and deliverances were not marketing tools, but the natural fruit of hours spent weeping in the secret place.',
-    pullQuote: 'The realm of signs and wonders is opened only to those who have tarried until self is broken.',
-    takeaway: 'Supernatural power flows not from stagecraft, but from hours of brokenness and persistent prayer before God.',
-    time: '4 min read',
-    fullBody: [
-      'In western Nigeria, the mountains of Ekiti have long been known as sanctuaries of serious prayer. It was here that Apostle Joseph Ibrahim founded Gospel Labour Ministry, dedicated to raising believers who know how to labour in intercession until divine realities break through.',
-      'His ministry rejected modern superficiality. Instead of quick motivational slogans, services were characterized by hours of travailing prayer, deep repentance, and an unquenchable hunger for God\'s glory.',
-      'Under this atmosphere of deep consecration, remarkable signs and wonders followed: chronic diseases melted away, demonic oppressions were shattered, and unchurched villagers encountered the living Christ through undeniable manifestations of power.',
-      'Apostle Ibrahim consistently taught that signs and wonders are not theatrical displays. They are the signature of a holy God confirming His Word where men have paid the price of secret prayer.',
-    ],
-  },
 
   {
     id: 'andrew-wommack-grace-and-faith-healing',

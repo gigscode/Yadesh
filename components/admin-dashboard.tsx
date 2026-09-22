@@ -117,7 +117,7 @@ export function AdminDashboard({ userEmail, initialCards }: AdminDashboardProps)
   const [copiedPrompt, setCopiedPrompt] = useState(false)
   const [promptCategory, setPromptCategory] = useState<'ALL' | 'MIRACLE' | 'FAITH' | 'TEACHING' | 'HISTORY'>('ALL')
   const [promptNamesMode, setPromptNamesMode] = useState<'SPECIFIC' | 'AUTO'>('SPECIFIC')
-  const [promptNamesText, setPromptNamesText] = useState('Kenneth E. Hagin, Apostle Joseph Ibrahim (Gospel Labour Ministry, Ekiti), Andrew Wommack, Charles and Frances Hunter, Smith Wigglesworth')
+  const [promptNamesText, setPromptNamesText] = useState('Kenneth E. Hagin, Andrew Wommack, Charles and Frances Hunter, Smith Wigglesworth')
   const [promptCount, setPromptCount] = useState(5)
 
   // Single Form State
@@ -189,7 +189,7 @@ FORMAT RULES:
 2. Each object MUST have these exact fields:
    - "type": One of "FAITH", "MIRACLE", "TEACHING", "LIFE", "HISTORY", "BOOK", "PERSON"
    - "title": A short, gripping headline (4 to 8 words)
-   - "source": Name of the author, minister, or movement (e.g. "Kenneth E. Hagin", "Apostle Joseph Ibrahim · Gospel Labour Ministry", "Andrew Wommack")
+   - "source": Name of the author, minister, or movement (e.g. "Kenneth E. Hagin", "Andrew Wommack", "Smith Wigglesworth")
    - "time": Estimated reading time (e.g. "3 min read")
    - "body": 2 to 3 clear, memorable sentences for the preview card
    - "pullQuote": One punchy, unforgettable sentence to anchor the reading
@@ -978,7 +978,7 @@ FORMAT RULES:
                     type="text"
                     value={promptNamesText}
                     onChange={(e) => setPromptNamesText(e.target.value)}
-                    placeholder="e.g. Kenneth E. Hagin, Apostle Joseph Ibrahim (Gospel Labour Ministry), Andrew Wommack"
+                    placeholder="e.g. Kenneth E. Hagin, Andrew Wommack, Smith Wigglesworth, Charles and Frances Hunter"
                     style={{
                       width: '100%',
                       padding: '0.75rem 1rem',

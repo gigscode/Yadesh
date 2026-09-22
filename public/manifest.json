@@ -9,13 +9,13 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon-dark-32x32.png",
-      "sizes": "32x32",
+      "src": "/yadesh-mark.png",
+      "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/apple-icon.png",
-      "sizes": "180x180",
+      "src": "/yadesh-mark.png",
+      "sizes": "512x512",
       "type": "image/png"
     },
     {
