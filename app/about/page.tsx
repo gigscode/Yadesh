@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { SharedNav } from '@/components/shared-nav'
 import { FaqSection } from '@/components/faq-section'
+import { createClient } from '@/lib/supabase/server'
 
 const principles = [
   [
@@ -20,10 +21,14 @@ const principles = [
   ],
 ]
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  const isLoggedIn = Boolean(user)
+
   return (
     <main className="info-page">
-      <SharedNav />
+      <SharedNav isLoggedIn={isLoggedIn} />
       <section className="info-hero">
         <p className="kicker">Why we built Yadesh</p>
         <h1>A daily habit for Christians<br /><em>who want depth without noise.</em></h1>

@@ -438,6 +438,156 @@ export const learningCards: LearningCard[] = [
     ],
   },
 
+  // ─── BACKBONE ROSTER: HEALING & DIVINE HEALTH ───────────────────────────────
+
+  {
+    id: 'derek-prince-covenant-healing',
+    type: 'TEACHING',
+    title: 'Healing is a covenant right, not a lottery',
+    source: 'Derek Prince',
+    body: 'Derek Prince argued that healing is not something God randomly grants to some and withholds from others. It is a covenant provision as fixed and documented as forgiveness. The same atonement that dealt with sin dealt with sickness. Prince spent decades teaching believers to approach healing the way they approach salvation: not with performance or pleading but with knowledge of what has already been secured.',
+    pullQuote: 'The same sacrifice that provided forgiveness provided healing. You cannot logically accept one and reject the other.',
+    takeaway: 'Healing is not a mystery to be solved. It is a provision to be received, on the same terms as every other promise in the covenant.',
+    time: '3 min read',
+    fullBody: [
+      'Derek Prince came to the subject of healing not through a dramatic miracle but through careful study. His Cambridge training had made him instinctively suspicious of theological shortcuts, and he brought the same rigour to Isaiah 53 and Matthew 8:17 that he brought to every other passage. What he found, he argued, was not ambiguity but clarity.',
+      'The argument begins with the atonement. Isaiah 53:4-5 states that the suffering servant bore our diseases and by his wounds we are healed. Matthew 8:17 quotes this passage explicitly in connection with Jesus healing the sick. Peter echoes it in 1 Peter 2:24. Prince\'s conclusion was that if the text means what it says, healing is not a sovereign option God exercises case by case. It is a provision already secured in the same redemptive event that secured forgiveness.',
+      'He anticipated the obvious objection: why do people remain sick if healing is a covenant right? His answer was not that healing is guaranteed on demand but that the failure is consistently on the receiving end, not the giving end. Lack of knowledge, unconfessed sin, failure to act in faith, these are the variables, not the will of God. He was careful to say this without condemnation, but he would not soften the logical structure of his argument to make people more comfortable.',
+      'The practical consequence of his teaching was to move people out of a posture of petition, asking God to do something he may or may not choose to do, into a posture of appropriation, laying hold of something that has already been done. That shift in posture, he argued, is not presumption. It is exactly what the New Testament models.',
+      'Prince lived to 88 and was known throughout his ministry for his own robust health, which he did not claim as a personal achievement but as a natural consequence of taking God\'s word at face value. Whether or not you land where he did on every point, the rigour of his engagement with the text is worth sitting with.',
+    ],
+  },
+
+  {
+    id: 'reinhard-bonnke-fire-of-the-holy-spirit',
+    type: 'TEACHING',
+    title: 'The Holy Spirit is not a feeling. He is a fire.',
+    source: 'Reinhard Bonnke',
+    body: 'Reinhard Bonnke preached across Africa for decades to crowds of hundreds of thousands, and the consistent centre of his message was not technique or formula but the person and fire of the Holy Spirit. He argued that a church without the Holy Spirit\'s fire is a church that has lost its irreplaceable engine, and that the solution is never organizational but personal: surrender, invitation, and willingness to be changed.',
+    pullQuote: 'Evangelism is not a human enterprise assisted by God. It is a divine enterprise that uses humans.',
+    takeaway: 'The power that moved through the early church is the same power available now. The question is never whether it is available. It is whether we are willing.',
+    time: '3 min read',
+    fullBody: [
+      'Bonnke\'s theology of the Holy Spirit was formed on the mission field rather than in a seminary. He had been theologically trained in Germany, but it was the African crusades that tested and shaped everything he believed about how God moves in human history. What he observed across decades of mass evangelism was that the Spirit\'s work was not evenly distributed: it was concentrated where hunger was concentrated.',
+      'His central argument was that the Holy Spirit is not a supplement to the Christian life. He is the Christian life. The book of Acts, Bonnke argued, is not a historical curiosity about how the early church operated before the canon was closed. It is a template. The same Spirit who fell at Pentecost, who healed the lame man at the Beautiful Gate, who moved through Philip in Samaria, is present and available in exactly the same measure today.',
+      'This is not an argument he made abstractly. He made it in stadiums and open fields across Nigeria, Ghana, Kenya, and Zimbabwe, and what happened in those places was, by his account, consistent evidence. The deaf heard. The lame walked. People who had never heard the gospel responded to it in tens of thousands at a single service. He did not attribute this to his own gifts or methods. He was consistent on this point to the point of tedium: the work was the Spirit\'s, not his.',
+      'He was direct about what he considered the main obstacle in the Western church: respectability. The desire to present Christianity as reasonable, orderly, and socially acceptable had, in his view, produced a church that had managed to make the Holy Spirit feel unwelcome. The fire of Acts, he said, does not accommodate itself to the comfort levels of its host. It burns.',
+      'His invitation was simple. Not a technique to master or a doctrine to accept but a personal surrender to the same Spirit who hovered over the waters at creation and fell on the disciples at Pentecost. He believed that surrender was still available to anyone willing to make it.',
+    ],
+  },
+
+  // ─── BACKBONE ROSTER: KINGDOM LIVING & PURPOSE ──────────────────────────────
+
+  {
+    id: 'myles-munroe-kingdom-over-religion',
+    type: 'TEACHING',
+    title: 'Jesus did not come to start a religion. He came to restore a kingdom.',
+    source: 'Myles Munroe',
+    body: 'Myles Munroe spent his career making one argument: that the gospel of the kingdom is not primarily about getting people to heaven. It is about restoring God\'s original mandate for humanity to govern the earth. That reframe changes everything: what prayer is, what work means, what leadership requires, and why purpose matters more than success.',
+    pullQuote: 'The greatest tragedy in life is not death. It is a life without purpose.',
+    takeaway: 'You were not created to be religious. You were created to represent a king and govern a domain. Those are not the same thing.',
+    time: '4 min read',
+    fullBody: [
+      'Munroe\'s foundational argument was that the church had largely preached a truncated gospel. The gospel of salvation, as typically presented, answers the question of what happens when you die. The gospel of the kingdom, as Jesus preached it, answers the much larger question of why you are alive. These are not the same gospel, and confusing them produces a Christianity that is personally comforting but publicly ineffective.',
+      'He started with Genesis 1:26-28: God\'s original mandate to humanity was to be fruitful, multiply, fill the earth, and have dominion. This was not a performance target. It was a design specification. Human beings were made to be governors, representing heaven\'s values and authority in the earth. The fall did not cancel that mandate. It corrupted the governor.',
+      'The cross, in Munroe\'s framework, was not primarily a rescue operation to extract souls from a burning world. It was a restoration of the original mandate. Christ, as the last Adam, recovered what the first Adam forfeited: the legitimate authority to govern the earth under God\'s kingship. The Spirit\'s indwelling is not a consolation prize for people waiting to leave. It is the reinstatement of the credentials needed to govern.',
+      'The practical implications ran through everything he taught. Why work matters: because your occupation is a domain of governance, not merely a means of income. Why leadership is sacred: because authority exercised well reflects the character of the king whose name it carries. Why gifting must be developed rather than dormant: because buried potential is, in his famous formulation, the real wealth of the graveyard.',
+      'He addressed presidents and parliaments with this framework, arguing that the dysfunction of nations was not primarily economic or political but spiritual: a crisis of purpose at the individual level, multiplied at scale. Whether or not every leader who heard him was persuaded, the framework was coherent, and the audiences kept requesting him back.',
+    ],
+  },
+
+  {
+    id: 'ew-kenyon-new-creation-identity',
+    type: 'TEACHING',
+    title: 'You are not a sinner trying to become righteous. You are a new creation.',
+    source: 'E.W. Kenyon',
+    body: 'E.W. Kenyon spent decades arguing that the church had systematically underread 2 Corinthians 5:17. When Paul says the one who is in Christ is a new creation, he does not mean a reformed character or an improved version of the old person. He means something has been replaced. The identity crisis at the centre of most Christian defeat, Kenyon argued, comes from living out of the old description rather than the new one.',
+    pullQuote: 'You are what God says you are, not what your feelings, your past, or your circumstances say you are.',
+    takeaway: 'Identity precedes behaviour. Trying to act like a new creation before you know you are one produces performance. Knowing who you are produces change.',
+    time: '3 min read',
+    fullBody: [
+      'Kenyon was writing in an era when the dominant model of Christian growth was moral effort: you were a sinner saved by grace, and the ongoing project was to sin less. He had enormous respect for the sincerity of that effort. His problem was not with the motivation but with the starting premise. If you begin with the identity of a sinner trying to improve, you build on the wrong foundation.',
+      'His argument was rooted in Paul\'s language in 2 Corinthians 5:17: "If anyone is in Christ, he is a new creation. The old has gone. The new has come." Kenyon read this as an ontological statement, a claim about what a person actually is, not what they are becoming. The new creation is not a spiritual aspiration. It is a present reality that faith must learn to inhabit.',
+      'This had direct consequences for prayer, for confession, and for how a believer responds to sickness, failure, and condemnation. If you are a new creation, confessing the old identity is not humility. It is inaccuracy. Kenyon\'s insistence on speaking in line with scripture rather than in line with circumstances was not positive thinking dressed in religious language. It was, in his view, a commitment to saying what God says about a situation rather than what the situation says about itself.',
+      'His framework influenced decades of subsequent teaching, including figures who acknowledged the debt and some who did not. The core insight, that the believer\'s primary problem is not sin management but identity confusion, has proven durable enough to outlast controversies about how far individual teachers extended it.',
+      'The practical entry point Kenyon always returned to was simple: read the epistles with the question, "who does this say I am?" rather than "what does this tell me to do?" The doing, he argued, follows naturally once the being is settled. Most Christians reverse the order and wonder why the effort is exhausting.',
+    ],
+  },
+
+  {
+    id: 'joyce-meyer-renewing-the-mind',
+    type: 'TEACHING',
+    title: 'Your life follows your thoughts. Change what you think, change what you live.',
+    source: 'Joyce Meyer',
+    body: 'Joyce Meyer built one of the most practically influential teaching ministries of the last thirty years around a single Pauline instruction: be transformed by the renewing of your mind. Her argument is not self-help dressed as theology. It is that the battleground where most spiritual victories are won or lost is not circumstantial but mental, and that scripture gives specific tools to fight there.',
+    pullQuote: 'You cannot have a positive life and a negative mind.',
+    takeaway: 'What you meditate on consistently shapes what you see, feel, and choose. Romans 12:2 is not a suggestion. It is a description of how transformation actually works.',
+    time: '3 min read',
+    fullBody: [
+      'Meyer\'s central text is Romans 12:2: "Do not conform to the pattern of this world, but be transformed by the renewing of your mind." She has been teaching on this passage in various forms for over forty years, and the reason it has not exhausted itself as a subject is that the problem it addresses is inexhaustible: most people\'s thinking is shaped by everything except the word of God.',
+      'Her personal history makes the teaching credible in a way that pure doctrine cannot achieve. She grew up in a home where severe abuse was the norm and shame, fear, and self-contempt were the operating system. When she came into genuine faith in her thirties, she discovered that the conversion had not automatically updated the mental patterns. She still thought like a victim, like someone who expected punishment, like someone who was not worth much. The theology said otherwise. The mind had not caught up.',
+      'The process of catching up, she argues, is not passive. It requires deliberate replacement: identifying the thought patterns that contradict scripture, refusing to follow them, and substituting what God says. She is careful to distinguish this from denial: you are not pretending the difficulty is not real. You are choosing which voice you follow in response to it.',
+      'Her critics sometimes classify this as shallow. Her response, implicit in the body of her work, is that there is nothing shallow about a woman who survived childhood sexual abuse and built a functioning, stable, fruitful life on the other side of it. The mechanism she teaches is the one she used. The results are documentable.',
+      'The reach of Battlefield of the Mind, with over eight million copies sold, suggests the problem she identified is not unique to her context. Millions of people, in wildly different circumstances and cultures, have recognised the same war in their own thinking. That is not because the book is clever. It is because Romans 12:2 is accurate.',
+    ],
+  },
+
+  // ─── BACKBONE ROSTER: BREAKTHROUGH & SPIRITUAL WARFARE ──────────────────────
+
+  {
+    id: 'derek-prince-spiritual-warfare-foundations',
+    type: 'TEACHING',
+    title: 'Spiritual warfare is not optional. You are already in it.',
+    source: 'Derek Prince',
+    body: 'Derek Prince taught spiritual warfare with the same precision he applied to every other area of scripture: carefully, with primary text as the foundation, and without the sensationalism that the subject tends to attract. His argument was not that warfare is the centre of the Christian life. It is that ignoring it is not neutrality. Ignorance does not exempt a person from a battle that is already in progress.',
+    pullQuote: 'We are not fighting for victory. We are fighting from victory.',
+    takeaway: 'The believer\'s posture in spiritual warfare is not desperate attack but authoritative enforcement of a victory already won at the cross.',
+    time: '4 min read',
+    fullBody: [
+      'Prince\'s approach to spiritual warfare was shaped by two things: the careful exegesis he applied to everything, and the practical pastoral experience of watching people remain in bondage despite sincere faith and years of Christian activity. The gap between the two was, in his view, almost always explained by the same thing: the person did not understand the nature of the conflict they were in.',
+      'His starting point was Ephesians 6:10-18, the most extended warfare passage in the New Testament. He noted that Paul does not tell the Ephesian believers to enter a battle. He tells them to stand in one. The implication is that the battle is not optional and has not been waiting for the believer to initiate it. It has been in progress since before their conversion. The relevant question is whether they will stand equipped or unequipped.',
+      'The armour passages were not, for Prince, a metaphor for general Christian virtue. They were a description of specific spiritual realities: truth as a belt because deception is the enemy\'s primary weapon; righteousness as a breastplate because accusation targets the heart; the gospel of peace as footwear because the enemy\'s strategy is to keep believers unstable and rootless. He taught each piece with textual rigour and pastoral directness.',
+      'His most quoted insight was the distinction between fighting for victory and fighting from victory. Colossians 2:15 states that through the cross, Christ disarmed the principalities and powers and made a public spectacle of them. The victory is past tense. The believer\'s role is not to achieve it but to enforce it, to apply in the present what was accomplished then.',
+      'He was sober about the cost of ignorance. He had seen too many sincere, devoted Christians living in unnecessary defeat to be polite about it. The weapons are real, he argued, the enemy is real, and the authority of the believer in Christ is real. The only variable is knowledge and the willingness to act on it.',
+    ],
+  },
+
+  {
+    id: 'heidi-baker-love-as-warfare',
+    type: 'TEACHING',
+    title: 'The most powerful weapon in the darkest places is love that costs something',
+    source: 'Heidi Baker',
+    body: 'Heidi Baker has worked in some of the most broken environments on earth and her testimony consistently points to the same thing: the force that breaks through in those places is not spiritual aggression but love. Not sentiment, not program, not strategy. Costly, present, inconvenient love. She argues that this is not softness. It is the most confrontational thing you can bring into a place of darkness.',
+    pullQuote: 'Love looks like something. It always has skin on.',
+    takeaway: 'Breakthrough in the hardest places does not usually come through more intensity. It comes through more presence, more willingness to stop and stay.',
+    time: '3 min read',
+    fullBody: [
+      'Baker\'s theology of breakthrough was formed in Mozambique in the late 1990s and early 2000s, during years when her ministry was operating on almost no resources in a country that had recently emerged from a devastating civil war. She had no money, no buildings, and no organizational infrastructure to speak of. What she had was a practice: stop for the one in front of you.',
+      'The practice came from a vision she describes receiving at a conference in Toronto in 1998, in which she saw the face of Jesus overlaid with the face of a starving child in Africa. The image collapsed the distance between encounter with God and service to the vulnerable into a single thing. She returned to Mozambique with a different understanding of what the work was.',
+      'Her teaching on love is careful to distinguish it from sentiment or niceness. The love she describes is specific: it sees an individual, it stops, it stays. In a culture of programs and scale, staying is countercultural. Most ministry moves on. She argued that the breakthrough she witnessed in Mozambique, the healings, the church growth, the transformation of communities, was directly correlated with the willingness to be present rather than efficient.',
+      'The spiritual warfare dimension is this: the places most held by darkness are almost always also places marked by abandonment. People in those places have been left by family, state, church, and almost everyone else. When someone arrives and does not leave, the spiritual logic of abandonment is interrupted. She describes this interruption as a form of warfare more effective than any she has seen.',
+      'She is not against confrontational prayer or authoritative declaration. She practises both. But she consistently places them within a larger framework of love that preceded and outlasts them. The weapons, she argues, work inside a relationship. Without it, they are just noise.',
+    ],
+  },
+
+  {
+    id: 'adeboye-prayer-as-strategy',
+    type: 'TEACHING',
+    title: 'Prayer is not the preparation for the work. Prayer is the work.',
+    source: 'Enoch Adeboye',
+    body: 'Enoch Adeboye has led one of the world\'s largest church networks for over forty years, and the single practice he has pointed to most consistently as the foundation of everything else is prayer. Not prayer as a warm-up to ministry activity, but prayer as the primary work itself. He argues that what looks like organizational growth from the outside is the visible result of an invisible prayer infrastructure that most observers never account for.',
+    pullQuote: 'If you want to see God move in the open, you must learn to meet Him in secret.',
+    takeaway: 'The scale of what God does through a life is almost always proportional to the depth of what happens between that person and God in private.',
+    time: '3 min read',
+    fullBody: [
+      'Adeboye came from a background as a mathematician, and his approach to almost everything, including prayer, has a methodical quality. He does not teach prayer as an emotional experience to be pursued but as a discipline to be structured and sustained. His personal practice has included regular extended periods of fasting and prayer throughout his ministry, which he has described not as spiritual heroism but as simple maintenance: the work requires it.',
+      'His argument for prayer as the primary work begins with the nature of the problems the church is addressing. Poverty, sickness, family breakdown, national corruption: these are, in his framework, not primarily sociological problems with spiritual dimensions. They are spiritual realities with sociological manifestations. Addressing the manifestation without the root is, he argues, like cutting weeds without pulling them.',
+      'The annual RCCG Holy Ghost Congress, which regularly draws five million people to Lagos, is framed not primarily as an evangelistic event but as a prayer meeting at scale. Adeboye\'s consistent message to those gatherings is that the power to change Nigeria and the African continent is not located in its governments or its resources but in the prayers of its people. He means this with precision, not as a religious platitude.',
+      'He has been direct about what he believes explains the numerical growth of the RCCG under his leadership. It is not his organisational ability, though that is considerable. It is not the quality of the preaching across thousands of parishes, though that has improved. It is the prayer. Specifically, the night vigils, the fasting seasons, and the culture of personal prayer that he has modelled and maintained since the beginning.',
+      'For anyone looking at the results and trying to understand the mechanism, his testimony offers a consistent answer. The work was done in the dark, before anyone saw it. That is not mysticism. It is, in his view, simply how the kingdom operates.',
+    ],
+  },
+
   {
     id: 'charles-and-frances-hunter-how-to-heal-sick',
     type: 'MIRACLE',
