@@ -6,6 +6,7 @@ import {
   BookOpen,
   Compass,
   Home,
+  Layers,
   Library,
   Menu,
   Search,
@@ -26,6 +27,7 @@ const primary: [string, string, LucideIcon][] = [
 const library: [string, string, LucideIcon][] = [
   ['People', '/people', Users],
   ['Books', '/books', BookOpen],
+  ['Series', '/series', Layers],
 ]
 
 export function ProductChrome({
