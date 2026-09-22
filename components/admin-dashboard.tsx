@@ -344,9 +344,12 @@ FORMAT RULES:
       await revalidateContent()
       router.refresh()
     } catch (err: any) {
+      const errorText = err?.code === '23514'
+        ? 'The Supabase content type constraint is outdated. Run supabase/migrations/20260922_content_type_check.sql, then try again.'
+        : err.message || 'Invalid JSON format'
       setMessage({
         type: 'error',
-        text: `Bulk upload failed: ${err.message || 'Invalid JSON format'}`,
+        text: `Bulk upload failed: ${errorText}`,
       })
     } finally {
       setSubmitting(false)
