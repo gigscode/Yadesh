@@ -64,6 +64,7 @@ export function ProductChrome({
 
   function isActive(href: string) {
     if (href === '/learn') return pathname === '/learn' || pathname.startsWith('/learn/')
+    if (href === '/series') return pathname === '/series' || pathname.startsWith('/series/')
     return pathname === href
   }
 

@@ -8,7 +8,7 @@ import { FREE_BOOKMARK_LIMIT } from '@/hooks/use-subscription'
 /**
  * Modal shown when a free user hits the 5-bookmark limit.
  * Trap focus, close on Escape or backdrop click.
- * The checkout button links to /upgrade — no live payment URL needed yet.
+ * The checkout button links to /upgrade - no live payment URL needed yet.
  */
 export function UpgradeModal({ onClose }: { onClose: () => void }) {
   const modalRef = useRef<HTMLDivElement>(null)
