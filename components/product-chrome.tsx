@@ -188,7 +188,6 @@ export function ProductChrome({
             </Link>
           )}
           <span className="nav-divider" />
-          <Link onClick={() => setMenuOpen(false)} href="/admin">Content Admin</Link>
           <Link onClick={() => setMenuOpen(false)} href="/privacy">Privacy</Link>
           <Link onClick={() => setMenuOpen(false)} href="/terms">Terms</Link>
           <Link onClick={() => setMenuOpen(false)} href="/guidelines">Guidelines</Link>
