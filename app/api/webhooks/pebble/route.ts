@@ -63,10 +63,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ received: true, ignored: true, event }, { status: 200 })
     }
 
-    // Update profiles row
-    let query = supabase.from('profiles').update({
+    const customerId = data.customer_id || data.customerId || data.customer?.id
+    const subscriptionId = data.subscription_id || data.subscriptionId || data.id
+
+    const updateData: Record<string, any> = {
       is_premium: isPremium,
-    })
+    }
+    if (isPremium) {
+      updateData.premium_since = new Date().toISOString()
+    }
+    if (customerId) {
+      updateData.pebble_customer_id = customerId
+    }
+    if (subscriptionId) {
+      updateData.pebble_subscription_id = subscriptionId
+    }
+
+    // Update profiles row
+    let query = supabase.from('profiles').update(updateData)
 
     if (userId) {
       query = query.eq('id', userId)

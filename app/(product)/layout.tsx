@@ -1,4 +1,6 @@
 import { ProductChrome } from '@/components/product-chrome'
+import { OnboardingModal } from '@/components/onboarding-modal'
+import { MobilePwaPrompt } from '@/components/mobile-pwa-prompt'
 import { createClient } from '@/lib/supabase/server'
 
 // Persistent route group layout wrapping all product pages.
@@ -25,5 +27,11 @@ export default async function ProductLayout({ children }: { children: React.Reac
     isAdmin = false
   }
 
-  return <ProductChrome isAdmin={isAdmin}>{children}</ProductChrome>
+  return (
+    <ProductChrome isAdmin={isAdmin}>
+      {children}
+      <OnboardingModal />
+      <MobilePwaPrompt />
+    </ProductChrome>
+  )
 }
