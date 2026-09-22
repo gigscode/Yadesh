@@ -108,6 +108,61 @@ export function LegacyFeed({
           </div>
         </section>
 
+        {/* Pricing section */}
+        <section className="landing-pricing" aria-labelledby="pricing-title" data-reveal>
+          <div className="section-heading" style={{ marginBottom: '0.5rem' }}>
+            <div>
+              <p className="kicker">Simple pricing</p>
+              <h2 id="pricing-title">Start free. Go deeper when ready.</h2>
+            </div>
+          </div>
+          <p className="method-intro" style={{ marginBottom: '2rem' }}>
+            The free plan is real, not a teaser. Premium unlocks the full archive, guided series, and no bookmark limits.
+          </p>
+
+          <div className="landing-pricing-grid">
+            {/* Free */}
+            <div className="landing-plan landing-plan-free" data-reveal data-delay="1">
+              <div className="landing-plan-top">
+                <p className="kicker">FREE</p>
+                <p className="landing-plan-price"><strong>$0</strong><span>forever</span></p>
+              </div>
+              <ul>
+                <li>1 new reading every day</li>
+                <li>Browse all 4 content pillars</li>
+                <li>Save up to 5 bookmarks</li>
+                <li>Full reading detail pages</li>
+              </ul>
+              <Link href="/register" className="landing-plan-btn landing-plan-btn-free">
+                Start for free <ArrowUpRight size={14} aria-hidden="true" />
+              </Link>
+            </div>
+
+            {/* Premium */}
+            <div className="landing-plan landing-plan-premium" data-reveal data-delay="2">
+              <div className="landing-plan-top">
+                <p className="kicker" style={{ color: '#e4fb4f' }}>PREMIUM</p>
+                <p className="landing-plan-price">
+                  <strong>$4.99</strong><span>/ month</span>
+                </p>
+                <p className="landing-plan-annual">$39.99 / year, save 33%</p>
+              </div>
+              <ul>
+                <li>Everything in free</li>
+                <li>Full archive, all teachers</li>
+                <li>Unlimited bookmarks</li>
+                <li>21-day guided series</li>
+                <li>Offline reading</li>
+                <li>Audio versions</li>
+              </ul>
+              <Link href="/register" className="landing-plan-btn landing-plan-btn-premium">
+                Start free, upgrade anytime <ArrowUpRight size={14} aria-hidden="true" />
+              </Link>
+              <p className="landing-plan-note">No card required to start. Cancel anytime.</p>
+            </div>
+          </div>
+        </section>
+
         <section className="register-cta-section" aria-labelledby="cta-title" data-reveal>
           <div>
             <p className="kicker">Start today</p>

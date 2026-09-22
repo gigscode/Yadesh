@@ -12,7 +12,6 @@ export default async function YouPage() {
     supabase.from('profiles').select('*').eq('id', user.id).single(),
     supabase.from('saved_items').select('*', { count: 'exact', head: true }).eq('user_id', user.id),
   ])
-
   if (profileError && profileError.code !== 'PGRST116') {
     return (
       <section className="empty-state" role="alert">
@@ -37,6 +36,7 @@ export default async function YouPage() {
       profile={resolvedProfile}
       savesCount={savesCount ?? 0}
       savesUnavailable={Boolean(savesError)}
+      isPremium={Boolean(resolvedProfile.is_premium)}
     />
   )
 }

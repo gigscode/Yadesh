@@ -1,8 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { Bookmark, Check } from 'lucide-react'
 import { useSave } from '@/hooks/use-save'
+import { UpgradeModal } from '@/components/upgrade-modal'
 
 type LearningCardProps = {
   id: string
@@ -27,7 +29,8 @@ export function LearningCard({
   initialSaved = false,
   index,
 }: LearningCardProps) {
-  const { saved, loading, error, toggle } = useSave(id, initialSaved)
+  const [showUpgrade, setShowUpgrade] = useState(false)
+  const { saved, loading, error, toggle } = useSave(id, initialSaved, () => setShowUpgrade(true))
 
   const displayType = type === 'IDEA' ? 'FAITH' : type
   const typeClass = `card-type-${displayType.toLowerCase()}`
@@ -36,30 +39,34 @@ export function LearningCard({
   const animClass = index !== undefined ? ' anim-fade-up' : ''
 
   return (
-    <article className={`learning-card ${typeClass}${accent ? ' accent' : ''}${animClass}${delayClass}`}>
-      <div className="card-meta">
-        <span className="card-badge">{displayType}</span>
-        <span className="card-meta-time">{time}</span>
-      </div>
-      <h3>{title}</h3>
-      <p className="card-source">{source}</p>
-      <p>{body}</p>
-      <div className="card-actions">
-        <Link href={`/learn/${id}`}>Read for {time.replace(' read', '')}</Link>
-        <button
-          aria-label={saved ? `Unsave ${title}` : `Save ${title}`}
-          aria-pressed={saved}
-          onClick={toggle}
-          disabled={loading}
-          className={saved ? 'save-btn is-saved' : 'save-btn'}
-          type="button"
-        >
-          {saved
-            ? <Check aria-hidden="true" size={15} />
-            : <Bookmark aria-hidden="true" size={15} />}
-        </button>
-      </div>
-      {error && <span className="save-error" role="alert">Could not update your saved readings.</span>}
-    </article>
+    <>
+      <article className={`learning-card ${typeClass}${accent ? ' accent' : ''}${animClass}${delayClass}`}>
+        <div className="card-meta">
+          <span className="card-badge">{displayType}</span>
+          <span className="card-meta-time">{time}</span>
+        </div>
+        <h3>{title}</h3>
+        <p className="card-source">{source}</p>
+        <p>{body}</p>
+        <div className="card-actions">
+          <Link href={`/learn/${id}`}>Read for {time.replace(' read', '')}</Link>
+          <button
+            aria-label={saved ? `Unsave ${title}` : `Save ${title}`}
+            aria-pressed={saved}
+            onClick={toggle}
+            disabled={loading}
+            className={saved ? 'save-btn is-saved' : 'save-btn'}
+            type="button"
+          >
+            {saved
+              ? <Check aria-hidden="true" size={15} />
+              : <Bookmark aria-hidden="true" size={15} />}
+          </button>
+        </div>
+        {error && <span className="save-error" role="alert">Could not update your saved readings.</span>}
+      </article>
+
+      {showUpgrade && <UpgradeModal onClose={() => setShowUpgrade(false)} />}
+    </>
   )
 }

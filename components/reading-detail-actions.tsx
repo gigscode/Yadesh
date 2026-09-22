@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Bookmark, Check, BookCheck, Share2, Loader2, Flame } from 'lucide-react'
 import { useSave } from '@/hooks/use-save'
 import { useHabitTracker } from '@/hooks/use-habit-tracker'
+import { UpgradeModal } from '@/components/upgrade-modal'
 
 export function ReadingDetailActions({
   id,
@@ -20,7 +21,8 @@ export function ReadingDetailActions({
   type?: string
   initialSaved: boolean
 }) {
-  const { saved, loading, error, toggle } = useSave(id, initialSaved)
+  const [showUpgrade, setShowUpgrade] = useState(false)
+  const { saved, loading, error, toggle } = useSave(id, initialSaved, () => setShowUpgrade(true))
   const { isCardRead, logReadingCompleted } = useHabitTracker()
   const [read, setRead] = useState(false)
   const [streakToast, setStreakToast] = useState<string | null>(null)
@@ -178,6 +180,7 @@ export function ReadingDetailActions({
   }
 
   return (
+    <>
     <div className="reading-actions-bar">
       <button
         className={`reading-action-btn reading-read-btn${read ? ' is-read' : ''}`}
@@ -255,5 +258,8 @@ export function ReadingDetailActions({
         </span>
       )}
     </div>
+
+    {showUpgrade && <UpgradeModal onClose={() => setShowUpgrade(false)} />}
+  </>
   )
 }

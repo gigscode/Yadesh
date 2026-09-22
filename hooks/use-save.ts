@@ -3,13 +3,20 @@
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { FREE_BOOKMARK_LIMIT } from '@/hooks/use-subscription'
 
 /**
  * Manages the saved state for a single content item.
  * Optimistically updates the UI and syncs with Supabase saved_items.
  * Redirects to /login via Next.js router if the user is not authenticated.
+ * Calls onUpgradeRequired() if a free-tier user hits the 5-bookmark limit
+ * instead of writing to the database.
  */
-export function useSave(contentKey: string, initialSaved = false) {
+export function useSave(
+  contentKey: string,
+  initialSaved = false,
+  onUpgradeRequired?: () => void,
+) {
   const supabase = useMemo(() => createClient(), [])
   const router = useRouter()
   const [saved, setSaved] = useState(initialSaved)
@@ -28,31 +35,55 @@ export function useSave(contentKey: string, initialSaved = false) {
       return
     }
 
+    // Only enforce the limit when adding (not removing) a bookmark
+    if (!saved) {
+      const [profileResult, countResult] = await Promise.all([
+        supabase
+          .from('profiles')
+          .select('is_premium')
+          .eq('id', user.id)
+          .maybeSingle(),
+        supabase
+          .from('saved_items')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', user.id),
+      ])
+
+      const isPremium = Boolean(profileResult.data?.is_premium)
+      const currentCount = countResult.count ?? 0
+
+      if (!isPremium && currentCount >= FREE_BOOKMARK_LIMIT) {
+        setLoading(false)
+        onUpgradeRequired?.()
+        return
+      }
+    }
+
     // Optimistic update
     setSaved((prev) => !prev)
 
     if (!saved) {
-      const { error } = await supabase
+      const { error: upsertError } = await supabase
         .from('saved_items')
         .upsert(
           { user_id: user.id, content_key: contentKey },
           { onConflict: 'user_id,content_key', ignoreDuplicates: true }
         )
 
-      if (error) {
+      if (upsertError) {
         setSaved(false)
-        setError(error.message)
+        setError(upsertError.message)
       }
     } else {
-      const { error } = await supabase
+      const { error: deleteError } = await supabase
         .from('saved_items')
         .delete()
         .eq('user_id', user.id)
         .eq('content_key', contentKey)
 
-      if (error) {
+      if (deleteError) {
         setSaved(true)
-        setError(error.message)
+        setError(deleteError.message)
       }
     }
 

@@ -3,10 +3,11 @@
 import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { Loader2, Pencil, Check, X, LogOut, Flame } from 'lucide-react'
+import { Loader2, Pencil, Check, X, LogOut, Flame, Sparkles } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import { useHabitTracker } from '@/hooks/use-habit-tracker'
 import { DailyReminderCard } from '@/components/daily-reminder-card'
+import { FREE_BOOKMARK_LIMIT } from '@/hooks/use-subscription'
 
 type Profile = {
   id: string
@@ -21,10 +22,12 @@ export function ProfileScreen({
   profile,
   savesCount,
   savesUnavailable = false,
+  isPremium = false,
 }: {
   profile: Profile
   savesCount: number
   savesUnavailable?: boolean
+  isPremium?: boolean
 }) {
   const supabase = useMemo(() => createClient(), [])
   const router = useRouter()
@@ -109,6 +112,18 @@ export function ProfileScreen({
             <p className="profile-email">{profile.email}</p>
             {profile.bio && <p className="profile-bio">{profile.bio}</p>}
             <p className="profile-since">Member since {joinYear}</p>
+            {/* Plan badge */}
+            {isPremium ? (
+              <span className="profile-plan-badge profile-plan-badge-premium">
+                <Sparkles size={11} aria-hidden="true" />
+                Premium
+              </span>
+            ) : (
+              <Link href="/upgrade" className="profile-plan-badge profile-plan-badge-free">
+                Free plan · {Math.max(0, FREE_BOOKMARK_LIMIT - savesCount)} saves left
+                <span aria-hidden="true"> →</span>
+              </Link>
+            )}
           </div>
         </div>
         {!editing && (

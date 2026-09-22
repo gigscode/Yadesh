@@ -222,3 +222,100 @@ a,button,input,select,textarea{transition-property:color,background,border-color
    Keeps the background painted between navigations so the raw body is never exposed. */
 .marketing-shell{min-height:100svh;background:var(--background)}
 @media(min-width:900px){.marketing-shell{background:linear-gradient(135deg,#f4f4ef,#eeeaf5)}}
+
+/* ── Upgrade Modal ─────────────────────────────────────────────────────────── */
+.upgrade-modal-backdrop{position:fixed;inset:0;z-index:90;display:grid;place-items:center;padding:1rem;background:rgba(23,24,29,.42);backdrop-filter:blur(10px)}
+.upgrade-modal{position:relative;width:min(100%,28rem);padding:2rem 1.5rem 1.5rem;border-radius:1.5rem;background:#fbfbf8;box-shadow:0 2rem 5rem rgba(23,24,29,.28);text-align:center}
+.upgrade-modal-close{position:absolute;top:.85rem;right:.85rem;display:grid;place-items:center;width:2rem;height:2rem;border:0;border-radius:50%;background:#eeeaf5;color:#62636f;cursor:pointer}.upgrade-modal-close:hover{background:#ddd8f0;color:#17181d}
+.upgrade-modal-icon{display:grid;place-items:center;width:3.5rem;height:3.5rem;margin:0 auto 1rem;border-radius:50%;background:#e9ff19;color:#17181d}.upgrade-modal-icon svg{stroke-width:2.5}
+.upgrade-modal h2{margin:.4rem 0 .6rem;font-size:1.65rem;line-height:1;letter-spacing:-.05em}
+.upgrade-modal-sub{margin:0 0 1.25rem;color:#62636f;font-family:Arial,Helvetica,sans-serif;font-size:.88rem;line-height:1.55}
+.upgrade-modal-features{display:grid;gap:.55rem;margin:0 0 1.35rem;padding:0;list-style:none;text-align:left}
+.upgrade-modal-features li{display:flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:800;color:#17181d}
+.upgrade-modal-features svg{flex:0 0 1rem;color:#7168ed}
+.upgrade-modal-cta{display:flex;align-items:center;justify-content:center;width:100%;padding:.9rem 1rem;border-radius:999px;background:#17181d;color:#fff;font:inherit;font-weight:950;text-decoration:none;transition:opacity .15s}.upgrade-modal-cta:hover{opacity:.85}
+.upgrade-modal-dismiss{width:100%;margin-top:.55rem;padding:.75rem;border:0;border-radius:999px;background:transparent;color:#62636f;font:inherit;font-size:.82rem;font-weight:800;cursor:pointer}.upgrade-modal-dismiss:hover{color:#17181d}
+
+/* ── Upgrade Pricing Page ──────────────────────────────────────────────────── */
+.upgrade-hero{max-width:44rem;margin:0 0 2.5rem}
+.upgrade-hero h2{margin:.5rem 0 .75rem;font-size:clamp(2.2rem,6vw,3.8rem);line-height:.92;letter-spacing:-.06em}
+.upgrade-hero p{margin:0;color:var(--muted-foreground);font-size:1rem;line-height:1.55}
+.upgrade-plans{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:3rem}
+.upgrade-plan{display:flex;flex-direction:column;padding:1.75rem;border-radius:1.35rem;border:1px solid var(--border);background:#fff}
+.upgrade-plan-premium{background:#17181d;color:#fff;border-color:transparent;box-shadow:0 1rem 2.5rem rgba(23,24,29,.18)}
+.upgrade-plan-head{margin-bottom:1.5rem}
+.upgrade-plan-name{margin:.3rem 0 .6rem;font-size:1.75rem;letter-spacing:-.05em}
+.upgrade-plan-price{display:flex;align-items:baseline;gap:.4rem;margin:0}
+.upgrade-plan-price strong{font-size:2.5rem;letter-spacing:-.06em}
+.upgrade-plan-price span{color:var(--muted-foreground);font-size:.85rem;font-weight:800}
+.upgrade-plan-premium .upgrade-plan-price span{color:#9a9ab8}
+.upgrade-plan-annual{margin:.3rem 0 0;color:#9a9ab8;font-size:.75rem;font-weight:800}
+.upgrade-feature-list{display:grid;gap:.6rem;margin:0 0 1.5rem;padding:0;list-style:none;flex:1}
+.upgrade-feature-list li{display:flex;align-items:center;gap:.55rem;font-size:.82rem;font-weight:800}
+.upgrade-feature-list svg{flex:0 0 1rem;color:#7168ed}
+.upgrade-plan-premium .upgrade-feature-list svg{color:#e4fb4f}
+.upgrade-feature-missing{color:var(--muted-foreground)}
+.upgrade-feature-missing svg{color:#ccc}
+.upgrade-plan-current-label{margin-top:auto;padding:.65rem;border-radius:999px;border:1px solid var(--border);color:var(--muted-foreground);font-size:.78rem;font-weight:900;text-align:center}
+.upgrade-cta-btn{display:flex;align-items:center;justify-content:center;padding:.9rem 1.25rem;border-radius:999px;background:#17181d;color:#fff;font:inherit;font-weight:950;text-decoration:none;border:0;cursor:pointer;transition:opacity .15s}.upgrade-cta-btn:hover{opacity:.85}
+.upgrade-cta-btn-primary{background:#e4fb4f;color:#17181d}.upgrade-cta-btn-primary:hover{opacity:.9}
+.upgrade-payment-note{margin:.6rem 0 0;color:#9a9ab8;font-family:Arial,Helvetica,sans-serif;font-size:.72rem;font-weight:600;text-align:center}
+.upgrade-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:3rem;padding:1.5rem;border-radius:1.15rem;background:var(--lavender)}
+.upgrade-trust div{display:flex;flex-direction:column;gap:.3rem}
+.upgrade-trust strong{font-size:.88rem;font-weight:950}
+.upgrade-trust span{color:var(--muted-foreground);font-size:.78rem;font-weight:700;line-height:1.4}
+.upgrade-faq{margin-bottom:3rem}
+.upgrade-faq h3{margin:0 0 1.25rem;font-size:1.5rem;letter-spacing:-.04em}
+.upgrade-faq-list{display:grid;gap:.65rem}
+.upgrade-faq-list details{padding:1rem 1.25rem;border:1px solid var(--border);border-radius:1rem;background:#fff}
+.upgrade-faq-list summary{font-size:.9rem;font-weight:900;cursor:pointer;list-style:none}.upgrade-faq-list summary::-webkit-details-marker{display:none}
+.upgrade-faq-list details[open] summary{margin-bottom:.65rem}
+.upgrade-faq-list p{margin:0;color:var(--muted-foreground);font-family:Arial,Helvetica,sans-serif;font-size:.85rem;line-height:1.6}
+.upgrade-already-premium{max-width:34rem;padding:2.5rem;border-radius:1.35rem;background:var(--lavender);text-align:center}
+.upgrade-premium-badge{font-size:2.5rem;margin-bottom:.75rem}
+.upgrade-already-premium h2{margin:.4rem 0 .65rem;font-size:2rem;letter-spacing:-.05em}
+.upgrade-already-premium p{margin:0 0 1.5rem;color:var(--muted-foreground);font-size:.95rem;line-height:1.55}
+@media(max-width:899px){.upgrade-plans{grid-template-columns:1fr}.upgrade-trust{grid-template-columns:1fr}.upgrade-plan{padding:1.35rem}}
+
+/* ── Profile plan badge ────────────────────────────────────────────────────── */
+.profile-plan-badge{display:inline-flex;align-items:center;gap:.35rem;margin-top:.5rem;padding:.3rem .7rem;border-radius:999px;font-size:.7rem;font-weight:900;text-decoration:none}
+.profile-plan-badge-premium{background:#7168ed;color:#fff}
+.profile-plan-badge-free{background:#fff;color:#7168ed;border:1px solid rgba(113,104,237,.35)}.profile-plan-badge-free:hover{background:#f0eeff}
+
+/* ── Saved page limit banners ──────────────────────────────────────────────── */
+.saved-limit-banner{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.25rem;padding:1rem 1.25rem;border-radius:1rem}
+.saved-limit-banner-full{background:#fff0ec;border:1px solid #f5b8a8}
+.saved-limit-banner-near{background:#fffbec;border:1px solid #f5dfa8}
+.saved-limit-banner-copy{display:flex;flex-direction:column;gap:.2rem}
+.saved-limit-banner-copy strong{font-size:.88rem;font-weight:950}
+.saved-limit-banner-copy span{color:var(--muted-foreground);font-size:.78rem;font-weight:700;line-height:1.4}
+.saved-limit-upgrade-btn{flex-shrink:0;padding:.6rem 1rem;border-radius:999px;background:#17181d;color:#fff;font:inherit;font-size:.78rem;font-weight:950;text-decoration:none;white-space:nowrap}.saved-limit-upgrade-btn:hover{opacity:.85}
+.saved-limit-upgrade-btn-soft{background:var(--periwinkle)}
+.saved-premium-upsell{display:flex;align-items:end;justify-content:space-between;gap:1.5rem;margin-top:2.5rem;padding:1.5rem;border-radius:1.25rem;background:var(--foreground);color:#fff}
+.saved-premium-upsell h3{margin:.4rem 0 .5rem;font-size:1.5rem;letter-spacing:-.04em}
+.saved-premium-upsell p{margin:0;color:#9a9ab8;font-size:.85rem;line-height:1.5}
+.saved-premium-upsell .upgrade-cta-btn{background:#e4fb4f;color:#17181d;white-space:nowrap;flex-shrink:0}
+@media(max-width:899px){.saved-limit-banner{flex-direction:column;align-items:flex-start}.saved-limit-upgrade-btn{width:100%;text-align:center}.saved-premium-upsell{flex-direction:column;align-items:flex-start}.saved-premium-upsell .upgrade-cta-btn{width:100%}}
+
+/* ── Landing pricing section ───────────────────────────────────────────────── */
+.landing-pricing{padding:3.5rem 0 1rem}
+.landing-pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:3rem}
+.landing-plan{display:flex;flex-direction:column;gap:1rem;padding:1.75rem;border-radius:1.35rem}
+.landing-plan-free{background:#fff;border:1px solid var(--border)}
+.landing-plan-premium{background:#17181d;color:#fff}
+.landing-plan-top{display:flex;flex-direction:column;gap:.35rem}
+.landing-plan-price{display:flex;align-items:baseline;gap:.4rem;margin:0}
+.landing-plan-price strong{font-size:2.6rem;letter-spacing:-.07em;line-height:1}
+.landing-plan-price span{font-size:.82rem;font-weight:800;color:var(--muted-foreground)}
+.landing-plan-premium .landing-plan-price span{color:#9a9ab8}
+.landing-plan-annual{margin:0;color:#9a9ab8;font-size:.72rem;font-weight:800}
+.landing-plan ul{display:grid;gap:.55rem;margin:0;padding:0;list-style:none;flex:1}
+.landing-plan li{display:flex;align-items:center;gap:.5rem;font-size:.82rem;font-weight:800}
+.landing-plan li::before{content:'✓';flex-shrink:0;color:#7168ed;font-weight:950}
+.landing-plan-premium li::before{color:#e4fb4f}
+.landing-plan-btn{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.85rem 1rem;border-radius:999px;font:inherit;font-size:.82rem;font-weight:950;text-decoration:none;transition:opacity .15s}
+.landing-plan-btn:hover{opacity:.85}
+.landing-plan-btn-free{background:#17181d;color:#fff}
+.landing-plan-btn-premium{background:#e4fb4f;color:#17181d}
+.landing-plan-note{margin:0;color:#9a9ab8;font-family:Arial,Helvetica,sans-serif;font-size:.72rem;font-weight:600;text-align:center}
+@media(max-width:899px){.landing-pricing-grid{grid-template-columns:1fr}.landing-plan{padding:1.35rem}}
