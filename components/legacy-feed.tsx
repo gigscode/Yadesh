@@ -16,7 +16,12 @@ export function LegacyFeed({
   showNav?: boolean
   isLoggedIn?: boolean
 }) {
-  const previewCards = learningCards.slice(0, 3)
+  const previewCards = learningCards.filter(c =>
+    ['cs-lewis-from-atheist-to-apologist', 'grace-is-power-not-permission', 'mere-christianity-lewis'].includes(c.id)
+  ).sort((a, b) => {
+    const order = ['cs-lewis-from-atheist-to-apologist', 'grace-is-power-not-permission', 'mere-christianity-lewis']
+    return order.indexOf(a.id) - order.indexOf(b.id)
+  })
   const pageRef = useScrollReveal()
 
   return (
