@@ -1,8 +1,6 @@
-import Link from 'next/link'
-import { DailyLearningCard } from '@/components/daily-learning-card'
-import { LearningCard } from '@/components/learning-card'
 import { PageHeader } from '@/components/page-header'
 import { StreakBadge } from '@/components/streak-badge'
+import { LearningFeedClient } from '@/components/learning-feed-client'
 import { getAllLearningCards } from '@/lib/content-loader'
 import { createClient } from '@/lib/supabase/server'
 
@@ -26,37 +24,12 @@ export default async function LearnPage() {
   return (
     <>
       <PageHeader title="Home" />
-
       <StreakBadge />
-
-      <DailyLearningCard cards={cards} initialCard={initialCard} />
-
-      {isPremium && (
-        <section className="series-entry-card" aria-label="Guided series">
-          <div>
-            <p className="eyebrow">GUIDED SERIES</p>
-            <h2>21 Days of Breakthrough</h2>
-            <p>A sequenced 21-day journey from decision to platform. One reading per day.</p>
-          </div>
-          <Link href="/series/21-days-of-breakthrough" className="series-entry-link">
-            Start the series &rarr;
-          </Link>
-        </section>
-      )}
-
-      <section className="product-section">
-        <div className="section-row">
-          <h2>More to carry with you</h2>
-          <Link href="/explore">View all</Link>
-        </div>
-        <div className="learning-grid">
-          {cards
-            .filter((item) => item.id !== initialCard.id)
-            .map((item, index) => (
-              <LearningCard key={item.id} {...item} index={index} />
-            ))}
-        </div>
-      </section>
+      <LearningFeedClient
+        cards={cards}
+        initialCard={initialCard}
+        isPremium={isPremium}
+      />
     </>
   )
 }

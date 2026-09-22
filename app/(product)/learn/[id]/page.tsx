@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 import { ReadingDetailActions } from '@/components/reading-detail-actions'
+import { DepthLadder } from '@/components/depth-ladder'
 import { learningCards } from '@/lib/learning-data'
 import { getLearningCardById, getAllLearningCards } from '@/lib/content-loader'
 import { createClient } from '@/lib/supabase/server'
@@ -103,6 +104,8 @@ export default async function ReadingDetailPage({
         type={card.type}
         initialSaved={initialSaved}
       />
+
+      <DepthLadder card={card} />
 
       <nav className="reading-adjacent" aria-label="Next and previous readings">
         <div className="reading-adjacent-inner">
