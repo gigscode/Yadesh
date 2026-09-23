@@ -5,7 +5,7 @@ import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
   title: 'Upgrade to Premium | Yadesh',
-  description: 'Unlock the full Yadesh archive, unlimited bookmarks, guided series, and offline reading with Pebble payment gateway.',
+  description: 'Add guided 21-day series and unlimited bookmarks to your Yadesh account.',
 }
 
 export default async function UpgradePage() {
@@ -31,7 +31,7 @@ export default async function UpgradePage() {
           <div className="upgrade-premium-badge" aria-hidden="true">✦</div>
           <p className="eyebrow">ACTIVE PLAN</p>
           <h2>You are on Yadesh Premium.</h2>
-          <p>You have full access to the archive, unlimited bookmarks, guided series, and everything else.</p>
+          <p>You have unlimited bookmarks and access to all available guided series.</p>
           <Link href="/learn" className="upgrade-cta-btn">
             Continue learning &rarr;
           </Link>
@@ -39,10 +39,10 @@ export default async function UpgradePage() {
       ) : (
         <>
           <section className="upgrade-hero">
-            <span className="upgrade-hero-pill">✦ YADESH PATRONAGE &amp; MEMBERSHIP</span>
-            <h2>Five minutes a day.<br />The whole archive behind it.</h2>
+            <span className="upgrade-hero-pill">✦ YADESH PREMIUM</span>
+            <h2>Five minutes a day.<br />A path when you want to keep going.</h2>
             <p>
-              Free gets you started with a consistent daily rhythm. Premium removes every limit: the complete archive, the 21-day guided series, offline access, and audio narrations.
+              The free plan includes the full reading library. Premium adds guided 21-day series and unlimited bookmarks when you want a more focused way to continue.
             </p>
           </section>
 

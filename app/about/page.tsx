@@ -6,13 +6,13 @@ import { createClient } from '@/lib/supabase/server'
 const principles = [
   [
     '01',
-    'Real depth in five minutes',
-    'You do not need an hour of free time or a seminary degree to grow. Every reading focuses on one clear lesson from a trusted Christian author, leader, or historical event, written to be finished in five minutes and carried with you through the day.',
+    'One useful idea in five minutes',
+    'You do not need an hour of free time or a seminary degree to keep learning. Each reading focuses on one clear lesson from a Christian author, leader, book, or historical event.',
   ],
   [
     '02',
-    'Guided journeys, not scattered content',
-    'Premium members can follow structured 21-day series on prayer, breakthrough, and the Kingdom of God. Each day builds on the last, tracks your progress, and can be shared as a high-resolution graphic card ready for Instagram, WhatsApp, and X.',
+    'A reading path you can follow',
+    'Premium members can follow 21-day series on prayer, breakthrough, and the Kingdom of God. Each series offers one reading per day and keeps your progress in view.',
   ],
   [
     '03',
@@ -21,8 +21,8 @@ const principles = [
   ],
   [
     '04',
-    'A personal library you keep',
-    'Save your favourite readings with one tap. Build a personal collection of wisdom that stays with you, ready whenever you need encouragement or reflection. Install Yadesh on your home screen as a PWA for instant access even when you are offline.',
+    'Build a library of readings you want to revisit',
+    'Save readings with one tap and find them again when you have a few minutes. Install Yadesh on your home screen for quick access, including to content you have already loaded offline.',
   ],
 ]
 
@@ -36,9 +36,9 @@ export default async function AboutPage() {
       <SharedNav isLoggedIn={isLoggedIn} />
       <section className="info-hero">
         <p className="kicker">Why we built Yadesh</p>
-        <h1>A daily habit for Christians<br /><em>who want depth without noise.</em></h1>
+        <h1>Short readings for Christians<br /><em>who want to keep learning.</em></h1>
         <p>
-          Most of us spend spare minutes checking social media, only to close our phones feeling drained. We want to read classic Christian books, learn church history, and grow in our faith, but life is busy. Yadesh gives you short, three to five minute lessons drawn from real books, biographies, and teachings that you can easily finish, remember, and keep.
+          Many of us reach for our phones in the gaps of the day and come away with little to remember. Yadesh gives you short readings from Christian books, biographies, teachings, and history, made for the few minutes you actually have.
         </p>
       </section>
       <section className="info-grid" aria-label="Yadesh principles">

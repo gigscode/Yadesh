@@ -35,14 +35,14 @@ export function LegacyFeed({
         {showHero && (
           <section className="landing-hero" aria-labelledby="page-title">
             <div className="hero-copy">
-              <p className="kicker anim-fade-up">A five minute habit for the Christian mind</p>
+              <p className="kicker anim-fade-up">Short readings for the minutes you already have</p>
               <h1 id="page-title" className="anim-fade-up delay-1">
                 <span className="hero-line hero-line-one">Trade scrolling.</span>
                 <span className="hero-line hero-line-two hero-emphasis">Feed your</span>
                 <span className="hero-line hero-line-three hero-emphasis">faith.</span>
               </h1>
               <p className="anim-fade-up delay-2">
-                Short, memorable lessons from great Christian books, biographies, and history. Built for busy people who want depth without the noise.
+                Short readings from Christian books, biographies, and history, made for a few quiet minutes.
               </p>
               <div className="hero-actions anim-fade-up delay-3">
                 {isLoggedIn ? (
@@ -71,7 +71,7 @@ export function LegacyFeed({
             <div>
               <p className="kicker">What you will read</p>
               <h2 id="preview-title" style={{ fontSize: 'clamp(1.6rem, 5vw, 2.5rem)', margin: '0.35rem 0' }}>
-                Five minutes. Real depth.
+                Five minutes. One idea to keep.
               </h2>
             </div>
           </div>
@@ -88,12 +88,12 @@ export function LegacyFeed({
           <div className="section-heading" data-reveal>
             <div>
               <p className="kicker">Why Yadesh</p>
-              <h2 id="how-title">Built for real life, not endless feeds.</h2>
+              <h2 id="how-title">A better use for the minutes between everything else.</h2>
             </div>
             <span className="section-index">01 / 03</span>
           </div>
           <p className="method-intro" data-reveal data-delay="1">
-            Most of us lose spare moments to mindless scrolling and leave feeling empty. Yadesh turns those moments into quiet growth from trusted Christian sources.
+            It is easy for spare minutes to disappear into scrolling. Yadesh gives them a different place to go, with short readings from trusted Christian sources.
           </p>
           <div className="how-grid">
             {[
@@ -113,8 +113,8 @@ export function LegacyFeed({
         <section className="landing-series" aria-labelledby="series-title">
           <div className="section-heading" data-reveal>
             <div>
-              <p className="kicker">Go deeper</p>
-              <h2 id="series-title">Not just a reading. A journey.</h2>
+              <p className="kicker">For the days faith feels difficult</p>
+              <h2 id="series-title">Keep going, one day at a time.</h2>
             </div>
             <span className="section-index">02 / 03</span>
           </div>
@@ -142,7 +142,7 @@ export function LegacyFeed({
               ))}
               <li className="landing-series-more">
                 <span>21</span>
-                <strong>days to build a lasting practice</strong>
+                <strong>21 readings on one theme</strong>
               </li>
             </ol>
           </div>
@@ -153,11 +153,11 @@ export function LegacyFeed({
           <div className="section-heading" style={{ marginBottom: '0.5rem' }}>
             <div>
               <p className="kicker">Simple pricing</p>
-              <h2 id="pricing-title">Start free. Go deeper when ready.</h2>
+              <h2 id="pricing-title">Start free. Keep what helps.</h2>
             </div>
           </div>
           <p className="method-intro" style={{ marginBottom: '2rem' }}>
-            The free plan is real, not a teaser. Premium unlocks the full archive, guided series, and no bookmark limits.
+            The free plan includes the full reading library. Premium adds guided 21-day series and unlimited bookmarks.
           </p>
 
           <div className="landing-pricing-grid">
@@ -168,9 +168,9 @@ export function LegacyFeed({
                 <p className="landing-plan-price"><strong>$0</strong><span>forever</span></p>
               </div>
               <ul>
-                <li>1 new reading every day</li>
-                <li>Browse all 4 content pillars</li>
-                <li>Save up to 5 bookmarks</li>
+                <li>Daily reading feed</li>
+                <li>Full reading library</li>
+                <li>Save up to 5 readings</li>
                 <li>Full reading detail pages</li>
               </ul>
               <Link href="/register" className="landing-plan-btn landing-plan-btn-free">
@@ -189,11 +189,8 @@ export function LegacyFeed({
               </div>
               <ul>
                 <li>Everything in free</li>
-                <li>Full archive, all teachers</li>
                 <li>Unlimited bookmarks</li>
                 <li>21-day guided series</li>
-                <li>Offline reading</li>
-                <li>Audio versions</li>
               </ul>
               <Link href="/register" className="landing-plan-btn landing-plan-btn-premium">
                 Start free, upgrade anytime <ArrowUpRight size={14} aria-hidden="true" />

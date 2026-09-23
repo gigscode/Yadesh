@@ -26,6 +26,12 @@ self.addEventListener('install', (event) => {
   )
 })
 
+self.addEventListener('message', (event) => {
+  if (event.data?.type === 'SKIP_WAITING') {
+    self.skipWaiting()
+  }
+})
+
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -45,7 +51,25 @@ self.addEventListener('fetch', (event) => {
   if (requestUrl.origin !== self.location.origin) return
   if (requestUrl.pathname.startsWith('/api/')) return
 
-  // Stale-While-Revalidate with Offline Fallback
+  // Network-first navigations ensure a resumed PWA gets the latest HTML.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.put(event.request, networkResponse.clone())))
+          }
+          return networkResponse
+        })
+        .catch(async () => {
+          const cache = await caches.open(CACHE_NAME)
+          return (await cache.match(event.request)) || (await cache.match('/learn'))
+        })
+    )
+    return
+  }
+
+  // Stale-While-Revalidate for assets keeps repeat visits fast.
   event.respondWith(
     caches.open(CACHE_NAME).then(async (cache) => {
       const cachedResponse = await cache.match(event.request)

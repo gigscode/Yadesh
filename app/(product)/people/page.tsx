@@ -4,8 +4,8 @@ import { getAllPeopleProfiles } from '@/lib/content-loader'
 import { ArrowUpRight, User, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
-  title: 'Christian Leaders & Witnesses · Yadesh',
-  description: 'Firsthand accounts, verified testimonies, and spiritual lessons from historical and modern Christian leaders.',
+  title: 'Christian People and Their Stories | Yadesh',
+  description: 'Biographical readings, source information, and lessons from Christian history.',
 }
 
 export default async function PeoplePage() {
@@ -17,7 +17,7 @@ export default async function PeoplePage() {
 
       <section className="product-intro" style={{ marginBottom: '2rem' }}>
         <p style={{ margin: 0, fontSize: '1.05rem', color: 'var(--muted-foreground)' }}>
-          Learn from the lives behind the faith. Discover documented, lesser-known accounts and verified miracles drawn directly from their own autobiographical writings.
+          Read about the people behind the faith through biographies, primary sources, and accounts from Christian history.
         </p>
       </section>
 
@@ -46,7 +46,7 @@ export default async function PeoplePage() {
                     {person.lifespan}
                   </span>
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.7rem', color: '#16a34a', fontWeight: 800 }}>
-                    <ShieldCheck size={12} /> Verified
+                    <ShieldCheck size={12} /> Source noted
                   </span>
                 </div>
 
@@ -62,7 +62,7 @@ export default async function PeoplePage() {
               </div>
 
               <div className="card-actions" style={{ marginTop: '1.5rem' }}>
-                <span style={{ color: '#7c3aaa', fontWeight: 900, fontSize: '0.82rem' }}>Explore firsthand account</span>
+                <span style={{ color: '#7c3aaa', fontWeight: 900, fontSize: '0.82rem' }}>Read the account</span>
                 <ArrowUpRight size={16} style={{ color: '#7c3aaa' }} />
               </div>
             </Link>

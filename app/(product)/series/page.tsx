@@ -6,7 +6,7 @@ import { createClient } from '@/lib/supabase/server'
 
 export const metadata = {
   title: 'Guided Series | Yadesh',
-  description: '21-day guided reading journeys built around a single theme. Premium feature.',
+  description: '21 readings on one theme, available with Yadesh Premium.',
 }
 
 export default async function SeriesPage() {
@@ -25,12 +25,12 @@ export default async function SeriesPage() {
 
   return (
     <>
-      <PageHeader title="Guided Series" eyebrow="21-DAY JOURNEYS" />
+      <PageHeader title="Guided Series" eyebrow="21 READINGS ON ONE THEME" />
 
       <section className="series-intro">
         <p>
-          Each series is a sequenced 21-day journey built around one theme. One reading per day, each building on the last.
-          {!isPremium && ' Premium feature.'}
+          Each series gives you one reading per day for 21 days around one theme.
+          {!isPremium && ' Available with Premium.'}
         </p>
       </section>
 
@@ -39,10 +39,10 @@ export default async function SeriesPage() {
           <div className="series-gate-inner">
             <Lock size={22} aria-hidden="true" />
             <div>
-              <strong>Premium feature</strong>
+              <strong>Available with Premium</strong>
               <p>Guided series are included with Yadesh Premium at $4.99/month.</p>
             </div>
-            <Link href="/upgrade" className="series-gate-btn">Unlock series</Link>
+            <Link href="/upgrade" className="series-gate-btn">See Premium plans</Link>
           </div>
         </div>
       )}
@@ -72,7 +72,7 @@ export default async function SeriesPage() {
               <span>{series.season}</span>
             </div>
             <span className="series-card-cta">
-              {isPremium ? 'Start series →' : 'Upgrade to unlock →'}
+              {isPremium ? 'Start series →' : 'View Premium →'}
             </span>
           </Link>
         ))}

@@ -4,8 +4,8 @@ import { getAllBooks } from '@/lib/content-loader'
 import { Clock, BookOpen, ArrowUpRight } from 'lucide-react'
 
 export const metadata = {
-  title: 'Christian Book Summaries · Yadesh',
-  description: 'Four-minute executive summaries of timeless Christian books, theology, and spiritual classics.',
+  title: 'Christian Book Summaries | Yadesh',
+  description: 'Four-minute summaries of Christian books and spiritual classics.',
 }
 
 const categoryAccent: Record<string, string> = {
@@ -33,7 +33,7 @@ export default async function BooksPage() {
 
       <section className="product-intro" style={{ marginBottom: '2rem' }}>
         <p style={{ margin: 0, fontSize: '1.05rem', color: 'var(--muted-foreground)' }}>
-          Four-minute executive summaries of foundational Christian classics. Start with the core insights, understand the context, and apply the principles today.
+          Four-minute summaries of Christian classics. Start with the main idea, see the context, and decide where you want to read further.
         </p>
       </section>
 
@@ -80,7 +80,7 @@ export default async function BooksPage() {
               </div>
 
               <div className="card-actions" style={{ marginTop: '1.5rem' }}>
-                <span style={{ color: accentColor, fontWeight: 900, fontSize: '0.82rem' }}>Read 4-min summary</span>
+                <span style={{ color: accentColor, fontWeight: 900, fontSize: '0.82rem' }}>Read the summary</span>
                 <ArrowUpRight size={16} style={{ color: accentColor }} />
               </div>
             </Link>

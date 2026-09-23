@@ -70,7 +70,7 @@ export function UpgradeModal({ onClose }: { onClose: () => void }) {
           You have saved {FREE_BOOKMARK_LIMIT} readings.
         </h2>
         <p className="upgrade-modal-sub">
-          Free accounts keep up to {FREE_BOOKMARK_LIMIT} bookmarks. Go premium for unlimited saves, the full archive, and guided reading series.
+          Free accounts keep up to {FREE_BOOKMARK_LIMIT} bookmarks. Premium adds unlimited saves and guided reading series.
         </p>
 
         {/* Feature list */}
@@ -81,7 +81,7 @@ export function UpgradeModal({ onClose }: { onClose: () => void }) {
           </li>
           <li>
             <BookOpen size={15} aria-hidden="true" />
-            Full archive unlocked, all teachers
+            Unlimited bookmarks
           </li>
           <li>
             <Zap size={15} aria-hidden="true" />
@@ -89,7 +89,7 @@ export function UpgradeModal({ onClose }: { onClose: () => void }) {
           </li>
           <li>
             <Wifi size={15} aria-hidden="true" />
-            Offline reading and audio versions
+            One reading per day across each series
           </li>
         </ul>
 

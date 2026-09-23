@@ -1,19 +1,19 @@
 # Yadesh
 
-A five minute habit for the Christian mind. Trade scrolling. Feed your faith.
+Short readings for the minutes you already have. Trade scrolling. Feed your faith.
 
 Yadesh is a source-aware micro-learning platform for Christians who want to engage seriously with the ideas, people, books, testimonies, and history of the faith. Every piece of content is curated, sourced, and built for short, focused sessions.
 
 ## What it is
 
 - A modern Christian learning platform for ages 16 to 40
-- A quiet alternative to mindless social feeds and doomscrolling
+- A quiet alternative to social feeds and doomscrolling
 - A discovery engine for Christian knowledge across history, theology, biography, and teaching
 - A personal library where users save and return to ideas worth keeping
-- A structured series platform: 21-day guided journeys for premium members
+- A structured series platform: 21 readings on one theme for Premium members
 - A social sharing tool: generate high-resolution quote graphics (Square 1:1, Story 9:16) for Instagram, WhatsApp, and X, 100% client-side
 - A Progressive Web App installable to the home screen with offline support
-- A source-honest editorial experience built around: Read. Keep. Remember.
+- A source-aware editorial experience built around: Read. Keep. Remember.
 
 ## What it is not
 
@@ -32,7 +32,7 @@ DISCOVER -> LEARN -> SAVE -> GO DEEPER -> RETURN
 | Feature | Free | Premium |
 |---|---|---|
 | Full reading library | Yes | Yes |
-| Save to personal library | Yes | Yes |
+| Save to personal library | Up to 5 readings | Unlimited |
 | Reading streak tracking | Yes | Yes |
 | Share quote graphics | Yes | Yes |
 | PWA (home screen install) | Yes | Yes |
@@ -40,10 +40,13 @@ DISCOVER -> LEARN -> SAVE -> GO DEEPER -> RETURN
 
 ## Content principles
 
-- Every piece is source-aware and points toward original books, biographies, and historical records.
+- Each reading identifies its books, people, and historical sources where source information is available.
 - Range across traditions: theology, biography, church history, practical faith, and Christian thought.
 - Focused 3 to 5 minute readings designed to be completed and remembered.
 - No ads, no algorithmic feeds, no endless distraction.
+- Copy speaks to a person in a real situation. It avoids generic marketing language and unsupported promises about transformation, breakthrough, healing, or emotional results.
+- Testimonies and miracle accounts are attributed and qualified as reported when independent verification is not established.
+- Premium copy names the actual benefit: guided 21-day series and unlimited bookmarks.
 - No em dashes in any copy, code, comments, or documentation.
 
 ## Design language

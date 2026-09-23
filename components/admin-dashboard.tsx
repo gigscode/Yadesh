@@ -1126,7 +1126,7 @@ FORMAT RULES:
                     Book Summaries
                   </span>
                   <span style={{ fontSize: '0.72rem', color: 'var(--muted-foreground)', marginTop: '0.2rem' }}>
-                    Executive summaries (BOOK)
+                    Book summaries (BOOK)
                   </span>
                 </button>
 
@@ -1157,7 +1157,7 @@ FORMAT RULES:
 
             <div>
               <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: '950', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '0.4rem' }}>
-                JSON DATA ARRAY ({bulkTemplateType === 'BOOK' ? 'Executive Books' : bulkTemplateType === 'PERSON' ? 'Pastors and Leaders' : 'Daily Lessons'})
+                  JSON DATA ARRAY ({bulkTemplateType === 'BOOK' ? 'Book Summaries' : bulkTemplateType === 'PERSON' ? 'Pastors and Leaders' : 'Daily Lessons'})
               </label>
               <textarea
                 rows={12}

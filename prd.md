@@ -201,6 +201,13 @@ Content principles:
 - Not dominated by healing and miracles. Range across theology, biography, history, character, and practical faith.
 - Every piece is source-aware. Reported testimonies are labelled as such.
 - No lorem ipsum. All content is realistic, editorial, and human.
+- Public copy should speak to a person in a real spiritual or practical situation, not to an abstract audience.
+- Prefer concrete descriptions over generic phrases such as "go deeper", "meaningful", "timeless", "journey", and "framework" when they add no information.
+- Do not promise transformation, breakthrough, healing, emotional outcomes, or lasting habits. Describe what the reading offers and let the reader decide what it means for them.
+- Attribute testimonies, miracles, and historical claims. Use "reported", "according to", and visible source information when independent verification is not established.
+- Keep Premium claims accurate: the full reading library is free; Premium adds 21-day guided series and unlimited bookmarks.
+- Avoid corporate conversion language such as "unlock", "all-access", "zero risk", "instant activation", and "bank-grade".
+- Keep copy ecumenically clear when content reflects charismatic, Word of Faith, or other specific Christian traditions.
 - No em dashes in any content, copy, metadata, comments, or documentation.
 
 ### Card colour by type
@@ -363,7 +370,10 @@ Register this endpoint with a daily free cron service such as cron-job.org or Ve
 
 - No em dashes anywhere: not in UI text, card content, metadata titles, code comments, or documentation.
 - Use `|` as the separator in page `<title>` metadata (e.g. `Card Title | Yadesh`).
-- Preferred CTAs: Start reading for free, Read for 2 min, Explore this person, Read the source, Go deeper, Save, Continue learning, View all, Upgrade to Premium.
+- Preferred CTAs: Start reading for free, Read the summary, Explore this person, Read the source, Save this reading, Continue learning, View all, See Premium plans.
+- Avoid unsupported feature claims. The full reading library is free. Premium adds guided 21-day series and unlimited bookmarks.
+- Avoid language that sounds like a guarantee or a sales template. Replace "unlock", "all-access", "zero risk", "instant activation", and "bank-grade" with plain descriptions.
+- Use modest, human language that acknowledges the reader's situation without claiming a spiritual result for them.
 - Avoid: Enter the archive, Save to Altar, Choose your pressure.
 - Footer line: Read. Keep. Remember.
 - Tagline: Trade scrolling. Feed your faith. Five minutes of something worth knowing.

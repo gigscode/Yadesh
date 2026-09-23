@@ -135,7 +135,7 @@ export function ProductChrome({
 
         <div className="sidebar-note">
           <span>Read. Keep. Remember.</span>
-          <small>Five focused minutes can change what you know.</small>
+          <small>Five focused minutes can give you one idea to keep.</small>
         </div>
         <footer className="product-legal-links">
           <Link href="/privacy">Privacy</Link>

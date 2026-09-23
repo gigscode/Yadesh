@@ -103,7 +103,7 @@ export function SharedNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
           aria-label="Yadesh navigation menu"
         >
           <div className="menu-panel-head">
-            <span>Move with intention.</span>
+            <span>Explore Yadesh.</span>
             <button
               type="button"
               onClick={() => setMenuOpen(false)}

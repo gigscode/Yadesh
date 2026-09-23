@@ -36,11 +36,11 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
   const faqs = [
     {
       q: 'What is included in the 21-day guided series?',
-      a: 'Sequenced 21-day journeys built around a single theme: Breakthrough, Prayer, and Kingdom Purpose. Each day offers one structured micro-reading that builds on the previous day with actionable scriptural principles and historical insights.',
+      a: 'One reading per day for 21 days around a single theme: Breakthrough, Prayer, or Kingdom Purpose. You can mark days complete, follow your progress, and return to any reading.',
     },
     {
       q: 'How does the Pebble payment gateway work?',
-      a: 'Pebble processes your payment with bank-grade 256-bit encryption. It supports all major credit/debit cards and local payment methods with zero hidden fees. Your account is upgraded automatically the instant payment confirms.',
+      a: 'Pebble handles checkout and payment confirmation. Your Premium status updates after the payment is confirmed.',
     },
     {
       q: 'Can I switch between monthly and annual plans later?',
@@ -91,13 +91,13 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
           </div>
 
           <div className="upgrade-plan-head">
-            <h3 className="upgrade-plan-name">Free Forever</h3>
+            <h3 className="upgrade-plan-name">Free plan</h3>
             <p className="upgrade-plan-tagline">
-              The daily rhythm to start trading scroll time for spiritual nourishment.
+              A simple way to read something thoughtful each day.
             </p>
             <div className="upgrade-plan-price">
               <strong>$0</strong>
-              <span className="upgrade-price-sub">free for life</span>
+              <span className="upgrade-price-sub">no cost</span>
             </div>
           </div>
 
@@ -106,7 +106,7 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
             <ul className="upgrade-feature-list" aria-label="Free plan features">
               <li>
                 <span className="feature-icon feature-icon-free"><Check size={14} /></span>
-                <span>1 curated micro-reading every day</span>
+                <span>Daily micro-reading</span>
               </li>
               <li>
                 <span className="feature-icon feature-icon-free"><Check size={14} /></span>
@@ -118,7 +118,7 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
               </li>
               <li>
                 <span className="feature-icon feature-icon-free"><Check size={14} /></span>
-                <span>Save up to 5 permanent bookmarks</span>
+                <span>Save up to 5 readings</span>
               </li>
               <li>
                 <span className="feature-icon feature-icon-free"><Check size={14} /></span>
@@ -140,14 +140,14 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
           <div className="upgrade-plan-badge-row">
             <span className="plan-badge plan-badge-premium">
               <Sparkles size={13} aria-hidden="true" />
-              {isAnnual ? 'BEST VALUE · SAVE 33%' : 'ALL-ACCESS PASS'}
+              {isAnnual ? 'BEST VALUE · SAVE 33%' : 'MONTHLY PLAN'}
             </span>
           </div>
 
           <div className="upgrade-plan-head">
             <h3 className="upgrade-plan-name">Yadesh Premium</h3>
             <p className="upgrade-plan-tagline">
-              The complete Christian micro-learning archive, audio, and guided 21-day series.
+              Guided 21-day series and unlimited bookmarks when you want to keep going.
             </p>
 
             <div className="upgrade-plan-price">
@@ -176,19 +176,7 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
               </li>
               <li>
                 <span className="feature-icon feature-icon-premium"><Check size={14} /></span>
-                <span><strong>Complete library archive</strong> across all theologians and history</span>
-              </li>
-              <li>
-                <span className="feature-icon feature-icon-premium"><Check size={14} /></span>
-                <span><strong>Audio narrations</strong> and offline reading mode</span>
-              </li>
-              <li>
-                <span className="feature-icon feature-icon-premium"><Check size={14} /></span>
-                <span><strong>Direct author deep dives</strong> and cross-referenced teachings</span>
-              </li>
-              <li>
-                <span className="feature-icon feature-icon-premium"><Check size={14} /></span>
-                <span><strong>Early access</strong> to all newly published series and study tracks</span>
+                <span>Progress tracking for each series</span>
               </li>
             </ul>
           </div>
@@ -200,9 +188,9 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
               onClick={handlePebbleCheckout}
               disabled={isProcessing}
             >
-              {isProcessing ? 'Connecting to Pebble...' : (
+              {isProcessing ? 'Opening checkout...' : (
                 <>
-                  Unlock Premium {isAnnual ? 'for $39.99/yr' : 'for $4.99/mo'}
+                  Choose Premium {isAnnual ? 'for $39.99/yr' : 'for $4.99/mo'}
                   <ArrowRight size={16} aria-hidden="true" />
                 </>
               )}
@@ -210,7 +198,7 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
 
             <div className="upgrade-pebble-trust">
               <Lock size={13} aria-hidden="true" />
-              <span>Secure checkout powered by Pebble Payment Gateway</span>
+              <span>Checkout handled by Pebble</span>
             </div>
           </div>
         </div>
@@ -223,16 +211,16 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
           <div className="trust-icon-wrap" style={{ background: '#f0eeff', color: '#7168ed' }}>
             <ShieldCheck size={22} aria-hidden="true" />
           </div>
-          <h4>Zero Risk Guarantee</h4>
-          <p>Cancel anytime with a single click. No phone calls, no hoops, no retention hurdles.</p>
+          <h4>Cancel anytime</h4>
+          <p>Cancel from your account whenever you need to. Premium access continues through the paid period.</p>
         </div>
 
         <div className="upgrade-trust-card">
           <div className="trust-icon-wrap" style={{ background: '#e8faf1', color: '#22a95f' }}>
             <Zap size={22} aria-hidden="true" />
           </div>
-          <h4>Instant Activation</h4>
-          <p>Pebble confirms instantly, unlocking all 21-day series and archives across your devices.</p>
+          <h4>Access after payment</h4>
+          <p>Your Premium features become available after Pebble confirms the payment.</p>
         </div>
 
         <div className="upgrade-trust-card">
@@ -240,7 +228,7 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
             <Sparkles size={22} aria-hidden="true" />
           </div>
           <h4>Quiet & Ad-Free</h4>
-          <p>100% subscriber-supported. No advertisements, no sponsored bias, no algorithmic dopamine loops.</p>
+          <p>No advertisements or sponsored content. Just the readings and features in your plan.</p>
         </div>
       </section>
 

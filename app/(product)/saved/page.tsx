@@ -105,8 +105,8 @@ export default async function SavedPage() {
             <div className="saved-premium-upsell">
               <div>
                 <p className="eyebrow">YADESH PREMIUM</p>
-                <h3>Unlimited saves. The full archive.</h3>
-                <p>Unlock every reading, guided series, and offline access for $4.99 a month.</p>
+                <h3>Keep more of what you find.</h3>
+                <p>Premium adds unlimited saves and access to the 21-day guided series for $4.99 a month.</p>
               </div>
               <Link href="/upgrade" className="upgrade-cta-btn">
                 See plans →

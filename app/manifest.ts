@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Yadesh, Christian Micro-Learning',
     short_name: 'Yadesh',
-    description: 'Five focused minutes can change what you know.',
+    description: 'Short readings from Christian books, people, teachings, and history.',
     start_url: '/',
     display: 'standalone',
     background_color: '#6b64f6',

@@ -198,10 +198,10 @@ export async function getAllPeopleProfiles(): Promise<PersonProfile[]> {
         coreQuote: row.pull_quote,
         shortBio: row.body,
         eyewitnessStory: {
-          title: 'Documented Firsthand Account',
+          title: 'Firsthand Account',
           account: fullBody.join('\n\n'),
           primarySource: row.takeaway,
-          sourceContext: 'Verified autobiographical account from ministry records.',
+          sourceContext: 'Autobiographical account from ministry records.',
         },
         keyFacts: [
           { factTitle: 'Life and Calling', detail: fullBody[0] || row.body },

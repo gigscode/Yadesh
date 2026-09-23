@@ -188,7 +188,7 @@ export default async function BookSummaryPage({ params }: { params: Promise<{ sl
 
       {/* Full 3-Minute Summary */}
       <section style={{ marginBottom: '2.5rem' }} aria-labelledby="summary-heading">
-        <p className="eyebrow" style={{ marginBottom: '0.5rem' }}>EXECUTIVE BREAKDOWN</p>
+        <p className="eyebrow" style={{ marginBottom: '0.5rem' }}>BOOK SUMMARY</p>
         <h2 id="summary-heading" style={{ fontSize: '1.6rem', margin: '0 0 1.25rem', letterSpacing: '-0.03em' }}>
           The Heart of the Teaching
         </h2>

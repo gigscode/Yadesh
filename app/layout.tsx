@@ -5,8 +5,8 @@ import { PwaUpdater } from '@/components/pwa-updater'
 import { MobilePwaPrompt } from '@/components/mobile-pwa-prompt'
 
 export const metadata: Metadata = {
-  title: 'Yadesh, Christian Micro-Learning',
-  description: 'Five minutes can change what you know. Discover Christian books, people, teachings, testimonies, and history one meaningful piece at a time.',
+  title: 'Yadesh | Short Christian readings',
+  description: 'Short readings from Christian books, people, teachings, testimonies, and history.',
   manifest: '/manifest.json',
   icons: {
     icon: [{ url: '/favicon.ico', type: 'image/x-icon' }],

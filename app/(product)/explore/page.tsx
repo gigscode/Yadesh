@@ -12,8 +12,8 @@ export default async function ExplorePage() {
 
       <section className="explore-intro">
         <p className="eyebrow">BROWSE BY THEME</p>
-        <h2>Find a thread<br />worth following.</h2>
-        <p>Choose a theme when you know what you&apos;re looking for. Otherwise, your daily reading is waiting on Home.</p>
+        <h2>Browse by theme.</h2>
+        <p>Choose a theme when you know what you&apos;re looking for. Otherwise, start with today&apos;s reading on Home.</p>
         <TopicChips />
       </section>
 

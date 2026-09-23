@@ -133,9 +133,9 @@ export function DepthLadder({ card }: DepthLadderProps) {
             <span className="depth-step-num"><Scroll size={13} /></span>
           </div>
           <div className="depth-step-content">
-            <div className="depth-step-meta">PRIMARY SOURCE ANCHOR</div>
+            <div className="depth-step-meta">SOURCE INFORMATION</div>
             <p className="depth-step-source-desc">
-              Verified editorial reference from the original published discourse and historical archives of {card.source}.
+              References from the original published discourse and historical records associated with {card.source}, where available.
             </p>
           </div>
         </div>

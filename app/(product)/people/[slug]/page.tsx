@@ -132,7 +132,7 @@ export default async function PersonProfilePage({ params }: { params: Promise<{ 
           </p>
         </div>
 
-        {/* Primary Source Verification Badge */}
+        {/* Source information */}
         <div
           style={{
             display: 'flex',
@@ -148,7 +148,7 @@ export default async function PersonProfilePage({ params }: { params: Promise<{ 
         >
           <ShieldCheck size={18} style={{ color: '#16a34a', flexShrink: 0 }} />
           <div>
-            <strong>Verified Primary Source:</strong> {person.eyewitnessStory.primarySource} ({person.eyewitnessStory.sourceContext})
+            <strong>Source information:</strong> {person.eyewitnessStory.primarySource} ({person.eyewitnessStory.sourceContext})
           </div>
         </div>
       </section>
@@ -157,7 +157,7 @@ export default async function PersonProfilePage({ params }: { params: Promise<{ 
       <section style={{ marginBottom: '2.5rem' }} aria-labelledby="facts-heading">
         <p className="eyebrow" style={{ marginBottom: '0.5rem' }}>HISTORICAL RECORDS</p>
         <h2 id="facts-heading" style={{ fontSize: '1.6rem', margin: '0 0 1.25rem', letterSpacing: '-0.03em' }}>
-          Three Facts from Their Life
+          Three moments from their life
         </h2>
 
         <div style={{ display: 'grid', gap: '1rem' }}>

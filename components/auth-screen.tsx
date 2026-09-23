@@ -63,8 +63,8 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
     <main className="auth-page">
       <SharedNav />
       <section className="auth-card" aria-labelledby="auth-title">
-        <p className="kicker">{isRegister ? 'Start learning intentionally' : 'Welcome back'}</p>
-        <h1 id="auth-title">{isRegister ? 'Create your learning space.' : 'Keep learning.'}</h1>
+        <p className="kicker">{isRegister ? 'Create your account' : 'Welcome back'}</p>
+        <h1 id="auth-title">{isRegister ? 'Save readings for later.' : 'Your saved readings are here.'}</h1>
         <p className="auth-intro">
           {isRegister
             ? 'Save the ideas, stories, and lessons worth returning to.'

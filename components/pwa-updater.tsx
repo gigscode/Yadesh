@@ -28,6 +28,7 @@ export function PwaUpdater() {
     const hadControllerOnLoad = Boolean(navigator.serviceWorker.controller)
     let refreshing = false
     let intervalId: ReturnType<typeof setInterval> | null = null
+    let removeUpdateListeners: (() => void) | null = null
 
     const handleControllerChange = () => {
       if (refreshing || !hadControllerOnLoad) return
@@ -40,8 +41,36 @@ export function PwaUpdater() {
     navigator.serviceWorker
       .register('/sw.js', { scope: '/', updateViaCache: 'none' })
       .then((registration) => {
-        registration.update()
-        intervalId = setInterval(() => registration.update(), 60 * 60 * 1000)
+        const checkForUpdate = () => {
+          if (document.visibilityState === 'visible' && navigator.onLine) {
+            registration.update().catch(() => {})
+          }
+        }
+
+        checkForUpdate()
+        intervalId = setInterval(checkForUpdate, 15 * 60 * 1000)
+        window.addEventListener('focus', checkForUpdate)
+        window.addEventListener('online', checkForUpdate)
+        document.addEventListener('visibilitychange', checkForUpdate)
+
+        const handleUpdateFound = () => {
+          const installingWorker = registration.installing
+          if (!installingWorker) return
+          const handleStateChange = () => {
+            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              installingWorker.postMessage({ type: 'SKIP_WAITING' })
+            }
+          }
+          installingWorker.addEventListener('statechange', handleStateChange)
+        }
+        registration.addEventListener('updatefound', handleUpdateFound)
+
+        removeUpdateListeners = () => {
+          window.removeEventListener('focus', checkForUpdate)
+          window.removeEventListener('online', checkForUpdate)
+          document.removeEventListener('visibilitychange', checkForUpdate)
+          registration.removeEventListener('updatefound', handleUpdateFound)
+        }
       })
       .catch(() => {
         // Registration can fail in local previews or restricted contexts.
@@ -50,6 +79,7 @@ export function PwaUpdater() {
     return () => {
       navigator.serviceWorker.removeEventListener('controllerchange', handleControllerChange)
       if (intervalId !== null) clearInterval(intervalId)
+      removeUpdateListeners?.()
     }
   }, [])
 
