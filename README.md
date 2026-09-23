@@ -2,7 +2,7 @@
 
 A five minute habit for the Christian mind. Trade scrolling. Feed your faith.
 
-Yadesh is a source-aware learning platform for Christians who want to engage seriously with the ideas, people, books, testimonies, and history of the faith. Every piece of content is curated, sourced, and built for short, focused sessions.
+Yadesh is a source-aware micro-learning platform for Christians who want to engage seriously with the ideas, people, books, testimonies, and history of the faith. Every piece of content is curated, sourced, and built for short, focused sessions.
 
 ## What it is
 
@@ -10,7 +10,10 @@ Yadesh is a source-aware learning platform for Christians who want to engage ser
 - A quiet alternative to mindless social feeds and doomscrolling
 - A discovery engine for Christian knowledge across history, theology, biography, and teaching
 - A personal library where users save and return to ideas worth keeping
-- A source-honest editorial experience built around the principle: Read. Keep. Remember.
+- A structured series platform: 21-day guided journeys for premium members
+- A social sharing tool: generate high-resolution quote graphics (Square 1:1, Story 9:16) for Instagram, WhatsApp, and X, 100% client-side
+- A Progressive Web App installable to the home screen with offline support
+- A source-honest editorial experience built around: Read. Keep. Remember.
 
 ## What it is not
 
@@ -22,7 +25,18 @@ Yadesh is a source-aware learning platform for Christians who want to engage ser
 
 ## Core product loop
 
-DISCOVER → LEARN → SAVE → GO DEEPER → RETURN
+DISCOVER -> LEARN -> SAVE -> GO DEEPER -> RETURN
+
+## Feature tiers
+
+| Feature | Free | Premium |
+|---|---|---|
+| Full reading library | Yes | Yes |
+| Save to personal library | Yes | Yes |
+| Reading streak tracking | Yes | Yes |
+| Share quote graphics | Yes | Yes |
+| PWA (home screen install) | Yes | Yes |
+| 21-day guided series | No | Yes |
 
 ## Content principles
 
@@ -30,12 +44,36 @@ DISCOVER → LEARN → SAVE → GO DEEPER → RETURN
 - Range across traditions: theology, biography, church history, practical faith, and Christian thought.
 - Focused 3 to 5 minute readings designed to be completed and remembered.
 - No ads, no algorithmic feeds, no endless distraction.
+- No em dashes in any copy, code, comments, or documentation.
 
 ## Design language
 
-- Background: warm off-white
-- Text: near-black
-- Primary accent: electric lime
-- Secondary accent: periwinkle / violet
-- Contextual: soft lilac
+- Background: warm off-white (#fbfbf8)
+- Text: near-black (#17181d)
+- Primary accent: periwinkle / violet (#7168ed)
+- Secondary accent: electric lime (#e4fb4f)
+- Contextual: soft lilac (#e9c7f5)
+- Font family: system stack (Helvetica, Arial, sans-serif)
 - Calm, intentional, and readable across all devices.
+
+## Tech stack
+
+- Next.js 16 (App Router, Turbopack)
+- Supabase (auth, profiles, saved_items)
+- Pebble (payment gateway for premium upgrades)
+- Vanilla CSS (no Tailwind)
+- PWA: web app manifest + service worker (stale-while-revalidate)
+- Share cards: HTML5 Canvas, 100% client-side (no storage, no egress)
+
+## Key routes
+
+- `/` - Public marketing homepage
+- `/learn` - Authenticated daily feed
+- `/learn/[id]` - Reading detail page
+- `/series/[slug]` - 21-day series overview (premium)
+- `/series/[slug]/day/[day]` - Series day reading (premium)
+- `/upgrade` - Premium upgrade page
+- `/saved` - Personal library
+- `/you` - Profile and settings
+- `/about` - About page with FAQ
+- `/api/cron/keepalive` - Supabase keep-alive ping (daily cron)

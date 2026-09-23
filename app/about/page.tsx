@@ -7,17 +7,22 @@ const principles = [
   [
     '01',
     'Real depth in five minutes',
-    'You do not need an hour of free time or a seminary degree to grow. Every reading focuses on one clear lesson from a trusted Christian author, leader, or historical event, written to be finished in five minutes.',
+    'You do not need an hour of free time or a seminary degree to grow. Every reading focuses on one clear lesson from a trusted Christian author, leader, or historical event, written to be finished in five minutes and carried with you through the day.',
   ],
   [
     '02',
-    'Anchored in original sources',
-    'Yadesh does not replace original books or scripture, it introduces you to them. Every reading links directly to the real book, biography, or historical record so you can explore further whenever an idea moves you.',
+    'Guided journeys, not scattered content',
+    'Premium members can follow structured 21-day series on prayer, breakthrough, and the Kingdom of God. Each day builds on the last, tracks your progress, and can be shared as a high-resolution graphic card ready for Instagram, WhatsApp, and X.',
   ],
   [
     '03',
+    'Anchored in original sources',
+    'Yadesh does not replace original books or scripture. It introduces you to them. Every reading links directly to the real book, biography, or historical record so you can explore further whenever an idea moves you.',
+  ],
+  [
+    '04',
     'A personal library you keep',
-    'Save your favourite readings with one tap. Build a personal collection of wisdom that stays with you, ready whenever you need encouragement or reflection.',
+    'Save your favourite readings with one tap. Build a personal collection of wisdom that stays with you, ready whenever you need encouragement or reflection. Install Yadesh on your home screen as a PWA for instant access even when you are offline.',
   ],
 ]
 
