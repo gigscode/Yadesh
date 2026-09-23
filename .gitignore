@@ -1,5 +1,6 @@
 # Environment variables
-.env*.local
+.env*
+!.env.example
 
 # Next.js
 .next/
@@ -18,4 +19,3 @@ node_modules
 
 # OS
 .DS_Store
-.env.local
