@@ -356,6 +356,23 @@ a,button,input,select,textarea{transition-property:color,background,border-color
 .saved-premium-upsell .upgrade-cta-btn{background:#e4fb4f;color:#17181d;white-space:nowrap;flex-shrink:0}
 @media(max-width:899px){.saved-limit-banner{flex-direction:column;align-items:flex-start}.saved-limit-upgrade-btn{width:100%;text-align:center}.saved-premium-upsell{flex-direction:column;align-items:flex-start}.saved-premium-upsell .upgrade-cta-btn{width:100%}}
 
+/* ── Landing series preview ────────────────────────────────────────────────── */
+.landing-series{padding:3.5rem 0 1rem}
+.landing-series-feature{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(16rem,.9fr);gap:2rem;padding:2rem;border-radius:1.35rem;overflow:hidden}
+.landing-series-copy{max-width:34rem}
+.landing-series-label{margin:0;color:#e4fb4f;font-size:.68rem;font-weight:950;letter-spacing:.14em;text-transform:uppercase}
+.landing-series-copy h3{margin:.55rem 0 .35rem;font-size:clamp(2.25rem,6vw,4.2rem);line-height:.88;letter-spacing:-.07em}
+.landing-series-subtitle{margin:0;color:rgba(255,255,255,.72);font-size:1rem;font-weight:900;letter-spacing:.02em}
+.landing-series-description{max-width:32rem;margin:1.25rem 0 1.5rem;color:rgba(255,255,255,.76);font-family:Arial,Helvetica,sans-serif;font-size:.9rem;font-weight:600;line-height:1.55}
+.landing-series-link{display:inline-flex;align-items:center;gap:.4rem;padding:.8rem 1rem;border-radius:999px;background:#e4fb4f;color:#17181d;font-size:.78rem;font-weight:950;text-decoration:none}
+.landing-series-link:hover{opacity:.85}
+.landing-series-days{display:grid;align-content:center;gap:.55rem;margin:0;padding:0;list-style:none}
+.landing-series-days li{display:grid;grid-template-columns:2.3rem 1fr;align-items:center;gap:.75rem;padding:.85rem 0;border-bottom:1px solid rgba(255,255,255,.18)}
+.landing-series-days li:last-child{border-bottom:0}
+.landing-series-days span{display:grid;place-items:center;width:2.3rem;height:2.3rem;border-radius:50%;background:rgba(255,255,255,.14);color:#e4fb4f;font-size:.7rem;font-weight:950}
+.landing-series-days strong{font-size:.82rem;line-height:1.25}
+.landing-series-more strong{color:rgba(255,255,255,.72)}
+
 /* ── Landing pricing section ───────────────────────────────────────────────── */
 .landing-pricing{padding:3.5rem 0 1rem}
 .landing-pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:3rem}
@@ -378,6 +395,7 @@ a,button,input,select,textarea{transition-property:color,background,border-color
 .landing-plan-btn-premium{background:#e4fb4f;color:#17181d}
 .landing-plan-note{margin:0;color:#9a9ab8;font-family:Arial,Helvetica,sans-serif;font-size:.72rem;font-weight:600;text-align:center}
 @media(max-width:899px){.landing-pricing-grid{grid-template-columns:1fr}.landing-plan{padding:1.35rem}}
+@media(max-width:899px){.landing-series{padding-top:2.5rem}.landing-series-feature{grid-template-columns:1fr;gap:1.5rem;padding:1.35rem}.landing-series-copy h3{font-size:clamp(2.35rem,12vw,3.5rem)}.landing-series-description{margin-top:1rem}.landing-series-link{width:100%;justify-content:center}.landing-series-days{align-content:initial}}
 
 /* ── Series listing page ────────────────────────────────────────────────────── */
 .series-intro{max-width:44rem;margin:0 0 1.75rem;color:var(--muted-foreground);font-family:Arial,Helvetica,sans-serif;font-size:1rem;line-height:1.55}

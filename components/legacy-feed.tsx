@@ -5,6 +5,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { SharedNav } from '@/components/shared-nav'
 import { LearningCard } from '@/components/learning-card'
 import { learningCards } from '@/lib/learning-data'
+import { allSeries } from '@/lib/series-data'
 import { useScrollReveal } from '@/hooks/use-scroll-reveal'
 
 export function LegacyFeed({
@@ -23,6 +24,7 @@ export function LegacyFeed({
     return order.indexOf(a.id) - order.indexOf(b.id)
   })
   const pageRef = useScrollReveal()
+  const featuredSeries = allSeries[0]
 
   return (
     <div className="phone-shell" ref={pageRef as any}>
@@ -105,6 +107,44 @@ export function LegacyFeed({
                 <p>{copy}</p>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="landing-series" aria-labelledby="series-title">
+          <div className="section-heading" data-reveal>
+            <div>
+              <p className="kicker">Go deeper</p>
+              <h2 id="series-title">Not just a reading. A journey.</h2>
+            </div>
+            <span className="section-index">02 / 03</span>
+          </div>
+          <div
+            className="landing-series-feature"
+            style={{ background: featuredSeries.accentColor, color: featuredSeries.textColor }}
+            data-reveal
+            data-delay="1"
+          >
+            <div className="landing-series-copy">
+              <p className="landing-series-label">Premium guided series</p>
+              <h3>{featuredSeries.title}</h3>
+              <p className="landing-series-subtitle">{featuredSeries.subtitle}</p>
+              <p className="landing-series-description">{featuredSeries.description}</p>
+              <Link href="/register" className="landing-series-link">
+                Start your free account <ArrowUpRight size={15} aria-hidden="true" />
+              </Link>
+            </div>
+            <ol className="landing-series-days" aria-label={`${featuredSeries.title} preview`}>
+              {featuredSeries.days.slice(0, 3).map((day) => (
+                <li key={day.day}>
+                  <span>{String(day.day).padStart(2, '0')}</span>
+                  <strong>{day.title}</strong>
+                </li>
+              ))}
+              <li className="landing-series-more">
+                <span>21</span>
+                <strong>days to build a lasting practice</strong>
+              </li>
+            </ol>
           </div>
         </section>
 
