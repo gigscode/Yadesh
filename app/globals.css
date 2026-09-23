@@ -302,14 +302,6 @@ a,button,input,select,textarea{transition-property:color,background,border-color
 .upgrade-pebble-trust{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-top:.85rem;color:#8f90a6;font-size:.72rem;font-weight:700}
 .upgrade-pebble-trust svg{color:#e4fb4f}
 
-/* Trust Strip */
-.upgrade-trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:4rem}
-.upgrade-trust-card{display:flex;flex-direction:column;gap:.5rem;padding:1.5rem;border-radius:1.25rem;border:1px solid var(--border);background:#fff;transition:transform .15s}
-.upgrade-trust-card:hover{transform:translateY(-2px)}
-.trust-icon-wrap{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.85rem;margin-bottom:.3rem}
-.upgrade-trust-card h4{margin:0;font-size:.98rem;letter-spacing:-.02em}
-.upgrade-trust-card p{margin:0;color:var(--muted-foreground);font-family:Arial,Helvetica,sans-serif;font-size:.82rem;line-height:1.5}
-
 /* FAQ Accordion */
 .upgrade-faq-section{margin-bottom:3rem}
 .upgrade-faq-header{text-align:center;max-width:32rem;margin:0 auto 2rem}
@@ -332,7 +324,6 @@ a,button,input,select,textarea{transition-property:color,background,border-color
 
 @media(max-width:899px){
   .upgrade-plans{grid-template-columns:1fr}
-  .upgrade-trust-grid{grid-template-columns:1fr}
   .upgrade-plan{padding:1.65rem 1.35rem}
 }
 

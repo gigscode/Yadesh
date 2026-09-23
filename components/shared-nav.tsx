@@ -128,7 +128,7 @@ export function SharedNav({ isLoggedIn = false }: { isLoggedIn?: boolean }) {
           </nav>
 
           <p className="menu-note">
-            Christian micro-learning from books, people, teachings, testimonies, and history.
+            Short readings from Christian books, people, teachings, and history.
           </p>
         </div>
       )}

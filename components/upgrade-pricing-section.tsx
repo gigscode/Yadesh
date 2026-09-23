@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Check, ShieldCheck, Zap, Sparkles, HelpCircle, ChevronDown, ArrowRight, Lock } from 'lucide-react'
+import { Check, Sparkles, HelpCircle, ChevronDown, ArrowRight, Lock } from 'lucide-react'
 
 interface UpgradePricingSectionProps {
   userEmail?: string
@@ -39,8 +39,8 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
       a: 'One reading per day for 21 days around a single theme: Breakthrough, Prayer, or Kingdom Purpose. You can mark days complete, follow your progress, and return to any reading.',
     },
     {
-      q: 'How does the Pebble payment gateway work?',
-      a: 'Pebble handles checkout and payment confirmation. Your Premium status updates after the payment is confirmed.',
+      q: 'When does Premium access begin?',
+      a: 'Your Premium features become available after payment is confirmed.',
     },
     {
       q: 'Can I switch between monthly and annual plans later?',
@@ -198,46 +198,19 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
 
             <div className="upgrade-pebble-trust">
               <Lock size={13} aria-hidden="true" />
-              <span>Checkout handled by Pebble</span>
+              <span>Secure checkout</span>
             </div>
           </div>
         </div>
 
       </div>
 
-      {/* Trust & Assurance Strip */}
-      <section className="upgrade-trust-grid" aria-label="Why upgrade to Yadesh Premium">
-        <div className="upgrade-trust-card">
-          <div className="trust-icon-wrap" style={{ background: '#f0eeff', color: '#7168ed' }}>
-            <ShieldCheck size={22} aria-hidden="true" />
-          </div>
-          <h4>Cancel anytime</h4>
-          <p>Cancel from your account whenever you need to. Premium access continues through the paid period.</p>
-        </div>
-
-        <div className="upgrade-trust-card">
-          <div className="trust-icon-wrap" style={{ background: '#e8faf1', color: '#22a95f' }}>
-            <Zap size={22} aria-hidden="true" />
-          </div>
-          <h4>Access after payment</h4>
-          <p>Your Premium features become available after Pebble confirms the payment.</p>
-        </div>
-
-        <div className="upgrade-trust-card">
-          <div className="trust-icon-wrap" style={{ background: '#fdf0d8', color: '#b45309' }}>
-            <Sparkles size={22} aria-hidden="true" />
-          </div>
-          <h4>Quiet & Ad-Free</h4>
-          <p>No advertisements or sponsored content. Just the readings and features in your plan.</p>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section className="upgrade-faq-section" aria-labelledby="upgrade-faq-title">
         <div className="upgrade-faq-header">
           <HelpCircle size={24} className="upgrade-faq-icon" aria-hidden="true" />
           <h3 id="upgrade-faq-title">Frequently Asked Questions</h3>
-          <p>Everything you need to know about Yadesh Premium and Pebble payments.</p>
+          <p>Clear answers about Yadesh Premium, billing, and cancellation.</p>
         </div>
 
         <div className="upgrade-faq-accordion">
