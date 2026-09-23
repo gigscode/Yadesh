@@ -13,6 +13,7 @@ const PRECACHE_ASSETS = [
   '/terms',
   '/yadesh-mark.png',
   '/yadesh-splash.png',
+  '/manifest.json',
   '/manifest.webmanifest',
 ]
 

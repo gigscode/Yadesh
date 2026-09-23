@@ -86,8 +86,8 @@ export function LearningFeedClient({ cards, initialCard, isPremium }: LearningFe
       <section className="feed-filters-section" aria-label="Filter content feed">
         <div className="feed-filter-row">
           <div className="feed-filter-label">
-            <Clock size={14} aria-hidden="true" />
-            <span>How much time do you have?</span>
+            <Clock size={13} aria-hidden="true" />
+            <span>Time</span>
           </div>
           <div className="feed-time-pills" role="radiogroup" aria-label="Time filter">
             {timeOptions.map((opt) => (
@@ -107,8 +107,8 @@ export function LearningFeedClient({ cards, initialCard, isPremium }: LearningFe
 
         <div className="feed-filter-row">
           <div className="feed-filter-label">
-            <Filter size={14} aria-hidden="true" />
-            <span>Explore by theme:</span>
+            <Filter size={13} aria-hidden="true" />
+            <span>Theme</span>
           </div>
           <div className="feed-topic-chips" role="radiogroup" aria-label="Topic filter">
             {topicOptions.map((topic) => (

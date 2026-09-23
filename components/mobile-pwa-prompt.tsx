@@ -1,32 +1,42 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Download, X, Share2, PlusSquare } from 'lucide-react'
+import { Download, X, Share2, PlusSquare, MoreVertical, Check } from 'lucide-react'
 
 const DISMISS_KEY = 'yadesh_pwa_dismissed_until'
-const COOLDOWN_DAYS = 7
+const COOLDOWN_DAYS = 3
+
+// Capture beforeinstallprompt as soon as bundle scripts execute
+let cachedInstallPrompt: any = null
+if (typeof window !== 'undefined') {
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault()
+    cachedInstallPrompt = e
+  })
+}
 
 export function MobilePwaPrompt() {
   const [showPrompt, setShowPrompt] = useState(false)
   const [isIos, setIsIos] = useState(false)
-  const [deferredPrompt, setDeferredPrompt] = useState<any>(null)
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(() => cachedInstallPrompt)
 
   useEffect(() => {
     // 1. Strict check: Must be a mobile or tablet device, NOT a PC/laptop
-    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches
     const ua = navigator.userAgent || ''
     const isMobileUa =
-      /android|iphone|ipad|ipod|tablet|mobile/i.test(ua) ||
+      /android|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(ua) ||
       (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua))
 
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches
+    const isTouchDevice = navigator.maxTouchPoints > 0 || isCoarsePointer
     const isSmallOrMediumScreen = window.innerWidth <= 1024
 
-    // If it's a PC with a fine mouse or desktop browser without mobile signals, exit immediately
-    if (!isCoarsePointer && !isMobileUa) {
-      return
-    }
+    // Query parameter override for instant testing: ?pwa=1 or ?install=1
+    const urlParams = new URLSearchParams(window.location.search)
+    const forcePwa = urlParams.has('pwa') || urlParams.has('install')
 
-    if (!isMobileUa && !isSmallOrMediumScreen) {
+    // Desktop PC exclusion: mouse-only pointer with non-mobile UA, or wide screen without touch
+    if (!forcePwa && !isMobileUa && (!isTouchDevice || !isSmallOrMediumScreen)) {
       return
     }
 
@@ -36,14 +46,18 @@ export function MobilePwaPrompt() {
       ('standalone' in window.navigator &&
         (window.navigator as { standalone?: boolean }).standalone === true)
 
-    if (isStandalone) {
+    if (!forcePwa && isStandalone) {
       return
     }
 
-    // 3. Check dismissal cooldown (7 days)
-    const dismissedUntil = localStorage.getItem(DISMISS_KEY)
-    if (dismissedUntil && Date.now() < Number(dismissedUntil)) {
-      return
+    // 3. Check dismissal cooldown
+    if (forcePwa) {
+      localStorage.removeItem(DISMISS_KEY)
+    } else {
+      const dismissedUntil = localStorage.getItem(DISMISS_KEY)
+      if (dismissedUntil && Date.now() < Number(dismissedUntil)) {
+        return
+      }
     }
 
     // 4. Detect iOS Safari
@@ -52,35 +66,41 @@ export function MobilePwaPrompt() {
       (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua))
     setIsIos(isIosDevice)
 
-    // 5. Intercept Android / Chromium beforeinstallprompt event
+    // 5. Intercept Android / Chromium beforeinstallprompt event if not already cached
+    if (cachedInstallPrompt) {
+      setDeferredPrompt(cachedInstallPrompt)
+    }
+
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault()
+      cachedInstallPrompt = e
       setDeferredPrompt(e)
       setShowPrompt(true)
     }
 
     window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
 
-    // For iOS, show after a short pleasant delay so the page loads first
-    let timer: ReturnType<typeof setTimeout>
-    if (isIosDevice) {
-      timer = setTimeout(() => {
-        setShowPrompt(true)
-      }, 2500)
-    }
+    // 6. Show prompt after a short pleasant 2-second delay so page paints smoothly
+    const timer = setTimeout(() => {
+      setShowPrompt(true)
+    }, 2000)
 
     return () => {
       window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt)
-      if (timer) clearTimeout(timer)
+      clearTimeout(timer)
     }
   }, [])
 
   const handleInstallClick = async () => {
     if (deferredPrompt) {
-      deferredPrompt.prompt()
-      const { outcome } = await deferredPrompt.userChoice
-      if (outcome === 'accepted') {
-        setShowPrompt(false)
+      try {
+        deferredPrompt.prompt()
+        const { outcome } = await deferredPrompt.userChoice
+        if (outcome === 'accepted') {
+          setShowPrompt(false)
+        }
+      } catch {
+        // Handled silently if aborted
       }
       setDeferredPrompt(null)
     }
@@ -127,7 +147,7 @@ export function MobilePwaPrompt() {
               <strong>Add to Home Screen</strong> <PlusSquare size={13} aria-hidden="true" />.
             </span>
           </div>
-        ) : (
+        ) : deferredPrompt ? (
           <div className="mobile-pwa-action-row">
             <button
               type="button"
@@ -145,6 +165,32 @@ export function MobilePwaPrompt() {
               Maybe later
             </button>
           </div>
+        ) : (
+          <>
+            <div className="mobile-pwa-ios-instructions">
+              <span>
+                Tap your browser menu <MoreVertical size={13} aria-hidden="true" /> then choose{' '}
+                <strong>Install app</strong> or <strong>Add to Home screen</strong>.
+              </span>
+            </div>
+            <div className="mobile-pwa-action-row">
+              <button
+                type="button"
+                className="mobile-pwa-install-btn"
+                onClick={handleDismiss}
+              >
+                <Check size={14} aria-hidden="true" />
+                Got it
+              </button>
+              <button
+                type="button"
+                className="mobile-pwa-later-btn"
+                onClick={handleDismiss}
+              >
+                Maybe later
+              </button>
+            </div>
+          </>
         )}
       </div>
     </aside>
