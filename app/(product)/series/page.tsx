@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Lock } from 'lucide-react'
 import { PageHeader } from '@/components/page-header'
 import { allSeries } from '@/lib/series-data'
 import { createClient } from '@/lib/supabase/server'
@@ -37,12 +36,12 @@ export default async function SeriesPage() {
       {!isPremium && (
         <div className="series-premium-gate">
           <div className="series-gate-inner">
-            <Lock size={22} aria-hidden="true" />
             <div>
-              <strong>Available with Premium</strong>
-              <p>Guided series are included with Yadesh Premium at $4.99/month.</p>
+              <p className="series-gate-kicker">YADESH PREMIUM</p>
+              <strong>Three series. Twenty-one readings each.</strong>
+              <p>Follow a theme for three weeks, save your progress, and return to each day when you are ready.</p>
             </div>
-            <Link href="/upgrade" className="series-gate-btn">See Premium plans</Link>
+            <Link href="/upgrade" className="series-gate-btn">See Premium plans <span aria-hidden="true">→</span></Link>
           </div>
         </div>
       )}
@@ -56,11 +55,6 @@ export default async function SeriesPage() {
             style={{ background: series.accentColor, color: series.textColor }}
             aria-label={`${series.title}${!isPremium ? ' (Premium)' : ''}`}
           >
-            {!isPremium && (
-              <span className="series-card-lock" aria-hidden="true">
-                <Lock size={14} />
-              </span>
-            )}
             <p className="eyebrow" style={{ color: series.accentColor === '#17181d' ? '#e4fb4f' : 'rgba(255,255,255,0.7)' }}>
               {series.theme}
             </p>
