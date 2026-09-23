@@ -2,6 +2,7 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { PwaUpdater } from '@/components/pwa-updater'
+import { MobilePwaPrompt } from '@/components/mobile-pwa-prompt'
 
 export const metadata: Metadata = {
   title: 'Yadesh, Christian Micro-Learning',
@@ -30,6 +31,7 @@ export default function RootLayout({
           <img src="/yadesh-splash.png" alt="" width="260" height="80" />
         </div>
         <PwaUpdater />
+        <MobilePwaPrompt />
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

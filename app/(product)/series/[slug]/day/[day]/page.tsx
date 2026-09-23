@@ -99,6 +99,9 @@ export default async function SeriesDayPage({
         day={dayItem.day}
         totalDays={series.totalDays}
         cardId={dayItem.cardId}
+        title={dayItem.title}
+        quote={dayItem.pullQuote}
+        source={dayItem.source}
       />
     </article>
   )

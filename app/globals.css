@@ -620,3 +620,69 @@ a,button,input,select,textarea{transition-property:color,background,border-color
   .authors-grid{grid-template-columns:1fr}
   .onboarding-modal{padding:1.5rem 1.25rem}
 }
+
+/* ── Share Quote Modal ───────────────────────────────────────────────────────── */
+.share-modal-backdrop{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;padding:1rem;background:rgba(23,24,29,.8);backdrop-filter:blur(8px);animation:fadeIn .2s ease}
+.share-modal-container{width:100%;max-width:52rem;max-height:92vh;overflow-y:auto;border-radius:1.5rem;background:#fff;border:1px solid rgba(113,104,237,.2);box-shadow:0 2rem 5rem rgba(23,24,29,.3);display:flex;flex-direction:column}
+
+/* Header */
+.share-modal-head{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
+.share-modal-title-group{display:flex;align-items:center;gap:.5rem}
+.share-modal-title-group h3{margin:0;font-size:1rem;letter-spacing:-.02em}
+.share-sparkle-icon{color:#7168ed}
+.share-close-btn{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;border:0;background:transparent;color:var(--muted-foreground);cursor:pointer;transition:all .15s ease}
+.share-close-btn:hover{background:var(--border);color:var(--foreground)}
+
+/* Body: two-column */
+.share-modal-body{display:grid;grid-template-columns:1fr 1.1fr;gap:0;flex:1}
+
+/* Preview pane */
+.share-preview-wrapper{display:flex;align-items:center;justify-content:center;padding:1.5rem;background:#f4f4f8;border-right:1px solid var(--border);border-radius:0 0 0 1.5rem;min-height:18rem}
+.share-preview-img{display:block;border-radius:.75rem;box-shadow:0 .5rem 2rem rgba(23,24,29,.18);max-height:22rem;object-fit:contain;transition:all .3s ease}
+.share-preview-img.aspect-story{max-height:24rem;max-width:14rem}
+.share-preview-img.aspect-square{max-height:18rem;max-width:18rem}
+.share-preview-placeholder{display:flex;align-items:center;justify-content:center;width:100%;min-height:14rem;border-radius:.75rem;background:rgba(113,104,237,.06);color:var(--muted-foreground);font-size:.82rem;font-weight:800}
+
+/* Controls pane */
+.share-controls{display:flex;flex-direction:column;gap:1.15rem;padding:1.5rem}
+.share-control-group{display:flex;flex-direction:column;gap:.55rem}
+.share-control-label{font-size:.72rem;font-weight:950;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-foreground)}
+
+/* Format toggle */
+.share-toggle-row{display:flex;align-items:center;gap:.4rem}
+.share-format-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem 1rem;border-radius:999px;border:1.5px solid var(--border);background:#fff;color:var(--muted-foreground);font:inherit;font-size:.78rem;font-weight:800;cursor:pointer;transition:all .15s ease}
+.share-format-btn:hover{border-color:#7168ed;color:var(--foreground)}
+.share-format-btn.active{border-color:#17181d;background:#17181d;color:#fff;font-weight:950}
+
+/* Theme chips */
+.share-theme-row{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.share-theme-chip{display:inline-flex;align-items:center;gap:.45rem;padding:.45rem .9rem;border-radius:999px;border:1.5px solid var(--border);background:#fff;font:inherit;font-size:.78rem;font-weight:800;cursor:pointer;color:var(--muted-foreground);transition:all .15s ease}
+.share-theme-chip:hover{border-color:#7168ed;color:var(--foreground)}
+.share-theme-chip.active{border-color:#7168ed;background:#f0eeff;color:#7168ed;font-weight:950}
+.theme-dot{display:inline-block;width:.75rem;height:.75rem;border-radius:50%;flex-shrink:0}
+.periwinkle-dot{background:#7168ed}
+.lime-dot{background:#e4fb4f;border:1px solid #d0e03e}
+.cream-dot{background:#fbfbf8;border:1px solid #d4d4c8}
+
+/* Note text */
+.share-note{margin:.25rem 0 0;font-size:.74rem;color:var(--muted-foreground);line-height:1.45;font-family:Arial,Helvetica,sans-serif;font-weight:600}
+
+/* Action buttons */
+.share-action-buttons{display:flex;gap:.65rem;margin-top:auto;flex-wrap:wrap}
+.share-main-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.25rem;border-radius:999px;border:0;background:#7168ed;color:#fff;font:inherit;font-size:.84rem;font-weight:950;cursor:pointer;transition:all .2s ease}
+.share-main-btn:hover:not(:disabled){background:#5f55e0;transform:translateY(-1px)}
+.share-main-btn:disabled{opacity:.6;cursor:not-allowed}
+.share-secondary-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.25rem;border-radius:999px;border:1.5px solid var(--border);background:#fff;color:var(--foreground);font:inherit;font-size:.84rem;font-weight:900;cursor:pointer;transition:all .2s ease}
+.share-secondary-btn:hover{border-color:#7168ed;color:#7168ed}
+
+/* Series day share button */
+.series-day-share-btn{display:inline-flex;align-items:center;gap:.4rem;padding:.6rem 1.1rem;border-radius:999px;border:1.5px solid var(--border);background:#fff;color:var(--muted-foreground);font:inherit;font-size:.8rem;font-weight:800;cursor:pointer;transition:all .15s ease}
+.series-day-share-btn:hover{border-color:#7168ed;color:#7168ed;background:#f4f0ff}
+
+@media(max-width:899px){
+  .share-modal-body{grid-template-columns:1fr}
+  .share-preview-wrapper{border-right:0;border-bottom:1px solid var(--border);border-radius:0;min-height:14rem;padding:1.25rem}
+  .share-preview-img.aspect-story{max-height:18rem;max-width:10.5rem}
+  .share-preview-img.aspect-square{max-height:14rem;max-width:14rem}
+  .share-modal-container{max-height:98vh}
+}
