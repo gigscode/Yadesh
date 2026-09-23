@@ -61,12 +61,12 @@ export const peopleProfiles: PersonProfile[] = [
     lifespan: '1859 to 1947',
     role: 'Evangelist and Pioneer of 20th Century Healing Revival',
     coreQuote: 'I am not moved by what I see. I am moved only by what I believe.',
-    shortBio: 'An uneducated Yorkshire plumber who could not read until his wife taught him using the Bible, Smith Wigglesworth became one of the most legendary figures of the Pentecostal movement, documented to have raised over a dozen people from the dead.',
+    shortBio: 'An uneducated Yorkshire plumber who could not read until his wife taught him using the Bible, Smith Wigglesworth became one of the best-known figures of the Pentecostal movement. Biographical accounts report that he prayed for people who were said to have returned to life.',
     eyewitnessStory: {
       title: 'The Raising of Mrs. Clarke in Bradford',
-      account: 'In 1914, Wigglesworth was summoned to the home of Mrs. Clarke in Bradford, who had succumbed to illness and had been officially pronounced dead by her attending doctor. Entering the room where the family was in deep grief, Wigglesworth walked to the bedside, lifted the lifeless body against the wall, and loudly commanded: "In the name of Jesus, walk!" When she did not move, he stepped back, waited, and commanded again: "In the name of Jesus, walk!" Her breath returned, color flushed into her cheeks, and she walked across the room to embrace her astonished family. The incident was documented by local doctors and church members.',
+      account: 'According to the account attributed to Wigglesworth, in 1914 he was summoned to the home of Mrs. Clarke in Bradford after she had succumbed to illness and had been pronounced dead by her attending doctor. The account says that after he prayed, her breath returned and she walked across the room. It was later described as corroborated by local doctors and church members.',
       primarySource: 'Smith Wigglesworth, Ever Increasing Faith (1924), Chapter: Power of the Name',
-      sourceContext: 'Documented firsthand account written by Wigglesworth and verified by contemporary church records.',
+      sourceContext: 'Firsthand account attributed to Wigglesworth, with reported corroboration in contemporary church records.',
     },
     keyFacts: [
       {
@@ -95,7 +95,7 @@ export const peopleProfiles: PersonProfile[] = [
     lifespan: '1870 to 1935',
     role: 'Apostolic Missionary and Founder of Spokane Healing Rooms',
     coreQuote: 'The power of God is just as tangible as electricity. It obeys spiritual laws.',
-    shortBio: 'A successful businessman turned missionary, John G. Lake pioneered massive revival in South Africa and later founded the Spokane Healing Rooms in Washington State, where over 100,000 documented healings took place.',
+    shortBio: 'A successful businessman turned missionary, John G. Lake pioneered revival work in South Africa and later founded the Spokane Healing Rooms in Washington State, where supporters reported many healings.',
     eyewitnessStory: {
       title: 'The Bubonic Plague Immunity Demonstration',
       account: 'During the catastrophic bubonic plague outbreak in South Africa in 1910, thousands were dying and colonial doctors were terrified to touch the bodies. Lake and his team volunteered to bury the deceased without masks or protective equipment. Baffled British doctors asked Lake what medicine he was taking to survive. Lake responded: "The law of the Spirit of life in Christ Jesus has made me free from the law of sin and death. If you place the foam from a dying plague victim on my hand under a microscope, you will see the germs die immediately." The physicians performed the test: the microscopic bacteria died instantly upon touching Lake\'s skin.',
@@ -104,8 +104,8 @@ export const peopleProfiles: PersonProfile[] = [
     },
     keyFacts: [
       {
-        factTitle: '100,000 Verified Healings in Spokane',
-        detail: 'Between 1915 and 1920, the Spokane Healing Rooms recorded over 100,000 medical recoveries, leading the mayor to name Spokane the healthiest city in the United States.',
+        factTitle: 'Reported Healings in Spokane',
+        detail: 'Between 1915 and 1920, supporters of the Spokane Healing Rooms reported more than 100,000 healings. The figure and related civic claims should be read as historical claims from the movement, not as independently verified medical totals.',
       },
       {
         factTitle: 'Liquidated Great Wealth for the Gospel',
@@ -134,7 +134,7 @@ export const peopleProfiles: PersonProfile[] = [
       title: 'The First Spontaneous Miracle in Franklin, Pennsylvania',
       account: 'In 1947, during a service in Franklin, Pennsylvania, Kuhlman was preaching on the person of the Holy Spirit. Suddenly, a woman stood up in the audience and declared that a large tumor in her abdomen had completely vanished while Kuhlman was speaking. No hands had been laid, and no emotional healing line had been called. The next evening, a man testified that his legally blind eye was instantly restored with 20/20 vision while seated quietly in the balcony. Kuhlman wept on the platform, realizing that when the Holy Spirit is loved and honored, His presence brings healing naturally without human strain.',
       primarySource: 'Kathryn Kuhlman, I Believe in Miracles (1962), Chapter 1',
-      sourceContext: 'Firsthand autobiographical account verified by physician reports in Franklin, PA.',
+      sourceContext: 'Firsthand account described in Kuhlman\'s book, with reported physician documentation from Franklin, Pennsylvania.',
     },
     keyFacts: [
       {
@@ -166,9 +166,9 @@ export const peopleProfiles: PersonProfile[] = [
     shortBio: 'Andrew Wommack has spent over fifty years teaching that God\'s love is unconditional and that healing is an accomplished fact through Christ\'s sacrifice at Calvary, broadcasting Gospel Truth to millions daily.',
     eyewitnessStory: {
       title: 'The Raising of His Son Peter from the Morgue',
-      account: 'In November 2001, Andrew and his wife Jamie received a phone call from a hospital emergency room in Colorado: their son Peter had stopped breathing and had been officially pronounced dead. By the time they arrived, Peter\'s body was stripped and tagged in the hospital morgue, having been clinically deceased for nearly five hours. Andrew refused to accept despair. Placing his hands on Peter\'s cold forehead, he stood on 1 Peter 2:24, commanded the spirit of death to leave, and declared the life of Christ into his son. Within minutes, Peter\'s chest began rising and falling, his heartbeat returned to normal, and he walked out of the hospital days later with zero brain damage.',
+      account: 'According to Andrew Wommack\'s account, in November 2001 he and his wife Jamie received a call from a Colorado hospital saying their son Peter had stopped breathing and had been pronounced dead. Wommack wrote that after prayer, Peter\'s breathing and heartbeat returned, and that he left the hospital days later without brain damage.',
       primarySource: 'Andrew Wommack, God Wants You Well (2006) and Gospel Truth Archives',
-      sourceContext: 'Documented personal testimony verified by attending medical staff and family records.',
+      sourceContext: 'Personal testimony attributed to Wommack, with medical and family records cited by the ministry.',
     },
     keyFacts: [
       {
@@ -272,17 +272,17 @@ export const peopleProfiles: PersonProfile[] = [
     lifespan: '1940 to 2019',
     role: 'Evangelist and Pioneer of African Mass Crusade Ministry',
     coreQuote: 'Africa shall be saved.',
-    shortBio: 'A German evangelist who felt called to Africa as a child, Reinhard Bonnke conducted some of the largest Christian gatherings in human history across the African continent, with documented crowds exceeding 1.6 million at a single service and an estimated 79 million recorded salvation decisions over his ministry lifetime.',
+    shortBio: 'A German evangelist who felt called to Africa as a child, Reinhard Bonnke conducted very large Christian gatherings across the African continent. His organisation reported crowds exceeding 1.6 million at a single service and about 79 million decisions for Christ during his ministry.',
     eyewitnessStory: {
       title: 'Daniel Ekechukwu Raised from the Dead in Nigeria, 2001',
       account: 'On November 30, 2001, Nigerian pastor Daniel Ekechukwu died following severe injuries from a road accident near Owerri, Nigeria. A death certificate was issued by the attending physician. His body was embalmed by morticians and placed in a coffin for burial. His wife Nneka refused to accept the death, transporting the coffin to a church where Reinhard Bonnke was scheduled to preach. After extended prayer by the congregation and Bonnke\'s team over the sealed coffin, witnesses reported that Daniel began breathing again and eventually sat up. He walked out of the building. The incident was subsequently filmed in a documentary and the death certificate, physician records, and mortician documentation have been presented as corroborating evidence. The case remains one of the most documented alleged post-mortem restorations in contemporary Christianity.',
       primarySource: 'Raised from the Dead (2002), documentary produced by Full Flame GmbH. Supporting documentation includes Owerri General Hospital records and mortician affidavit.',
-      sourceContext: 'Documented through film, medical records, and multiple independent witness testimonies. Classified as a reported miracle account.',
+      sourceContext: 'Presented through film, medical records, and witness testimonies. Classified as a reported miracle account.',
     },
     keyFacts: [
       {
         factTitle: '79 Million Recorded Decisions for Christ',
-        detail: 'Christ for All Nations, the organisation Bonnke founded, recorded approximately 79 million documented salvation decisions across Africa over the span of his crusade ministry.',
+        detail: 'Christ for All Nations, the organisation Bonnke founded, reported approximately 79 million decisions for Christ across Africa during his crusade ministry.',
       },
       {
         factTitle: 'Called to Africa at Age Ten',
@@ -290,7 +290,7 @@ export const peopleProfiles: PersonProfile[] = [
       },
       {
         factTitle: 'Crowds of 1.6 Million at a Single Service',
-        detail: 'His Lagos crusades in the early 2000s drew documented crowds exceeding 1.6 million people in a single evening service, among the largest gatherings in Christian history.',
+        detail: 'His organisation reported that a Lagos crusade in the early 2000s drew more than 1.6 million people in a single evening service, among the largest gatherings claimed in Christian evangelism.',
       },
     ],
     booksAuthored: [
@@ -394,7 +394,7 @@ export const peopleProfiles: PersonProfile[] = [
       },
       {
         factTitle: 'International Miracle Crusades in Over 75 Countries',
-        detail: 'His evangelistic crusades have been held across Africa, Europe, and Asia, consistently drawing large crowds and documented accounts of physical healing.',
+        detail: 'His evangelistic crusades were held across Africa, Europe, and Asia, drawing large crowds and reports of physical healing.',
       },
     ],
     booksAuthored: [

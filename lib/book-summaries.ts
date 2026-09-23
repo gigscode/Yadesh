@@ -113,7 +113,7 @@ export const bookSummaries: BookSummary[] = [
       'Charles and Frances Hunter, affectionately remembered as "The Happy Hunters", spent decades traveling worldwide conducting massive Healing Explosions in sports arenas and convention centers. Rather than operating as solo miracle-workers, their entire mission was to train ordinary Christians to minister divine healing.',
       'In How to Heal the Sick, they demystify what many have turned into an intimidating mystery. They systematically address the physical anatomy of diseases, spiritual roots of affliction, and biblical patterns of laying on of hands, commanding fever to leave, and ministering with compassion.',
       'The Hunters emphasize that doubt often stems from overcomplicating God\'s instructions. Jesus never commanded believers to pray to God asking Him if it was His will to heal; He told His disciples to go and heal the sick, cast out devils, and cleanse the lepers.',
-      'Through thousands of verified medical miracles, from restoring hearing in deaf ears to growing out shortened limbs, the Hunters prove that God\'s supernatural power is active wherever believers dare to step out of their comfort zones.',
+      'The Hunters describe thousands of medical miracles, including restored hearing and shortened limbs that they say grew. These are ministry accounts and should be read alongside the source material rather than treated as independently verified medical findings.',
     ],
     application: 'The next time a friend, family member, or coworker mentions a physical pain or illness, offer simply and humbly: "Can I pray for you right now?" and lay hands on them in faith.',
   },
