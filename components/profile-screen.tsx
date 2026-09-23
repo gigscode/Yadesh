@@ -8,6 +8,8 @@ import { createClient } from '@/lib/supabase/client'
 import { useHabitTracker } from '@/hooks/use-habit-tracker'
 import { DailyReminderCard } from '@/components/daily-reminder-card'
 import { FREE_BOOKMARK_LIMIT } from '@/hooks/use-subscription'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 type Profile = {
   id: string
@@ -77,6 +79,7 @@ export function ProfileScreen({
       return
     }
 
+    if (isPostHogConfigured) posthog.capture('profile_updated')
     setSaving(false)
     setEditing(false)
     router.refresh()

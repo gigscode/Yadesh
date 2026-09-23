@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { Check, Sparkles, HelpCircle, ChevronDown, ArrowRight, Lock } from 'lucide-react'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 interface UpgradePricingSectionProps {
   userEmail?: string
@@ -15,6 +17,7 @@ export function UpgradePricingSection({ userEmail }: UpgradePricingSectionProps)
   const isAnnual = billingCycle === 'annual'
 
   const handlePebbleCheckout = () => {
+    if (isPostHogConfigured) posthog.capture('checkout_started', { billing_cycle: billingCycle })
     setIsProcessing(true)
     // In production, integrate Pebble checkout modal / redirect with plan ID
     // Example: window.Pebble?.checkout({ email: userEmail, plan: billingCycle })

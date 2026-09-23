@@ -1,9 +1,55 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import type { User } from '@supabase/supabase-js'
+import posthog from 'posthog-js'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import { createClient } from '@/lib/supabase/client'
 
 export function PwaUpdater() {
   const [showSplash, setShowSplash] = useState(false)
+  const identifiedUserId = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (!isPostHogConfigured) return
+
+    const supabase = createClient()
+
+    const identifyUser = (user: User) => {
+      if (identifiedUserId.current === user.id) return
+
+      if (identifiedUserId.current) posthog.reset()
+
+      const properties: { email?: string; name?: string } = {}
+      if (user.email) properties.email = user.email
+      if (typeof user.user_metadata.full_name === 'string') {
+        properties.name = user.user_metadata.full_name
+      }
+
+      posthog.identify(user.id, properties)
+      identifiedUserId.current = user.id
+    }
+
+    void supabase.auth.getUser().then(({ data: { user } }) => {
+      if (user) identifyUser(user)
+    })
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
+      if (event === 'SIGNED_OUT') {
+        if (identifiedUserId.current) {
+          posthog.reset()
+          identifiedUserId.current = null
+        }
+        return
+      }
+
+      if (session?.user) identifyUser(session.user)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
 
   useEffect(() => {
     // Only show the splash when launched as an installed PWA (standalone mode)

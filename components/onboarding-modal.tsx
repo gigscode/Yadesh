@@ -3,6 +3,8 @@
 import { useState, useEffect, useMemo } from 'react'
 import { Check, Sparkles, ArrowRight, ArrowLeft, Clock, BookOpen, Users, Compass, X } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 const TOPICS = [
   { id: 'FAITH', label: 'Faith & Trust', desc: 'Active belief over circumstance' },
@@ -115,6 +117,13 @@ export function OnboardingModal() {
     } catch {
       // Gracefully handled if migration has not been executed yet
     } finally {
+      if (isPostHogConfigured) {
+        posthog.capture('onboarding_completed', {
+          selected_topic_count: selectedTopics.length,
+          selected_author_count: selectedAuthors.length,
+          reading_time_goal: selectedTime,
+        })
+      }
       setIsSaving(false)
       setIsOpen(false)
     }
@@ -122,6 +131,7 @@ export function OnboardingModal() {
 
   const handleSkip = () => {
     localStorage.setItem(STORAGE_KEY, 'true')
+    if (isPostHogConfigured) posthog.capture('onboarding_skipped', { onboarding_step: step })
     setIsOpen(false)
   }
 

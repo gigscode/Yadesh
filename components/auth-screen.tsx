@@ -6,6 +6,8 @@ import { SharedNav } from '@/components/shared-nav'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
   const isRegister = mode === 'register'
@@ -43,6 +45,7 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
         return
       }
 
+      if (isPostHogConfigured) posthog.capture('account_registered')
       router.push('/learn')
       router.refresh()
     } else {
@@ -54,6 +57,7 @@ export function AuthScreen({ mode }: { mode: 'login' | 'register' }) {
         return
       }
 
+      if (isPostHogConfigured) posthog.capture('account_signed_in')
       router.push('/learn')
       router.refresh()
     }

@@ -23,6 +23,8 @@ import {
   Database,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 type CardType = 'FAITH' | 'MIRACLE' | 'TEACHING' | 'LIFE' | 'HISTORY' | 'BOOK' | 'PERSON' | 'STORY' | 'IDEA'
 
@@ -256,6 +258,12 @@ FORMAT RULES:
         return
       }
 
+      if (isPostHogConfigured) {
+        posthog.capture('content_published', {
+          content_id: payload.id,
+          content_type: payload.type,
+        })
+      }
       setMessage({ type: 'success', text: `Published successfully: "${title}" is now live!` })
       setCards([payload, ...cards])
 
@@ -334,6 +342,12 @@ FORMAT RULES:
         throw error
       }
 
+      if (isPostHogConfigured) {
+        posthog.capture('content_bulk_published', {
+          content_count: validatedPayloads.length,
+          content_template_type: bulkTemplateType,
+        })
+      }
       setMessage({
         type: 'success',
         text: `Bulk upload successful! ${validatedPayloads.length} readings published or updated live.`,
@@ -365,6 +379,7 @@ FORMAT RULES:
         alert(error.message)
         return
       }
+      if (isPostHogConfigured) posthog.capture('content_deleted', { content_id: id })
       setCards(cards.filter((c) => c.id !== id))
       await revalidateContent()
       router.refresh()

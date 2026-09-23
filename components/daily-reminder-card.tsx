@@ -16,6 +16,8 @@ import {
   useDailyReminder,
   type ReminderPreset,
 } from '@/hooks/use-daily-reminder'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 const PRESETS: { preset: ReminderPreset; label: string; time: string; note: string }[] = [
   { preset: 'morning', label: '7:00 AM', time: '07:00', note: 'Morning focus' },
@@ -46,19 +48,18 @@ export function DailyReminderCard() {
     if (!settings.enabled) {
       if (permission !== 'granted') {
         setRequesting(true)
-        const res = await requestPermission()
+        await requestPermission()
         setRequesting(false)
-        if (res === 'granted') {
-          updateSettings({ enabled: true })
-        } else {
-          // Enable locally so calendar alerts still work
-          updateSettings({ enabled: true })
-        }
-      } else {
-        updateSettings({ enabled: true })
+      }
+      updateSettings({ enabled: true })
+      if (isPostHogConfigured) {
+        posthog.capture('daily_reminder_enabled', { reminder_preset: settings.preset })
       }
     } else {
       updateSettings({ enabled: false })
+      if (isPostHogConfigured) {
+        posthog.capture('daily_reminder_disabled', { reminder_preset: settings.preset })
+      }
     }
   }
 

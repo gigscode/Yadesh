@@ -6,6 +6,8 @@ import { useSave } from '@/hooks/use-save'
 import { useHabitTracker } from '@/hooks/use-habit-tracker'
 import { UpgradeModal } from '@/components/upgrade-modal'
 import { ShareQuoteModal } from '@/components/share-quote-modal'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 export function ReadingDetailActions({
   id,
@@ -40,6 +42,12 @@ export function ReadingDetailActions({
     setRead(nextRead)
     if (nextRead) {
       const result = logReadingCompleted(id, 3)
+      if (isPostHogConfigured) {
+        posthog.capture('reading_completed', {
+          content_id: id,
+          content_type: type ?? 'unknown',
+        })
+      }
       if (result.streakUpdated) {
         setStreakToast(`🔥 ${result.newStreak} day streak! Keep building your habit.`)
         setTimeout(() => setStreakToast(null), 3500)

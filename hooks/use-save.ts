@@ -4,6 +4,8 @@ import { useMemo, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { FREE_BOOKMARK_LIMIT } from '@/hooks/use-subscription'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 /**
  * Manages the saved state for a single content item.
@@ -73,6 +75,8 @@ export function useSave(
       if (upsertError) {
         setSaved(false)
         setError(upsertError.message)
+      } else {
+        if (isPostHogConfigured) posthog.capture('reading_saved', { content_id: contentKey })
       }
     } else {
       const { error: deleteError } = await supabase
@@ -84,6 +88,8 @@ export function useSave(
       if (deleteError) {
         setSaved(true)
         setError(deleteError.message)
+      } else {
+        if (isPostHogConfigured) posthog.capture('reading_unsaved', { content_id: contentKey })
       }
     }
 

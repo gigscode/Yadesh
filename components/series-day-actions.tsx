@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { CheckCircle2, Circle, ArrowRight, Share2 } from 'lucide-react'
 import { useSeriesProgress } from '@/hooks/use-series-progress'
 import { ShareQuoteModal } from '@/components/share-quote-modal'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 interface SeriesDayActionsProps {
   slug: string
@@ -31,7 +33,16 @@ export function SeriesDayActions({
   const [showShareModal, setShowShareModal] = useState(false)
 
   function handleMarkComplete() {
-    if (!complete) markDayComplete(day)
+    if (!complete) {
+      markDayComplete(day)
+      if (isPostHogConfigured) {
+        posthog.capture('series_day_completed', {
+          series_slug: slug,
+          day_number: day,
+          total_days: totalDays,
+        })
+      }
+    }
   }
 
   return (

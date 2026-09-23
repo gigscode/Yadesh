@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { X, Share2, Download, Check, Sparkles, Smartphone, Square } from 'lucide-react'
+import { isPostHogConfigured } from '@/instrumentation-client'
+import posthog from 'posthog-js'
 
 interface ShareQuoteModalProps {
   title: string
@@ -198,6 +200,9 @@ export function ShareQuoteModal({
           text: `"${quote}" - ${source} on Yadesh`,
           url: 'https://yadesh.com',
         })
+        if (isPostHogConfigured) {
+          posthog.capture('quote_graphic_shared', { share_method: 'native', format, theme, category })
+        }
       } else {
         // Fallback: direct download
         const a = document.createElement('a')
@@ -206,6 +211,9 @@ export function ShareQuoteModal({
         document.body.appendChild(a)
         a.click()
         document.body.removeChild(a)
+        if (isPostHogConfigured) {
+          posthog.capture('quote_graphic_shared', { share_method: 'download_fallback', format, theme, category })
+        }
         setIsCopied(true)
         setTimeout(() => setIsCopied(false), 2500)
       }
@@ -225,6 +233,9 @@ export function ShareQuoteModal({
     document.body.appendChild(a)
     a.click()
     document.body.removeChild(a)
+    if (isPostHogConfigured) {
+      posthog.capture('quote_graphic_downloaded', { format, theme, category })
+    }
     setIsCopied(true)
     setTimeout(() => setIsCopied(false), 2500)
   }

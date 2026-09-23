@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Yadesh Market Opportunity and Product-Market-Fit Case</title>
+<style>
+  @page { size: Letter; margin: 0.75in; }
+  :root { --ink:#20222a; --muted:#5c6270; --accent:#5148c8; --pale:#f2f1ff; --line:#dfe1e8; }
+  body { font-family: Georgia, 'Times New Roman', serif; color:var(--ink); line-height:1.55; max-width:850px; margin:40px auto; padding:0 28px; }
+  h1 { font-family: Arial, sans-serif; font-size:34px; line-height:1.1; margin:0 0 8px; color:#17181d; }
+  h2 { font-family: Arial, sans-serif; font-size:22px; margin-top:34px; padding-bottom:6px; border-bottom:2px solid var(--accent); }
+  h3 { font-family: Arial, sans-serif; font-size:16px; margin-top:24px; color:#303284; }
+  p, li { font-size:11.5pt; }
+  .subtitle { font-family:Arial,sans-serif; color:var(--muted); font-size:14px; margin-bottom:26px; }
+  .callout { background:var(--pale); border-left:5px solid var(--accent); padding:14px 18px; margin:18px 0; }
+  .note { color:var(--muted); font-size:10pt; }
+  table { width:100%; border-collapse:collapse; margin:14px 0 22px; font-size:10.5pt; }
+  th { background:#eeedf9; text-align:left; font-family:Arial,sans-serif; }
+  th, td { border:1px solid var(--line); padding:8px 9px; vertical-align:top; }
+  blockquote { margin:18px 0; padding:12px 18px; border-left:4px solid #9d98e8; font-style:italic; }
+  a { color:#3c35a5; }
+  .page-break { page-break-before:always; }
+  .small { font-size:10pt; }
+</style>
+</head>
+<body>
+<h1>Yadesh Market Opportunity and Product-Market-Fit Case</h1>
+<div class="subtitle">Prepared September 23, 2026 | Investor and supporter briefing</div>
+
+<div class="callout"><strong>Positioning:</strong> Yadesh is a source-aware Christian learning and discovery platform that turns five-minute moments into focused reading about the people, books, ideas, history, teachings, and testimonies of Christianity.</div>
+
+<p><strong>Important:</strong> The statistics in this document demonstrate a large reachable market, established digital behavior, and validated demand for adjacent products. They do not, by themselves, prove product-market fit for Yadesh. Yadesh must still prove retention, engagement, referrals, and willingness to pay through its own user data.</p>
+
+<h2>Executive Summary</h2>
+<p>Yadesh operates at the intersection of four established markets: a global Christian audience, mobile and social-media consumption, digital religious products, and short-form learning.</p>
+<ul>
+<li>Christianity remains the world's largest religious group, with approximately <strong>2.3 billion Christians worldwide</strong>.</li>
+<li>The global internet audience reached <strong>5.56 billion people in 2025</strong>.</li>
+<li>Global users spend approximately <strong>6 hours and 38 minutes online daily</strong>, including <strong>2 hours and 21 minutes on social media</strong>.</li>
+<li>YouVersion reached <strong>1 billion device installs in 2025</strong>.</li>
+<li>Hallow reported <strong>more than 23 million downloads and 1 billion prayers completed</strong> by June 2025.</li>
+<li>American Bible Society research reports that nearly half of Gen Z and Millennial young adults engage with Scripture weekly.</li>
+</ul>
+<p>Yadesh should not compete directly with YouVersion or Hallow. Its opportunity is to occupy a more specific category:</p>
+<blockquote>A source-aware Christian knowledge and discovery platform for short reading sessions.</blockquote>
+
+<h2>1. Evidence That a Market Exists Now</h2>
+<h3>1.1 The addressable audience is global</h3>
+<p>Pew Research Center's 2025 analysis found that the global Christian population grew from approximately 2.1 billion in 2010 to 2.3 billion in 2020. Christians represented approximately 28.8% of the global population in 2020.</p>
+<table><tr><th>Share of global Christian population</th><th>Approximate people</th></tr><tr><td>0.01%</td><td>230,000</td></tr><tr><td>0.1%</td><td>2.3 million</td></tr><tr><td>1%</td><td>23 million</td></tr><tr><td>5%</td><td>115 million</td></tr></table>
+<p class="note">These are illustrative audience sizes, not a forecast.</p>
+<p><a href="https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/">Source: Pew Research Center, How the Global Religious Landscape Changed From 2010 to 2020</a></p>
+
+<h3>1.2 Younger adults engage through digital formats</h3>
+<p>American Bible Society's <em>State of the Bible USA 2025</em> research reported that nearly half of Gen Z and Millennial young adults engage with Scripture weekly, and approximately 59% of Gen Z respondents access Bible-related video content at least monthly. The study also reported higher flourishing scores among Scripture-engaged Gen Z and Millennials. That finding is an association, not proof of causation.</p>
+<p><a href="https://www.americanbible.org/resources/state-of-the-bible/">Source: American Bible Society, State of the Bible USA 2025</a></p>
+
+<h3>1.3 Mobile behavior supports short sessions</h3>
+<p>DataReportal's 2025 global overview reported 5.56 billion internet users, 67.9% global internet penetration, approximately 6 hours and 38 minutes of daily online time, and approximately 2 hours and 21 minutes spent on social media daily.</p>
+<p>Pew Research Center reports especially strong social-platform usage among younger adults, including approximately 95% of U.S. adults aged 18 to 29 using YouTube, approximately 78% to 80% using Instagram, and approximately 62% to 63% using TikTok.</p>
+<p><a href="https://datareportal.com/reports/digital-2025-global-overview-report">Source: DataReportal, Digital 2025 Global Overview</a><br><a href="https://www.pewresearch.org/internet/fact-sheet/social-media/">Source: Pew Research Center, Social Media Fact Sheet</a></p>
+
+<h2>2. Comparable Products and Market Validation</h2>
+<table><tr><th>Product</th><th>Reported evidence</th><th>What it validates</th><th>Yadesh distinction</th></tr>
+<tr><td><strong>YouVersion</strong></td><td>More than 1 billion device installs by November 2025; more than 3,600 translations across 2,300+ languages.</td><td>Faith products can achieve global mobile distribution and repeated use.</td><td>Yadesh is a Christian knowledge and discovery layer, not a Bible-translation library.</td></tr>
+<tr><td><strong>Hallow</strong></td><td>More than 23 million downloads and 1 billion prayers completed by June 2025; approximately $105 million cumulative funding reported.</td><td>Users will engage with and pay for recurring Christian digital content.</td><td>Hallow centers on guided prayer and audio; Yadesh centers on reading, ideas, people, books, history, and sources.</td></tr>
+<tr><td><strong>Glorify</strong></td><td>Daily devotional, prayer, worship, meditation, and subscription model.</td><td>Daily Christian mobile routines and premium content have demand.</td><td>Yadesh emphasizes editorial learning and connected Christian knowledge.</td></tr>
+<tr><td><strong>Pray.com</strong></td><td>Prayer, Bible stories, devotionals, audio, teaching, and family content.</td><td>Christian audio and storytelling can scale across audiences.</td><td>Yadesh is primarily written, source-aware, and designed for lower production complexity.</td></tr>
+<tr><td><strong>Lectio 365</strong></td><td>Daily prayer and structured mobile content.</td><td>Short daily spiritual experiences can support repeat use.</td><td>Yadesh applies the short-session model to learning and discovery.</td></tr>
+</table>
+<p><a href="https://www.youversion.com/about/">YouVersion</a> | <a href="https://hallow.com/about/">Hallow</a> | <a href="https://glorify-app.com/">Glorify</a> | <a href="https://www.pray.com/">Pray.com</a> | <a href="https://www.24-7prayer.com/resource/lectio-365/">Lectio 365</a></p>
+
+<h2>3. Yadesh's Unique Selling Proposition</h2>
+<p><strong>Yadesh is a source-aware Christian learning and discovery platform that turns five-minute moments into focused reading about the people, books, ideas, history, and teachings of Christianity.</strong></p>
+<ul>
+<li><strong>Not another generic Bible app:</strong> Yadesh covers the wider world of Christian knowledge.</li>
+<li><strong>Source-aware:</strong> Readings identify people, books, history, and source information, while reported claims can be qualified appropriately.</li>
+<li><strong>Short but structured:</strong> Three-to-five-minute readings can lead to full text, pull quotes, takeaways, related content, and guided series.</li>
+<li><strong>Designed for return visits:</strong> The core loop is Discover, Learn, Save, Go Deeper, Return.</li>
+<li><strong>Lower-cost content model:</strong> Written editorial content can scale without the studio, voice, and licensing costs of an audio-first platform.</li>
+<li><strong>Cross-tradition potential:</strong> Content can represent multiple Christian traditions with clear labeling and editorial care.</li>
+</ul>
+
+<h2>4. Investor Case</h2>
+<h3>4.1 Market timing</h3>
+<p>Mobile faith products already have global adoption. Younger adults consume religious content through digital formats. Subscription-based Christian apps have attracted meaningful funding. Users are familiar with daily streaks, saved libraries, recommendations, and guided series.</p>
+<p>Yadesh's opportunity is to create a clearly defined educational and editorial category inside this validated market rather than becoming a general-purpose faith app.</p>
+
+<h3>4.2 Scalability</h3>
+<p><strong>Content:</strong> Hundreds or thousands of readings, topic collections, expert series, multilingual editions, licensed excerpts, audio versions, and video explainers.</p>
+<p><strong>Product:</strong> Personalized recommendations, semantic search, topic pages, reading paths, expert collections, discussion prompts, group spaces, family accounts, student mode, creator tools, offline reading, audio narration, and multilingual translation.</p>
+<p><strong>Distribution:</strong> Search, social quote cards, Instagram, WhatsApp, church partnerships, Christian schools, publishers, newsletters, educators, ministries, app stores, and progressive web app installation.</p>
+
+<h3>4.3 Revenue options</h3>
+<ul><li>Individual subscriptions</li><li>Family plans</li><li>Church and small-group plans</li><li>School and university licenses</li><li>Sponsored educational series</li><li>Publisher partnerships</li><li>Premium expert courses</li><li>Donor-supported access</li><li>Gift subscriptions</li><li>Institutional content licensing</li></ul>
+
+<h3>4.4 Illustrative subscription scenarios</h3>
+<p>Assuming a $60 annual plan and 3% paid conversion. These are examples, not forecasts.</p>
+<table><tr><th>Registered users</th><th>Paying users at 3%</th><th>Illustrative annual revenue</th></tr><tr><td>100,000</td><td>3,000</td><td>$180,000</td></tr><tr><td>500,000</td><td>15,000</td><td>$900,000</td></tr><tr><td>1,000,000</td><td>30,000</td><td>$1.8 million</td></tr><tr><td>5,000,000</td><td>150,000</td><td>$9 million</td></tr></table>
+
+<h2>5. Case for Individual Supporters</h2>
+<ul>
+<li><strong>It addresses a real attention problem:</strong> People already spend substantial time online and on social platforms; Yadesh offers a constructive alternative.</li>
+<li><strong>It makes Christian knowledge easier to access:</strong> The product gives people an approachable starting point for history, books, ideas, and theology.</li>
+<li><strong>It values accuracy and attribution:</strong> Support can help create more careful, transparent, and historically responsible Christian digital content.</li>
+<li><strong>It supports a healthier content model:</strong> Yadesh is designed without advertising-driven attention extraction, endless feeds, or unsupported claims.</li>
+<li><strong>It serves people outside formal church settings:</strong> New Christians, students, busy adults, returning Christians, and curious readers can all begin with a short reading.</li>
+<li><strong>It connects daily reading to deeper study:</strong> A short reading can lead to a book, biography, historical period, theological question, series, class, or group conversation.</li>
+</ul>
+
+<h2>6. What Yadesh Still Needs to Prove</h2>
+<p>The strongest next evidence should come from Yadesh's own users.</p>
+<table><tr><th>Area</th><th>Metrics to track</th></tr><tr><td>Activation</td><td>First reading started and completed, save rate, share rate, first series started.</td></tr><tr><td>Retention</td><td>Day 1, Day 7, Day 30, weekly active readers, readings per active user.</td></tr><tr><td>Content fit</td><td>Completion by topic, author saves, repeat visits, sharing by content type.</td></tr><tr><td>Willingness to pay</td><td>Premium conversion, churn, annual versus monthly pricing, demand for series and audio.</td></tr><tr><td>Referrals</td><td>Quote-card shares, invite links, organic mentions, church and publisher referrals.</td></tr><tr><td>Trust</td><td>User confidence in sources, clarity of attribution, perceived fairness across traditions.</td></tr></table>
+
+<h2>7. Risks and Responses</h2>
+<p><strong>Crowded category:</strong> Own the specific category of Christian learning and discovery in five-minute readings.</p>
+<p><strong>Users may not pay for written content:</strong> Keep core access free and monetize guided series, audio, group tools, family plans, and institutional access.</p>
+<p><strong>Content quality may not scale:</strong> Build source templates, review workflows, expert contributors, structured tagging, and publication checks.</p>
+<p><strong>Confusion with devotional apps:</strong> Lead with concrete examples such as learning about Augustine, the Council of Nicaea, or the argument behind <em>Mere Christianity</em>.</p>
+<p><strong>Streaks may not create genuine retention:</strong> Prioritize content value, recommendations, related readings, personal libraries, and meaningful reminders.</p>
+
+<h2>8. Recommended Investor Positioning</h2>
+<div class="callout">Yadesh is building a Christian learning and discovery platform for people who want something more thoughtful than social-media scrolling but more approachable than a formal course or long book. It delivers source-aware three-to-five-minute readings about Christian people, books, ideas, teachings, and history. The market is validated by products such as YouVersion and Hallow, while Yadesh occupies a less-served educational and editorial niche. Its next milestone is to convert this market opportunity into evidence of Yadesh-specific retention, sharing, and paid conversion.</div>
+
+<h2>9. Recommended Supporter Positioning</h2>
+<div class="callout">Yadesh gives people a simple way to learn about Christian ideas, people, books, history, and teaching during the small moments they already spend on their phones. It is designed to be thoughtful without being difficult to enter, and accessible without treating Christian history or testimony casually. Supporting Yadesh helps build a more reliable and useful digital space for Christian learning.</div>
+
+<h2>10. Bottom Line</h2>
+<p>The market evidence supports a credible opportunity:</p>
+<ul><li>There is a very large global Christian audience.</li><li>Christian digital products can reach tens or hundreds of millions of users.</li><li>Users already adopt daily mobile faith products.</li><li>Younger adults consume religious content through digital formats.</li><li>Subscription and guided-content models have been validated.</li><li>Yadesh has a credible differentiation around source-aware Christian learning.</li><li>The architecture can scale into content, subscriptions, groups, education, and partnerships.</li></ul>
+<p>What remains to be proven is Yadesh-specific behavior: whether users complete readings, return weekly, save and share content, recommend it, and pay for deeper guided experiences.</p>
+
+<h2>Sources</h2>
+<ol class="small">
+<li><a href="https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/">Pew Research Center: How the Global Religious Landscape Changed From 2010 to 2020</a></li>
+<li><a href="https://www.americanbible.org/resources/state-of-the-bible/">American Bible Society: State of the Bible USA 2025</a></li>
+<li><a href="https://datareportal.com/reports/digital-2025-global-overview-report">DataReportal: Digital 2025 Global Overview Report</a></li>
+<li><a href="https://www.pewresearch.org/internet/fact-sheet/social-media/">Pew Research Center: Social Media Fact Sheet</a></li>
+<li><a href="https://www.youversion.com/about/">YouVersion: About</a></li>
+<li><a href="https://hallow.com/about/">Hallow: Our Story</a></li>
+<li><a href="https://glorify-app.com/">Glorify</a></li>
+<li><a href="https://www.pray.com/">Pray.com</a></li>
+<li><a href="https://www.24-7prayer.com/resource/lectio-365/">24-7 Prayer: Lectio 365</a></li>
+</ol>
+<p class="note">Figures should be rechecked before publication in an investor deck because company-reported milestones and third-party estimates can change over time.</p>
+</body>
+</html>
